@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 未分類 | yysaki blog]]></title>
-  <link href="http://yysaki.github.io/blog/categories/wei-fen-lei/atom.xml" rel="self"/>
-  <link href="http://yysaki.github.io/"/>
-  <updated>2014-02-09T22:51:02+09:00</updated>
-  <id>http://yysaki.github.io/</id>
+  <link href="http://www.yysaki.com/blog/categories/wei-fen-lei/atom.xml" rel="self"/>
+  <link href="http://www.yysaki.com/"/>
+  <updated>2014-02-09T23:05:30+09:00</updated>
+  <id>http://www.yysaki.com/</id>
   <author>
     <name><![CDATA[yysaki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[『シェル操作課題 』をシェルで解きなおす]]></title>
-    <link href="http://yysaki.github.io/blog/2013/04/04/shell-operation-test-on-bash/"/>
+    <link href="http://www.yysaki.com/blog/2013/04/04/shell-operation-test-on-bash/"/>
     <updated>2013-04-04T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/04/04/shell-operation-test-on-bash</id>
+    <id>http://www.yysaki.com/blog/2013/04/04/shell-operation-test-on-bash</id>
     <content type="html"><![CDATA[<p>以前解いた<a href="http://yysaki.com/blog/archives/79">『シェル操作課題 』をRubyのワンライナーで解いてみた</a> の問題をunixコマンドのみで解き直した。</p>
 
 <script src="https://gist.github.com/yysaki/5310298.js">{}</script>
@@ -33,9 +33,9 @@
   
   <entry>
     <title type="html"><![CDATA[MacOSX Cisco VPNClient対策]]></title>
-    <link href="http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/"/>
+    <link href="http://www.yysaki.com/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/"/>
     <updated>2013-02-13T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x</id>
+    <id>http://www.yysaki.com/blog/2013/02/13/cisco-vpn-client-on-mac-os-x</id>
     <content type="html"><![CDATA[<h3>状況</h3>
 
 <ul>
@@ -75,9 +75,9 @@
   
   <entry>
     <title type="html"><![CDATA[WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する]]></title>
-    <link href="http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied/"/>
+    <link href="http://www.yysaki.com/blog/2013/01/31/wordpress-permission-denied/"/>
     <updated>2013-01-31T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied</id>
+    <id>http://www.yysaki.com/blog/2013/01/31/wordpress-permission-denied</id>
     <content type="html"><![CDATA[<p>&#8220;wordpress Markdown on Save Improved&#8221;プラグインをインストールする際に躓いた点を記事にしました。<br/>
 (このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)</p>
 
@@ -99,9 +99,9 @@
   
   <entry>
     <title type="html"><![CDATA[Mac OS Xにeclipse + Pleiadesをインストールする時少し引っ掛かった]]></title>
-    <link href="http://yysaki.github.io/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/"/>
+    <link href="http://www.yysaki.com/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/"/>
     <updated>2012-07-21T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x</id>
+    <id>http://www.yysaki.com/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x</id>
     <content type="html"><![CDATA[<p>macbookair を借りて作業ができるようになったので、プログラミング開発環境を整えています。<br/>
 Mac OS Xがlinuxベースであることからunixライクなターミナルを立ち上げることが出来ることや、パッケージ管理のHomeBrewがあることがWindowsと比べ魅力的だと感じています。</p>
 
@@ -132,9 +132,9 @@ Mac OS Xがlinuxベースであることからunixライクなターミナルを
   
   <entry>
     <title type="html"><![CDATA[WordPressでBootstrapテーマを触ってみる]]></title>
-    <link href="http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap/"/>
+    <link href="http://www.yysaki.com/blog/2012/03/28/wordpress-3-3-1-bootstrap/"/>
     <updated>2012-03-28T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap</id>
+    <id>http://www.yysaki.com/blog/2012/03/28/wordpress-3-3-1-bootstrap</id>
     <content type="html"><![CDATA[<p>今流行りのCSSフレームワークである、Twitter Booststrapについて、一度使ってみたいなーと記事を読みあさっていました。<br/>
 そこでTwitter Bootstrapで作られたWordPressテーマであるWPBSを使ってcssの勉強したいと思い、このwebサイトのテーマに設定しました。<br/>
 WPBSの設定の仕方などは以下の記事を参考にさせて頂きました。</p>

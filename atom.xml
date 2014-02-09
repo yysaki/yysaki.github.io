@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[yysaki blog]]></title>
-  <link href="http://yysaki.github.io/atom.xml" rel="self"/>
-  <link href="http://yysaki.github.io/"/>
-  <updated>2014-02-09T22:51:02+09:00</updated>
-  <id>http://yysaki.github.io/</id>
+  <link href="http://www.yysaki.com/atom.xml" rel="self"/>
+  <link href="http://www.yysaki.com/"/>
+  <updated>2014-02-09T23:05:30+09:00</updated>
+  <id>http://www.yysaki.com/</id>
   <author>
     <name><![CDATA[yysaki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Wordpressからoctopressへの引っ越し]]></title>
-    <link href="http://yysaki.github.io/blog/2014/02/09/octopress-from-wordpress/"/>
+    <link href="http://www.yysaki.com/blog/2014/02/09/octopress-from-wordpress/"/>
     <updated>2014-02-09T21:48:15+09:00</updated>
-    <id>http://yysaki.github.io/blog/2014/02/09/octopress-from-wordpress</id>
+    <id>http://www.yysaki.com/blog/2014/02/09/octopress-from-wordpress</id>
     <content type="html"><![CDATA[<p>表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。</p>
 
 <p>レイアウトやコメント欄などの調整は追々やっていきます。</p>
@@ -34,9 +34,9 @@
   
   <entry>
     <title type="html"><![CDATA[ビルドしたpdfをsshfsからSkimで読む]]></title>
-    <link href="http://yysaki.github.io/blog/2013/12/29/reading-built-pdf-by-skim/"/>
+    <link href="http://www.yysaki.com/blog/2013/12/29/reading-built-pdf-by-skim/"/>
     <updated>2013-12-29T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/12/29/reading-built-pdf-by-skim</id>
+    <id>http://www.yysaki.com/blog/2013/12/29/reading-built-pdf-by-skim</id>
     <content type="html"><![CDATA[<p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
 
 <h2>背景</h2>
@@ -137,9 +137,9 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
   
   <entry>
     <title type="html"><![CDATA[Blockdiagのエラーを解決できず&#8230;]]></title>
-    <link href="http://yysaki.github.io/blog/2013/12/14/blockdiag/"/>
+    <link href="http://www.yysaki.com/blog/2013/12/14/blockdiag/"/>
     <updated>2013-12-14T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/12/14/blockdiag</id>
+    <id>http://www.yysaki.com/blog/2013/12/14/blockdiag</id>
     <content type="html"><![CDATA[<p><a href="http://blockdiag.com/ja/blockdiag/">blockdiag</a>を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の<a href="https://twitter.com/tk0miya">@tk0miya</a>さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。</p>
 
 <h2>環境</h2>
@@ -257,9 +257,9 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[『シェル操作課題 』をシェルで解きなおす]]></title>
-    <link href="http://yysaki.github.io/blog/2013/04/04/shell-operation-test-on-bash/"/>
+    <link href="http://www.yysaki.com/blog/2013/04/04/shell-operation-test-on-bash/"/>
     <updated>2013-04-04T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/04/04/shell-operation-test-on-bash</id>
+    <id>http://www.yysaki.com/blog/2013/04/04/shell-operation-test-on-bash</id>
     <content type="html"><![CDATA[<p>以前解いた<a href="http://yysaki.com/blog/archives/79">『シェル操作課題 』をRubyのワンライナーで解いてみた</a> の問題をunixコマンドのみで解き直した。</p>
 
 <script src="https://gist.github.com/yysaki/5310298.js">{}</script>
@@ -275,9 +275,9 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[MacOSX Cisco VPNClient対策]]></title>
-    <link href="http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/"/>
+    <link href="http://www.yysaki.com/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/"/>
     <updated>2013-02-13T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x</id>
+    <id>http://www.yysaki.com/blog/2013/02/13/cisco-vpn-client-on-mac-os-x</id>
     <content type="html"><![CDATA[<h3>状況</h3>
 
 <ul>
@@ -317,9 +317,9 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する]]></title>
-    <link href="http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied/"/>
+    <link href="http://www.yysaki.com/blog/2013/01/31/wordpress-permission-denied/"/>
     <updated>2013-01-31T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied</id>
+    <id>http://www.yysaki.com/blog/2013/01/31/wordpress-permission-denied</id>
     <content type="html"><![CDATA[<p>&#8220;wordpress Markdown on Save Improved&#8221;プラグインをインストールする際に躓いた点を記事にしました。<br/>
 (このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)</p>
 
@@ -341,12 +341,12 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[GithubのプロジェクトをCruiseControlで自動ビルドしてみた]]></title>
-    <link href="http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol/"/>
+    <link href="http://www.yysaki.com/blog/2012/09/20/github-by-cruisecontrol/"/>
     <updated>2012-09-20T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol</id>
+    <id>http://www.yysaki.com/blog/2012/09/20/github-by-cruisecontrol</id>
     <content type="html"><![CDATA[<p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
 
-<p><img src="http://yysaki.github.io/images/CC_dashboard.png" alt="ダッシュボード" /></p>
+<p><img src="http://www.yysaki.com/images/CC_dashboard.png" alt="ダッシュボード" /></p>
 
 <p>継続的インテグレーションツールである<a href="http://cruisecontrol.sourceforge.net/">Cruisecontrol</a>(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。</p>
 
@@ -620,9 +620,9 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[『シェル操作課題 』をRubyのワンライナーで解いてみた]]></title>
-    <link href="http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
+    <link href="http://www.yysaki.com/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
     <updated>2012-09-06T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner</id>
+    <id>http://www.yysaki.com/blog/2012/09/06/shell-operation-test-on-ruby-oneliner</id>
     <content type="html"><![CDATA[<p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
 
 <p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。<br/>
@@ -704,9 +704,9 @@ Rubyのversionは1.9.3, 入力ファイル名を&#8221;data&#8221;とします�
   
   <entry>
     <title type="html"><![CDATA[Mac OS Xにeclipse + Pleiadesをインストールする時少し引っ掛かった]]></title>
-    <link href="http://yysaki.github.io/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/"/>
+    <link href="http://www.yysaki.com/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/"/>
     <updated>2012-07-21T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x</id>
+    <id>http://www.yysaki.com/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x</id>
     <content type="html"><![CDATA[<p>macbookair を借りて作業ができるようになったので、プログラミング開発環境を整えています。<br/>
 Mac OS Xがlinuxベースであることからunixライクなターミナルを立ち上げることが出来ることや、パッケージ管理のHomeBrewがあることがWindowsと比べ魅力的だと感じています。</p>
 
@@ -737,9 +737,9 @@ Mac OS Xがlinuxベースであることからunixライクなターミナルを
   
   <entry>
     <title type="html"><![CDATA[WordPressでBootstrapテーマを触ってみる]]></title>
-    <link href="http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap/"/>
+    <link href="http://www.yysaki.com/blog/2012/03/28/wordpress-3-3-1-bootstrap/"/>
     <updated>2012-03-28T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap</id>
+    <id>http://www.yysaki.com/blog/2012/03/28/wordpress-3-3-1-bootstrap</id>
     <content type="html"><![CDATA[<p>今流行りのCSSフレームワークである、Twitter Booststrapについて、一度使ってみたいなーと記事を読みあさっていました。<br/>
 そこでTwitter Bootstrapで作られたWordPressテーマであるWPBSを使ってcssの勉強したいと思い、このwebサイトのテーマに設定しました。<br/>
 WPBSの設定の仕方などは以下の記事を参考にさせて頂きました。</p>
@@ -762,9 +762,9 @@ WPBSの設定の仕方などは以下の記事を参考にさせて頂きまし�
   
   <entry>
     <title type="html"><![CDATA[WordPress 3.3.1 自動update時のout　of　memoryエラー]]></title>
-    <link href="http://yysaki.github.io/blog/2012/02/13/wordpress-3-3-1-error/"/>
+    <link href="http://www.yysaki.com/blog/2012/02/13/wordpress-3-3-1-error/"/>
     <updated>2012-02-13T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/02/13/wordpress-3-3-1-error</id>
+    <id>http://www.yysaki.com/blog/2012/02/13/wordpress-3-3-1-error</id>
     <content type="html"><![CDATA[<p>wordpressの更新ボタンを押し3.3.1へのインストールを行わせると</p>
 
 <blockquote><p>Fatal error: Out of memory (allocated 22282240) (tried to allocate 3932160 bytes) in /usr/home/nextweb/starm/html/yysaki/wp/wp-includes/class-http.php on line 1066</p></blockquote>
@@ -802,16 +802,16 @@ php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory
   
   <entry>
     <title type="html"><![CDATA[Let&#8217;s Noteのバッテリー]]></title>
-    <link href="http://yysaki.github.io/blog/2010/11/08/lets-note-battery/"/>
+    <link href="http://www.yysaki.com/blog/2010/11/08/lets-note-battery/"/>
     <updated>2010-11-08T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2010/11/08/lets-note-battery</id>
+    <id>http://www.yysaki.com/blog/2010/11/08/lets-note-battery</id>
     <content type="html"><![CDATA[<p>研究室の予算でバッテリー等消耗品を買っていいよ、とのお触れが出たので今使っているLet&#8217;s Note CF-W4の劣化具合を調べてみました。</p>
 
 <p>使ったのは窓の杜で紹介されていたBatteryBar(<a href="http://www.forest.impress.co.jp/article/2008/12/17/batterybar.html">http://www.forest.impress.co.jp/article/2008/12/17/batterybar.html</a>)。<br/>
 タスクバーに入り込んでバッテリー残量などを表示するもので、丁度良くバッテリー劣化の率をパーセントで表示することができるものです。<br/>
 「レベルメーターはWindows Vistaのインターフェイスと完全に調和するデザインであるため、あたかもWindows標準の機能の1つであるかのように動作する」という触れ込みだったけど、タスクバーを広げてタブを沢山視認できるようにするのが好きだったのでちょっとかさばって見えます。</p>
 
-<p><img src="http://yysaki.github.io/images/BatteryBar_20101108-3ECO.jpg" alt="BatteryBar" /></p>
+<p><img src="http://www.yysaki.com/images/BatteryBar_20101108-3ECO.jpg" alt="BatteryBar" /></p>
 
 <p>結果がコレ。劣化具合が17.9%で、思っていたよりもバッテリーはへたってませんでしたｗ<br/>
 電池の消費の流れを計算した感じ新品買うほどではないですね。<br/>
@@ -824,9 +824,9 @@ php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory
   
   <entry>
     <title type="html"><![CDATA[整備]]></title>
-    <link href="http://yysaki.github.io/blog/2010/10/19/seibi/"/>
+    <link href="http://www.yysaki.com/blog/2010/10/19/seibi/"/>
     <updated>2010-10-19T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2010/10/19/seibi</id>
+    <id>http://www.yysaki.com/blog/2010/10/19/seibi</id>
     <content type="html"><![CDATA[<p>長い間放ったらかしにしてたので整備を兼ねてwordpressを2.8.6から3.0.1にアップデートしました。</p>
 
 <p>phpセーフモードの制限のためか自動アップデートが引っかかってましたが、サーバ側の設定をいじってなんとか動作する様になりました。</p>

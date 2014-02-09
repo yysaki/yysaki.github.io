@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://yysaki.github.io/sitemap.xml 
+Sitemap: http://www.yysaki.com/sitemap.xml 

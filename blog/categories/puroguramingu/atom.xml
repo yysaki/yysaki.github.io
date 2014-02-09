@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: プログラミング | yysaki blog]]></title>
-  <link href="http://yysaki.github.io/blog/categories/puroguramingu/atom.xml" rel="self"/>
-  <link href="http://yysaki.github.io/"/>
-  <updated>2014-02-09T22:51:02+09:00</updated>
-  <id>http://yysaki.github.io/</id>
+  <link href="http://www.yysaki.com/blog/categories/puroguramingu/atom.xml" rel="self"/>
+  <link href="http://www.yysaki.com/"/>
+  <updated>2014-02-09T23:05:30+09:00</updated>
+  <id>http://www.yysaki.com/</id>
   <author>
     <name><![CDATA[yysaki]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ビルドしたpdfをsshfsからSkimで読む]]></title>
-    <link href="http://yysaki.github.io/blog/2013/12/29/reading-built-pdf-by-skim/"/>
+    <link href="http://www.yysaki.com/blog/2013/12/29/reading-built-pdf-by-skim/"/>
     <updated>2013-12-29T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/12/29/reading-built-pdf-by-skim</id>
+    <id>http://www.yysaki.com/blog/2013/12/29/reading-built-pdf-by-skim</id>
     <content type="html"><![CDATA[<p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
 
 <h2>背景</h2>
@@ -118,9 +118,9 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
   
   <entry>
     <title type="html"><![CDATA[Blockdiagのエラーを解決できず&#8230;]]></title>
-    <link href="http://yysaki.github.io/blog/2013/12/14/blockdiag/"/>
+    <link href="http://www.yysaki.com/blog/2013/12/14/blockdiag/"/>
     <updated>2013-12-14T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2013/12/14/blockdiag</id>
+    <id>http://www.yysaki.com/blog/2013/12/14/blockdiag</id>
     <content type="html"><![CDATA[<p><a href="http://blockdiag.com/ja/blockdiag/">blockdiag</a>を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の<a href="https://twitter.com/tk0miya">@tk0miya</a>さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。</p>
 
 <h2>環境</h2>
@@ -238,9 +238,9 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[GithubのプロジェクトをCruiseControlで自動ビルドしてみた]]></title>
-    <link href="http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol/"/>
+    <link href="http://www.yysaki.com/blog/2012/09/20/github-by-cruisecontrol/"/>
     <updated>2012-09-20T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol</id>
+    <id>http://www.yysaki.com/blog/2012/09/20/github-by-cruisecontrol</id>
     <content type="html"><![CDATA[<p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
 
 <p><img src="/images/CC_dashboard.png" alt="ダッシュボード" /></p>
@@ -517,9 +517,9 @@ IOError: encoder zip not available
   
   <entry>
     <title type="html"><![CDATA[『シェル操作課題 』をRubyのワンライナーで解いてみた]]></title>
-    <link href="http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
+    <link href="http://www.yysaki.com/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
     <updated>2012-09-06T00:00:00+09:00</updated>
-    <id>http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner</id>
+    <id>http://www.yysaki.com/blog/2012/09/06/shell-operation-test-on-ruby-oneliner</id>
     <content type="html"><![CDATA[<p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
 
 <p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。<br/>
