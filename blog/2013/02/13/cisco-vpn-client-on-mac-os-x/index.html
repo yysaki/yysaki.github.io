@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>MacOSX Cisco VPNClient対策 - yysaki blog</title>
+  <meta name="author" content="yysaki">
+
+  
+  <meta name="description" content="状況 macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず ciscoは32bitのみサポートしている
+ネットのmacユーザにはciscoを避ける向きがあるようだ 対策 OSを常に32bitカーネルとして起動する &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yysaki blog</a></h1>
+  
+    <h2>情報系大学生のブログ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yysaki.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">MacOSX Cisco VPNClient対策</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-13T00:00:00+09:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>状況</h3>
+
+<ul>
+<li>macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず
+
+<ul>
+<li>ciscoは32bitのみサポートしている</li>
+<li>ネットのmacユーザにはciscoを避ける向きがあるようだ</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>対策</h3>
+
+<ul>
+<li>OSを常に32bitカーネルとして起動する
+
+<ul>
+<li>搭載メモリは今のところ4GB以内のため被害は少ないと判断</li>
+<li>&#8220;sudo systemsetup -setkernelbootarchitecture i386&#8243;を実行する</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>参考URL</h3>
+
+<ul>
+<li><a href="http://forums.macrumors.com/archive/index.php/t-1110046.html">同症状とその対策</a></li>
+<li><a href="https://discussions.apple.com/thread/3077376?start=0&amp;tstart=0">Cisco VPN Client lacks 64 bit Support</a></li>
+<li><a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP">32bit化手順</a></li>
+</ul>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yysaki</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-13T00:00:00+09:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/wei-fen-lei/'>未分類</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/" data-via="" data-counturl="http://yysaki.github.io/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/31/wordpress-permission-denied/" title="Previous Post: WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する">&laquo; WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/04/04/shell-operation-test-on-bash/" title="Next Post: 『シェル操作課題 』をシェルで解きなおす">『シェル操作課題 』をシェルで解きなおす &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - yysaki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

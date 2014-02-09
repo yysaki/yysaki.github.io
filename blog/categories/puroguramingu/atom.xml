@@ -1,146 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>yysaki blog</title>
-  <meta name="author" content="yysaki">
-
-  
-  <meta name="description" content="表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。 レイアウトやコメント欄などの調整は追々やっていきます。 今回参考にさせて頂いた記事一覧です。 OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ & &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://yysaki.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">yysaki blog</a></h1>
-  
-    <h2>情報系大学生のブログ</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:yysaki.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Category: プログラミング | yysaki blog]]></title>
+  <link href="http://yysaki.github.io/blog/categories/puroguramingu/atom.xml" rel="self"/>
+  <link href="http://yysaki.github.io/"/>
+  <updated>2014-02-09T22:51:02+09:00</updated>
+  <id>http://yysaki.github.io/</id>
+  <author>
+    <name><![CDATA[yysaki]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2014-02-09T21:48:15+09:00" pubdate data-updated="true">Feb 9<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。</p>
-
-<p>レイアウトやコメント欄などの調整は追々やっていきます。</p>
-
-<p>今回参考にさせて頂いた記事一覧です。</p>
-
-<ol>
-<li><a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/">OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ &ndash; 酒と泪とRubyとRailsと</a></li>
-<li><a href="http://nomnel.net/blog/wordpress-to-octopress/">WordpressからOctopressに移行する &ndash; 飲んだり寝たり</a></li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-12-29T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
+  <entry>
+    <title type="html"><![CDATA[ビルドしたpdfをsshfsからSkimで読む]]></title>
+    <link href="http://yysaki.github.io/blog/2013/12/29/reading-built-pdf-by-skim/"/>
+    <updated>2013-12-29T00:00:00+09:00</updated>
+    <id>http://yysaki.github.io/blog/2013/12/29/reading-built-pdf-by-skim</id>
+    <content type="html"><![CDATA[<p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
 
 <h2>背景</h2>
 
@@ -235,42 +113,15 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
 <li><a href="http://macwiki.sourceforge.jp/wiki/index.php/Skim">MacWiki &#8211; Skim</a></li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-12-14T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://blockdiag.com/ja/blockdiag/">blockdiag</a>を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の<a href="https://twitter.com/tk0miya">@tk0miya</a>さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。</p>
+  <entry>
+    <title type="html"><![CDATA[Blockdiagのエラーを解決できず&#8230;]]></title>
+    <link href="http://yysaki.github.io/blog/2013/12/14/blockdiag/"/>
+    <updated>2013-12-14T00:00:00+09:00</updated>
+    <id>http://yysaki.github.io/blog/2013/12/14/blockdiag</id>
+    <content type="html"><![CDATA[<p><a href="http://blockdiag.com/ja/blockdiag/">blockdiag</a>を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の<a href="https://twitter.com/tk0miya">@tk0miya</a>さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。</p>
 
 <h2>環境</h2>
 
@@ -382,207 +233,15 @@ IOError: encoder zip not available
 
 
 <p>以上です。</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-04T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>以前解いた<a href="http://yysaki.com/blog/archives/79">『シェル操作課題 』をRubyのワンライナーで解いてみた</a> の問題をunixコマンドのみで解き直した。</p>
-
-<script src="https://gist.github.com/yysaki/5310298.js">{}</script>
-
-
-<ul>
-<li><code>uniq -c</code>で重複した数をカウント出来る</li>
-<li><code>sort</code>の<code>-k</code>オプションを同時に指定することで第一指定順、第二指定順でソート出来る</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-13T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>状況</h3>
-
-<ul>
-<li>macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず
-
-<ul>
-<li>ciscoは32bitのみサポートしている</li>
-<li>ネットのmacユーザにはciscoを避ける向きがあるようだ</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>対策</h3>
-
-<ul>
-<li>OSを常に32bitカーネルとして起動する
-
-<ul>
-<li>搭載メモリは今のところ4GB以内のため被害は少ないと判断</li>
-<li>&#8220;sudo systemsetup -setkernelbootarchitecture i386&#8243;を実行する</li>
-</ul>
-</li>
-</ul>
-
-
-<h3>参考URL</h3>
-
-<ul>
-<li><a href="http://forums.macrumors.com/archive/index.php/t-1110046.html">同症状とその対策</a></li>
-<li><a href="https://discussions.apple.com/thread/3077376?start=0&amp;tstart=0">Cisco VPN Client lacks 64 bit Support</a></li>
-<li><a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP">32bit化手順</a></li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/31/wordpress-permission-denied/">WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-31T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>&#8220;wordpress Markdown on Save Improved&#8221;プラグインをインストールする際に躓いた点を記事にしました。<br/>
-(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)</p>
-
-<p>以前このブログについて <a href="http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%97%E3%83%AC%E3%82%B9/wordpress%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%BC%B7%E5%8C%96/">WordPressのセキュリティを徹底強化 &#8211; CSSPRO</a> という記事を参考にセキュリティ強化を行ったのですが、プラグインの新規追加をダッシュボード上で行おうとした際に</p>
-
-<pre><code>  ディレクトリを作成できませんでした。 /xxx/xxx/xxxx/wp-content/upgrade/markdown-on-save-improved.tmp/markdown-on-save-improved
-</code></pre>
-
-<p>というエラーが出てしまう問題に遭遇しました。</p>
-
-<p>試しにwp-content以下全てのディレクトリのパーミッションを777に変更しても状況は変わりませんでした。<br/>
-似たような症状がないかwebを検索すると <a href="http://webcache.googleusercontent.com/search?q=cache:KWw6ipeQ-4kJ:openpne3.biz/category/%E6%9C%AA%E5%88%86%E9%A1%9E/+&amp;cd=1&amp;hl=ja&amp;ct=clnk">この記事</a>を発見し、そこでは&#8221;AskApache Password Protect&#8221;プラグインが原因になっていました。<br/>
-そこでセキュリティ強化の際インストールした&#8221;AskApache Password Protect&#8221;プラグインを一時停止してみると、プラグインの新規追加が無事行えました。</p>
-
-<p>セキュリティ強化の記事では、wp-adminの保護のため&#8221;AskApache Password Protect&#8221;導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。<br/>
-今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/20/github-by-cruisecontrol/">GithubのプロジェクトをCruiseControlで自動ビルドしてみた</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-20T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
+  <entry>
+    <title type="html"><![CDATA[GithubのプロジェクトをCruiseControlで自動ビルドしてみた]]></title>
+    <link href="http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol/"/>
+    <updated>2012-09-20T00:00:00+09:00</updated>
+    <id>http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol</id>
+    <content type="html"><![CDATA[<p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
 
 <p><img src="/images/CC_dashboard.png" alt="ダッシュボード" /></p>
 
@@ -853,42 +512,15 @@ IOError: encoder zip not available
 
 
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/">『シェル操作課題 』をRubyのワンライナーで解いてみた</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-06T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
+  <entry>
+    <title type="html"><![CDATA[『シェル操作課題 』をRubyのワンライナーで解いてみた]]></title>
+    <link href="http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
+    <updated>2012-09-06T00:00:00+09:00</updated>
+    <id>http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner</id>
+    <content type="html"><![CDATA[<p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
 
 <p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。<br/>
 Rubyのversionは1.9.3, 入力ファイル名を&#8221;data&#8221;とします。</p>
@@ -964,198 +596,7 @@ Rubyのversionは1.9.3, 入力ファイル名を&#8221;data&#8221;とします�
 <p>以上。</p>
 
 <p>sed, awkなどunix伝統の文字列処理に慣れてないので、スクリプト言語一つ勉強しておくだけでこういった処理が書けるのはいいですね</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/">Mac OS Xにeclipse + Pleiadesをインストールする時少し引っ掛かった</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-21T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>macbookair を借りて作業ができるようになったので、プログラミング開発環境を整えています。<br/>
-Mac OS Xがlinuxベースであることからunixライクなターミナルを立ち上げることが出来ることや、パッケージ管理のHomeBrewがあることがWindowsと比べ魅力的だと感じています。</p>
-
-<p>今回はjavaの開発用にeclipse4.2 + pleiades1.3.4をインストールしました。<br/>
-下にあるリンクの記事を参考にしてインストール手順を進めたのですが、pleiades関係で一点だけ詰まった箇所があったのでそれをメモしておきます。</p>
-
-<p>その詰まった箇所とは、eclipse起動時にpleiadesを呼び出すためeclipse.iniに記述する一行です。それが、</p>
-
-<p>-javaagent:plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar</p>
-
-<p>では良くなく、パスを絶対パスで</p>
-
-<p>-javaagent:/Applications/eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar</p>
-
-<p>のように記述することが必要でした。<br/>
-(Readme.txtをよくよく読めば解決する話でしたがどうも見落としてしまったようです^^;)</p>
-
-<p>他の手順はリンク先を参考にし、上記問題を解決したところでeclipseは無事動作したので、無事Eclipse上でjavaのHello Worldプログラムを実行することができました。<br/>
-後は/Application/に放り込み、eclipse.AppをDockに並べた所でeclipseのインストールは完了しました。</p>
-
-<p>以上です、MacのインストールはWindowsと違ってレジストリを気にしたり実行ファイル置き場に悩まなくて済むからスマートでいいですね！</p>
-
-<p>参考:<br/>
-<a href="http://d.hatena.ne.jp/architshin/20110224/1298519661">MacでPleiades All in One Eclipse &#8211; Archit!!<br/>
-</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/28/wordpress-3-3-1-bootstrap/">WordPressでBootstrapテーマを触ってみる</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-28T00:00:00+09:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>今流行りのCSSフレームワークである、Twitter Booststrapについて、一度使ってみたいなーと記事を読みあさっていました。<br/>
-そこでTwitter Bootstrapで作られたWordPressテーマであるWPBSを使ってcssの勉強したいと思い、このwebサイトのテーマに設定しました。<br/>
-WPBSの設定の仕方などは以下の記事を参考にさせて頂きました。</p>
-
-<p>はじめよう/Twitter Bootstrapで出来たWordPressテーマ「WPBS」を使ってみる</p>
-
-<p><a href="http://getstarted.main.jp/blog/wordpress/twitterbootstrap-wordpress-theme-wpbs/">http://getstarted.main.jp/blog/wordpress/twitterbootstrap-wordpress-theme-wpbs/</a></p>
-
-<p>インストール、導入はとても簡単でしたが、一点不具合があり、少し解決に苦労しました。<br/>
-このテーマのウィジェットであるMain Sidebarは、ブログ記事枠の右に配置されています。<br/>
-しかしレイアウトが見本と比べ崩れ、位置が記事の下に配置されてしまいました。<br/>
-これは、前記事で引用ブロックの使用に誤りがあり、ブログ記事の枠から文字がはみ出て、ブログ枠隣にMain Sidebarの置ける余地がなくフローレイアウトでブログ枠下に流れたためでした。<br/>
-引用ブロックを正しい?文法に書きなおした時にこの症状が収まりました。</p>
-
-<p>この不具合の内容をまとめると、ブログ記事の記述方法が悪いとWPBSテーマ全体のレイアウトが崩れる可能性があるから注意しましょう、という感じでしょうか。</p>
-
-<p>また、WPBSは外観の変更が簡単(Bootstrapの性質)なので、テーマに少し調節をしてみて楽しもうかと思います。。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - yysaki -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

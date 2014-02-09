@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する - yysaki blog</title>
+  <meta name="author" content="yysaki">
+
+  
+  <meta name="description" content="&#8220;wordpress Markdown on Save Improved&#8221;プラグインをインストールする際に躓いた点を記事にしました。
+(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。) 以前このブログについて &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yysaki blog</a></h1>
+  
+    <h2>情報系大学生のブログ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yysaki.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-31T00:00:00+09:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>&#8220;wordpress Markdown on Save Improved&#8221;プラグインをインストールする際に躓いた点を記事にしました。<br/>
+(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)</p>
+
+<p>以前このブログについて <a href="http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%97%E3%83%AC%E3%82%B9/wordpress%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%BC%B7%E5%8C%96/">WordPressのセキュリティを徹底強化 &#8211; CSSPRO</a> という記事を参考にセキュリティ強化を行ったのですが、プラグインの新規追加をダッシュボード上で行おうとした際に</p>
+
+<pre><code>  ディレクトリを作成できませんでした。 /xxx/xxx/xxxx/wp-content/upgrade/markdown-on-save-improved.tmp/markdown-on-save-improved
+</code></pre>
+
+<p>というエラーが出てしまう問題に遭遇しました。</p>
+
+<p>試しにwp-content以下全てのディレクトリのパーミッションを777に変更しても状況は変わりませんでした。<br/>
+似たような症状がないかwebを検索すると <a href="http://webcache.googleusercontent.com/search?q=cache:KWw6ipeQ-4kJ:openpne3.biz/category/%E6%9C%AA%E5%88%86%E9%A1%9E/+&amp;cd=1&amp;hl=ja&amp;ct=clnk">この記事</a>を発見し、そこでは&#8221;AskApache Password Protect&#8221;プラグインが原因になっていました。<br/>
+そこでセキュリティ強化の際インストールした&#8221;AskApache Password Protect&#8221;プラグインを一時停止してみると、プラグインの新規追加が無事行えました。</p>
+
+<p>セキュリティ強化の記事では、wp-adminの保護のため&#8221;AskApache Password Protect&#8221;導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。<br/>
+今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yysaki</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-31T00:00:00+09:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/wei-fen-lei/'>未分類</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied/" data-via="" data-counturl="http://yysaki.github.io/blog/2013/01/31/wordpress-permission-denied/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/20/github-by-cruisecontrol/" title="Previous Post: GithubのプロジェクトをCruiseControlで自動ビルドしてみた">&laquo; GithubのプロジェクトをCruiseControlで自動ビルドしてみた</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/" title="Next Post: MacOSX Cisco VPNClient対策">MacOSX Cisco VPNClient対策 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - yysaki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

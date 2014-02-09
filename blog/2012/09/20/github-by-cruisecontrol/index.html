@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>GithubのプロジェクトをCruiseControlで自動ビルドしてみた - yysaki blog</title>
+  <meta name="author" content="yysaki">
+
+  
+  <meta name="description" content="達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化 に触発されて、Javaプロジェクトの自動テストにチャレンジしました。 継続的インテグレーションツールであるCruisecontrol(以下CC)を使って、 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yysaki blog</a></h1>
+  
+    <h2>情報系大学生のブログ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yysaki.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">GithubのプロジェクトをCruiseControlで自動ビルドしてみた</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-20T00:00:00+09:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
+
+<p><img src="/images/CC_dashboard.png" alt="ダッシュボード" /></p>
+
+<p>継続的インテグレーションツールである<a href="http://cruisecontrol.sourceforge.net/">Cruisecontrol</a>(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。</p>
+
+<p>今回の環境は、マシンをUbuntu 10.04.4 LTS, CCを<a href="http://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/">cruisecontrol-bin-2.8.4.zip</a>、ビルドターゲットを僕の作った<a href="https://github.com/yysaki/MyJavaTetris">MyJavaTetris</a>とします。</p>
+
+<p>目標はソフトウェア開発に役立てるというよりもCCを回すことであるので、手段と目的が逆になっている気もしますがこれも勉強の一つです。</p>
+
+<p>ちなみに上の画像は、CCのdashboardで実際に表示されるページのスクリーンショットです。</p>
+
+<div>
+</div>
+
+
+
+
+<div>
+  以下手順です。
+</div>
+
+
+<p>本書の手順にあるスクリプトの情報は古く動作しなかったため、<a href="http://cruisecontrol.sourceforge.net/gettingstartedsourcedist.html">公式HPのGettingStarted</a>を参考にしました。</p>
+
+<div>
+  <h1>
+    CCのインストール
+  </h1>
+</div>
+
+
+
+
+<div>
+</div>
+
+
+
+
+<div>
+</div>
+
+
+
+
+<div>
+  CCをインストールして/opt/cruisecontrol/ に配置します。
+</div>
+
+
+
+
+<div>
+</div>
+
+
+<blockquote><p>wget <a href="http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip">http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip</a></p>
+
+<p>unzip cruisecontrol-bin-2.8.4.zip</p>
+
+<p>mv cruisecontrol-bin-2.8.4 /opt/cruisecontrol/</p></blockquote>
+
+<div>
+</div>
+
+
+
+
+<div>
+  ついでに.bashrcにPATHを通しておきます。
+</div>
+
+
+
+
+<div>
+</div>
+
+
+<blockquote><p><div>
+  echo &#8220;export PATH=$PATH:/opt/cruisecontrol&#8221; >> ~/.bashrc
+</div></p>
+
+<p><div>
+  source ~/.bashrc
+</div></p></blockquote>
+
+<div>
+</div>
+
+
+
+
+<div>
+  この手順の後、カレントディレクトリを/opt/cruisecontrol/に指定してcruisecontrol.shを実行することでCCの動作確認ができます。
+</div>
+
+
+
+
+<div>
+</div>
+
+
+
+
+<div>
+</div>
+
+
+<h1>Githubプロジェクトの設定</h1>
+
+<div>
+</div>
+
+
+
+
+<div>
+</div>
+
+
+
+
+<div>
+  続いて自分のGitHubプロジェクトをCCのビルドループに追加する手順です。
+</div>
+
+
+
+
+<div>
+  今回、作業ディレクトリを /work/cc/に置くこととして、必要なディレクトリを作成していきます。
+</div>
+
+
+
+
+<div>
+</div>
+
+
+<blockquote><p><div>
+  cd /work/cc
+</div></p>
+
+<p><div>
+  mkdir projects artifacts logs
+</div></p></blockquote>
+
+<div>
+</div>
+
+
+
+
+<div>
+  次に、/work/cc/下に必要なスクリプトを二つ作成します。
+</div>
+
+
+
+
+<div>
+  一つ目はconfig.xmlです。このファイルによってCCのビルドループが設定されます。
+</div>
+
+
+
+
+<div>
+    <pre class="brush: xml; title: ; notranslate" title="">
+&lt;cruisecontrol&gt;
+  &lt;project name="MyJavaTetris" buildafterfailed="true"&gt;
+    &lt;listeners&gt;
+      &lt;currentbuildstatuslistener
+        file="logs/MyJavaTetris/status.txt"/&gt;
+    &lt;/listeners&gt;
+
+    &lt;!-- Bootstrappers are run every time the build runs,
+                                                 *before* the modification checks --&gt;
+    &lt;bootstrappers&gt;
+    &lt;/bootstrappers&gt;
+
+    &lt;!-- Defines where CruiseControl looks for changes, to decide
+                            whether to run the build --&gt;
+    &lt;modificationset quietperiod="10"&gt;
+      &lt;cvs localworkingcopy="projects/MyJavaTetris"/&gt;
+    &lt;/modificationset&gt;
+
+    &lt;!-- Configures the actual build loop, how often and which
+                                  build file/target --&gt;
+    &lt;schedule interval="60"&gt;
+      &lt;ant buildfile="build-MyJavaTetris.xml"
+        uselogger="true"/&gt;
+    &lt;/schedule&gt;
+
+    &lt;!-- directory to write build logs to --&gt;
+    &lt;log/&gt;
+
+    &lt;!-- Publishers are run *after* a build completes --&gt;
+    &lt;publishers&gt;
+    &lt;/publishers&gt;
+  &lt;/project&gt;
+&lt;/cruisecontrol&gt;
+</pre>
+</div>
+
+
+
+
+<div>
+</div>
+
+
+
+
+<div>
+  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、<a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/">この記事</a>を参考にgitコマンドをmacrodefしています。</p> <pre class="brush: xml; title: ; notranslate" title="">
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;project name="build-MyJavaTetris" default="build" basedir="projects"&gt;
+  &lt;target name="build"&gt;
+    &lt;macrodef name = "git"&gt;
+      &lt;attribute name = "command" /&gt;
+      &lt;attribute name = "dir" default = "" /&gt;
+      &lt;element name = "args" optional = "true" /&gt;
+      &lt;sequential&gt;
+        &lt;echo message = "git @{command}" /&gt;
+        &lt;exec executable = "git" dir = "@{dir}"&gt;
+          &lt;arg value = "@{command}" /&gt;
+          &lt;args/&gt;
+        &lt;/exec&gt;
+      &lt;/sequential&gt;
+    &lt;/macrodef&gt;
+
+    &lt;delete dir="MyJavaTetris" /&gt;
+    &lt;git command ="clone"&gt;
+      &lt;args&gt;
+        &lt;arg value ="ssh://git@github.com:22/yysaki/MyJavaTetris.git"/&gt;
+      &lt;/args&gt;
+    &lt;/git&gt;
+    &lt;ant antfile="build.xml" dir="MyJavaTetris" target="build" /&gt;
+    &lt;!-- nazo no error &lt;ant antfile="build.xml" dir="MyJavaTetris" target="test" /&gt; --&gt;
+  &lt;/target&gt;
+&lt;/project&gt;
+</pre>
+  
+  <p>
+    これで設定は全て完了です。
+  </p>
+  
+  <p>
+    /work/cc/下でcruisecontrol.shを実行するとMyJavaTetrisの自動ビルドが行われます。
+  </p>
+  
+  <p>
+    後はずっと放置しておけばCCさんが必要なタイミングでプロジェクトの自動ビルドを行います。
+  </p>
+  
+  <p>
+    リポジトリにコミットした時などにhttp://localhost:8080/にアクセスして動作をニヤニヤ監視しましょう。
+  </p>
+  
+  <p>
+    以上です。
+  </p>
+</div>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yysaki</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-20T00:00:00+09:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/puroguramingu/'>プログラミング</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol/" data-via="" data-counturl="http://yysaki.github.io/blog/2012/09/20/github-by-cruisecontrol/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/" title="Previous Post: 『シェル操作課題 』をRubyのワンライナーで解いてみた">&laquo; 『シェル操作課題 』をRubyのワンライナーで解いてみた</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/01/31/wordpress-permission-denied/" title="Next Post: WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する">WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - yysaki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

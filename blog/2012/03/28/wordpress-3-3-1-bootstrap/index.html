@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPressでBootstrapテーマを触ってみる - yysaki blog</title>
+  <meta name="author" content="yysaki">
+
+  
+  <meta name="description" content="今流行りのCSSフレームワークである、Twitter Booststrapについて、一度使ってみたいなーと記事を読みあさっていました。
+そこでTwitter Bootstrapで作られたWordPressテーマであるWPBSを使ってcssの勉強したいと思い、このwebサイトのテーマに設定しました &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yysaki blog</a></h1>
+  
+    <h2>情報系大学生のブログ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yysaki.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">WordPressでBootstrapテーマを触ってみる</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-28T00:00:00+09:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>今流行りのCSSフレームワークである、Twitter Booststrapについて、一度使ってみたいなーと記事を読みあさっていました。<br/>
+そこでTwitter Bootstrapで作られたWordPressテーマであるWPBSを使ってcssの勉強したいと思い、このwebサイトのテーマに設定しました。<br/>
+WPBSの設定の仕方などは以下の記事を参考にさせて頂きました。</p>
+
+<p>はじめよう/Twitter Bootstrapで出来たWordPressテーマ「WPBS」を使ってみる</p>
+
+<p><a href="http://getstarted.main.jp/blog/wordpress/twitterbootstrap-wordpress-theme-wpbs/">http://getstarted.main.jp/blog/wordpress/twitterbootstrap-wordpress-theme-wpbs/</a></p>
+
+<p>インストール、導入はとても簡単でしたが、一点不具合があり、少し解決に苦労しました。<br/>
+このテーマのウィジェットであるMain Sidebarは、ブログ記事枠の右に配置されています。<br/>
+しかしレイアウトが見本と比べ崩れ、位置が記事の下に配置されてしまいました。<br/>
+これは、前記事で引用ブロックの使用に誤りがあり、ブログ記事の枠から文字がはみ出て、ブログ枠隣にMain Sidebarの置ける余地がなくフローレイアウトでブログ枠下に流れたためでした。<br/>
+引用ブロックを正しい?文法に書きなおした時にこの症状が収まりました。</p>
+
+<p>この不具合の内容をまとめると、ブログ記事の記述方法が悪いとWPBSテーマ全体のレイアウトが崩れる可能性があるから注意しましょう、という感じでしょうか。</p>
+
+<p>また、WPBSは外観の変更が簡単(Bootstrapの性質)なので、テーマに少し調節をしてみて楽しもうかと思います。。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yysaki</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-28T00:00:00+09:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/wei-fen-lei/'>未分類</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap/" data-via="" data-counturl="http://yysaki.github.io/blog/2012/03/28/wordpress-3-3-1-bootstrap/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/13/wordpress-3-3-1-error/" title="Previous Post: WordPress 3.3.1 自動update時のout　of　memoryエラー">&laquo; WordPress 3.3.1 自動update時のout　of　memoryエラー</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/" title="Next Post: Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった">Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - yysaki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

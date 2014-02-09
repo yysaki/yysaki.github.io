@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>『シェル操作課題 』をRubyのワンライナーで解いてみた - yysaki blog</title>
+  <meta name="author" content="yysaki">
+
+  
+  <meta name="description" content="シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編 の記事にある設問を遅ればせながら解いてみました。 Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。
+Rubyのversionは1.9.3, 入力ファイル名を&#8221;data&#8221; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yysaki blog</a></h1>
+  
+    <h2>情報系大学生のブログ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yysaki.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">『シェル操作課題 』をRubyのワンライナーで解いてみた</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-06T00:00:00+09:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
+
+<p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。<br/>
+Rubyのversionは1.9.3, 入力ファイル名を&#8221;data&#8221;とします。</p>
+
+<h3>問1</h3>
+
+<blockquote><p>ruby -pe &#8221; data</p></blockquote>
+
+<p>-eオプションでスクリプトモード, -pオプションで&#8221;while gets{/* code */ puts $_}&#8221;としてコード片を実行する。</p>
+
+<p>この場合 コード片は空なのでファイルを一列ずつputsするのみです。</p>
+
+<h3>問2</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;puts &#8220;#{$F[0]},#{$F[3]}&#8221;&#8216; data</p></blockquote>
+
+<p>-n オプションは-p のputs $_を削ったもの。</p>
+
+<p>-aは&#8221;auto aplit&#8221;の頭文字、$_.splitの結果が配列として$F変数に代入される。</p>
+
+<p>-F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK</p>
+
+<h3>問3</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;puts $_ if $F[0]==&#8221;server4&#8243;&#8216; data</p></blockquote>
+
+<h3>問4</h3>
+
+<blockquote><p>ruby -ne &#8216;i||=0; i+=1; END{ puts i }&#8217; data</p></blockquote>
+
+<p>注目は&#8221;||=&#8221;演算子とENDキーワードの二つ。</p>
+
+<p>&#8220;||=&#8221;はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。</p>
+
+<p>上の式の場合&#8221;i = i || 0&#8243;と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</p>
+
+<p>また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。</p>
+
+<h3>問5</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;a ||= []; a &lt;&lt; $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] &lt;=> y[0] : x[2].to_i &lt;=> y[2].to_i}.[](0,5).each{|b| puts &#8220;#{b[0]},#{b<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>},#{b[2]},#{b[3]}&#8221;} }&#8217; data</p></blockquote>
+
+<p>sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。</p>
+
+<p>この辺からセミコロンが増えて、ワンライナーというには少し苦しいかも。</p>
+
+<h3>問6</h3>
+
+<blockquote><p>ruby -ne &#8216;a ||= []; a &lt;&lt; $<em> unless a.index($</em>); END{ puts a.size }&#8217; data</p></blockquote>
+
+<h3>問7</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;a ||= []; a &lt;&lt; $F[2] unless a.index($F[2]); END{ puts a.size }&#8217; data</p></blockquote>
+
+<h3>問8</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;h ||= {}; h.default = 0; h[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a> &lt;=> x<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>}.[](0); puts &#8220;#{a<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>} #{a[0]}&#8221; }&#8217; data</p></blockquote>
+
+<p>Hashオブジェクトはdefault属性を設定することで初期値を設定できる。</p>
+
+<h3>問9</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;h ||= {}; h.default = 0; h[$F[0].gsub(/server/, &#8220;xxx&#8221;)] += 1; END{ h.to_a.sort{|x, y| x[0] &lt;=> y[0]}.each{|l, r| puts &#8220;#{r} #{l}&#8221;} }&#8217; data</p></blockquote>
+
+<h3>問10</h3>
+
+<blockquote><p>ruby -F, -ane &#8216;a ||= []; n = $F[2].to_i; a &lt;&lt; n if (n>=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }&#8217; data</p></blockquote>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>以上。</p>
+
+<p>sed, awkなどunix伝統の文字列処理に慣れてないので、スクリプト言語一つ勉強しておくだけでこういった処理が書けるのはいいですね</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">yysaki</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-06T00:00:00+09:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/puroguramingu/'>プログラミング</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/" data-via="" data-counturl="http://yysaki.github.io/blog/2012/09/06/shell-operation-test-on-ruby-oneliner/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/" title="Previous Post: Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった">&laquo; Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/20/github-by-cruisecontrol/" title="Next Post: GithubのプロジェクトをCruiseControlで自動ビルドしてみた">GithubのプロジェクトをCruiseControlで自動ビルドしてみた &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず&#8230;</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - yysaki -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
