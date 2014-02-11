@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Blog | yysaki blog]]></title>
+  <link href="http://www.yysaki.com/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://www.yysaki.com/"/>
+  <updated>2014-02-12T02:48:37+09:00</updated>
+  <id>http://www.yysaki.com/</id>
+  <author>
+    <name><![CDATA[yysaki]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Wordpressからoctopressへの引っ越し]]></title>
+    <link href="http://www.yysaki.com/blog/2014/02/09/octopress-from-wordpress/"/>
+    <updated>2014-02-09T21:48:15+09:00</updated>
+    <id>http://www.yysaki.com/blog/2014/02/09/octopress-from-wordpress</id>
+    <content type="html"><![CDATA[<p>表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。</p>
+
+<p>レイアウトやコメント欄などの調整は追々やっていきます。</p>
+
+<p>今回参考にさせて頂いた記事一覧です。</p>
+
+<ol>
+<li><a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/">OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ &ndash; 酒と泪とRubyとRailsと</a></li>
+<li><a href="http://nomnel.net/blog/wordpress-to-octopress/">WordpressからOctopressに移行する &ndash; 飲んだり寝たり</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
