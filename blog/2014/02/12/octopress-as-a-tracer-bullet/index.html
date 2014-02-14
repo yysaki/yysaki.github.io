@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>WordPress 3.3.1 自動update時のout　of　memoryエラー - yysaki blog</title>
+  <title>Octopress as a Tracer Bullet - yysaki blog</title>
   <meta name="author" content="yysaki">
 
   
-  <meta name="description" content="wordpressの更新ボタンを押し3.3.1へのインストールを行わせると Fatal error: Out of memory (allocated 22282240) (tried to allocate 3932160 bytes) in /usr/home/nextweb/starm/ &hellip;">
+  <meta name="description" content="一旦ブログをoctopressで立ち上げたは言いものの、@kanaさんより @yysaki ほしのかずほどありますね! http://t.co/cnDApQUMHV Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.yysaki.com/blog/2012/02/13/wordpress-3-3-1-error">
+  <link rel="canonical" href="http://www.yysaki.com/blog/2014/02/12/octopress-as-a-tracer-bullet">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yysaki blog" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">WordPress 3.3.1 自動update時のout　of　memoryエラー</h1>
+      <h1 class="entry-title">Octopress as a Tracer Bullet</h1>
     
     
       <p class="meta">
@@ -96,45 +96,80 @@
   
 
 
-<time datetime="2012-02-13T00:00:00+09:00" pubdate data-updated="true"></time>
+<time datetime="2014-02-12T02:27:45+09:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>wordpressの更新ボタンを押し3.3.1へのインストールを行わせると</p>
+<div class="entry-content"><p>一旦ブログをoctopressで立ち上げたは言いものの、<a href="https://twitter.com/kana1">@kana</a>さんより</p>
 
-<blockquote><p>Fatal error: Out of memory (allocated 22282240) (tried to allocate 3932160 bytes) in /usr/home/nextweb/starm/html/yysaki/wp/wp-includes/class-http.php on line 1066</p></blockquote>
+<blockquote class="twitter-tweet" lang="ja"><p><a href="https://twitter.com/yysaki">@yysaki</a> ほしのかずほどありますね! <a href="http://t.co/cnDApQUMHV">http://t.co/cnDApQUMHV</a> Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete)部実装も面白いですね。</p>&mdash; Kana Natsuno (@kana1) <a href="https://twitter.com/kana1/statuses/432530023648485378">2014, 2月 9</a></blockquote>
 
-<p>の警告が出てupdateに失敗した。バックアップデータはこの後update作業前に残せたので一安心。<br/>
-そして”Out of memory”の原因を探る。<br/>
-参考にしたWordPressのフォーラム記事(<a href="http://wordpress.org/support/topic/fatal-error-out-of-memory-4">http://wordpress.org/support/topic/fatal-error-out-of-memory-4</a>)によると、対策法は</p>
 
-<blockquote><p>text editor and change the values for memory_limit. By default it should see memory_limit = 8M. Try changing it to 12M. if it wil not resolve the problem then try to increase it either 16M or 24M.</p>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p>2) If you can’t find the php.ini file, open up the PHP file which requires more memory and add this line just after ini_set(’memory_limit’, ‘12M’); we can increase memory upto 16M or 24M to resolve the issue. But do it try with 12M first.</p>
 
-<p>3) In last, open the .htaccess file from the root/public_html folder and add this line php_value memory_limit 12M</p></blockquote>
+<p>とコメントを頂戴したので、色々とRuby製の静的サイトジェネレータについて調べました。</p>
 
-<p>のようだ。<br/>
-レンタルしている鯖はroot権限が無いため1), 3)の対処が取れず、2)なら望みがありそうだ。<br/>
-エラー文によると 原因は&#8221;class-http.php on line 1066&#8243;行コマンドのメモリ不足なので、1066行の一行前にそのメモリ使用量を増やす関数を追加することで、解決できそうだ。<br/>
-しかし, memory_limitの値は変更出来ない場合があり include/setup.inc.php を編集して解決する例があった。(参考記事: <a href="http://d.hatena.ne.jp/rougeref/20100108">http://d.hatena.ne.jp/rougeref/20100108</a>)<br/>
-よって私の環境では1), 3)同様php.iniに触れないため、対処できないことがわかりました。<br/>
-他の環境でもroot権限がありPHPの設定をいじれる方なら３方法いずれでも対処出来る問題だと思います。</p>
+<!-- more -->
 
-<p>よって結論としては、現環境ではWordpress自動アップデートはサーバのPHPメモリ使用量制限と使用量操作へのアクセス権がないこと、の二点でした。<br/>
-今回は諦め、今回は手動インストールしてみます。</p>
 
-<p>(2012/02/13追記)<br/>
-3.3.1の手動インストールを後で行った所、問題なく成功しました。しかしやはり手間だった</p>
+<h2>ツール選び</h2>
 
-<p>(2012/02/13追記2)<br/>
-php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory_limit=48M&#8221;と書けばOKでした</p>
+<p>自分のブログ作成における価値観は、以下のようになります。</p>
 
-<p>(2012/3/27追記3)<br/>
-本文のレイアウトが崩れていたのを修正</p>
+<ol>
+<li>静的サイトジェネレータでGithub Pagesに運用の楽なブログを作る</li>
+<li>Markdownで記事を書きたい</li>
+<li>サクサクカスタマイズ出来てそれなりの見栄えなブログを作りたい
+
+<ul>
+<li>octopressのリキッドレイアウトとかかっこいいよね！</li>
+</ul>
+</li>
+<li>手慣れたRuby製ツール</li>
+<li>HP作りの勉強を兼ねるので魔術的要素が少なくコンパクトなフレームワークがいい</li>
+</ol>
+
+
+<p>その中、候補としては、</p>
+
+<ul>
+<li>nanoc</li>
+<li>jekyll(octopress)</li>
+<li>middleman</li>
+</ul>
+
+
+<p>あたりに絞られました。
+静的サイトジェネレータの比較は色々な記事が挙がっているので本記事では取り上げず、参考にしたリンクを下記に示すだけに留めます。
+この中でnanocがヘルパーメソッドを手作りしたり自分でブログの機能を作成する感が楽しそうです。
+octopressもとてもいいのですが、新しくカスタマイズする分には型にはまりすぎる印象があります。
+そのため将来的にはnanocを使ってみたいですね。</p>
+
+<h2>引っ越し</h2>
+
+<p>しかしながらまずは引っ越し元のWordpressを荷下ろしを終わらせたいので、octopressでしばらく運用してみようと思います。
+自分なりのブログに対する要求分析がしっかりされてないので、どんな機能をnanocで作っていきたいかをoctopressで洗い出すのも重要ですし。</p>
+
+<p>また、多少ながらカスタマイズとして、ブログコメントサービスのDisqusの導入やはてブボタンの設置など以下のリンクを参考にやってみました。
+* <a href="http://morizyun.github.io/blog/octopress-hatena-disqus-new-tab/">5分でできる簡単 Octopress セッティング &ndash; 酒と泪とRubyとRailsと</a></p>
+
+<h2>結論</h2>
+
+<p>曳光弾としてoctopressに引っ越して要件を洗い出しつつ、将来的にはnanocでブログの自作をする方針で行こうと思います。</p>
+
+<h3>参考リンク</h3>
+
+<ul>
+<li><a href="http://staticsitegenerators.net/">Static Site Generators</a></li>
+<li><a href="http://higelog.brassworks.jp/?p=2076">Nanoc以外の静的サイト生成ツールを調べてみた | ひげろぐ</a></li>
+<li><a href="http://rubyredbricks.com/blog/2013/09/30/from-octopress-to-nanoc/">Ruby Red Bricks &ndash; From Octopress to nanoc</a></li>
+<li><a href="http://n.blueblack.net/articles/2012-05-03_02_nanoc_getting_started/">nanoc導入メモ 1/5 「Getting Started」編 &ndash; ナレッジエース</a></li>
+</ul>
+
 </div>
 
 
@@ -157,12 +192,12 @@ php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory
   
 
 
-<time datetime="2012-02-13T00:00:00+09:00" pubdate data-updated="true"></time>
+<time datetime="2014-02-12T02:27:45+09:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/wei-fen-lei/'>未分類</a>
+    <a class='category' href='/blog/categories/blog/'>blog</a>
   
 </span>
 
@@ -174,7 +209,7 @@ php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory
   <a href="http://b.hatena.ne.jp/entry/\{\{ site.url \}\}\{\{ page.url \}\}" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hateom/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.yysaki.com/blog/2012/02/13/wordpress-3-3-1-error/" data-via="yysaki" data-counturl="http://www.yysaki.com/blog/2012/02/13/wordpress-3-3-1-error/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.yysaki.com/blog/2014/02/12/octopress-as-a-tracer-bullet/" data-via="yysaki" data-counturl="http://www.yysaki.com/blog/2014/02/12/octopress-as-a-tracer-bullet/" >Tweet</a>
   
   
   
@@ -183,14 +218,18 @@ php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2010/11/08/lets-note-battery/" title="Previous Post: Let&#8217;s Noteのバッテリー">&laquo; Let&#8217;s Noteのバッテリー</a>
+        <a class="basic-alignment left" href="/blog/2014/02/09/octopress-from-wordpress/" title="Previous Post: wordpressからoctopressへの引っ越し">&laquo; wordpressからoctopressへの引っ越し</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/03/28/wordpress-3-3-1-bootstrap/" title="Next Post: WordPressでBootstrapテーマを触ってみる">WordPressでBootstrapテーマを触ってみる &raquo;</a>
       
     </p>
   </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -283,7 +322,10 @@ php.iniは.htaccessのあるディレクトリに自分で置き、&#8221;memory
       var disqus_shortname = 'yysakiblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.yysaki.com/blog/2014/02/12/octopress-as-a-tracer-bullet/';
+        var disqus_url = 'http://www.yysaki.com/blog/2014/02/12/octopress-as-a-tracer-bullet/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
