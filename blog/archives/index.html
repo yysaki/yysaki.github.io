@@ -305,6 +305,21 @@ Feb 09 2014 posted in blog 2013 &hellip;">
 <aside class="sidebar">
   
     <section>
+  <h1>About Me</h1>
+  <ul>
+
+    <li>
+      <a href="http://twitter.com/yysaki">@yysaki</a> on Twitter
+    </li>
+
+
+    <li>
+      <a href="http://github.com/yysaki">@yysaki</a> on Github
+    </li>
+
+  </ul>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
@@ -330,47 +345,8 @@ Feb 09 2014 posted in blog 2013 &hellip;">
     
   </ul>
 </section>
+Included file 'custom/asides/twitter.html' not found in _includes directory
 
-
-
-
-
-<section>
-  <h1>About Me</h1>
-  <div id="twitter-profile" style="margin-top:0.5em;">
-    <p>
-      <strong>yysaki</strong> 
-      (<a href="http://twitter.com/yysaki">@yysaki</a>)
-    </p>
-    <p>情報系大学生のブログ</p>
-  </div>
-  <script type="text/javascript">
-    $(function(){
-        var container = $('#twitter-profile'),
-            user = "yysaki";
-        
-        function parseTwLinks(s) {
-          var twUrl = "http://www.twitter.com/"
-          s = s.replace(/ (@([\w]+))/g, function(match, p1, p2) {
-              return " <a href='"+twUrl+p2+"'>"+p1+"</a>"
-          }).replace(/ (#([\w]+))/g, function(match, p1, p2) {
-              return " <a href='"+twUrl+"#!/search?q=%23"+p2+"'>"+p1+"</a>"
-          })
-          return s
-        }
-
-        $.ajax({
-            url: "http://api.twitter.com/1/users/show.json?include_entities=false&screen_name="+user+"&callback=?"
-          , type: 'GET'
-          , dataType: 'jsonp'
-          , error: function (err) { $('#twitter-profile').addClass('error');  }
-          , success: function(data) {
-              container.html('<img class="left" src="http://api.twitter.com/1/users/profile_image/'+user+'.json?size=bigger" alt="@'+user+'"><p><strong>'+data.name+'</strong> (<a href="http://twitter.com/'+user+'">@'+user+'</a>)<br/>'+data.location+'</p><p>'+parseTwLinks(data.description)+'</p>');
-            }
-        })
-      });
-  </script>
-</section>
 
 
   
