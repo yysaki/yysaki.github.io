@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Blog | yysaki blog]]></title>
   <link href="http://www.yysaki.com/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://www.yysaki.com/"/>
-  <updated>2014-03-01T17:49:06+09:00</updated>
+  <updated>2014-05-30T23:42:24+09:00</updated>
   <id>http://www.yysaki.com/</id>
   <author>
     <name><![CDATA[yysaki]]></name>
@@ -23,7 +23,7 @@
 <blockquote class="twitter-tweet" lang="ja"><p><a href="https://twitter.com/yysaki">@yysaki</a> ほしのかずほどありますね! <a href="http://t.co/cnDApQUMHV">http://t.co/cnDApQUMHV</a> Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete)部実装も面白いですね。</p>&mdash; Kana Natsuno (@kana1) <a href="https://twitter.com/kana1/statuses/432530023648485378">2014, 2月 9</a></blockquote>
 
 
-<script async src="http://www.yysaki.com//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 <p>とコメントを頂戴したので、色々とRuby製の静的サイトジェネレータについて調べました。</p>
