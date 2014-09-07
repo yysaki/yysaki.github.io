@@ -13,7 +13,7 @@
       <% if @item[:author] %>
         <p>This page was written by <%= @item[:author] %>.</p>
       <% end %>
-      <p>Tags: <%= tags %></p>
+      <p>Tags: <%= tags_for(@item) %></p>
       <%= yield %>
     </div>
     <div id="sidebar">
