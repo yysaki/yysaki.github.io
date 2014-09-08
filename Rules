@@ -17,7 +17,10 @@ compile '/assets/' do
 end
 
 compile '*' do
-  if item[:extension] == 'md'
+  if item[:filename] == 'content/bootstrap_test.html'
+    filter :erb
+    layout 'bootstrap_powered'
+  elsif item[:extension] == 'md'
     filter :kramdown
     layout 'default'
   elsif item[:extension] == 'css'
