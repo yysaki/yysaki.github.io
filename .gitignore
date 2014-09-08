@@ -1,5 +1,5 @@
 .bundle/
 output/
 tmp/
-vendor/
+vendor/bundler/
 crash.log

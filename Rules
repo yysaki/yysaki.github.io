@@ -13,8 +13,14 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/assets/' do
+end
+
 compile '*' do
-  if item[:extension] == 'md'
+  if item[:filename] == 'content/bootstrap_test.html'
+    filter :erb
+    layout 'bootstrap_powered'
+  elsif item[:extension] == 'md'
     filter :kramdown
     layout 'default'
   elsif item[:extension] == 'css'
@@ -25,6 +31,11 @@ compile '*' do
     filter :erb
     layout 'default'
   end
+end
+
+route '/assets/*' do
+  # /assets/foo.html/ => /foo.html
+  item.identifier[7..-2]
 end
 
 route '*' do
