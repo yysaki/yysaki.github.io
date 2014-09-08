@@ -62,6 +62,11 @@ data_sources:
     # UTF-8 (which they should be!), change this.
     encoding: utf-8
 
+  # ref: http://nanoc.ws/docs/troubleshooting/#error-found-3-content-files-for-x-expected-0-or-1
+  -
+    type: static
+    items_root: /assets/
+
 # Configuration for the “check” command, which run unit tests on the site.
 checks:
   # Configuration for the “internal_links” checker, which checks whether all
