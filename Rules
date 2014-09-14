@@ -21,6 +21,10 @@ route '/assets/stylesheets/*' do
   '/css/' + File.basename(item.identifier) + '.css'
 end
 
+route '/assets/javascripts/*' do
+  '/js/' + File.basename(item.identifier) + '.js'
+end
+
 compile '/assets/' do
 end
 
