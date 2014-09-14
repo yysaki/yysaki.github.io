@@ -21,6 +21,10 @@ route '/assets/stylesheets/*' do
   '/css/' + File.basename(item.identifier) + '.css'
 end
 
+compile '/assets/javascripts/*' do
+  filter :uglify_js if ENV['NANOC_ENV'] == 'production'
+end
+
 route '/assets/javascripts/*' do
   '/js/' + File.basename(item.identifier) + '.js'
 end
