@@ -13,6 +13,14 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/assets/stylesheets/*' do
+  filter :sass, Compass.sass_engine_options
+end
+
+route '/assets/stylesheets/*' do
+  '/css/' + File.basename(item.identifier) + '.css'
+end
+
 compile '/assets/' do
 end
 
