@@ -13,6 +13,22 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/assets/stylesheets/*' do
+  filter :sass, Compass.sass_engine_options
+end
+
+route '/assets/stylesheets/*' do
+  '/css/' + File.basename(item.identifier) + '.css'
+end
+
+compile '/assets/javascripts/*' do
+  filter :uglify_js if ENV['NANOC_ENV'] == 'production'
+end
+
+route '/assets/javascripts/*' do
+  '/js/' + File.basename(item.identifier) + '.js'
+end
+
 compile '/assets/' do
 end
 
@@ -20,6 +36,8 @@ compile '*' do
   if item[:filename] == 'content/bootstrap_test.html'
     filter :erb
     layout 'bootstrap_powered'
+  elsif item[:filename] == 'content/foundation.html'
+    filter :erb
   elsif item[:extension] == 'md'
     filter :kramdown
     layout 'default'
@@ -42,6 +60,9 @@ route '*' do
   if item[:extension] == 'css'
     # Write item with identifier /foo/ to /foo.css
     item.identifier.chop + '.css'
+  elsif item[:extension] == 'txt'
+    # for humans.txt, robots.txt
+    item.identifier.chop + '.txt'
   elsif item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + '.' + item[:extension]

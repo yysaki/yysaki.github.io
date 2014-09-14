@@ -1,4 +1,6 @@
 .bundle/
+.sass-cache/
+bower_components/
 output/
 tmp/
 vendor/bundler/
