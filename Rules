@@ -8,7 +8,7 @@
 # * The order of rules is important: for each item, only the first matching
 #   rule is applied.
 #
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+# * Item identifiers start and end with a slash (<.g. “/about/” for the file
 #   “content/about.html”). To select all children, grandchildren, … of an
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
@@ -32,6 +32,11 @@ end
 compile '/posts/*' do
   filter :kramdown
   layout 'default'
+end
+
+route '/posts/*' do
+  yyyy, mm, dd, *splittedTitle = File.basename(item.identifier).split('-')
+  "/blog/%s/%s/%s/%s/index.html" % [yyyy, mm, dd, splittedTitle.join('-')]
 end
 
 compile '/assets/' do
