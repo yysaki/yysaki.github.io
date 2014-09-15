@@ -29,6 +29,11 @@ route '/assets/javascripts/*' do
   '/js/' + File.basename(item.identifier) + '.js'
 end
 
+compile '/posts/*' do
+  filter :kramdown
+  layout 'default'
+end
+
 compile '/assets/' do
 end
 
