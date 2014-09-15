@@ -6,3 +6,7 @@ guard 'nanoc' do
   watch('Rules')
   watch(%r{^(content|layouts|lib)/.*$})
 end
+
+guard 'livereload', :port => '35729' do
+  watch(%r{^output/.*$})
+end
