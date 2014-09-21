@@ -24,3 +24,7 @@
     cd $DIR
     grunt dist // compile
 
+## Foundation
+
+    sudo npm install -g bower
+    bower install
