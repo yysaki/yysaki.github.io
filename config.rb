@@ -19,6 +19,10 @@ output_style = :compressed
 preferred_syntax = :scss
 relative_assets = true
 
+sass_options = {
+  :syntax => :scss
+}
+
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 
