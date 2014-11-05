@@ -1,33 +1,49 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="ja">
   <head>
-    <meta charset="utf-8">
-    <title>A Brand New nanoc Site - <%= @item[:title] %></title>
-    <link rel="stylesheet" href="<%= @items['/stylesheet/'].path %>">
-
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Brand New nanoc, foundation Site - <%= @item[:title] %></title>
+    <link rel="stylesheet" href="/css/app.css"/>
+    <script src="/js/modernizr.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div id="main">
-      <% if @item[:author] %>
-        <p>This page was written by <%= @item[:author] %>.</p>
-      <% end %>
-      <p>Tags: <%= tags_for(@item) %></p>
-      <%= yield %>
+    <!-- TODO: "interior-header" として実装 -->
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+          <h1>yysaki blog</h1>
+          <h3>情報系新米ソフトウェアエンジニアのブログ</h3>
+        </div>
+      </div>
     </div>
-    <div id="sidebar">
-      <h2>Documentation</h2>
-      <ul>
-        <li><a href="http://nanoc.ws/docs/">Documentation</a></li>
-        <li><a href="http://nanoc.ws/docs/tutorial/">Getting Started</a></li>
-      </ul>
-      <h2>Community</h2>
-      <ul>
-        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-        <li><a href="http://github.com/nanoc/nanoc/wiki/">Wiki</a></li>
-      </ul>
+
+    <div class="row">
+      <div class="large-9 midium-8 columns">
+        <%= yield %>
+      </div>
+
+      <div class="large-3 medium-4 columns end">
+        <ul class="side-nav role="navigation" title="Link List">
+          <li class="heading">Navigation</li>
+          <li role="menuitem"><a href="#">Link 1</a></li>
+          <li role="menuitem"><a href="#">Link 2</a></li>
+          <li class="divider"></li>
+          <li role="menuitem"><a href="#">Link 3</a></li>
+          <li role="menuitem"><a href="#">Link 4</a></li>
+        </ul>
+      </div>
     </div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/foundation.js"></script>
+    <script src="/js/app.js"></script>
   </body>
 </html>
