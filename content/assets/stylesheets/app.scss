@@ -1,6 +1,298 @@
 @import "settings";
 @import "foundation";
 
+*,:before,:after
+{
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+html,body
+{
+  font-size:100%;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-smooth:always;
+  text-rendering:geometricPrecision;
+}
+
+body
+{
+  background:#FFF;
+  font-family:"Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+  font-weight:400;
+  font-style:normal;
+  line-height:1;
+  position:relative;
+  color:#333;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+  padding:0;
+}
+
+.light
+{
+  font-weight:200!important;
+}
+
+.centered-text
+{
+  text-align:center;
+}
+
+.white-text
+{
+  color:#FFF;
+}
+
+.interior-header
+{
+  background-color:#3e62ad;
+  background:#3e62ad;
+}
+
+ul.subnav
+{
+  display:block;
+  float:right;
+  margin-top:68px;
+}
+
+ul.subnav li
+{
+  list-style:none;
+  display:block;
+  float:left;
+}
+
+ul.subnav li a
+{
+  display:block;
+  color:#FFF;
+  font-size:14px;
+  padding:4px 15px;
+}
+
+ul.subnav li.with-input
+{
+  margin-left:15px;
+}
+
+ul.subnav li.with-input form input
+{
+  margin-top:0;
+  margin-bottom:0;
+  font-size:.75em;
+  opacity:.75;
+  height:auto;
+  width:175px;
+  box-shadow:none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  border:none;
+  background:url(/images/search.png) no-repeat left center #fff;
+  padding:8px 0 8px 26px;
+}
+
+ul.subnav li.with-input form input:focus
+{
+  opacity:1;
+  border:none;
+}
+
+ul.subnav li.with-input form
+{
+  margin-bottom:0;
+}
+
+ul.subnav li a.current,ul.subnav li a:hover
+{
+  background:rgba(0,0,0,0.15);
+  color:#FFF;
+}
+
+ul.nav li a:hover,.interior-header p.title-text.white-text a
+{
+  color:#fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .interior-header
+  {
+    height:auto;
+    margin-bottom:30px;
+  }
+  
+  .interior-header h1
+  {
+    line-height:1;
+    font-size:2.5em;
+    text-align:left;
+    -webkit-transition:all .3s ease;
+    -moz-transition:all .3s ease;
+    -o-transition:all .3s ease;
+    -ms-transition:all .3s ease;
+    margin:30px 0;
+  }
+  
+  .interior-header ul.title-area li.name h1
+  {
+    display:inline-block;
+    margin-top:0;
+    margin-left:-10px;
+    padding:0;
+  }
+  
+  .interior-header ul.title-area li.name h1 a
+  {
+    opacity:1;
+    filter:alpha(opacity=75);
+    font-family:zurb-logo;
+    font-weight:400;
+    font-size:36px;
+    text-rendering:auto;
+    padding:0;
+  }
+  
+  .interior-header ul.title-area li.name a
+  {
+    display:inline-block;
+    padding:10px;
+  }
+  
+  .interior-header ul.title-area li.name a img
+  {
+    vertical-align:initial!important;
+    width:20px!important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .interior-header
+  {
+    margin-bottom:4em;
+  }
+  
+  .interior-header h1
+  {
+    font-size:5em;
+    margin-bottom:48px;
+    margin-top:70px;
+    line-height:1;
+    -webkit-transition:all .3s ease;
+    -moz-transition:all .3s ease;
+    -o-transition:all .3s ease;
+    -ms-transition:all .3s ease;
+  }
+  
+  .interior-header h1 a
+  {
+    display:inline!important;
+  }
+  
+  .interior-header .subnav
+  {
+    float:none;
+    margin-top:0;
+    text-align:center;
+    margin-bottom:0;
+  }
+  
+  .interior-header .subnav li
+  {
+    float:none;
+    display:inline-block;
+  }
+  
+  .interior-header .subnav li a
+  {
+    letter-spacing:1px;
+    font-size:13px;
+    color:#FFF;
+    font-weight:600!important;
+    font-family:ProximaNovaCond, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform:uppercase;
+    display:block;
+    padding:13px 15px 10px;
+  }
+  
+  .interior-header .subnav li a.current,.interior-header .subnav li a:hover
+  {
+    color:#FFF;
+    background:rgba(255,255,255,0.15);
+  }
+  
+  .interior-header p.title-text
+  {
+    padding-top:56px;
+  }
+  
+  .interior-header .subnav form,.interior-header .subnav form input
+  {
+    margin-bottom:0;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .interior-header
+  {
+    height:auto;
+    margin-bottom:4em;
+  }
+  
+  .interior-header h1
+  {
+    font-size:3.5em;
+    -webkit-transition:all .3s ease;
+    -moz-transition:all .3s ease;
+    -o-transition:all .3s ease;
+    -ms-transition:all .3s ease;
+  }
+}
+
+@media only screen and (min-width: lower-bound40063em,64em) {
+  .interior-header p.title-text
+  {
+    padding-top:56px;
+  }
+  
+  .interior-header.smaller p.title-text
+  {
+    padding-top:18px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  ul.subnav
+  {
+    float:none;
+    text-align:center;
+    margin-top:-9px;
+    margin-bottom:0;
+  }
+  
+  ul.subnav li
+  {
+    float:none;
+    display:inline-block;
+  }
+  
+  ul.subnav li a
+  {
+    color:rgba(255,255,255,0.75);
+    margin:0 15px;
+    padding:4px 0 5px;
+  }
+  
+  ul.subnav li a.current,ul.subnav li a:hover
+  {
+    background:none;
+    border-bottom:2px solid #FFF;
+    color:#FFF;
+  }
+}
+
 // Or selectively include components
 // @import
 //   "foundation/components/accordion",

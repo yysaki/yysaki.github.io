@@ -15,12 +15,22 @@
     <![endif]-->
   </head>
   <body>
-    <!-- TODO: "interior-header" として実装 -->
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="panel">
-          <h1>yysaki blog</h1>
-          <h3>情報系新米ソフトウェアエンジニアのブログ</h3>
+    <!-- Ported from http://zurb.com/blog -->
+    <div class="interior-header green">
+      <div class="row">
+        <div class="medium-12 medium-centered centered-text columns">
+          <h1 class="centered-text light white-text">yysaki blog</h1>
+          <ul class="subnav hide-for-small">
+            <li><a class="current" href="/blog/">Home</a></li>
+            <li><a href="/blog/topics">Topics</a></li>
+            <li><a href="/blog/archives">Archives</a></li>
+            <li><a href="/blog/updates">About</a></li>
+            <li class="with-input">
+              <form method="get" action="#" name="search" accept-charset="utf-8">
+                <input class="input-text" placeholder="サイト内を検索" type="text">
+              </form>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
