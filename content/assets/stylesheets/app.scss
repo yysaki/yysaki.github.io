@@ -122,6 +122,15 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
   background-color:#ebeff6;
   background:#ebeff6;
   padding:16px;
+
+  div {
+    h1 {
+      border-bottom:1px solid #e0e0e0;
+      color:#008CBA;
+      font-size:20px;
+      font-weight:bold;
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {
