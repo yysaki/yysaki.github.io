@@ -38,21 +38,44 @@
     </header>
 
     <div class="row">
-      <div class="large-9 midium-8 columns">
+      <div class="large-8 medium-7 columns">
         <main role="main">
         <%= yield %>
         </main>
       </div>
 
-      <div class="large-3 medium-4 columns end">
-        <ul class="side-nav role="navigation" title="Link List">
-          <li class="heading">Navigation</li>
-          <li role="menuitem"><a href="#">Link 1</a></li>
-          <li role="menuitem"><a href="#">Link 2</a></li>
-          <li class="divider"></li>
-          <li role="menuitem"><a href="#">Link 3</a></li>
-          <li role="menuitem"><a href="#">Link 4</a></li>
-        </ul>
+      <div class="large-4 medium-5 columns">
+        <aside class="sidebar">
+          <div class="about">
+            <h1>About Me</h1>
+            <ul class="side-nav">
+              <li role="menuitem"><a href="http://twitter.com/yysaki">@yysaki on Twitter</a></li>
+              <li role="menuitem"><a href="http://github.com/yysaki">@yysaki on Github</a></li>
+            </ul>
+          </div>
+
+          <div class="recent">
+            <h1>Recent Posts</h1>
+            <ul class="side-nav">
+              <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">Octopress as a Tracer Bullet</a></li>
+              <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">Wordpressからoctopressへの引っ越し</a></li>
+              <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
+              <li role="menuitem"><a href="/blog/2013/12/14/blockdiag/">Blockdiagのエラーを解決できず…</a></li>
+              <li role="menuitem"><a href="/blog/2013/04/04/shell-operation-test-on-bash/">『シェル操作課題 』をシェルで解きなおす</a></li>
+            </ul>
+
+          <div class="booklog">
+            <h1>My Booklog</h1>
+            <script type="text/javascript" src="http://widget.booklog.jp/blogparts/js/booklog_minishelf.js?handwrite" id="booklog_minishelf"></script>
+            <script type="text/javascript" src="http://api.booklog.jp/json/yysaki?category=0&count=15&callback=booklog_minishelf"></script>
+          </div>
+
+          <div class="twitter">
+            <h1>Timeline</h1>
+            <a class="twitter-timeline" href="https://twitter.com/yysaki" data-widget-id="435964636265844738">@yysakiさんのツイート</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+        </aside>
       </div>
     </div>
 
