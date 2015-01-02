@@ -30,6 +30,7 @@ route '/assets/javascripts/*' do
 end
 
 compile '/posts/*' do
+  filter :fenced_code_block
   filter :kramdown
   layout 'default'
 end
@@ -49,6 +50,7 @@ compile '*' do
   elsif item[:filename] == 'content/foundation.html'
     filter :erb
   elsif item[:extension] == 'md'
+    filter :fenced_code_block
     filter :kramdown
     layout 'default'
   elsif item[:extension] == 'css'
