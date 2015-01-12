@@ -45,6 +45,7 @@ route '/assets/*' do
   item.identifier[7..-2]
 end
 
+# TODO: Remove unnecessary pages
 compile '*' do
   if item[:filename] == 'content/bootstrap_test.html'
     filter :erb
