@@ -37,6 +37,7 @@ route '/posts/*' do
   "/blog/%s/%s/%s/%s/index.html" % [yyyy, mm, dd, splittedTitle.join('-')]
 end
 
+# for static assets, e.g. /static/images/search.png to output/images/search.png
 compile '/assets/*' do
 end
 route '/assets/*' do
