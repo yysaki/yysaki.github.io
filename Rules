@@ -37,7 +37,7 @@ route '/posts/*' do
   "/blog/%s/%s/%s/%s/index.html" % [yyyy, mm, dd, splittedTitle.join('-')]
 end
 
-compile '/assets/' do
+compile '/assets/*' do
 end
 route '/assets/*' do
   # /assets/foo.html/ => /foo.html
