@@ -16,7 +16,6 @@
 compile '/assets/stylesheets/*' do
   filter :sass, Compass.sass_engine_options
 end
-
 route '/assets/stylesheets/*' do
   '/css/' + File.basename(item.identifier) + '.css'
 end
@@ -24,7 +23,6 @@ end
 compile '/assets/javascripts/*' do
   filter :uglify_js if ENV['NANOC_ENV'] == 'production'
 end
-
 route '/assets/javascripts/*' do
   '/js/' + File.basename(item.identifier) + '.js'
 end
@@ -34,13 +32,16 @@ compile '/posts/*' do
   filter :kramdown
   layout 'default'
 end
-
 route '/posts/*' do
   yyyy, mm, dd, *splittedTitle = File.basename(item.identifier).split('-')
   "/blog/%s/%s/%s/%s/index.html" % [yyyy, mm, dd, splittedTitle.join('-')]
 end
 
 compile '/assets/' do
+end
+route '/assets/*' do
+  # /assets/foo.html/ => /foo.html
+  item.identifier[7..-2]
 end
 
 compile '*' do
@@ -62,12 +63,6 @@ compile '*' do
     layout 'default'
   end
 end
-
-route '/assets/*' do
-  # /assets/foo.html/ => /foo.html
-  item.identifier[7..-2]
-end
-
 route '*' do
   if item[:extension] == 'css'
     # Write item with identifier /foo/ to /foo.css
