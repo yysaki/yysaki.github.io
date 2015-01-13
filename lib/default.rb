@@ -11,3 +11,9 @@ unless defined? LOADED_COMPASS_CONFIG
 end
 
 sass_options = Compass.sass_engine_options
+
+def post_url(post, has_extension: false)
+  yyyy, mm, dd, *splittedTitle = File.basename(post.identifier).split('-')
+  url = "/blog/%s/%s/%s/%s/" % [yyyy, mm, dd, splittedTitle.join('-')]
+  has_extension ? url + "index.html" : url
+end
