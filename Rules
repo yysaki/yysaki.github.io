@@ -33,8 +33,7 @@ compile '/posts/*' do
   layout 'default'
 end
 route '/posts/*' do
-  yyyy, mm, dd, *splittedTitle = File.basename(item.identifier).split('-')
-  "/blog/%s/%s/%s/%s/index.html" % [yyyy, mm, dd, splittedTitle.join('-')]
+  post_url(item, has_extension: true)
 end
 
 # for static assets, e.g. /static/images/search.png to output/images/search.png
