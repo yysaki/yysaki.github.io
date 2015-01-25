@@ -13,6 +13,17 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+# http://nanoc.ws/docs/guides/paginating-articles/
+preprocess do
+  paginate_articles
+end
+
+compile '/blog/archive/*/' do
+  filter :erb
+  layout '/default/'
+end
+layout '/pagination_page/', :erb
+
 compile '/assets/stylesheets/*' do
   filter :sass, Compass.sass_engine_options
 end

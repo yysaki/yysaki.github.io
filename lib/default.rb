@@ -2,6 +2,7 @@
 # before nanoc starts compiling.
 #
 
+include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::Rendering
 
 unless defined? LOADED_COMPASS_CONFIG
