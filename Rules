@@ -18,6 +18,14 @@ preprocess do
   paginate_articles
 end
 
+compile '/' do
+  filter :erb
+  layout '/default/'
+end
+route '/' do
+  item.identifier + 'index.html'
+end
+
 compile '/blog/archive/*/' do
   filter :erb
   layout '/default/'
