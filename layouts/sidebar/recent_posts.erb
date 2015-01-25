@@ -1,9 +1,9 @@
 <% recent_posts =
-      items
-      .select { |i| i.identifier.match(/posts/) }
-      .sort_by { |i| i.identifier }
-      .reverse()
-      .take(5)
+  items
+  .select { |i| i.identifier.match(/posts/) }
+  .sort_by { |i| i.identifier }
+  .reverse()
+  .take(5)
  %>
 
 <div class="recent">
