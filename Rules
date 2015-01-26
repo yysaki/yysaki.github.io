@@ -47,12 +47,12 @@ route '/posts/*' do
   post_url(item, has_extension: true)
 end
 
-compile '/' do
+compile '/test_home/' do
   filter :fenced_code_block
   filter :kramdown
   layout 'default'
 end
-route '/' do
+route '/test_home/' do
     # Write item with identifier /foo/ to /foo/index.html
     item.identifier + 'index.html'
 end
