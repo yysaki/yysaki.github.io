@@ -49,6 +49,7 @@ end
 compile '/posts/*' do
   filter :fenced_code_block
   filter :kramdown
+  layout 'article'
   layout 'default'
 end
 route '/posts/*' do
