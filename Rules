@@ -18,6 +18,14 @@ preprocess do
   paginate_articles
 end
 
+compile '/' do
+  filter :erb
+  layout '/default/'
+end
+route '/' do
+  item.identifier + 'index.html'
+end
+
 compile '/blog/archive/*/' do
   filter :erb
   layout '/default/'
@@ -45,6 +53,16 @@ compile '/posts/*' do
 end
 route '/posts/*' do
   post_url(item, has_extension: true)
+end
+
+compile '/test_home/' do
+  filter :fenced_code_block
+  filter :kramdown
+  layout 'default'
+end
+route '/test_home/' do
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
 end
 
 # for static assets, e.g. /static/images/search.png to output/images/search.png
