@@ -1,3 +1,11 @@
+deploy_default = "push"
+deploy_branch  = "master"
+
+public_dir      = "public"    # compiled site directory
+source_dir      = "source"    # source file directory
+deploy_dir      = "deploy"    # deploy directory (for Github pages deployment)
+
+
 desc "Default deploy task"
 task :deploy do
   # Check if preview posts exist, which should not be published
