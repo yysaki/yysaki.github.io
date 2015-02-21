@@ -28,3 +28,8 @@
 
     sudo npm install -g bower
     bower install
+
+## deploy
+
+    git clone git@github.com:yysaki/yysaki.github.io.git deploy
+    bundle exec rake deploy
