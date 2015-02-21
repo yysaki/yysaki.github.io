@@ -1,8 +1,8 @@
 deploy_default = "push"
 deploy_branch  = "master"
 
-public_dir      = "public"    # compiled site directory
-source_dir      = "source"    # source file directory
+public_dir      = "output"    # compiled site directory
+source_dir      = "content"   # source file directory
 deploy_dir      = "deploy"    # deploy directory (for Github pages deployment)
 
 
