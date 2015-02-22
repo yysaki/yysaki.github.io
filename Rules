@@ -75,9 +75,7 @@ end
 
 # TODO: Remove unnecessary pages
 compile '*' do
-  if item[:filename] == 'content/foundation.html'
-    filter :erb
-  elsif item[:extension] == 'md'
+  if item[:extension] == 'md'
     filter :fenced_code_block
     filter :kramdown
     layout 'default'
