@@ -14,8 +14,13 @@
 #   because “*” matches zero or more characters.
 
 # http://nanoc.ws/docs/guides/paginating-articles/
+
 preprocess do
   paginate_articles
+end
+compile '/blog/archive/*/' do
+  filter :erb
+  layout '/default/'
 end
 
 compile '/' do
@@ -25,12 +30,6 @@ end
 route '/' do
   item.identifier + 'index.html'
 end
-
-compile '/blog/archive/*/' do
-  filter :erb
-  layout '/default/'
-end
-layout '/pagination_page/', :erb
 
 compile '/assets/stylesheets/*' do
   filter :sass, Compass.sass_engine_options
@@ -110,4 +109,5 @@ route '*' do
   end
 end
 
+layout '/pagination_page/', :erb
 layout '*', :erb
