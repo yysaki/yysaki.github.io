@@ -55,16 +55,6 @@ route '/posts/*' do
   post_url(item, has_extension: true)
 end
 
-compile '/test_home/' do
-  filter :fenced_code_block
-  filter :kramdown
-  layout 'default'
-end
-route '/test_home/' do
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
-end
-
 # for static assets, e.g. /static/images/search.png to output/images/search.png
 compile '/assets/*' do
 end
@@ -73,14 +63,8 @@ route '/assets/*' do
   item.identifier[7..-2]
 end
 
-# TODO: Remove unnecessary pages
 compile '*' do
-  if item[:filename] == 'content/bootstrap_test.html'
-    filter :erb
-    layout 'bootstrap_powered'
-  elsif item[:filename] == 'content/foundation.html'
-    filter :erb
-  elsif item[:extension] == 'md'
+  if item[:extension] == 'md'
     filter :fenced_code_block
     filter :kramdown
     layout 'default'
@@ -88,9 +72,6 @@ compile '*' do
     # don’t filter stylesheets
   elsif item.binary?
     # don’t filter binary items
-  else
-    filter :erb
-    layout 'default'
   end
 end
 route '*' do
