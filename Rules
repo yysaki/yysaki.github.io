@@ -75,10 +75,7 @@ end
 
 # TODO: Remove unnecessary pages
 compile '*' do
-  if item[:filename] == 'content/bootstrap_test.html'
-    filter :erb
-    layout 'bootstrap_powered'
-  elsif item[:filename] == 'content/foundation.html'
+  if item[:filename] == 'content/foundation.html'
     filter :erb
   elsif item[:extension] == 'md'
     filter :fenced_code_block
