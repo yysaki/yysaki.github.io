@@ -4,6 +4,13 @@ def post_url(post, has_extension: false)
   has_extension ? url + "index.html" : url
 end
 
+def slug_for(post)
+  File.basename(post.identifier)
+  .split('-')
+  .drop(3)
+  .join('-')
+end
+
 def articles
   items
   .select { |i| i.identifier.match(/posts/) }
