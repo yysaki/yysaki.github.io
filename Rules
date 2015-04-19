@@ -63,6 +63,12 @@ route '/assets/*' do
   item.identifier[7..-2]
 end
 
+compile '/CNAME/' do
+end
+route '/CNAME/' do
+  item.identifier.chop
+end
+
 compile '*' do
   if item[:extension] == 'md'
     filter :fenced_code_block
