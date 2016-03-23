@@ -1,10 +1,11 @@
+require "date"
+
 deploy_default = "push"
 deploy_branch  = "master"
 
 public_dir      = "output"    # compiled site directory
 source_dir      = "content"   # source file directory
 deploy_dir      = "deploy"    # deploy directory (for Github pages deployment)
-
 
 desc "Default deploy task"
 task :deploy do
@@ -45,6 +46,32 @@ desc "copy dot files for deployment"
 task :copydot, :source, :dest do |t, args|
   FileList["#{args.source}/**/.*"].exclude("**/.", "**/..", "**/.DS_Store", "**/._*", "**/.*.swp").each do |file|
     cp_r file, file.gsub(/#{args.source}/, "#{args.dest}") unless File.directory?(file)
+  end
+end
+
+desc "Create post item featured by octopress"
+task :new do
+  now = DateTime.now
+  title = "new post"
+  template = <<EOS
+---
+layout: post
+title: #{title}
+date: #{now.strftime "%Y-%m-%d %H:%M:%S %z"}
+comments: true
+categories:
+  - blog
+---
+
+Hi, I'm a new item!
+EOS
+
+  cd "content/posts" do
+    filename = "#{Date.today.strftime '%Y-%m-%d'}-#{title.gsub(/ /, '-')}.md"
+    open(filename, "w") do |file|
+      file.write template
+    end
+    puts "create #{filename}"
   end
 end
 
