@@ -63,6 +63,13 @@ route '/assets/*' do
   item.identifier[7..-2]
 end
 
+compile '/atom' do
+  filter :erb
+end
+route '/atom' do
+  '/atom.xml'
+end
+
 compile '/CNAME/' do
 end
 route '/CNAME/' do
