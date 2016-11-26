@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "wordpressからoctopressへの引っ越し"
+created_at: 2014-02-09
 date: 2014-02-09 21:48:15 +0900
 comments: true
 categories: 

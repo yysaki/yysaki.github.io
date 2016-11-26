@@ -1,5 +1,6 @@
 ---
 title: 『シェル操作課題 』をRubyのワンライナーで解いてみた
+created_at: 2012-09-06
 author: yysaki
 layout: post
 categories:

@@ -1,5 +1,6 @@
 ---
 title: GithubのプロジェクトをCruiseControlで自動ビルドしてみた
+created_at: 2012-09-20
 author: yysaki
 layout: post
 categories:

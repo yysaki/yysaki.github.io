@@ -1,5 +1,6 @@
 ---
 title: MacOSX Cisco VPNClient対策
+created_at: 2013-02-13
 author: yysaki
 layout: post
 categories:

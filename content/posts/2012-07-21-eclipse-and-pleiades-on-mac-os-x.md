@@ -1,5 +1,6 @@
 ---
 title: Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった
+created_at: 2012-07-21
 author: yysaki
 layout: post
 categories:

@@ -1,5 +1,6 @@
 ---
 title: 'Let&#8217;s Noteのバッテリー'
+created_at: 2010-11-08
 author: yysaki
 layout: post
 categories:
