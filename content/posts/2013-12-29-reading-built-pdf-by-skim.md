@@ -1,6 +1,7 @@
 ---
 title: ビルドしたpdfをsshfsからSkimで読む
 created_at: 2013-12-29
+kind: article
 author: yysaki
 layout: post
 categories:

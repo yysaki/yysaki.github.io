@@ -1,6 +1,7 @@
 ---
 title: WordPress 3.3.1 自動update時のout　of　memoryエラー
 created_at: 2012-02-13
+kind: article
 author: yysaki
 layout: post
 categories:

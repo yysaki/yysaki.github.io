@@ -1,6 +1,7 @@
 ---
 title: 『シェル操作課題 』をシェルで解きなおす
 created_at: 2013-04-04
+kind: article
 author: yysaki
 layout: post
 categories:

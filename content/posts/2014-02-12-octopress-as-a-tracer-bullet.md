@@ -2,6 +2,7 @@
 layout: post
 title: "octopress as a tracer bullet"
 created_at: 2014-02-12
+kind: article
 date: 2014-02-12 02:27:45 +0900
 comments: true
 categories: 

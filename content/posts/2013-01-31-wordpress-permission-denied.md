@@ -1,6 +1,7 @@
 ---
 title: 'WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する'
 created_at: 2013-01-31
+kind: article
 author: yysaki
 layout: post
 categories:

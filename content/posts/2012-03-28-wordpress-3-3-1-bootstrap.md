@@ -1,6 +1,7 @@
 ---
 title: WordPressでBootstrapテーマを触ってみる
 created_at: 2012-03-28
+kind: article
 author: yysaki
 layout: post
 categories:

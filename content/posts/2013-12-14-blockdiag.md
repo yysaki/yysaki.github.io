@@ -1,6 +1,7 @@
 ---
 title: 'blockdiagのエラーを解決できず&#8230;'
 created_at: 2013-12-14
+kind: article
 author: yysaki
 layout: post
 categories:
