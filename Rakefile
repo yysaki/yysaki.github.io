@@ -58,6 +58,8 @@ task :new do
 layout: post
 title: #{title}
 date: #{now.strftime "%Y-%m-%d %H:%M:%S %z"}
+created_at: #{now.strftime "%Y-%m-%d %H:%M:%S %z"}
+kind: articles
 comments: true
 categories:
   - blog
