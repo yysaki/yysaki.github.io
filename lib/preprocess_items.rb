@@ -10,10 +10,10 @@ def paginate_articles
     first = i * 5 + 1
     last  = (i + 1) * 5
 
-    @items << Nanoc::Item.new(
-      "<%= render 'pagination_page', :item_id => #{i} %>",
+    @items.create(
+      "<%= render '/pagination_page.erb', :item_id => #{i} %>",
       { :title => "Archive (articles #{first} to #{last})" },
-      "/blog/archive/#{i + 1}/"
+      "/blog/archive/#{i + 1}"
     )
   end
 end

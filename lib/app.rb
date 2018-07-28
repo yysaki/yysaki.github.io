@@ -1,5 +1,5 @@
 def post_url(post, has_extension: false)
-  yyyy, mm, dd, *splittedTitle = File.basename(post.identifier).split('-')
+  yyyy, mm, dd, *splittedTitle = File.basename(post.identifier.without_ext).split('-')
   url = "/blog/%s/%s/%s/%s/" % [yyyy, mm, dd, splittedTitle.join('-')]
   has_extension ? url + "index.html" : url
 end
@@ -13,7 +13,7 @@ end
 
 def articles
   items
-  .select { |i| i.identifier.match(/posts/) }
+  .select { |i| i.identifier.to_s.match(/posts/) }
   .sort_by { |i| i.identifier }
   .reverse()
 end

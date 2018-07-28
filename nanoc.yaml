@@ -33,6 +33,7 @@ prune:
 # hashes; each array element represents a single data source. By default,
 # there is only a single data source that reads data from the “content/” and
 # “layout/” directories in the site directory.
+string_pattern_type: glob
 data_sources:
   -
     # The type is the identifier of the data source. By default, this will be
@@ -64,8 +65,10 @@ data_sources:
 
   # ref: http://nanoc.ws/docs/troubleshooting/#error-found-3-content-files-for-x-expected-0-or-1
   -
-    type: static
-    items_root: /assets/
+    type: filesystem
+    items_root: /static
+    content_dir: 'static'
+    layouts_dir: null
 
 # Configuration for the “check” command, which run unit tests on the site.
 checks:

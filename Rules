@@ -18,90 +18,103 @@
 preprocess do
   paginate_articles
 end
-compile '/blog/archive/*/' do
+compile '/blog/archive/**/*' do
   filter :erb
-  layout '/default/'
+  layout '/default.html'
 end
 
-compile '/' do
+compile '/index.*' do
   filter :erb
-  layout '/default/'
+  layout '/default.html'
 end
-route '/' do
-  item.identifier + 'index.html'
+route '/index.*' do
+  item.identifier.without_exts + '.html'
 end
 
-compile '/assets/stylesheets/*' do
+compile '/assets/stylesheets/**/*' do
   filter :sass, Compass.sass_engine_options
 end
-route '/assets/stylesheets/*' do
-  '/css/' + File.basename(item.identifier) + '.css'
+route '/assets/stylesheets/**/*' do
+  '/css/' + File.basename(item.identifier.without_ext) + '.css'
 end
 
-compile '/assets/javascripts/*' do
+compile '/assets/javascripts/**/*' do
   filter :uglify_js if ENV['NANOC_ENV'] == 'production'
 end
-route '/assets/javascripts/*' do
-  '/js/' + File.basename(item.identifier) + '.js'
+route '/assets/javascripts/**/*' do
+  '/js/' + File.basename(item.identifier.without_ext) + '.js'
 end
 
-compile '/posts/*' do
+# route '/**/index.*' do
+#   # /projects/index.md gets written to /projects/index.html
+#   item.identifier.without_ext + '.html'
+# end
+
+compile '/posts/**/*' do
   filter :fenced_code_block
   filter :kramdown
-  layout 'article'
-  layout 'default'
+  layout '/article.html.erb'
+  layout '/default.html'
 end
-route '/posts/*' do
+route '/posts/**/*' do
   post_url(item, has_extension: true)
 end
 
 # for static assets, e.g. /static/images/search.png to output/images/search.png
-compile '/assets/*' do
+compile '/assets/**/*' do
 end
-route '/assets/*' do
+route '/assets/**/*' do
   # /assets/foo.html/ => /foo.html
-  item.identifier[7..-2]
+  item.identifier.to_s[7..-2]
 end
 
-compile '/atom' do
+compile '/atom.*' do
   filter :erb
 end
-route '/atom' do
-  '/atom.xml'
+route '/atom.*' do
+  item.identifier.without_exts + '.xml'
 end
 
-compile '/CNAME/' do
+compile '/CNAME' do
 end
-route '/CNAME/' do
-  item.identifier.chop
+route '/CNAME' do
+  item.identifier.to_s
 end
 
-compile '*' do
+compile '/static/**/*' do
+end
+
+route '/static/**/*' do
+  # /static/foo.html → /foo.html
+  item.identifier.to_s.sub(/\A\/static/, '')
+end
+
+compile '/**/*' do
   if item[:extension] == 'md'
     filter :fenced_code_block
     filter :kramdown
-    layout 'default'
+    layout '/default.html'
   elsif item[:extension] == 'css'
     # don’t filter stylesheets
   elsif item.binary?
     # don’t filter binary items
   end
 end
-route '*' do
+route '/**/*' do
   if item[:extension] == 'css'
     # Write item with identifier /foo/ to /foo.css
-    item.identifier.chop + '.css'
+    item.identifier.without_ext + '.css'
   elsif item[:extension] == 'txt'
     # for humans.txt, robots.txt
-    item.identifier.chop + '.txt'
+    item.identifier.without_ext + '.txt'
   elsif item.binary?
     # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
+    item.identifier.to_s
   else
     # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+    item.identifier.without_ext + '/index.html'
   end
 end
 
-layout '/pagination_page/', :erb
-layout '*', :erb
+layout '/pagination_page.erb', :erb
+layout '/**/*', :erb
