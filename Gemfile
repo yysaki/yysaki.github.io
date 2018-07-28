@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'nanoc', '= 3.7.3'
+gem 'nanoc'
 
 gem 'adsf'
 gem 'compass'
