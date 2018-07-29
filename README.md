@@ -9,7 +9,7 @@
 
     cd $DIR
     bundle exec nanoc // compile
-    bundle exec nanoc view // http://localhost:3000/
+    bundle exec nanoc view -o 0.0.0.0 // http://localhost:3000/
 
 ### guard
 
