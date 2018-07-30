@@ -20,12 +20,12 @@ preprocess do
 end
 compile '/blog/archive/**/*' do
   filter :erb
-  layout '/default.html'
+  layout '/default.*'
 end
 
 compile '/index.*' do
   filter :erb
-  layout '/default.html'
+  layout '/default.*'
 end
 route '/index.*' do
   item.identifier.without_exts + '.html'
@@ -53,8 +53,8 @@ end
 compile '/posts/**/*' do
   filter :fenced_code_block
   filter :kramdown
-  layout '/article.html.erb'
-  layout '/default.html'
+  layout '/article.*'
+  layout '/default.*'
 end
 route '/posts/**/*' do
   post_url(item, has_extension: true)
@@ -93,7 +93,7 @@ compile '/**/*' do
   if item[:extension] == 'md'
     filter :fenced_code_block
     filter :kramdown
-    layout '/default.html'
+    layout '/default.*'
   elsif item[:extension] == 'css'
     # don’t filter stylesheets
   elsif item.binary?
