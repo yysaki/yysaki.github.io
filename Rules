@@ -89,16 +89,4 @@ route '/static/**/*' do
   item.identifier.to_s.sub(/\A\/static/, '')
 end
 
-compile '/**/*' do
-  if item[:extension] == 'md'
-    filter :fenced_code_block
-    filter :kramdown
-    layout '/default.*'
-  elsif item[:extension] == 'css'
-    # don’t filter stylesheets
-  elsif item.binary?
-    # don’t filter binary items
-  end
-end
-
 layout '/**/*.erb', :erb
