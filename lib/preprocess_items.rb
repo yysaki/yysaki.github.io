@@ -11,7 +11,7 @@ def paginate_articles
     last  = (i + 1) * 5
 
     @items.create(
-      "<%= render '/pagination_page.erb', :item_id => #{i} %>",
+      "<%= render '/pagination_page.*', :item_id => #{i} %>",
       { :title => "Archive (articles #{first} to #{last})" },
       "/blog/archive/#{i + 1}"
     )
