@@ -79,6 +79,7 @@ route '/CNAME' do
   item.identifier.to_s
 end
 passthrough '/humans.txt'
+passthrough '/robots.txt'
 
 compile '/static/**/*' do
 end
