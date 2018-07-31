@@ -100,20 +100,5 @@ compile '/**/*' do
     # don’t filter binary items
   end
 end
-route '/**/*' do
-  if item[:extension] == 'css'
-    # Write item with identifier /foo/ to /foo.css
-    item.identifier.without_ext + '.css'
-  elsif item[:extension] == 'txt'
-    # for humans.txt, robots.txt
-    item.identifier.without_ext + '.txt'
-  elsif item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.to_s
-  else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier.without_ext + '/index.html'
-  end
-end
 
 layout '/**/*.erb', :erb
