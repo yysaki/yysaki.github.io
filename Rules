@@ -31,24 +31,19 @@ route '/index.*' do
   item.identifier.without_exts + '.html'
 end
 
-compile '/assets/stylesheets/**/*' do
+compile '/assets/stylesheets/**/*.{css,scss}' do
   filter :sass, Compass.sass_engine_options
 end
-route '/assets/stylesheets/**/*' do
+route '/assets/stylesheets/**/*.{css,scss}' do
   '/css/' + File.basename(item.identifier.without_ext) + '.css'
 end
 
-compile '/assets/javascripts/**/*' do
+compile '/assets/javascripts/**/*.{js}' do
   filter :uglify_js if ENV['NANOC_ENV'] == 'production'
 end
-route '/assets/javascripts/**/*' do
+route '/assets/javascripts/**/*.{js}' do
   '/js/' + File.basename(item.identifier.without_ext) + '.js'
 end
-
-# route '/**/index.*' do
-#   # /projects/index.md gets written to /projects/index.html
-#   item.identifier.without_ext + '.html'
-# end
 
 compile '/posts/**/*' do
   filter :fenced_code_block
