@@ -111,4 +111,4 @@ route '/**/*' do
   end
 end
 
-layout '/**/*.{erb,html}', :erb
+layout '/**/*.erb', :erb
