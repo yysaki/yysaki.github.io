@@ -73,11 +73,7 @@ route '/atom.*' do
   item.identifier.without_exts + '.xml'
 end
 
-compile '/CNAME' do
-end
-route '/CNAME' do
-  item.identifier.to_s
-end
+passthrough '/CNAME'
 passthrough '/humans.txt'
 passthrough '/robots.txt'
 
