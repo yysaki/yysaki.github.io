@@ -78,6 +78,7 @@ end
 route '/CNAME' do
   item.identifier.to_s
 end
+passthrough '/humans.txt'
 
 compile '/static/**/*' do
 end
