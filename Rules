@@ -31,8 +31,7 @@ compile '/index.*' do
 end
 
 compile '/posts/**/*' do
-  filter :fenced_code_block
-  filter :kramdown
+  filter :kramdown, input: :GFM
   layout '/article.*'
   layout '/default.*'
   write post_url(item, has_extension: true)
