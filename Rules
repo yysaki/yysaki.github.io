@@ -56,7 +56,7 @@ end
 
 compile '/atom.*' do
   filter :erb
-  write item.identifier.without_exts + '.xml'
+  write ext: 'xml'
 end
 
 passthrough '/CNAME'
