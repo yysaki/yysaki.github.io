@@ -30,6 +30,14 @@ compile '/index.*' do
   write item.identifier.without_exts + '.html'
 end
 
+compile '/posts/**/*' do
+  filter :fenced_code_block
+  filter :kramdown
+  layout '/article.*'
+  layout '/default.*'
+  write post_url(item, has_extension: true)
+end
+
 compile '/assets/stylesheets/**/*.{css,scss}' do
   filter :sass, Compass.sass_engine_options
   write '/css/' + item.identifier.without_ext.sub(/\A\/assets\/stylesheets/, '') + '.css'
@@ -38,14 +46,6 @@ end
 compile '/assets/javascripts/**/*.{js}' do
   filter :uglify_js if ENV['NANOC_ENV'] == 'production'
   write '/js/' + item.identifier.without_ext.sub(/\A\/assets\/javascripts/, '') + '.js'
-end
-
-compile '/posts/**/*' do
-  filter :fenced_code_block
-  filter :kramdown
-  layout '/article.*'
-  layout '/default.*'
-  write post_url(item, has_extension: true)
 end
 
 # for static assets, e.g. /static/images/search.png to output/images/search.png
