@@ -32,12 +32,12 @@ end
 
 compile '/assets/stylesheets/**/*.{css,scss}' do
   filter :sass, Compass.sass_engine_options
-  write '/css/' + File.basename(item.identifier.without_ext) + '.css'
+  write '/css/' + item.identifier.without_ext.sub(/\A\/assets\/stylesheets/, '') + '.css'
 end
 
 compile '/assets/javascripts/**/*.{js}' do
   filter :uglify_js if ENV['NANOC_ENV'] == 'production'
-  write'/js/' + File.basename(item.identifier.without_ext) + '.js'
+  write '/js/' + item.identifier.without_ext.sub(/\A\/assets\/javascripts/, '') + '.js'
 end
 
 compile '/posts/**/*' do
@@ -51,7 +51,7 @@ end
 # for static assets, e.g. /static/images/search.png to output/images/search.png
 compile '/assets/**/*' do
   # /assets/foo.html/ => /foo.html
-  write item.identifier.to_s[7..-2]
+  write item.identifier.to_s.sub(/\A\/assets/, '')
 end
 
 compile '/atom.*' do
