@@ -48,9 +48,7 @@ compile '/assets/javascripts/**/*.{js}' do
   write '/js/' + item.identifier.without_ext.sub(/\A\/assets\/javascripts/, '') + '.js'
 end
 
-# for static assets, e.g. /static/images/search.png to output/images/search.png
 compile '/assets/**/*' do
-  # /assets/foo.html/ => /foo.html
   write item.identifier.to_s.sub(/\A\/assets/, '')
 end
 
@@ -64,7 +62,6 @@ passthrough '/humans.txt'
 passthrough '/robots.txt'
 
 compile '/static/**/*' do
-  # /static/foo.html → /foo.html
   write item.identifier.to_s.sub(/\A\/static/, '')
 end
 
