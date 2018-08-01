@@ -21,31 +21,23 @@ end
 compile '/blog/archive/**/*' do
   filter :erb
   layout '/default.*'
-end
-route '/blog/archive/**/*' do
-  item.identifier.without_ext + '/index.html'
+  write item.identifier.without_ext + '/index.html'
 end
 
 compile '/index.*' do
   filter :erb
   layout '/default.*'
-end
-route '/index.*' do
-  item.identifier.without_exts + '.html'
+  write item.identifier.without_exts + '.html'
 end
 
 compile '/assets/stylesheets/**/*.{css,scss}' do
   filter :sass, Compass.sass_engine_options
-end
-route '/assets/stylesheets/**/*.{css,scss}' do
-  '/css/' + File.basename(item.identifier.without_ext) + '.css'
+  write '/css/' + File.basename(item.identifier.without_ext) + '.css'
 end
 
 compile '/assets/javascripts/**/*.{js}' do
   filter :uglify_js if ENV['NANOC_ENV'] == 'production'
-end
-route '/assets/javascripts/**/*.{js}' do
-  '/js/' + File.basename(item.identifier.without_ext) + '.js'
+  write'/js/' + File.basename(item.identifier.without_ext) + '.js'
 end
 
 compile '/posts/**/*' do
@@ -53,24 +45,18 @@ compile '/posts/**/*' do
   filter :kramdown
   layout '/article.*'
   layout '/default.*'
-end
-route '/posts/**/*' do
-  post_url(item, has_extension: true)
+  write post_url(item, has_extension: true)
 end
 
 # for static assets, e.g. /static/images/search.png to output/images/search.png
 compile '/assets/**/*' do
-end
-route '/assets/**/*' do
   # /assets/foo.html/ => /foo.html
-  item.identifier.to_s[7..-2]
+  write item.identifier.to_s[7..-2]
 end
 
 compile '/atom.*' do
   filter :erb
-end
-route '/atom.*' do
-  item.identifier.without_exts + '.xml'
+  write item.identifier.without_exts + '.xml'
 end
 
 passthrough '/CNAME'
@@ -78,11 +64,8 @@ passthrough '/humans.txt'
 passthrough '/robots.txt'
 
 compile '/static/**/*' do
-end
-
-route '/static/**/*' do
   # /static/foo.html → /foo.html
-  item.identifier.to_s.sub(/\A\/static/, '')
+  write item.identifier.to_s.sub(/\A\/static/, '')
 end
 
 layout '/**/*.erb', :erb
