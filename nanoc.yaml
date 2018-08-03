@@ -32,6 +32,7 @@ prune:
 deploy:
   default:
     kind: git
+    remote: git@github.com:yysaki/yysaki.github.io.git
     branch: master
 
 # The data sources where nanoc loads its data from. This is an array of
