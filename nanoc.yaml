@@ -29,6 +29,11 @@ prune:
   # .git, .svn etc.
   exclude: [ '.git' ]
 
+deploy:
+  default:
+    kind: git
+    branch: master
+
 # The data sources where nanoc loads its data from. This is an array of
 # hashes; each array element represents a single data source. By default,
 # there is only a single data source that reads data from the “content/” and
