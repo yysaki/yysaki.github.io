@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yysaki blog - Archive (articles 6 to 10)</title>
+    <link rel="stylesheet" href="/css/app.css"/>
+    <link rel="stylesheet" href="/css/prism.css"/>
+    <link rel="alternate" type="application/atom+xml" href="/atom" title="yysaki blog">
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/prism.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-48038483-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Ported from http://zurb.com/blog -->
+    <header class="interior-header green">
+      <div class="row">
+        <div class="medium-12 medium-centered centered-text columns">
+          <h1>
+            <a class="centered-text light" href="/">yysaki blog</a>
+          </h1>
+          <nav>
+            <ul class="subnav hide-for-small">
+              <li><a href="/">Home</a></li>
+              <li class="with-input">
+                <form action="https://google.com/search" method="get">
+                  <input type="hidden" name="cx" value="004581985367838202738:guvugwiuerc"/>
+                  <input class="input-text" type="text" name="q" placeholder="Search"/>
+                </form>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="large-8 medium-7 columns">
+        <main role="main">
+        
+
+  <h1>『シェル操作課題 』をシェルで解きなおす</h1>
+  <p>以前解いた<a href="http://yysaki.com/blog/archives/79">『シェル操作課題 』をRubyのワンライナーで解いてみた</a> の問題をunixコマンドのみで解き直した。</p>
+
+<script src="https://gist.github.com/yysaki/5310298.js">{}</script>
+
+<ul>
+  <li><code>uniq -c</code>で重複した数をカウント出来る</li>
+  <li><code>sort</code>の<code>-k</code>オプションを同時に指定することで第一指定順、第二指定順でソート出来る</li>
+</ul>
+
+
+
+  <h1>MacOSX Cisco VPNClient対策</h1>
+  <h3 id="状況">状況</h3>
+
+<ul>
+  <li>macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず
+    <ul>
+      <li>ciscoは32bitのみサポートしている</li>
+      <li>ネットのmacユーザにはciscoを避ける向きがあるようだ</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="対策">対策</h3>
+
+<ul>
+  <li>OSを常に32bitカーネルとして起動する
+    <ul>
+      <li>搭載メモリは今のところ4GB以内のため被害は少ないと判断</li>
+      <li>“sudo systemsetup -setkernelbootarchitecture i386″を実行する</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="参考url">参考URL</h3>
+
+<ul>
+  <li><a href="http://forums.macrumors.com/archive/index.php/t-1110046.html">同症状とその対策</a></li>
+  <li><a href="https://discussions.apple.com/thread/3077376?start=0&amp;tstart=0">Cisco VPN Client lacks 64 bit Support</a></li>
+  <li><a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP">32bit化手順</a></li>
+</ul>
+
+
+
+  <h1>WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する</h1>
+  <p>“wordpress Markdown on Save Improved”プラグインをインストールする際に躓いた点を記事にしました。  <br />
+(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)</p>
+
+<p>以前このブログについて <a href="http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%97%E3%83%AC%E3%82%B9/wordpress%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%BC%B7%E5%8C%96/">WordPressのセキュリティを徹底強化 – CSSPRO</a> という記事を参考にセキュリティ強化を行ったのですが、プラグインの新規追加をダッシュボード上で行おうとした際に</p>
+
+<pre><code>  ディレクトリを作成できませんでした。 /xxx/xxx/xxxx/wp-content/upgrade/markdown-on-save-improved.tmp/markdown-on-save-improved
+</code></pre>
+
+<p>というエラーが出てしまう問題に遭遇しました。</p>
+
+<p>試しにwp-content以下全てのディレクトリのパーミッションを777に変更しても状況は変わりませんでした。  <br />
+似たような症状がないかwebを検索すると <a href="http://webcache.googleusercontent.com/search?q=cache:KWw6ipeQ-4kJ:openpne3.biz/category/%E6%9C%AA%E5%88%86%E9%A1%9E/+&amp;cd=1&amp;hl=ja&amp;ct=clnk">この記事</a>を発見し、そこでは”AskApache Password Protect”プラグインが原因になっていました。  <br />
+そこでセキュリティ強化の際インストールした”AskApache Password Protect”プラグインを一時停止してみると、プラグインの新規追加が無事行えました。</p>
+
+<p>セキュリティ強化の記事では、wp-adminの保護のため”AskApache Password Protect”導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。  <br />
+今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。</p>
+
+
+
+  <h1>GithubのプロジェクトをCruiseControlで自動ビルドしてみた</h1>
+  <p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
+
+<p><img src="/images/CC_dashboard.png" alt="ダッシュボード" /></p>
+
+<p>継続的インテグレーションツールである<a href="http://cruisecontrol.sourceforge.net/">Cruisecontrol</a>(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。</p>
+
+<p>今回の環境は、マシンをUbuntu 10.04.4 LTS, CCを<a href="http://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/">cruisecontrol-bin-2.8.4.zip</a>、ビルドターゲットを僕の作った<a href="https://github.com/yysaki/MyJavaTetris">MyJavaTetris</a>とします。</p>
+
+<p>目標はソフトウェア開発に役立てるというよりもCCを回すことであるので、手段と目的が逆になっている気もしますがこれも勉強の一つです。</p>
+
+<p>ちなみに上の画像は、CCのdashboardで実際に表示されるページのスクリーンショットです。</p>
+
+<div>
+</div>
+
+<div>
+  以下手順です。
+</div>
+
+<p>本書の手順にあるスクリプトの情報は古く動作しなかったため、<a href="http://cruisecontrol.sourceforge.net/gettingstartedsourcedist.html">公式HPのGettingStarted</a>を参考にしました。</p>
+
+<div>
+  <h1>
+    CCのインストール
+  </h1>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+  CCをインストールして/opt/cruisecontrol/ に配置します。
+</div>
+
+<div>
+</div>
+
+<blockquote>
+  <p>wget http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip</p>
+
+  <p>unzip cruisecontrol-bin-2.8.4.zip</p>
+
+  <p>mv cruisecontrol-bin-2.8.4 /opt/cruisecontrol/</p>
+</blockquote>
+
+<div>
+</div>
+
+<div>
+  ついでに.bashrcにPATHを通しておきます。
+</div>
+
+<div>
+</div>
+
+<blockquote>
+  <div>
+  echo &#8220;export PATH=$PATH:/opt/cruisecontrol&#8221; &gt;&gt; ~/.bashrc
+</div>
+
+  <div>
+  source ~/.bashrc
+</div>
+</blockquote>
+
+<div>
+</div>
+
+<div>
+  この手順の後、カレントディレクトリを/opt/cruisecontrol/に指定してcruisecontrol.shを実行することでCCの動作確認ができます。
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<h1 id="githubプロジェクトの設定">Githubプロジェクトの設定</h1>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+  続いて自分のGitHubプロジェクトをCCのビルドループに追加する手順です。
+</div>
+
+<div>
+  今回、作業ディレクトリを /work/cc/に置くこととして、必要なディレクトリを作成していきます。
+</div>
+
+<div>
+</div>
+
+<blockquote>
+  <div>
+  cd /work/cc
+</div>
+
+  <div>
+  mkdir projects artifacts logs
+</div>
+</blockquote>
+
+<div>
+</div>
+
+<div>
+  次に、/work/cc/下に必要なスクリプトを二つ作成します。
+</div>
+
+<div>
+  一つ目はconfig.xmlです。このファイルによってCCのビルドループが設定されます。
+</div>
+
+<div>
+    <pre class="brush: xml; title: ; notranslate" title="">
+&lt;cruisecontrol&gt;
+  &lt;project name="MyJavaTetris" buildafterfailed="true"&gt;
+    &lt;listeners&gt;
+      &lt;currentbuildstatuslistener
+        file="logs/MyJavaTetris/status.txt"/&gt;
+    &lt;/listeners&gt;
+
+    &lt;!-- Bootstrappers are run every time the build runs,
+                                                 *before* the modification checks --&gt;
+    &lt;bootstrappers&gt;
+    &lt;/bootstrappers&gt;
+
+    &lt;!-- Defines where CruiseControl looks for changes, to decide
+                            whether to run the build --&gt;
+    &lt;modificationset quietperiod="10"&gt;
+      &lt;cvs localworkingcopy="projects/MyJavaTetris"/&gt;
+    &lt;/modificationset&gt;
+
+    &lt;!-- Configures the actual build loop, how often and which
+                                  build file/target --&gt;
+    &lt;schedule interval="60"&gt;
+      &lt;ant buildfile="build-MyJavaTetris.xml"
+        uselogger="true"/&gt;
+    &lt;/schedule&gt;
+
+    &lt;!-- directory to write build logs to --&gt;
+    &lt;log/&gt;
+
+    &lt;!-- Publishers are run *after* a build completes --&gt;
+    &lt;publishers&gt;
+    &lt;/publishers&gt;
+  &lt;/project&gt;
+&lt;/cruisecontrol&gt;
+</pre>
+</div>
+
+<div>
+</div>
+
+<div>
+  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、<a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/">この記事</a>を参考にgitコマンドをmacrodefしています。&lt;/p&gt; <pre class="brush: xml; title: ; notranslate" title="">
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;project name="build-MyJavaTetris" default="build" basedir="projects"&gt;
+  &lt;target name="build"&gt;
+    &lt;macrodef name = "git"&gt;
+      &lt;attribute name = "command" /&gt;
+      &lt;attribute name = "dir" default = "" /&gt;
+      &lt;element name = "args" optional = "true" /&gt;
+      &lt;sequential&gt;
+        &lt;echo message = "git @{command}" /&gt;
+        &lt;exec executable = "git" dir = "@{dir}"&gt;
+          &lt;arg value = "@{command}" /&gt;
+          &lt;args/&gt;
+        &lt;/exec&gt;
+      &lt;/sequential&gt;
+    &lt;/macrodef&gt;
+
+    &lt;delete dir="MyJavaTetris" /&gt;
+    &lt;git command ="clone"&gt;
+      &lt;args&gt;
+        &lt;arg value ="ssh://git@github.com:22/yysaki/MyJavaTetris.git"/&gt;
+      &lt;/args&gt;
+    &lt;/git&gt;
+    &lt;ant antfile="build.xml" dir="MyJavaTetris" target="build" /&gt;
+    &lt;!-- nazo no error &lt;ant antfile="build.xml" dir="MyJavaTetris" target="test" /&gt; --&gt;
+  &lt;/target&gt;
+&lt;/project&gt;
+</pre>
+  
+  <p>
+    これで設定は全て完了です。
+  </p>
+  
+  <p>
+    /work/cc/下でcruisecontrol.shを実行するとMyJavaTetrisの自動ビルドが行われます。
+  </p>
+  
+  <p>
+    後はずっと放置しておけばCCさんが必要なタイミングでプロジェクトの自動ビルドを行います。
+  </p>
+  
+  <p>
+    リポジトリにコミットした時などにhttp://localhost:8080/にアクセスして動作をニヤニヤ監視しましょう。
+  </p>
+  
+  <p>
+    以上です。
+  </p>
+</div>
+
+
+
+  <h1>『シェル操作課題 』をRubyのワンライナーで解いてみた</h1>
+  <p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
+
+<p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。  <br />
+Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
+
+<h3 id="問1">問1</h3>
+
+<blockquote>
+  <p>ruby -pe ” data</p>
+</blockquote>
+
+<p>-eオプションでスクリプトモード, -pオプションで”while gets{/* code */ puts $_}”としてコード片を実行する。</p>
+
+<p>この場合 コード片は空なのでファイルを一列ずつputsするのみです。</p>
+
+<h3 id="問2">問2</h3>
+
+<blockquote>
+  <p>ruby -F, -ane ‘puts “#{$F[0]},#{$F[3]}”‘ data</p>
+</blockquote>
+
+<p>-n オプションは-p のputs $_を削ったもの。</p>
+
+<p>-aは”auto aplit”の頭文字、$_.splitの結果が配列として$F変数に代入される。</p>
+
+<p>-F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK</p>
+
+<h3 id="問3">問3</h3>
+
+<blockquote>
+  <p>ruby -F, -ane ‘puts $_ if $F[0]==”server4″‘ data</p>
+</blockquote>
+
+<h3 id="問4">問4</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -ne ‘i</td>
+        <td> </td>
+        <td>=0; i+=1; END{ puts i }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<table>
+  <tbody>
+    <tr>
+      <td>注目は”</td>
+      <td> </td>
+      <td>=”演算子とENDキーワードの二つ。</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>“</td>
+      <td> </td>
+      <td>=”はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>上の式の場合”i = i</td>
+      <td> </td>
+      <td>0″と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。</p>
+
+<h3 id="問5">問5</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -F, -ane ‘a</td>
+        <td> </td>
+        <td>= []; a « $F; END{a.sort{</td>
+        <td>x, y</td>
+        <td>x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to_i &lt;=&gt; y[2].to_i}.[](0,5).each{</td>
+        <td>b</td>
+        <td>puts “#{b[0]},#{b<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>},#{b[2]},#{b[3]}”} }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。</p>
+
+<p>この辺からセミコロンが増えて、ワンライナーというには少し苦しいかも。</p>
+
+<h3 id="問6">問6</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -ne ‘a</td>
+        <td> </td>
+        <td>= []; a « $_ unless a.index($_); END{ puts a.size }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="問7">問7</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -F, -ane ‘a</td>
+        <td> </td>
+        <td>= []; a « $F[2] unless a.index($F[2]); END{ puts a.size }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="問8">問8</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -F, -ane ‘h</td>
+        <td> </td>
+        <td>= {}; h.default = 0; h[$F[3]] += 1; END{ a = h.to_a.sort{</td>
+        <td>x, y</td>
+        <td>y<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a> &lt;=&gt; x<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>}.[](0); puts “#{a<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>} #{a[0]}” }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>Hashオブジェクトはdefault属性を設定することで初期値を設定できる。</p>
+
+<h3 id="問9">問9</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -F, -ane ‘h</td>
+        <td> </td>
+        <td>= {}; h.default = 0; h[$F[0].gsub(/server/, “xxx”)] += 1; END{ h.to_a.sort{</td>
+        <td>x, y</td>
+        <td>x[0] &lt;=&gt; y[0]}.each{</td>
+        <td>l, r</td>
+        <td>puts “#{r} #{l}”} }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="問10">問10</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>ruby -F, -ane ‘a</td>
+        <td> </td>
+        <td>= []; n = $F[2].to_i; a « n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }’ data</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p> </p>
+
+<p> </p>
+
+<p>以上。</p>
+
+<p>sed, awkなどunix伝統の文字列処理に慣れてないので、スクリプト言語一つ勉強しておくだけでこういった処理が書けるのはいいですね</p>
+
+
+
+
+        </main>
+      </div>
+
+      <div class="large-4 medium-5 columns">
+        <aside class="sidebar">
+          <div class="about">
+            <h1>About Me</h1>
+            <ul class="side-nav">
+              <li role="menuitem"><a href="http://twitter.com/yysaki">@yysaki on Twitter</a></li>
+              <li role="menuitem"><a href="http://github.com/yysaki">@yysaki on Github</a></li>
+            </ul>
+          </div>
+
+          
+
+<div class="recent">
+  <h1>Recent Posts</h1>
+  <ul class="side-nav">
+    
+      <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
+    
+      <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
+    
+      <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
+    
+      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
+    
+      <li role="menuitem"><a href="/blog/2013/12/14/blockdiag/">blockdiagのエラーを解決できず&#8230;</a></li>
+    
+  </ul>
+</div>
+
+
+          <div class="twitter">
+            <h1>Timeline</h1>
+            <a class="twitter-timeline" href="https://twitter.com/yysaki" data-widget-id="435964636265844738">@yysakiさんのツイート</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/foundation.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

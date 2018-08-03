@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
+  <id>http://www.yysaki.com//</id>
+  <title>yysaki blog</title>
+  <updated>2017-11-05T00:00:00Z</updated>
+  <link rel="alternate" href="http://www.yysaki.com//"/>
+  <link rel="self" href="http://www.yysaki.com//atom.xml"/>
+  <author>
+    <name>yysaki</name>
+    <uri>http://www.yysaki.com/</uri>
+  </author>
+  <entry>
+    <id>tag:www.yysaki.com,2017-11-05://blog/2017/11/05/vimconf2017/</id>
+    <title type="html">#VimConf2017 に参加した話</title>
+    <published>2017-11-05T00:00:00Z</published>
+    <updated>2017-11-05T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2017/11/05/vimconf2017/"/>
+    <content type="html">&lt;p&gt;昨日 &lt;a href="http://vimconf.vim-jp.org/2017/"&gt;VimConf2017&lt;/a&gt; に参加してきました。&lt;br /&gt;
+ブログを書くのはしばらくぶりですが、ブログ記事を書くまでがVimConfということなので書きます。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="雑感"&gt;雑感&lt;/h2&gt;
+
+&lt;p&gt;VimConf は &lt;code&gt;An international Vim Conference&lt;/code&gt; とあり、英語onlyの発表だったり日本語の発表でもスライドが英語で作られていたり、Vim熱を感じました。 英語の勉強にと僕は借りなかったのですが、日英同時通訳ありのレシーバーの貸し出しもありました。TwitterのTLを見ていると &lt;a href="https://twitter.com/ujm"&gt;@ujm&lt;/a&gt; さんの英日翻訳がとても面白かったらしく, 会場内では不定期に笑いが起こっていました。&lt;/p&gt;
+
+&lt;p&gt;会場はノベルティ、Wi-Fi、個人用コンセントだけでなく、コーヒーあり、お弁当あり、懇親会まで参加できるという至れりつくせりでした。 個人的にはtwitterアイコンが印刷された名札をもらえたのがとても嬉しかったです。 Meguro.vim に今後行くことがあればつけていきたい。&lt;/p&gt;
+
+&lt;h2 id="発表"&gt;発表&lt;/h2&gt;
+&lt;p&gt;発表のセッションは下記のリンクにまとめたように盛りだくさんでしたが、どれも刺激的かつ内容に被りがなかったところにvimの懐の広さを感じました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/14pViuMI_X_PiNwQD8nuGRG72GUqSeKDqoJqjAZWS39U"&gt;Vim, Me and Community&lt;/a&gt; &lt;a href="https://twitter.com/haya14busa"&gt;@haya14busa&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/farslan/the-past-and-future-of-vim-go"&gt;The Past and Future of Vim-go&lt;/a&gt;&lt;br /&gt;
+&lt;a href="https://twitter.com/fatih"&gt;@fatih&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;Vim鼎談 &lt;a href="https://twitter.com/mattn_jp"&gt;@mattn_jp&lt;/a&gt; さん、 &lt;a href="https://twitter.com/k_takata"&gt;@k_takata&lt;/a&gt; さん、 &lt;a href="https://twitter.com/kaoriya"&gt;@kaoriya&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/cocopon/creating-your-lovely-color-scheme"&gt;Creating your lovely color scheme&lt;/a&gt; &lt;a href="https://twitter.com/cocopon"&gt;@cocopon&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://qiita.com/t9md/items/236d09fea9bcdfabdcea"&gt;vim-mode-plus: The most ambitious vim emulator in the world&lt;/a&gt; &lt;a href="https://twitter.com/t9md"&gt;@t9md&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://lamsh.github.io/slide/2017/20171104_VimConf2017/index.html"&gt;Vim and Compatibility&lt;/a&gt;&lt;br /&gt;
+&lt;a href="https://twitter.com/senopen"&gt;@senopen&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.slideshare.net/Shougo/neosnippetvim-deoppetnvim-in-vim-conf-2017"&gt;neosnippet.vim + deoppet.nvim&lt;/a&gt; &lt;a href="https://twitter.com/ShougoMatsu"&gt;@ShougoMatsu&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/daisuzu/how-ordinary-vim-user-contributed-to-vim"&gt;How ordinary Vim user contributed to Vim&lt;/a&gt; &lt;a href="https://twitter.com/dice_zu"&gt;@dice_zu&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/pocke/the-new-syntax-highlighter-for-vim"&gt;The new syntax highlighter for Vim&lt;/a&gt; &lt;a href="https://twitter.com/p_ck_"&gt;@p_ck_ &lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://lambdalisue.github.io/vimconf2017/assets/player/KeynoteDHTMLPlayer.html#0"&gt;You’ve been Super Viman. After this talk, you could say you are Super Viman 2 – Life with gina.vim&lt;/a&gt; &lt;a href="https://twitter.com/lambdalisue"&gt;@lambdalisue&lt;/a&gt; さん&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;個人的によかったのは haya14busa さん、dice_zuさんの発表です。&lt;/p&gt;
+
+&lt;p&gt;haya14busaさんのキーノートはhaya14busaさん自身の経歴を振り返り、どうVimコミュニティに関わってきたかでした。 本家の開発が止まっていたEasyMotion をフォークして修正していたところ本家のcollaboratorになり。 incsearch.vim をvimプラグインとして開発していたところついにvim本家の機能としてパッチに取りこまれたり。順々とキャリアを積み上げていくスタイルがかっこいいと思いました。&lt;br /&gt;
+発表資料も作りこまれていて、 &lt;a href="https://docs.google.com/presentation/d/14pViuMI_X_PiNwQD8nuGRG72GUqSeKDqoJqjAZWS39U/edit#slide=id.g2a8159af5b_1_160"&gt;Diversity of Vim community - Type of Vim users&lt;/a&gt; のネタは秀逸でした。&lt;/p&gt;
+
+&lt;p&gt;次にdice_zuさんの発表、 &lt;code&gt;ordinary&lt;/code&gt; なVimユーザーがvimにcontributeするとは、という話です。 自分も普通のユーザーなので, バグを見つけてCのコードーベースから原因を特定し、vim-dev にパッチを送る、というまではすごく高いハードルに見えます。ですがdice_zuさんによれば、必要なのは &lt;code&gt;a great passion&lt;/code&gt; だけ。 毎日最新のvimをビルドすること、職場でのVimトークをすることで何かしらイシューは発見できる。 懇親会でもお話させてもらい、その姿勢だけでも十分 &lt;code&gt;ordinary&lt;/code&gt; として強いと思いましたが、最新のvimにキャッチアップするのは良いと思うので、まずそこから真似していきたいなと思います。&lt;/p&gt;
+
+&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;他にもVim界のレジェンドであるmattn_jpさん、k_takataさん、kaoriyaさんらのVim鼎談など、聞いててためになる情報密度の高い発表が盛りだくさんでした。&lt;/p&gt;
+
+&lt;p&gt;まだまだ消化不良なので、今日はのんびりVimConfの余韻に浸かっていようと思います。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2014-02-12://blog/2014/02/12/octopress-as-a-tracer-bullet/</id>
+    <title type="html">octopress as a tracer bullet</title>
+    <published>2014-02-12T00:00:00Z</published>
+    <updated>2014-02-12T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/12/octopress-as-a-tracer-bullet/"/>
+    <content type="html">&lt;p&gt;一旦ブログをoctopressで立ち上げたは言いものの、&lt;a href="https://twitter.com/kana1"&gt;@kana&lt;/a&gt;さんより&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;&lt;a href="https://twitter.com/yysaki"&gt;@yysaki&lt;/a&gt; ほしのかずほどありますね! &lt;a href="http://t.co/cnDApQUMHV"&gt;http://t.co/cnDApQUMHV&lt;/a&gt; Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete)…部実装も面白いですね。&lt;/p&gt;&amp;mdash; Kana Natsuno (@kana1) &lt;a href="https://twitter.com/kana1/statuses/432530023648485378"&gt;2014, 2月 9&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;とコメントを頂戴したので、色々とRuby製の静的サイトジェネレータについて調べました。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="ツール選び"&gt;ツール選び&lt;/h2&gt;
+&lt;p&gt;自分のブログ作成における価値観は、以下のようになります。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;静的サイトジェネレータでGithub Pagesに運用の楽なブログを作る&lt;/li&gt;
+  &lt;li&gt;Markdownで記事を書きたい&lt;/li&gt;
+  &lt;li&gt;サクサクカスタマイズ出来てそれなりの見栄えなブログを作りたい
+    &lt;ul&gt;
+      &lt;li&gt;octopressのリキッドレイアウトとかかっこいいよね！&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;手慣れたRuby製ツール&lt;/li&gt;
+  &lt;li&gt;HP作りの勉強を兼ねるので魔術的要素が少なくコンパクトなフレームワークがいい&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;その中、候補としては、&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;nanoc&lt;/li&gt;
+  &lt;li&gt;jekyll(octopress)&lt;/li&gt;
+  &lt;li&gt;middleman&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あたりに絞られました。&lt;br /&gt;
+静的サイトジェネレータの比較は色々な記事が挙がっているので本記事では取り上げず、参考にしたリンクを下記に示すだけに留めます。&lt;br /&gt;
+この中でnanocがヘルパーメソッドを手作りしたり自分でブログの機能を作成する感が楽しそうです。&lt;br /&gt;
+octopressもとてもいいのですが、新しくカスタマイズする分には型にはまりすぎる印象があります。&lt;br /&gt;
+そのため将来的にはnanocを使ってみたいですね。&lt;/p&gt;
+
+&lt;h2 id="引っ越し"&gt;引っ越し&lt;/h2&gt;
+&lt;p&gt;しかしながらまずは引っ越し元のWordpressを荷下ろしを終わらせたいので、octopressでしばらく運用してみようと思います。&lt;br /&gt;
+自分なりのブログに対する要求分析がしっかりされてないので、どんな機能をnanocで作っていきたいかをoctopressで洗い出すのも重要ですし。&lt;/p&gt;
+
+&lt;p&gt;また、多少ながらカスタマイズとして、ブログコメントサービスのDisqusの導入やはてブボタンの設置など以下のリンクを参考にやってみました。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://morizyun.github.io/blog/octopress-hatena-disqus-new-tab/"&gt;5分でできる簡単 Octopress セッティング - 酒と泪とRubyとRailsと&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="結論"&gt;結論&lt;/h2&gt;
+&lt;p&gt;曳光弾としてoctopressに引っ越して要件を洗い出しつつ、将来的にはnanocでブログの自作をする方針で行こうと思います。&lt;/p&gt;
+
+&lt;h3 id="参考リンク"&gt;参考リンク&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://staticsitegenerators.net/"&gt;Static Site Generators&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[Nanoc以外の静的サイト生成ツールを調べてみた&lt;/td&gt;
+          &lt;td&gt;ひげろぐ](http://higelog.brassworks.jp/?p=2076)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://rubyredbricks.com/blog/2013/09/30/from-octopress-to-nanoc/"&gt;Ruby Red Bricks - From Octopress to nanoc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://n.blueblack.net/articles/2012-05-03_02_nanoc_getting_started/"&gt;nanoc導入メモ 1/5 「Getting Started」編 - ナレッジエース&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2014-02-09://blog/2014/02/09/octopress-from-wordpress/</id>
+    <title type="html">wordpressからoctopressへの引っ越し</title>
+    <published>2014-02-09T00:00:00Z</published>
+    <updated>2014-02-09T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/09/octopress-from-wordpress/"/>
+    <content type="html">&lt;p&gt;表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。&lt;/p&gt;
+
+&lt;p&gt;レイアウトやコメント欄などの調整は追々やっていきます。&lt;/p&gt;
+
+&lt;p&gt;今回参考にさせて頂いた記事一覧です。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/"&gt;OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ - 酒と泪とRubyとRailsと&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://nomnel.net/blog/wordpress-to-octopress/"&gt;WordpressからOctopressに移行する - 飲んだり寝たり&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2013-12-29://blog/2013/12/29/reading-built-pdf-by-skim/</id>
+    <title type="html">ビルドしたpdfをsshfsからSkimで読む</title>
+    <published>2013-12-29T00:00:00Z</published>
+    <updated>2013-12-29T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2013/12/29/reading-built-pdf-by-skim/"/>
+    <content type="html">&lt;p&gt;この度修論の開発環境を整えたのでブログ記事にしました。&lt;/p&gt;
+
+&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+
+&lt;p&gt;研究室マシンでtexを編集しているのですが、作業結果のPDFを手元で快適に確認したいのです。 そこで、開発方針を以下のように整えました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;研究室マシンでtexの編集、ビルドを行う。&lt;/li&gt;
+  &lt;li&gt;sshfsをマウントすることで研究室マシンにアクセスする。&lt;/li&gt;
+  &lt;li&gt;Skimでsshfs上のpdfを閲覧し、自動更新モードで変更を反映する。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;環境は以下のとおりです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ローカル: Mac OS X Mavericks、なるべくhomebrewを使う&lt;/li&gt;
+  &lt;li&gt;リモート: Linux、sshで接続&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="osxfuseのインストール"&gt;OSXFUSEのインストール&lt;/h2&gt;
+
+&lt;p&gt;まず下記URLからOSXFUSEをダウンロード、インストールします。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://sourceforge.net/projects/osxfuse/files/?source=navbar"&gt;FUSE for OS X – Browse Files at SourceForge.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;先にhomebrewでfuse–4x-kextを試したのですが、正しくsshfsを動作させられなかったのでこちらを採用です。&lt;/p&gt;
+
+&lt;h2 id="sshfsのインストール"&gt;sshfsのインストール&lt;/h2&gt;
+
+&lt;p&gt;以下のコマンドでインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ sudo brew link fuse4x
+    $ sudo brew install sshfs
+    $ sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
+    $ sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のコマンドでマウントします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ mkdir mnt
+    $ sshfs -p 22 [User]@[Host]:[Dir] mnt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;マウントが出来たかどうかはdfで確認出来ます。 またマウントを解除するには以下のコマンドです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ unmount mnt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="skimのインストール"&gt;Skimのインストール&lt;/h2&gt;
+
+&lt;p&gt;以下のURLからダウンロード出来ます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[Skim&lt;/td&gt;
+          &lt;td&gt;Home]&lt;a href="http://skim-app.sourceforge.net"&gt;2&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;自動更新を行うため「環境設定… &amp;gt; 同期する &amp;gt; ファイルの変更をチェック」をちぇっくします。&lt;/p&gt;
+
+&lt;h2 id="その他"&gt;その他&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;バージョン管理はgithubのプライベートリポジトリで行っています。修論目的であれば学生用アカウントを申請することで、無料でMicroプランに加入できました。
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://github.com/edu"&gt;Contact GitHub&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;エディタはvimを使用しています。以下のように.vimrcを設定すれば”&lt;Space&gt;q&amp;#8221;でtexのmake出来ます。&lt;/Space&gt;&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;NeoBundle 'thinca/vim-quickrun'
+silent! map &amp;lt;Space&amp;gt;q &amp;lt;Plug&amp;gt;(quickrun)
+let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;学生共用のマシンで作業してるので、負荷を考え自動ビルドはやめときました。自分でmakeコマンドを叩きたくない人はOcamlのOmakeやRubyのGuardを使うと良さげです。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;以上で修論の開発環境を整えました。 開発マシンでtexの編集を行い、ビルドするとSkimの自動更新が反応して新しいPDFを表示してくれます。 Vimで&lt;Space&gt;qすることでPDFのレビューまで自動化出来たので概ね満足な結果です. (但しSkimが反映されるまでに10秒程かかります。sshfsの限界&amp;#8230;)&lt;/Space&gt;&lt;/p&gt;
+
+&lt;h2 id="参考記事"&gt;参考記事&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://www.danielandrade.net/2013/10/28/mounting-a-filesystem-via-ssh-on-osx-mavericks/"&gt;Mounting a Filesystem via SSH on OSX Mavericks – DanielAndrade.net&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[Macでsshfsを使う&lt;/td&gt;
+          &lt;td&gt;yamaq blog]&lt;a href="http://mount-q.com/yamaqblog/?p=15899"&gt;5&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://macwiki.sourceforge.jp/wiki/index.php/Skim"&gt;MacWiki – Skim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2013-12-14://blog/2013/12/14/blockdiag/</id>
+    <title type="html">blockdiagのエラーを解決できず&amp;#8230;</title>
+    <published>2013-12-14T00:00:00Z</published>
+    <updated>2013-12-14T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2013/12/14/blockdiag/"/>
+    <content type="html">&lt;p&gt;&lt;a href="http://blockdiag.com/ja/blockdiag/"&gt;blockdiag&lt;/a&gt;を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の&lt;a href="https://twitter.com/tk0miya"&gt;@tk0miya&lt;/a&gt;さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。&lt;/p&gt;
+
+&lt;h2 id="環境"&gt;環境&lt;/h2&gt;
+
+&lt;p&gt;私の環境は以下の通りです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OS: mac OS X 10.9(Mavericks)&lt;/li&gt;
+  &lt;li&gt;Python: 2.7.5&lt;/li&gt;
+  &lt;li&gt;homebrew, easy_installを使ってインストール&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="インストール手順"&gt;インストール手順&lt;/h2&gt;
+
+&lt;p&gt;実際にblockdiagをインストールするために行った手順を記述します。&lt;/p&gt;
+
+&lt;p&gt;まずPILをインストールします。PILはfreetypes, zlib, libjpeg, libpngといったライブラリに依存するようなので、まずこれらのインストールから始めます。 freetypeに関しては&lt;a href="http://blockdiag.com/ja/blockdiag/introduction.html#macosx-homebrew"&gt;ここ&lt;/a&gt;を参考に /usr/local/Library/Formula/freetype2.rb を作成します。その後、以下の手順を行います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo brew install freeytype2 ibjepg libpng
+$ brew tap homebrew/dupes
+$ sudo brew install zlib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この時インストールしたzlibライブラリはPathに通らないため、手動でリンクを貼る必要があります。そのため /usr/local/ に /usr/local/Cellar/zlib/1.2.8/ 以下のlib, include内のファイルをシンボリックリンクを貼りました。&lt;/p&gt;
+
+&lt;p&gt;続いてPIL自体のインストール。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo easy_install pil
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SUMMARYは以下のようになり、zlibやfreetypeに対応されているように見えます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;--------------------------------------------------------------------
+PIL 1.1.7 SETUP SUMMARY
+--------------------------------------------------------------------
+version       1.1.7
+platform      darwin 2.7.5 (default, Aug 25 2013, 00:04:04)
+              [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)]
+--------------------------------------------------------------------
+--- TKINTER support available
+--- JPEG support available
+--- ZLIB (PNG/ZIP) support available
+--- FREETYPE2 support available
+*** LITTLECMS support not available
+--------------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最後にblockdiagのインストール。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo easy_install -mxN blockdiag
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;して、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ blockdiag --version
+blockdiag 1.3.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;のように、blockdiagをインストール出来ました。&lt;/p&gt;
+
+&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
+
+&lt;p&gt;以下のようなsimple.diagを生成しようとして見ると、エラーが発生します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    diagram admin {
+      top_page -&amp;gt; config -&amp;gt; config_edit -&amp;gt; config_confirm -&amp;gt; top_page;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;デバッグプリントは以下の通りです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ blockdiag simple.diag --debug
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/utils/bootstrap.py", line 36, in run
+    return self.build_diagram(parsed)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/command.py", line 42, in build_diagram
+    return super(BlockdiagApp, self).build_diagram(tree)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/utils/bootstrap.py", line 83, in build_diagram
+    drawer.save()
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/drawer.py", line 186, in save
+    return self.drawer.save(self.filename, size, self.format)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/imagedraw/filters/linejump.py", line 172, in save
+    return self.target.save(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/imagedraw/png.py", line 400, in save
+    self._image.save(self.filename, _format)
+  File "build/bdist.macosx-10.9-intel/egg/PIL/Image.py", line 1453, in save
+    save_handler(self, fp, filename)
+  File "build/bdist.macosx-10.9-intel/egg/PIL/PngImagePlugin.py", line 619, in _save
+    ImageFile._save(im, _idat(fp, chunk), [("zip", (0,0)+im.size, 0, rawmode)])
+  File "build/bdist.macosx-10.9-intel/egg/PIL/ImageFile.py", line 454, in _save
+    e = Image._getencoder(im.mode, e, a, im.encoderconfig)
+  File "build/bdist.macosx-10.9-intel/egg/PIL/Image.py", line 405, in _getencoder
+    raise IOError("encoder %s not available" % encoder_name)
+IOError: encoder zip not available
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="参考url"&gt;参考URL&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://blockdiag.com/ja/blockdiag/introduction.html"&gt;blockdiag の概要 — blockdiag 1.0 documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;[Python3.3対応画像処理ライブラリ Pillow(PIL) の使い方&lt;/td&gt;
+          &lt;td&gt;Librabuch]&lt;a href="http://librabuch.jp/2013/05/python_pillow_pil/"&gt;5&lt;/a&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://qiita.com/Jxck_/items/d329aa5c9b50519dcfaf"&gt;mac で spdylay の build もしくは homebrew と pkg-config – Qiita [キータ]&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;zlib周りを参考にさせて頂きました&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上です。&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2013-04-04://blog/2013/04/04/shell-operation-test-on-bash/</id>
+    <title type="html">『シェル操作課題 』をシェルで解きなおす</title>
+    <published>2013-04-04T00:00:00Z</published>
+    <updated>2013-04-04T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2013/04/04/shell-operation-test-on-bash/"/>
+    <content type="html">&lt;p&gt;以前解いた&lt;a href="http://yysaki.com/blog/archives/79"&gt;『シェル操作課題 』をRubyのワンライナーで解いてみた&lt;/a&gt; の問題をunixコマンドのみで解き直した。&lt;/p&gt;
+
+&lt;script src="https://gist.github.com/yysaki/5310298.js"&gt;{}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;uniq -c&lt;/code&gt;で重複した数をカウント出来る&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;sort&lt;/code&gt;の&lt;code&gt;-k&lt;/code&gt;オプションを同時に指定することで第一指定順、第二指定順でソート出来る&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2013-02-13://blog/2013/02/13/cisco-vpn-client-on-mac-os-x/</id>
+    <title type="html">MacOSX Cisco VPNClient対策</title>
+    <published>2013-02-13T00:00:00Z</published>
+    <updated>2013-02-13T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2013/02/13/cisco-vpn-client-on-mac-os-x/"/>
+    <content type="html">&lt;h3 id="状況"&gt;状況&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず
+    &lt;ul&gt;
+      &lt;li&gt;ciscoは32bitのみサポートしている&lt;/li&gt;
+      &lt;li&gt;ネットのmacユーザにはciscoを避ける向きがあるようだ&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="対策"&gt;対策&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;OSを常に32bitカーネルとして起動する
+    &lt;ul&gt;
+      &lt;li&gt;搭載メモリは今のところ4GB以内のため被害は少ないと判断&lt;/li&gt;
+      &lt;li&gt;“sudo systemsetup -setkernelbootarchitecture i386″を実行する&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="参考url"&gt;参考URL&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://forums.macrumors.com/archive/index.php/t-1110046.html"&gt;同症状とその対策&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://discussions.apple.com/thread/3077376?start=0&amp;amp;tstart=0"&gt;Cisco VPN Client lacks 64 bit Support&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP"&gt;32bit化手順&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2013-01-31://blog/2013/01/31/wordpress-permission-denied/</id>
+    <title type="html">WordPress セキュリティ強化後の&amp;#8221;ディレクトリを作成できませんでした。&amp;#8221;を解決する</title>
+    <published>2013-01-31T00:00:00Z</published>
+    <updated>2013-01-31T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2013/01/31/wordpress-permission-denied/"/>
+    <content type="html">&lt;p&gt;“wordpress Markdown on Save Improved”プラグインをインストールする際に躓いた点を記事にしました。  &lt;br /&gt;
+(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)&lt;/p&gt;
+
+&lt;p&gt;以前このブログについて &lt;a href="http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%97%E3%83%AC%E3%82%B9/wordpress%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%BC%B7%E5%8C%96/"&gt;WordPressのセキュリティを徹底強化 – CSSPRO&lt;/a&gt; という記事を参考にセキュリティ強化を行ったのですが、プラグインの新規追加をダッシュボード上で行おうとした際に&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ディレクトリを作成できませんでした。 /xxx/xxx/xxxx/wp-content/upgrade/markdown-on-save-improved.tmp/markdown-on-save-improved
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というエラーが出てしまう問題に遭遇しました。&lt;/p&gt;
+
+&lt;p&gt;試しにwp-content以下全てのディレクトリのパーミッションを777に変更しても状況は変わりませんでした。  &lt;br /&gt;
+似たような症状がないかwebを検索すると &lt;a href="http://webcache.googleusercontent.com/search?q=cache:KWw6ipeQ-4kJ:openpne3.biz/category/%E6%9C%AA%E5%88%86%E9%A1%9E/+&amp;amp;cd=1&amp;amp;hl=ja&amp;amp;ct=clnk"&gt;この記事&lt;/a&gt;を発見し、そこでは”AskApache Password Protect”プラグインが原因になっていました。  &lt;br /&gt;
+そこでセキュリティ強化の際インストールした”AskApache Password Protect”プラグインを一時停止してみると、プラグインの新規追加が無事行えました。&lt;/p&gt;
+
+&lt;p&gt;セキュリティ強化の記事では、wp-adminの保護のため”AskApache Password Protect”導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。  &lt;br /&gt;
+今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2012-09-20://blog/2012/09/20/github-by-cruisecontrol/</id>
+    <title type="html">GithubのプロジェクトをCruiseControlで自動ビルドしてみた</title>
+    <published>2012-09-20T00:00:00Z</published>
+    <updated>2012-09-20T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2012/09/20/github-by-cruisecontrol/"/>
+    <content type="html">&lt;p&gt;&lt;a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X"&gt;達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化&lt;/a&gt; に触発されて、Javaプロジェクトの自動テストにチャレンジしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CC_dashboard.png" alt="ダッシュボード" /&gt;&lt;/p&gt;
+
+&lt;p&gt;継続的インテグレーションツールである&lt;a href="http://cruisecontrol.sourceforge.net/"&gt;Cruisecontrol&lt;/a&gt;(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。&lt;/p&gt;
+
+&lt;p&gt;今回の環境は、マシンをUbuntu 10.04.4 LTS, CCを&lt;a href="http://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/"&gt;cruisecontrol-bin-2.8.4.zip&lt;/a&gt;、ビルドターゲットを僕の作った&lt;a href="https://github.com/yysaki/MyJavaTetris"&gt;MyJavaTetris&lt;/a&gt;とします。&lt;/p&gt;
+
+&lt;p&gt;目標はソフトウェア開発に役立てるというよりもCCを回すことであるので、手段と目的が逆になっている気もしますがこれも勉強の一つです。&lt;/p&gt;
+
+&lt;p&gt;ちなみに上の画像は、CCのdashboardで実際に表示されるページのスクリーンショットです。&lt;/p&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  以下手順です。
+&lt;/div&gt;
+
+&lt;p&gt;本書の手順にあるスクリプトの情報は古く動作しなかったため、&lt;a href="http://cruisecontrol.sourceforge.net/gettingstartedsourcedist.html"&gt;公式HPのGettingStarted&lt;/a&gt;を参考にしました。&lt;/p&gt;
+
+&lt;div&gt;
+  &lt;h1&gt;
+    CCのインストール
+  &lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  CCをインストールして/opt/cruisecontrol/ に配置します。
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;wget http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip&lt;/p&gt;
+
+  &lt;p&gt;unzip cruisecontrol-bin-2.8.4.zip&lt;/p&gt;
+
+  &lt;p&gt;mv cruisecontrol-bin-2.8.4 /opt/cruisecontrol/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  ついでに.bashrcにPATHを通しておきます。
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;div&gt;
+  echo &amp;#8220;export PATH=$PATH:/opt/cruisecontrol&amp;#8221; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/div&gt;
+
+  &lt;div&gt;
+  source ~/.bashrc
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  この手順の後、カレントディレクトリを/opt/cruisecontrol/に指定してcruisecontrol.shを実行することでCCの動作確認ができます。
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;h1 id="githubプロジェクトの設定"&gt;Githubプロジェクトの設定&lt;/h1&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  続いて自分のGitHubプロジェクトをCCのビルドループに追加する手順です。
+&lt;/div&gt;
+
+&lt;div&gt;
+  今回、作業ディレクトリを /work/cc/に置くこととして、必要なディレクトリを作成していきます。
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;div&gt;
+  cd /work/cc
+&lt;/div&gt;
+
+  &lt;div&gt;
+  mkdir projects artifacts logs
+&lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  次に、/work/cc/下に必要なスクリプトを二つ作成します。
+&lt;/div&gt;
+
+&lt;div&gt;
+  一つ目はconfig.xmlです。このファイルによってCCのビルドループが設定されます。
+&lt;/div&gt;
+
+&lt;div&gt;
+    &lt;pre class="brush: xml; title: ; notranslate" title=""&gt;
+&amp;lt;cruisecontrol&amp;gt;
+  &amp;lt;project name="MyJavaTetris" buildafterfailed="true"&amp;gt;
+    &amp;lt;listeners&amp;gt;
+      &amp;lt;currentbuildstatuslistener
+        file="logs/MyJavaTetris/status.txt"/&amp;gt;
+    &amp;lt;/listeners&amp;gt;
+
+    &amp;lt;!-- Bootstrappers are run every time the build runs,
+                                                 *before* the modification checks --&amp;gt;
+    &amp;lt;bootstrappers&amp;gt;
+    &amp;lt;/bootstrappers&amp;gt;
+
+    &amp;lt;!-- Defines where CruiseControl looks for changes, to decide
+                            whether to run the build --&amp;gt;
+    &amp;lt;modificationset quietperiod="10"&amp;gt;
+      &amp;lt;cvs localworkingcopy="projects/MyJavaTetris"/&amp;gt;
+    &amp;lt;/modificationset&amp;gt;
+
+    &amp;lt;!-- Configures the actual build loop, how often and which
+                                  build file/target --&amp;gt;
+    &amp;lt;schedule interval="60"&amp;gt;
+      &amp;lt;ant buildfile="build-MyJavaTetris.xml"
+        uselogger="true"/&amp;gt;
+    &amp;lt;/schedule&amp;gt;
+
+    &amp;lt;!-- directory to write build logs to --&amp;gt;
+    &amp;lt;log/&amp;gt;
+
+    &amp;lt;!-- Publishers are run *after* a build completes --&amp;gt;
+    &amp;lt;publishers&amp;gt;
+    &amp;lt;/publishers&amp;gt;
+  &amp;lt;/project&amp;gt;
+&amp;lt;/cruisecontrol&amp;gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、&lt;a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/"&gt;この記事&lt;/a&gt;を参考にgitコマンドをmacrodefしています。&amp;lt;/p&amp;gt; &lt;pre class="brush: xml; title: ; notranslate" title=""&gt;
+&amp;lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&amp;gt;
+&amp;lt;project name="build-MyJavaTetris" default="build" basedir="projects"&amp;gt;
+  &amp;lt;target name="build"&amp;gt;
+    &amp;lt;macrodef name = "git"&amp;gt;
+      &amp;lt;attribute name = "command" /&amp;gt;
+      &amp;lt;attribute name = "dir" default = "" /&amp;gt;
+      &amp;lt;element name = "args" optional = "true" /&amp;gt;
+      &amp;lt;sequential&amp;gt;
+        &amp;lt;echo message = "git @{command}" /&amp;gt;
+        &amp;lt;exec executable = "git" dir = "@{dir}"&amp;gt;
+          &amp;lt;arg value = "@{command}" /&amp;gt;
+          &amp;lt;args/&amp;gt;
+        &amp;lt;/exec&amp;gt;
+      &amp;lt;/sequential&amp;gt;
+    &amp;lt;/macrodef&amp;gt;
+
+    &amp;lt;delete dir="MyJavaTetris" /&amp;gt;
+    &amp;lt;git command ="clone"&amp;gt;
+      &amp;lt;args&amp;gt;
+        &amp;lt;arg value ="ssh://git@github.com:22/yysaki/MyJavaTetris.git"/&amp;gt;
+      &amp;lt;/args&amp;gt;
+    &amp;lt;/git&amp;gt;
+    &amp;lt;ant antfile="build.xml" dir="MyJavaTetris" target="build" /&amp;gt;
+    &amp;lt;!-- nazo no error &amp;lt;ant antfile="build.xml" dir="MyJavaTetris" target="test" /&amp;gt; --&amp;gt;
+  &amp;lt;/target&amp;gt;
+&amp;lt;/project&amp;gt;
+&lt;/pre&gt;
+  
+  &lt;p&gt;
+    これで設定は全て完了です。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    /work/cc/下でcruisecontrol.shを実行するとMyJavaTetrisの自動ビルドが行われます。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    後はずっと放置しておけばCCさんが必要なタイミングでプロジェクトの自動ビルドを行います。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    リポジトリにコミットした時などにhttp://localhost:8080/にアクセスして動作をニヤニヤ監視しましょう。
+  &lt;/p&gt;
+  
+  &lt;p&gt;
+    以上です。
+  &lt;/p&gt;
+&lt;/div&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2012-09-06://blog/2012/09/06/shell-operation-test-on-ruby-oneliner/</id>
+    <title type="html">『シェル操作課題 』をRubyのワンライナーで解いてみた</title>
+    <published>2012-09-06T00:00:00Z</published>
+    <updated>2012-09-06T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
+    <content type="html">&lt;p&gt;&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編&lt;/a&gt; の記事にある設問を遅ればせながら解いてみました。&lt;/p&gt;
+
+&lt;p&gt;Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。  &lt;br /&gt;
+Rubyのversionは1.9.3, 入力ファイル名を”data”とします。&lt;/p&gt;
+
+&lt;h3 id="問1"&gt;問1&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ruby -pe ” data&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;-eオプションでスクリプトモード, -pオプションで”while gets{/* code */ puts $_}”としてコード片を実行する。&lt;/p&gt;
+
+&lt;p&gt;この場合 コード片は空なのでファイルを一列ずつputsするのみです。&lt;/p&gt;
+
+&lt;h3 id="問2"&gt;問2&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ruby -F, -ane ‘puts “#{$F[0]},#{$F[3]}”‘ data&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;-n オプションは-p のputs $_を削ったもの。&lt;/p&gt;
+
+&lt;p&gt;-aは”auto aplit”の頭文字、$_.splitの結果が配列として$F変数に代入される。&lt;/p&gt;
+
+&lt;p&gt;-F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK&lt;/p&gt;
+
+&lt;h3 id="問3"&gt;問3&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;ruby -F, -ane ‘puts $_ if $F[0]==”server4″‘ data&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="問4"&gt;問4&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -ne ‘i&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;=0; i+=1; END{ puts i }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;注目は”&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;=”演算子とENDキーワードの二つ。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;“&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;=”はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;上の式の場合”i = i&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;0″と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。&lt;/p&gt;
+
+&lt;h3 id="問5"&gt;問5&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -F, -ane ‘a&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;= []; a « $F; END{a.sort{&lt;/td&gt;
+        &lt;td&gt;x, y&lt;/td&gt;
+        &lt;td&gt;x[0]!=y[0] ? x[0] &amp;lt;=&amp;gt; y[0] : x[2].to_i &amp;lt;=&amp;gt; y[2].to_i}.[](0,5).each{&lt;/td&gt;
+        &lt;td&gt;b&lt;/td&gt;
+        &lt;td&gt;puts “#{b[0]},#{b&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt;},#{b[2]},#{b[3]}”} }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。&lt;/p&gt;
+
+&lt;p&gt;この辺からセミコロンが増えて、ワンライナーというには少し苦しいかも。&lt;/p&gt;
+
+&lt;h3 id="問6"&gt;問6&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -ne ‘a&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;= []; a « $_ unless a.index($_); END{ puts a.size }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="問7"&gt;問7&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -F, -ane ‘a&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;= []; a « $F[2] unless a.index($F[2]); END{ puts a.size }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="問8"&gt;問8&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -F, -ane ‘h&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;= {}; h.default = 0; h[$F[3]] += 1; END{ a = h.to_a.sort{&lt;/td&gt;
+        &lt;td&gt;x, y&lt;/td&gt;
+        &lt;td&gt;y&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt; &amp;lt;=&amp;gt; x&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt;}.[](0); puts “#{a&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt;} #{a[0]}” }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Hashオブジェクトはdefault属性を設定することで初期値を設定できる。&lt;/p&gt;
+
+&lt;h3 id="問9"&gt;問9&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -F, -ane ‘h&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;= {}; h.default = 0; h[$F[0].gsub(/server/, “xxx”)] += 1; END{ h.to_a.sort{&lt;/td&gt;
+        &lt;td&gt;x, y&lt;/td&gt;
+        &lt;td&gt;x[0] &amp;lt;=&amp;gt; y[0]}.each{&lt;/td&gt;
+        &lt;td&gt;l, r&lt;/td&gt;
+        &lt;td&gt;puts “#{r} #{l}”} }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="問10"&gt;問10&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;ruby -F, -ane ‘a&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+        &lt;td&gt;= []; n = $F[2].to_i; a « n if (n&amp;gt;=10) &amp;amp;&amp;amp; (not a.index(n)); END{ a.sort!; puts a }’ data&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;以上。&lt;/p&gt;
+
+&lt;p&gt;sed, awkなどunix伝統の文字列処理に慣れてないので、スクリプト言語一つ勉強しておくだけでこういった処理が書けるのはいいですね&lt;/p&gt;
+
+</content>
+  </entry>
+</feed>
+
