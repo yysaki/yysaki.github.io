@@ -30,6 +30,12 @@ compile '/index.*' do
   write item.identifier.without_exts + '.html'
 end
 
+compile '/index.*', rep: :blog_root do
+  filter :erb
+  layout '/default.*'
+  write '/blog' + item.identifier.without_exts + '.html'
+end
+
 compile '/posts/**/*' do
   filter :kramdown, input: :GFM
   layout '/article.*'
