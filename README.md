@@ -36,5 +36,10 @@
 
 ## deploy
 
-    git clone git@github.com:yysaki/yysaki.github.io.git deploy
-    bundle exec rake deploy
+    rmdir -rf output
+    mkdir output
+    cd output
+    git clone git@github.com:yysaki/yysaki.github.io.git
+    cd ../
+    bundle exec nanoc
+    bundle exec nanoc deploy
