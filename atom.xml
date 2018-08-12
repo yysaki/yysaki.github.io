@@ -59,6 +59,68 @@
 </content>
   </entry>
   <entry>
+    <id>tag:www.yysaki.com,2017-11-05://blog/2018/08/12/blog-renewal/</id>
+    <title type="html">ブログのHTTPS化および開発環境整備</title>
+    <published>2017-11-05T00:00:00Z</published>
+    <updated>2017-11-05T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2018/08/12/blog-renewal/"/>
+    <content type="html">&lt;p&gt;最近 &lt;a href="https://speakerdeck.com/rhysd/cao-wosheng-yasuji-shu-number-mydev"&gt;草を生やす技術 #mydev // Speaker Deck&lt;/a&gt; のスライドを読み直して, このブログや昔作った小さなwebアプリの整備をしてgithubの草を生やしております.&lt;br /&gt;
+最近の進捗はプライベートリポジトリを含むとこんな感じ, 欠ける日もありますが2週間以上は続いてます.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/kusa_20180812.png" alt="草の様子" /&gt;&lt;/p&gt;
+
+&lt;p&gt;ブログ整備がひと段落したので, 作業内容をメモします.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="nanocの更新"&gt;nanocの更新&lt;/h2&gt;
+
+&lt;p&gt;このサイトは &lt;a href="https://nanoc.ws/"&gt;nanoc&lt;/a&gt; というRubyの静的サイトジェネレータを使用していますが, 使用バージョンが古かったので最新版に上げました.&lt;br /&gt;
+当時の3.7.3から4系 への更新にはいくつかの修正箇所があり,  公式のアップグレードガイドに従いコツコツと修正しました.&lt;br /&gt;
+&lt;a href="https://nanoc.ws/doc/nanoc-4-upgrade-guide/"&gt;Nanoc » Nanoc 4 upgrade guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="https化"&gt;HTTPS化&lt;/h2&gt;
+
+&lt;p&gt;次に, このサイトはHTTPSを設定していなかったのですが, Chrome 68 で常時SSLでないと警告が出るようになってしまった昨今なので, ついでに対応しました.&lt;br /&gt;
+幸い, ホストしているGithub Pagesは2018年5月からHTTPSの配信をサポートしています.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/"&gt;Custom domains on GitHub Pages gain support for HTTPS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;SSL証明書を別途取得する必要もなく, 手順に従いGithubのページとドメインを管理しているお名前.comの設定を画面上で操作するだけで設定が完了しました.&lt;br /&gt;
+ただ, ブログのレイアウトには &lt;a href="https://booklog.jp/"&gt;Booklog&lt;/a&gt; さんのwidgetを埋め込んでいたのですが, 残念ながらこちらはHTTPS未対応です.&lt;br /&gt;
+HTTPS対応予定もなさそうなのでブログから取り外しまして, 晴れてHTTPS化となりました🎉&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/https_badge.png" alt="https化" /&gt;&lt;/p&gt;
+
+&lt;h2 id="開発環境のdocker化"&gt;開発環境のDocker化&lt;/h2&gt;
+
+&lt;p&gt;最後に, ブログを書くたびに環境設定方法を忘れてしまうので, nanocをビルドする環境をdockerにしました.&lt;br /&gt;
+これは &lt;a href="https://hub.docker.com/r/yysaki/nanoc/"&gt;こちらの Docker Hub&lt;/a&gt; に公開しています.&lt;br /&gt;
+ホストOS側にclonseしてあるブログのリポジトリをマウントしておき,  docker上で &lt;code&gt;bundle exec nanoc&lt;/code&gt; コマンドでビルドしたりGithub Pagesにデプロイしたりできるようにしています.&lt;br /&gt;
+秘密鍵をdocker imagesに含めたくないけどdocker上で認証の必要な操作がしたいどうしたものかと思いましたが, 秘密鍵自体もmountしてしまえばよいのだと気づきました.&lt;br /&gt;
+今ではついでに.gitconfigも加えて,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -i -t -v ~/repositories/blog:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を打ち込んでbashにアクセスしています.&lt;/p&gt;
+
+&lt;h3 id="dockerからのプレビュー"&gt;dockerからのプレビュー&lt;/h3&gt;
+
+&lt;p&gt;dockerに環境を移して少しハマったのは, nanocのプレビューのURL.&lt;br /&gt;
+&lt;code&gt;bundle exec nanoc&lt;/code&gt; コマンドで立ち上がるWEBrickのURLはループバック・アドレスを使う http://127.0.0.1:3000/ となります.&lt;br /&gt;
+ゲストOSの外からアクセスできるようにするには, 以下のようにデフォルトルートアドレスを指定してあげる必要があります:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bundle exec nanoc view -o 0.0.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;以上です.&lt;br /&gt;
+一度dockerイメージを作成してしまえば次の環境での構築の手間がゼロになるので素晴らしい.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:www.yysaki.com,2014-02-12://blog/2014/02/12/octopress-as-a-tracer-bullet/</id>
     <title type="html">octopress as a tracer bullet</title>
     <published>2014-02-12T00:00:00Z</published>
@@ -693,201 +755,6 @@ IOError: encoder zip not available
     以上です。
   &lt;/p&gt;
 &lt;/div&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2012-09-06://blog/2012/09/06/shell-operation-test-on-ruby-oneliner/</id>
-    <title type="html">『シェル操作課題 』をRubyのワンライナーで解いてみた</title>
-    <published>2012-09-06T00:00:00Z</published>
-    <updated>2012-09-06T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2012/09/06/shell-operation-test-on-ruby-oneliner/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編&lt;/a&gt; の記事にある設問を遅ればせながら解いてみました。&lt;/p&gt;
-
-&lt;p&gt;Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。  &lt;br /&gt;
-Rubyのversionは1.9.3, 入力ファイル名を”data”とします。&lt;/p&gt;
-
-&lt;h3 id="問1"&gt;問1&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ruby -pe ” data&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;-eオプションでスクリプトモード, -pオプションで”while gets{/* code */ puts $_}”としてコード片を実行する。&lt;/p&gt;
-
-&lt;p&gt;この場合 コード片は空なのでファイルを一列ずつputsするのみです。&lt;/p&gt;
-
-&lt;h3 id="問2"&gt;問2&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ruby -F, -ane ‘puts “#{$F[0]},#{$F[3]}”‘ data&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;-n オプションは-p のputs $_を削ったもの。&lt;/p&gt;
-
-&lt;p&gt;-aは”auto aplit”の頭文字、$_.splitの結果が配列として$F変数に代入される。&lt;/p&gt;
-
-&lt;p&gt;-F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK&lt;/p&gt;
-
-&lt;h3 id="問3"&gt;問3&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;ruby -F, -ane ‘puts $_ if $F[0]==”server4″‘ data&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="問4"&gt;問4&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -ne ‘i&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;=0; i+=1; END{ puts i }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;注目は”&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;=”演算子とENDキーワードの二つ。&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;“&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;=”はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;上の式の場合”i = i&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;0″と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。&lt;/p&gt;
-
-&lt;h3 id="問5"&gt;問5&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -F, -ane ‘a&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;= []; a « $F; END{a.sort{&lt;/td&gt;
-        &lt;td&gt;x, y&lt;/td&gt;
-        &lt;td&gt;x[0]!=y[0] ? x[0] &amp;lt;=&amp;gt; y[0] : x[2].to_i &amp;lt;=&amp;gt; y[2].to_i}.[](0,5).each{&lt;/td&gt;
-        &lt;td&gt;b&lt;/td&gt;
-        &lt;td&gt;puts “#{b[0]},#{b&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt;},#{b[2]},#{b[3]}”} }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。&lt;/p&gt;
-
-&lt;p&gt;この辺からセミコロンが増えて、ワンライナーというには少し苦しいかも。&lt;/p&gt;
-
-&lt;h3 id="問6"&gt;問6&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -ne ‘a&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;= []; a « $_ unless a.index($_); END{ puts a.size }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="問7"&gt;問7&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -F, -ane ‘a&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;= []; a « $F[2] unless a.index($F[2]); END{ puts a.size }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="問8"&gt;問8&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -F, -ane ‘h&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;= {}; h.default = 0; h[$F[3]] += 1; END{ a = h.to_a.sort{&lt;/td&gt;
-        &lt;td&gt;x, y&lt;/td&gt;
-        &lt;td&gt;y&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt; &amp;lt;=&amp;gt; x&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt;}.[](0); puts “#{a&lt;a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036"&gt;1&lt;/a&gt;} #{a[0]}” }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Hashオブジェクトはdefault属性を設定することで初期値を設定できる。&lt;/p&gt;
-
-&lt;h3 id="問9"&gt;問9&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -F, -ane ‘h&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;= {}; h.default = 0; h[$F[0].gsub(/server/, “xxx”)] += 1; END{ h.to_a.sort{&lt;/td&gt;
-        &lt;td&gt;x, y&lt;/td&gt;
-        &lt;td&gt;x[0] &amp;lt;=&amp;gt; y[0]}.each{&lt;/td&gt;
-        &lt;td&gt;l, r&lt;/td&gt;
-        &lt;td&gt;puts “#{r} #{l}”} }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="問10"&gt;問10&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;ruby -F, -ane ‘a&lt;/td&gt;
-        &lt;td&gt; &lt;/td&gt;
-        &lt;td&gt;= []; n = $F[2].to_i; a « n if (n&amp;gt;=10) &amp;amp;&amp;amp; (not a.index(n)); END{ a.sort!; puts a }’ data&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt; &lt;/p&gt;
-
-&lt;p&gt; &lt;/p&gt;
-
-&lt;p&gt;以上。&lt;/p&gt;
-
-&lt;p&gt;sed, awkなどunix伝統の文字列処理に慣れてないので、スクリプト言語一つ勉強しておくだけでこういった処理が書けるのはいいですね&lt;/p&gt;
 
 </content>
   </entry>

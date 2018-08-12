@@ -55,6 +55,128 @@
         <main role="main">
         
 
+  <h1>blockdiagのエラーを解決できず&#8230;</h1>
+  <p><a href="http://blockdiag.com/ja/blockdiag/">blockdiag</a>を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の<a href="https://twitter.com/tk0miya">@tk0miya</a>さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。</p>
+
+<h2 id="環境">環境</h2>
+
+<p>私の環境は以下の通りです。</p>
+
+<ul>
+  <li>OS: mac OS X 10.9(Mavericks)</li>
+  <li>Python: 2.7.5</li>
+  <li>homebrew, easy_installを使ってインストール</li>
+</ul>
+
+<h2 id="インストール手順">インストール手順</h2>
+
+<p>実際にblockdiagをインストールするために行った手順を記述します。</p>
+
+<p>まずPILをインストールします。PILはfreetypes, zlib, libjpeg, libpngといったライブラリに依存するようなので、まずこれらのインストールから始めます。 freetypeに関しては<a href="http://blockdiag.com/ja/blockdiag/introduction.html#macosx-homebrew">ここ</a>を参考に /usr/local/Library/Formula/freetype2.rb を作成します。その後、以下の手順を行います。</p>
+
+<pre><code>$ sudo brew install freeytype2 ibjepg libpng
+$ brew tap homebrew/dupes
+$ sudo brew install zlib
+</code></pre>
+
+<p>この時インストールしたzlibライブラリはPathに通らないため、手動でリンクを貼る必要があります。そのため /usr/local/ に /usr/local/Cellar/zlib/1.2.8/ 以下のlib, include内のファイルをシンボリックリンクを貼りました。</p>
+
+<p>続いてPIL自体のインストール。</p>
+
+<pre><code>$ sudo easy_install pil
+</code></pre>
+
+<p>SUMMARYは以下のようになり、zlibやfreetypeに対応されているように見えます。</p>
+
+<pre><code>--------------------------------------------------------------------
+PIL 1.1.7 SETUP SUMMARY
+--------------------------------------------------------------------
+version       1.1.7
+platform      darwin 2.7.5 (default, Aug 25 2013, 00:04:04)
+              [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)]
+--------------------------------------------------------------------
+--- TKINTER support available
+--- JPEG support available
+--- ZLIB (PNG/ZIP) support available
+--- FREETYPE2 support available
+*** LITTLECMS support not available
+--------------------------------------------------------------------
+</code></pre>
+
+<p>最後にblockdiagのインストール。</p>
+
+<pre><code>$ sudo easy_install -mxN blockdiag
+</code></pre>
+
+<p>して、</p>
+
+<pre><code>$ blockdiag --version
+blockdiag 1.3.2
+</code></pre>
+
+<p>のように、blockdiagをインストール出来ました。</p>
+
+<h2 id="症状">症状</h2>
+
+<p>以下のようなsimple.diagを生成しようとして見ると、エラーが発生します。</p>
+
+<pre><code>    diagram admin {
+      top_page -&gt; config -&gt; config_edit -&gt; config_confirm -&gt; top_page;
+    }
+</code></pre>
+
+<p>デバッグプリントは以下の通りです。</p>
+
+<pre><code>$ blockdiag simple.diag --debug
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/utils/bootstrap.py", line 36, in run
+    return self.build_diagram(parsed)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/command.py", line 42, in build_diagram
+    return super(BlockdiagApp, self).build_diagram(tree)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/utils/bootstrap.py", line 83, in build_diagram
+    drawer.save()
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/drawer.py", line 186, in save
+    return self.drawer.save(self.filename, size, self.format)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/imagedraw/filters/linejump.py", line 172, in save
+    return self.target.save(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/imagedraw/png.py", line 400, in save
+    self._image.save(self.filename, _format)
+  File "build/bdist.macosx-10.9-intel/egg/PIL/Image.py", line 1453, in save
+    save_handler(self, fp, filename)
+  File "build/bdist.macosx-10.9-intel/egg/PIL/PngImagePlugin.py", line 619, in _save
+    ImageFile._save(im, _idat(fp, chunk), [("zip", (0,0)+im.size, 0, rawmode)])
+  File "build/bdist.macosx-10.9-intel/egg/PIL/ImageFile.py", line 454, in _save
+    e = Image._getencoder(im.mode, e, a, im.encoderconfig)
+  File "build/bdist.macosx-10.9-intel/egg/PIL/Image.py", line 405, in _getencoder
+    raise IOError("encoder %s not available" % encoder_name)
+IOError: encoder zip not available
+</code></pre>
+
+<h2 id="参考url">参考URL</h2>
+
+<ul>
+  <li><a href="http://blockdiag.com/ja/blockdiag/introduction.html">blockdiag の概要 — blockdiag 1.0 documentation</a></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Python3.3対応画像処理ライブラリ Pillow(PIL) の使い方</td>
+          <td>Librabuch]<a href="http://librabuch.jp/2013/05/python_pillow_pil/">5</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><a href="http://qiita.com/Jxck_/items/d329aa5c9b50519dcfaf">mac で spdylay の build もしくは homebrew と pkg-config – Qiita [キータ]</a>
+    <ul>
+      <li>zlib周りを参考にさせて頂きました</li>
+    </ul>
+  </li>
+</ul>
+
+<p>以上です。</p>
+
+
+
   <h1>『シェル操作課題 』をシェルで解きなおす</h1>
   <p>以前解いた<a href="http://yysaki.com/blog/archives/79">『シェル操作課題 』をRubyのワンライナーで解いてみた</a> の問題をunixコマンドのみで解き直した。</p>
 
@@ -336,196 +458,6 @@
 
 
 
-  <h1>『シェル操作課題 』をRubyのワンライナーで解いてみた</h1>
-  <p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
-
-<p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。  <br />
-Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
-
-<h3 id="問1">問1</h3>
-
-<blockquote>
-  <p>ruby -pe ” data</p>
-</blockquote>
-
-<p>-eオプションでスクリプトモード, -pオプションで”while gets{/* code */ puts $_}”としてコード片を実行する。</p>
-
-<p>この場合 コード片は空なのでファイルを一列ずつputsするのみです。</p>
-
-<h3 id="問2">問2</h3>
-
-<blockquote>
-  <p>ruby -F, -ane ‘puts “#{$F[0]},#{$F[3]}”‘ data</p>
-</blockquote>
-
-<p>-n オプションは-p のputs $_を削ったもの。</p>
-
-<p>-aは”auto aplit”の頭文字、$_.splitの結果が配列として$F変数に代入される。</p>
-
-<p>-F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK</p>
-
-<h3 id="問3">問3</h3>
-
-<blockquote>
-  <p>ruby -F, -ane ‘puts $_ if $F[0]==”server4″‘ data</p>
-</blockquote>
-
-<h3 id="問4">問4</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -ne ‘i</td>
-        <td> </td>
-        <td>=0; i+=1; END{ puts i }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<table>
-  <tbody>
-    <tr>
-      <td>注目は”</td>
-      <td> </td>
-      <td>=”演算子とENDキーワードの二つ。</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td>“</td>
-      <td> </td>
-      <td>=”はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td>上の式の場合”i = i</td>
-      <td> </td>
-      <td>0″と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。</p>
-
-<h3 id="問5">問5</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘a</td>
-        <td> </td>
-        <td>= []; a « $F; END{a.sort{</td>
-        <td>x, y</td>
-        <td>x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to_i &lt;=&gt; y[2].to_i}.[](0,5).each{</td>
-        <td>b</td>
-        <td>puts “#{b[0]},#{b<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>},#{b[2]},#{b[3]}”} }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<p>sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。</p>
-
-<p>この辺からセミコロンが増えて、ワンライナーというには少し苦しいかも。</p>
-
-<h3 id="問6">問6</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -ne ‘a</td>
-        <td> </td>
-        <td>= []; a « $_ unless a.index($_); END{ puts a.size }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<h3 id="問7">問7</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘a</td>
-        <td> </td>
-        <td>= []; a « $F[2] unless a.index($F[2]); END{ puts a.size }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<h3 id="問8">問8</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘h</td>
-        <td> </td>
-        <td>= {}; h.default = 0; h[$F[3]] += 1; END{ a = h.to_a.sort{</td>
-        <td>x, y</td>
-        <td>y<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a> &lt;=&gt; x<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>}.[](0); puts “#{a<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>} #{a[0]}” }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<p>Hashオブジェクトはdefault属性を設定することで初期値を設定できる。</p>
-
-<h3 id="問9">問9</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘h</td>
-        <td> </td>
-        <td>= {}; h.default = 0; h[$F[0].gsub(/server/, “xxx”)] += 1; END{ h.to_a.sort{</td>
-        <td>x, y</td>
-        <td>x[0] &lt;=&gt; y[0]}.each{</td>
-        <td>l, r</td>
-        <td>puts “#{r} #{l}”} }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<h3 id="問10">問10</h3>
-
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘a</td>
-        <td> </td>
-        <td>= []; n = $F[2].to_i; a « n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
-
-<p> </p>
-
-<p> </p>
-
-<p>以上。</p>
-
-<p>sed, awkなどunix伝統の文字列処理に慣れてないので、スクリプト言語一つ勉強しておくだけでこういった処理が書けるのはいいですね</p>
-
-
-
 
         </main>
       </div>
@@ -546,6 +478,8 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
+    
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
@@ -553,8 +487,6 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
       <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
     
       <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
-    
-      <li role="menuitem"><a href="/blog/2013/12/14/blockdiag/">blockdiagのエラーを解決できず&#8230;</a></li>
     
   </ul>
 </div>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>yysaki blog - WordPress 3.3.1 自動update時のout　of　memoryエラー</title>
+    <title>yysaki blog - ブログのHTTPS化および開発環境整備</title>
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/css/prism.css"/>
     <link rel="alternate" type="application/atom+xml" href="/atom" title="yysaki blog">
@@ -53,51 +53,69 @@
     <div class="row">
       <div class="large-8 medium-7 columns">
         <main role="main">
-        <div class="date">2012-02-13</div>
-<h1>WordPress 3.3.1 自動update時のout　of　memoryエラー</h1>
-<p>wordpressの更新ボタンを押し3.3.1へのインストールを行わせると</p>
+        <div class="date">2018-08-12</div>
+<h1>ブログのHTTPS化および開発環境整備</h1>
+<p>最近 <a href="https://speakerdeck.com/rhysd/cao-wosheng-yasuji-shu-number-mydev">草を生やす技術 #mydev // Speaker Deck</a> のスライドを読み直して, このブログや昔作った小さなwebアプリの整備をしてgithubの草を生やしております.<br />
+最近の進捗はプライベートリポジトリを含むとこんな感じ, 欠ける日もありますが2週間以上は続いてます.</p>
 
-<blockquote>
-  <p>Fatal error: Out of memory (allocated 22282240) (tried to allocate 3932160 bytes) in /usr/home/nextweb/starm/html/yysaki/wp/wp-includes/class-http.php on line 1066</p>
-</blockquote>
+<p><img src="/images/kusa_20180812.png" alt="草の様子" /></p>
 
-<p>の警告が出てupdateに失敗した。バックアップデータはこの後update作業前に残せたので一安心。  <br />
-そして”Out of memory”の原因を探る。  <br />
-参考にしたWordPressのフォーラム記事(http://wordpress.org/support/topic/fatal-error-out-of-memory-4)によると、対策法は</p>
+<p>ブログ整備がひと段落したので, 作業内容をメモします.</p>
 
-<blockquote>
-  <p>text editor and change the values for memory_limit. By default it should see memory_limit = 8M. Try changing it to 12M. if it wil not resolve the problem then try to increase it either 16M or 24M.</p>
+<!-- more -->
 
-  <p>2) If you can’t find the php.ini file, open up the PHP file which requires more memory and add this line just after ini_set(’memory_limit’, ‘12M’); we can increase memory upto 16M or 24M to resolve the issue. But do it try with 12M first.</p>
+<h2 id="nanocの更新">nanocの更新</h2>
 
-  <p>3) In last, open the .htaccess file from the root/public_html folder and add this line php_value memory_limit 12M</p>
-</blockquote>
+<p>このサイトは <a href="https://nanoc.ws/">nanoc</a> というRubyの静的サイトジェネレータを使用していますが, 使用バージョンが古かったので最新版に上げました.<br />
+当時の3.7.3から4系 への更新にはいくつかの修正箇所があり,  公式のアップグレードガイドに従いコツコツと修正しました.<br />
+<a href="https://nanoc.ws/doc/nanoc-4-upgrade-guide/">Nanoc » Nanoc 4 upgrade guide</a></p>
 
-<p>のようだ。  <br />
-レンタルしている鯖はroot権限が無いため1), 3)の対処が取れず、2)なら望みがありそうだ。  <br />
-エラー文によると 原因は”class-http.php on line 1066″行コマンドのメモリ不足なので、1066行の一行前にそのメモリ使用量を増やす関数を追加することで、解決できそうだ。  <br />
-しかし, memory_limitの値は変更出来ない場合があり include/setup.inc.php を編集して解決する例があった。(参考記事: http://d.hatena.ne.jp/rougeref/20100108)  <br />
-よって私の環境では1), 3)同様php.iniに触れないため、対処できないことがわかりました。  <br />
-他の環境でもroot権限がありPHPの設定をいじれる方なら３方法いずれでも対処出来る問題だと思います。</p>
+<h2 id="https化">HTTPS化</h2>
 
-<p>よって結論としては、現環境ではWordpress自動アップデートはサーバのPHPメモリ使用量制限と使用量操作へのアクセス権がないこと、の二点でした。  <br />
-今回は諦め、今回は手動インストールしてみます。</p>
+<p>次に, このサイトはHTTPSを設定していなかったのですが, Chrome 68 で常時SSLでないと警告が出るようになってしまった昨今なので, ついでに対応しました.<br />
+幸い, ホストしているGithub Pagesは2018年5月からHTTPSの配信をサポートしています.</p>
 
-<p>(2012/02/13追記)  <br />
-3.3.1の手動インストールを後で行った所、問題なく成功しました。しかしやはり手間だった</p>
+<p><a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/">Custom domains on GitHub Pages gain support for HTTPS</a></p>
 
-<p>(2012/02/13追記2)  <br />
-php.iniは.htaccessのあるディレクトリに自分で置き、”memory_limit=48M”と書けばOKでした</p>
+<p>SSL証明書を別途取得する必要もなく, 手順に従いGithubのページとドメインを管理しているお名前.comの設定を画面上で操作するだけで設定が完了しました.<br />
+ただ, ブログのレイアウトには <a href="https://booklog.jp/">Booklog</a> さんのwidgetを埋め込んでいたのですが, 残念ながらこちらはHTTPS未対応です.<br />
+HTTPS対応予定もなさそうなのでブログから取り外しまして, 晴れてHTTPS化となりました🎉</p>
 
-<p>(2012/3/27追記3)  <br />
-本文のレイアウトが崩れていたのを修正</p>
+<p><img src="/images/https_badge.png" alt="https化" /></p>
+
+<h2 id="開発環境のdocker化">開発環境のDocker化</h2>
+
+<p>最後に, ブログを書くたびに環境設定方法を忘れてしまうので, nanocをビルドする環境をdockerにしました.<br />
+これは <a href="https://hub.docker.com/r/yysaki/nanoc/">こちらの Docker Hub</a> に公開しています.<br />
+ホストOS側にclonseしてあるブログのリポジトリをマウントしておき,  docker上で <code>bundle exec nanoc</code> コマンドでビルドしたりGithub Pagesにデプロイしたりできるようにしています.<br />
+秘密鍵をdocker imagesに含めたくないけどdocker上で認証の必要な操作がしたいどうしたものかと思いましたが, 秘密鍵自体もmountしてしまえばよいのだと気づきました.<br />
+今ではついでに.gitconfigも加えて,</p>
+
+<pre><code>docker run -i -t -v ~/repositories/blog:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc /bin/bash
+</code></pre>
+
+<p>を打ち込んでbashにアクセスしています.</p>
+
+<h3 id="dockerからのプレビュー">dockerからのプレビュー</h3>
+
+<p>dockerに環境を移して少しハマったのは, nanocのプレビューのURL.<br />
+<code>bundle exec nanoc</code> コマンドで立ち上がるWEBrickのURLはループバック・アドレスを使う http://127.0.0.1:3000/ となります.<br />
+ゲストOSの外からアクセスできるようにするには, 以下のようにデフォルトルートアドレスを指定してあげる必要があります:</p>
+
+<pre><code>bundle exec nanoc view -o 0.0.0.0
+</code></pre>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>以上です.<br />
+一度dockerイメージを作成してしまえば次の環境での構築の手間がゼロになるので素晴らしい.</p>
 
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   var disqus_shortname = 'yysakiblog';
-  var disqus_identifier = 'wordpress-3-3-1-error.md';
-  var disqus_url = 'http://www.yysaki.com/blog/2012/02/13/wordpress-3-3-1-error/';
+  var disqus_identifier = 'blog-renewal.md';
+  var disqus_url = 'http://www.yysaki.com/blog/2018/08/12/blog-renewal/';
   var disqus_script = 'embed.js';
 
   (function() {
