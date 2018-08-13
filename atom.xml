@@ -100,8 +100,11 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
 秘密鍵をdocker imagesに含めたくないけどdocker上で認証の必要な操作がしたいどうしたものかと思いましたが, 秘密鍵自体もmountしてしまえばよいのだと気づきました.&lt;br /&gt;
 今ではついでに.gitconfigも加えて,&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;docker run -i -t -v ~/repositories/blog:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc /bin/bash
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class="language-bash highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;docker run -i -t -v ~/repositories/blog:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc /bin/bash
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;p&gt;を打ち込んでbashにアクセスしています.&lt;/p&gt;
 
@@ -111,8 +114,11 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
 &lt;code&gt;bundle exec nanoc&lt;/code&gt; コマンドで立ち上がるWEBrickのURLはループバック・アドレスを使う http://127.0.0.1:3000/ となります.&lt;br /&gt;
 ゲストOSの外からアクセスできるようにするには, 以下のようにデフォルトルートアドレスを指定してあげる必要があります:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;bundle exec nanoc view -o 0.0.0.0
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class="language-bash highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;bundle exec nanoc view -o 0.0.0.0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 &lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
 
