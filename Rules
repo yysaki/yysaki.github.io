@@ -37,7 +37,7 @@ compile '/index.*', rep: :blog_root do
 end
 
 compile '/posts/**/*' do
-  filter :kramdown, input: :GFM
+  filter :kramdown, input: :GFM, coderay_line_numbers: nil
   layout '/article.*'
   layout '/default.*'
   write post_url(item, has_extension: true)
