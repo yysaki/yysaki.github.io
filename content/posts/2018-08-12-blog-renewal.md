@@ -47,7 +47,7 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
 秘密鍵をdocker imagesに含めたくないけどdocker上で認証の必要な操作がしたいどうしたものかと思いましたが, 秘密鍵自体もmountしてしまえばよいのだと気づきました.
 今ではついでに.gitconfigも加えて,
 
-```
+``` bash
 docker run -i -t -v ~/repositories/blog:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc /bin/bash
 ```
 
@@ -59,7 +59,7 @@ dockerに環境を移して少しハマったのは, nanocのプレビューのU
 `bundle exec nanoc` コマンドで立ち上がるWEBrickのURLはループバック・アドレスを使う http://127.0.0.1:3000/ となります.
 ゲストOSの外からアクセスできるようにするには, 以下のようにデフォルトルートアドレスを指定してあげる必要があります:
 
-```
+``` bash
 bundle exec nanoc view -o 0.0.0.0
 ```
 
