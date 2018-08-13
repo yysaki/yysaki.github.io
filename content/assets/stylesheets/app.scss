@@ -31,6 +31,19 @@ body
   padding:0;
 }
 
+.CodeRay pre
+{
+  background-color: #EEE;
+  display:block;
+  padding: 11px;
+  margin: 0 0 11.5px;
+  border: 1px solid #AAA;
+  border-radius: 4px;
+  font-size: 90%;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
 .light
 {
   font-weight:200!important;
