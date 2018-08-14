@@ -167,7 +167,7 @@ tags:
 </div>
 
 <div>
-  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、<a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/">この記事</a>を参考にgitコマンドをmacrodefしています。</p> <pre class="brush: xml; title: ; notranslate" title="">
+  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、<a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/">この記事</a>を参考にgitコマンドをmacrodefしています。<pre class="brush: xml; title: ; notranslate" title="">
 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
 &lt;project name="build-MyJavaTetris" default="build" basedir="projects"&gt;
   &lt;target name="build"&gt;
