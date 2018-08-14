@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2017-11-05T00:00:00Z</updated>
+  <updated>2018-08-12T00:00:00Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml"/>
   <author>
@@ -10,59 +10,10 @@
     <uri>http://www.yysaki.com/</uri>
   </author>
   <entry>
-    <id>tag:www.yysaki.com,2017-11-05://blog/2017/11/05/vimconf2017/</id>
-    <title type="html">#VimConf2017 に参加した話</title>
-    <published>2017-11-05T00:00:00Z</published>
-    <updated>2017-11-05T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2017/11/05/vimconf2017/"/>
-    <content type="html">&lt;p&gt;昨日 &lt;a href="http://vimconf.vim-jp.org/2017/"&gt;VimConf2017&lt;/a&gt; に参加してきました。&lt;br /&gt;
-ブログを書くのはしばらくぶりですが、ブログ記事を書くまでがVimConfということなので書きます。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h2 id="雑感"&gt;雑感&lt;/h2&gt;
-
-&lt;p&gt;VimConf は &lt;code&gt;An international Vim Conference&lt;/code&gt; とあり、英語onlyの発表だったり日本語の発表でもスライドが英語で作られていたり、Vim熱を感じました。 英語の勉強にと僕は借りなかったのですが、日英同時通訳ありのレシーバーの貸し出しもありました。TwitterのTLを見ていると &lt;a href="https://twitter.com/ujm"&gt;@ujm&lt;/a&gt; さんの英日翻訳がとても面白かったらしく, 会場内では不定期に笑いが起こっていました。&lt;/p&gt;
-
-&lt;p&gt;会場はノベルティ、Wi-Fi、個人用コンセントだけでなく、コーヒーあり、お弁当あり、懇親会まで参加できるという至れりつくせりでした。 個人的にはtwitterアイコンが印刷された名札をもらえたのがとても嬉しかったです。 Meguro.vim に今後行くことがあればつけていきたい。&lt;/p&gt;
-
-&lt;h2 id="発表"&gt;発表&lt;/h2&gt;
-&lt;p&gt;発表のセッションは下記のリンクにまとめたように盛りだくさんでしたが、どれも刺激的かつ内容に被りがなかったところにvimの懐の広さを感じました。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/14pViuMI_X_PiNwQD8nuGRG72GUqSeKDqoJqjAZWS39U"&gt;Vim, Me and Community&lt;/a&gt; &lt;a href="https://twitter.com/haya14busa"&gt;@haya14busa&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://speakerdeck.com/farslan/the-past-and-future-of-vim-go"&gt;The Past and Future of Vim-go&lt;/a&gt;&lt;br /&gt;
-&lt;a href="https://twitter.com/fatih"&gt;@fatih&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;Vim鼎談 &lt;a href="https://twitter.com/mattn_jp"&gt;@mattn_jp&lt;/a&gt; さん、 &lt;a href="https://twitter.com/k_takata"&gt;@k_takata&lt;/a&gt; さん、 &lt;a href="https://twitter.com/kaoriya"&gt;@kaoriya&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://speakerdeck.com/cocopon/creating-your-lovely-color-scheme"&gt;Creating your lovely color scheme&lt;/a&gt; &lt;a href="https://twitter.com/cocopon"&gt;@cocopon&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://qiita.com/t9md/items/236d09fea9bcdfabdcea"&gt;vim-mode-plus: The most ambitious vim emulator in the world&lt;/a&gt; &lt;a href="https://twitter.com/t9md"&gt;@t9md&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://lamsh.github.io/slide/2017/20171104_VimConf2017/index.html"&gt;Vim and Compatibility&lt;/a&gt;&lt;br /&gt;
-&lt;a href="https://twitter.com/senopen"&gt;@senopen&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.slideshare.net/Shougo/neosnippetvim-deoppetnvim-in-vim-conf-2017"&gt;neosnippet.vim + deoppet.nvim&lt;/a&gt; &lt;a href="https://twitter.com/ShougoMatsu"&gt;@ShougoMatsu&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://speakerdeck.com/daisuzu/how-ordinary-vim-user-contributed-to-vim"&gt;How ordinary Vim user contributed to Vim&lt;/a&gt; &lt;a href="https://twitter.com/dice_zu"&gt;@dice_zu&lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://speakerdeck.com/pocke/the-new-syntax-highlighter-for-vim"&gt;The new syntax highlighter for Vim&lt;/a&gt; &lt;a href="https://twitter.com/p_ck_"&gt;@p_ck_ &lt;/a&gt; さん&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://lambdalisue.github.io/vimconf2017/assets/player/KeynoteDHTMLPlayer.html#0"&gt;You’ve been Super Viman. After this talk, you could say you are Super Viman 2 – Life with gina.vim&lt;/a&gt; &lt;a href="https://twitter.com/lambdalisue"&gt;@lambdalisue&lt;/a&gt; さん&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;個人的によかったのは haya14busa さん、dice_zuさんの発表です。&lt;/p&gt;
-
-&lt;p&gt;haya14busaさんのキーノートはhaya14busaさん自身の経歴を振り返り、どうVimコミュニティに関わってきたかでした。 本家の開発が止まっていたEasyMotion をフォークして修正していたところ本家のcollaboratorになり。 incsearch.vim をvimプラグインとして開発していたところついにvim本家の機能としてパッチに取りこまれたり。順々とキャリアを積み上げていくスタイルがかっこいいと思いました。&lt;br /&gt;
-発表資料も作りこまれていて、 &lt;a href="https://docs.google.com/presentation/d/14pViuMI_X_PiNwQD8nuGRG72GUqSeKDqoJqjAZWS39U/edit#slide=id.g2a8159af5b_1_160"&gt;Diversity of Vim community - Type of Vim users&lt;/a&gt; のネタは秀逸でした。&lt;/p&gt;
-
-&lt;p&gt;次にdice_zuさんの発表、 &lt;code&gt;ordinary&lt;/code&gt; なVimユーザーがvimにcontributeするとは、という話です。 自分も普通のユーザーなので, バグを見つけてCのコードーベースから原因を特定し、vim-dev にパッチを送る、というまではすごく高いハードルに見えます。ですがdice_zuさんによれば、必要なのは &lt;code&gt;a great passion&lt;/code&gt; だけ。 毎日最新のvimをビルドすること、職場でのVimトークをすることで何かしらイシューは発見できる。 懇親会でもお話させてもらい、その姿勢だけでも十分 &lt;code&gt;ordinary&lt;/code&gt; として強いと思いましたが、最新のvimにキャッチアップするのは良いと思うので、まずそこから真似していきたいなと思います。&lt;/p&gt;
-
-&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;他にもVim界のレジェンドであるmattn_jpさん、k_takataさん、kaoriyaさんらのVim鼎談など、聞いててためになる情報密度の高い発表が盛りだくさんでした。&lt;/p&gt;
-
-&lt;p&gt;まだまだ消化不良なので、今日はのんびりVimConfの余韻に浸かっていようと思います。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2017-11-05://blog/2018/08/12/blog-renewal/</id>
+    <id>tag:www.yysaki.com,2018-08-12://blog/2018/08/12/blog-renewal/</id>
     <title type="html">ブログのHTTPS化および開発環境整備</title>
-    <published>2017-11-05T00:00:00Z</published>
-    <updated>2017-11-05T00:00:00Z</updated>
+    <published>2018-08-12T00:00:00Z</published>
+    <updated>2018-08-12T00:00:00Z</updated>
     <link rel="alternate" href="http://www.yysaki.com//blog/2018/08/12/blog-renewal/"/>
     <content type="html">&lt;p&gt;最近 &lt;a href="https://speakerdeck.com/rhysd/cao-wosheng-yasuji-shu-number-mydev"&gt;草を生やす技術 #mydev // Speaker Deck&lt;/a&gt; のスライドを読み直して, このブログや昔作った小さなwebアプリの整備をしてgithubの草を生やしております.&lt;br /&gt;
 最近の進捗はプライベートリポジトリを含むとこんな感じ, 欠ける日もありますが2週間以上は続いてます.&lt;/p&gt;
@@ -124,6 +75,55 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
 
 &lt;p&gt;以上です.&lt;br /&gt;
 一度dockerイメージを作成してしまえば次の環境での構築の手間がゼロになるので素晴らしい.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2017-11-05://blog/2017/11/05/vimconf2017/</id>
+    <title type="html">#VimConf2017 に参加した話</title>
+    <published>2017-11-05T00:00:00Z</published>
+    <updated>2017-11-05T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2017/11/05/vimconf2017/"/>
+    <content type="html">&lt;p&gt;昨日 &lt;a href="http://vimconf.vim-jp.org/2017/"&gt;VimConf2017&lt;/a&gt; に参加してきました。&lt;br /&gt;
+ブログを書くのはしばらくぶりですが、ブログ記事を書くまでがVimConfということなので書きます。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="雑感"&gt;雑感&lt;/h2&gt;
+
+&lt;p&gt;VimConf は &lt;code&gt;An international Vim Conference&lt;/code&gt; とあり、英語onlyの発表だったり日本語の発表でもスライドが英語で作られていたり、Vim熱を感じました。 英語の勉強にと僕は借りなかったのですが、日英同時通訳ありのレシーバーの貸し出しもありました。TwitterのTLを見ていると &lt;a href="https://twitter.com/ujm"&gt;@ujm&lt;/a&gt; さんの英日翻訳がとても面白かったらしく, 会場内では不定期に笑いが起こっていました。&lt;/p&gt;
+
+&lt;p&gt;会場はノベルティ、Wi-Fi、個人用コンセントだけでなく、コーヒーあり、お弁当あり、懇親会まで参加できるという至れりつくせりでした。 個人的にはtwitterアイコンが印刷された名札をもらえたのがとても嬉しかったです。 Meguro.vim に今後行くことがあればつけていきたい。&lt;/p&gt;
+
+&lt;h2 id="発表"&gt;発表&lt;/h2&gt;
+&lt;p&gt;発表のセッションは下記のリンクにまとめたように盛りだくさんでしたが、どれも刺激的かつ内容に被りがなかったところにvimの懐の広さを感じました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/14pViuMI_X_PiNwQD8nuGRG72GUqSeKDqoJqjAZWS39U"&gt;Vim, Me and Community&lt;/a&gt; &lt;a href="https://twitter.com/haya14busa"&gt;@haya14busa&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/farslan/the-past-and-future-of-vim-go"&gt;The Past and Future of Vim-go&lt;/a&gt;&lt;br /&gt;
+&lt;a href="https://twitter.com/fatih"&gt;@fatih&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;Vim鼎談 &lt;a href="https://twitter.com/mattn_jp"&gt;@mattn_jp&lt;/a&gt; さん、 &lt;a href="https://twitter.com/k_takata"&gt;@k_takata&lt;/a&gt; さん、 &lt;a href="https://twitter.com/kaoriya"&gt;@kaoriya&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/cocopon/creating-your-lovely-color-scheme"&gt;Creating your lovely color scheme&lt;/a&gt; &lt;a href="https://twitter.com/cocopon"&gt;@cocopon&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://qiita.com/t9md/items/236d09fea9bcdfabdcea"&gt;vim-mode-plus: The most ambitious vim emulator in the world&lt;/a&gt; &lt;a href="https://twitter.com/t9md"&gt;@t9md&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://lamsh.github.io/slide/2017/20171104_VimConf2017/index.html"&gt;Vim and Compatibility&lt;/a&gt;&lt;br /&gt;
+&lt;a href="https://twitter.com/senopen"&gt;@senopen&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.slideshare.net/Shougo/neosnippetvim-deoppetnvim-in-vim-conf-2017"&gt;neosnippet.vim + deoppet.nvim&lt;/a&gt; &lt;a href="https://twitter.com/ShougoMatsu"&gt;@ShougoMatsu&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/daisuzu/how-ordinary-vim-user-contributed-to-vim"&gt;How ordinary Vim user contributed to Vim&lt;/a&gt; &lt;a href="https://twitter.com/dice_zu"&gt;@dice_zu&lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://speakerdeck.com/pocke/the-new-syntax-highlighter-for-vim"&gt;The new syntax highlighter for Vim&lt;/a&gt; &lt;a href="https://twitter.com/p_ck_"&gt;@p_ck_ &lt;/a&gt; さん&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://lambdalisue.github.io/vimconf2017/assets/player/KeynoteDHTMLPlayer.html#0"&gt;You’ve been Super Viman. After this talk, you could say you are Super Viman 2 – Life with gina.vim&lt;/a&gt; &lt;a href="https://twitter.com/lambdalisue"&gt;@lambdalisue&lt;/a&gt; さん&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;個人的によかったのは haya14busa さん、dice_zuさんの発表です。&lt;/p&gt;
+
+&lt;p&gt;haya14busaさんのキーノートはhaya14busaさん自身の経歴を振り返り、どうVimコミュニティに関わってきたかでした。 本家の開発が止まっていたEasyMotion をフォークして修正していたところ本家のcollaboratorになり。 incsearch.vim をvimプラグインとして開発していたところついにvim本家の機能としてパッチに取りこまれたり。順々とキャリアを積み上げていくスタイルがかっこいいと思いました。&lt;br /&gt;
+発表資料も作りこまれていて、 &lt;a href="https://docs.google.com/presentation/d/14pViuMI_X_PiNwQD8nuGRG72GUqSeKDqoJqjAZWS39U/edit#slide=id.g2a8159af5b_1_160"&gt;Diversity of Vim community - Type of Vim users&lt;/a&gt; のネタは秀逸でした。&lt;/p&gt;
+
+&lt;p&gt;次にdice_zuさんの発表、 &lt;code&gt;ordinary&lt;/code&gt; なVimユーザーがvimにcontributeするとは、という話です。 自分も普通のユーザーなので, バグを見つけてCのコードーベースから原因を特定し、vim-dev にパッチを送る、というまではすごく高いハードルに見えます。ですがdice_zuさんによれば、必要なのは &lt;code&gt;a great passion&lt;/code&gt; だけ。 毎日最新のvimをビルドすること、職場でのVimトークをすることで何かしらイシューは発見できる。 懇親会でもお話させてもらい、その姿勢だけでも十分 &lt;code&gt;ordinary&lt;/code&gt; として強いと思いましたが、最新のvimにキャッチアップするのは良いと思うので、まずそこから真似していきたいなと思います。&lt;/p&gt;
+
+&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;他にもVim界のレジェンドであるmattn_jpさん、k_takataさん、kaoriyaさんらのVim鼎談など、聞いててためになる情報密度の高い発表が盛りだくさんでした。&lt;/p&gt;
+
+&lt;p&gt;まだまだ消化不良なので、今日はのんびりVimConfの余韻に浸かっていようと思います。&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -303,7 +303,7 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;エディタはvimを使用しています。以下のように.vimrcを設定すれば”&lt;Space&gt;q&amp;#8221;でtexのmake出来ます。&lt;/Space&gt;&lt;/p&gt;
+    &lt;p&gt;エディタはvimを使用しています。以下のように.vimrcを設定すれば”&amp;lt;Space&amp;gt;q”でtexのmake出来ます。&lt;/p&gt;
 
     &lt;pre&gt;&lt;code&gt;NeoBundle 'thinca/vim-quickrun'
 silent! map &amp;lt;Space&amp;gt;q &amp;lt;Plug&amp;gt;(quickrun)
@@ -315,7 +315,7 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
 
 &lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
 
-&lt;p&gt;以上で修論の開発環境を整えました。 開発マシンでtexの編集を行い、ビルドするとSkimの自動更新が反応して新しいPDFを表示してくれます。 Vimで&lt;Space&gt;qすることでPDFのレビューまで自動化出来たので概ね満足な結果です. (但しSkimが反映されるまでに10秒程かかります。sshfsの限界&amp;#8230;)&lt;/Space&gt;&lt;/p&gt;
+&lt;p&gt;以上で修論の開発環境を整えました。 開発マシンでtexの編集を行い、ビルドするとSkimの自動更新が反応して新しいPDFを表示してくれます。 Vimで&amp;lt;Space&amp;gt;qすることでPDFのレビューまで自動化出来たので概ね満足な結果です. (但しSkimが反映されるまでに10秒程かかります。sshfsの限界…)&lt;/p&gt;
 
 &lt;h2 id="参考記事"&gt;参考記事&lt;/h2&gt;
 
@@ -712,7 +712,7 @@ IOError: encoder zip not available
 &lt;/div&gt;
 
 &lt;div&gt;
-  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、&lt;a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/"&gt;この記事&lt;/a&gt;を参考にgitコマンドをmacrodefしています。&amp;lt;/p&amp;gt; &lt;pre class="brush: xml; title: ; notranslate" title=""&gt;
+  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、&lt;a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/"&gt;この記事&lt;/a&gt;を参考にgitコマンドをmacrodefしています。&lt;pre class="brush: xml; title: ; notranslate" title=""&gt;
 &amp;lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&amp;gt;
 &amp;lt;project name="build-MyJavaTetris" default="build" basedir="projects"&amp;gt;
   &amp;lt;target name="build"&amp;gt;

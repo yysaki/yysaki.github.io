@@ -57,50 +57,50 @@
 <h1>『シェル操作課題 』をRubyのワンライナーで解いてみた</h1>
 <p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
 
-<p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。  <br />
+<p>Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。<br />
 Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問1">問1</h3>
 
-<blockquote>
-  <p>ruby -pe ” data</p>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -pe '' data
+</pre></div>
+</div>
+</div>
 
-<p>-eオプションでスクリプトモード, -pオプションで”while gets{/* code */ puts $_}”としてコード片を実行する。</p>
+<p>-eオプションでスクリプトモード, -pオプションで <code>while gets{/\* code \*/ puts $_}</code> としてコード片を実行する。</p>
 
 <p>この場合 コード片は空なのでファイルを一列ずつputsするのみです。</p>
 
 <h3 id="問2">問2</h3>
 
-<blockquote>
-  <p>ruby -F, -ane ‘puts “#{$F[0]},#{$F[3]}”‘ data</p>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'puts &quot;#{$F[0]},#{$F[3]}&quot;' data
+</pre></div>
+</div>
+</div>
 
-<p>-n オプションは-p のputs $_を削ったもの。</p>
+<p>-n オプションは-p の <code>puts $_</code> を削ったもの。</p>
 
-<p>-aは”auto aplit”の頭文字、$_.splitの結果が配列として$F変数に代入される。</p>
+<p>-aは”auto aplit”の頭文字、<code>$_.split</code>の結果が配列として$F変数に代入される。</p>
 
 <p>-F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK</p>
 
 <h3 id="問3">問3</h3>
 
-<blockquote>
-  <p>ruby -F, -ane ‘puts $_ if $F[0]==”server4″‘ data</p>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'puts $_ if $F[0]==&quot;server4&quot;' data
+</pre></div>
+</div>
+</div>
 
 <h3 id="問4">問4</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -ne ‘i</td>
-        <td> </td>
-        <td>=0; i+=1; END{ puts i }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -ne 'i||=0; i+=1; END{ puts i }' data
+</pre></div>
+</div>
+</div>
 
 <table>
   <tbody>
@@ -115,7 +115,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 <table>
   <tbody>
     <tr>
-      <td>“</td>
+      <td>”</td>
       <td> </td>
       <td>=”はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。</td>
     </tr>
@@ -127,7 +127,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
     <tr>
       <td>上の式の場合”i = i</td>
       <td> </td>
-      <td>0″と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</td>
+      <td>0”と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</td>
     </tr>
   </tbody>
 </table>
@@ -136,21 +136,11 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問5">問5</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘a</td>
-        <td> </td>
-        <td>= []; a « $F; END{a.sort{</td>
-        <td>x, y</td>
-        <td>x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to_i &lt;=&gt; y[2].to_i}.[](0,5).each{</td>
-        <td>b</td>
-        <td>puts “#{b[0]},#{b<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>},#{b[2]},#{b[3]}”} }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'a ||= \[]; a &lt;&lt; $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to\_i &lt;=&gt; y[2].to\_i}.[\](0,5).each{|b| puts &quot;#{b[0]},#{b[1]},#{b[2]},#{b[3]}&quot;} }' data
+</pre></div>
+</div>
+</div>
 
 <p>sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。</p>
 
@@ -158,81 +148,45 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問6">問6</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -ne ‘a</td>
-        <td> </td>
-        <td>= []; a « $_ unless a.index($_); END{ puts a.size }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -ne 'a ||= []; a &lt;&lt; $_ unless a.index($_); END{ puts a.size }' data
+</pre></div>
+</div>
+</div>
 
 <h3 id="問7">問7</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘a</td>
-        <td> </td>
-        <td>= []; a « $F[2] unless a.index($F[2]); END{ puts a.size }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'a ||= []; a &lt;&lt; $F[2] unless a.index($F[2]); END{ puts a.size }' data
+</pre></div>
+</div>
+</div>
 
 <h3 id="問8">問8</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘h</td>
-        <td> </td>
-        <td>= {}; h.default = 0; h[$F[3]] += 1; END{ a = h.to_a.sort{</td>
-        <td>x, y</td>
-        <td>y<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a> &lt;=&gt; x<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>}.[](0); puts “#{a<a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">1</a>} #{a[0]}” }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'h ||= {}; h.default = 0; h\[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y[1] &lt;=&gt; x[1]}.[\](0); puts &quot;#{a[1]} #{a[0]}&quot; }' data
+</pre></div>
+</div>
+</div>
 
 <p>Hashオブジェクトはdefault属性を設定することで初期値を設定できる。</p>
 
 <h3 id="問9">問9</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘h</td>
-        <td> </td>
-        <td>= {}; h.default = 0; h[$F[0].gsub(/server/, “xxx”)] += 1; END{ h.to_a.sort{</td>
-        <td>x, y</td>
-        <td>x[0] &lt;=&gt; y[0]}.each{</td>
-        <td>l, r</td>
-        <td>puts “#{r} #{l}”} }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'h ||= {}; h.default = 0; h[$F[0].gsub(/server/, &quot;xxx&quot;)] += 1; END{ h.to_a.sort{|x, y| x[0] &lt;=&gt; y[0]}.each{|l, r| puts &quot;#{r} #{l}&quot;} }' data
+</pre></div>
+</div>
+</div>
 
 <h3 id="問10">問10</h3>
 
-<blockquote>
-  <table>
-    <tbody>
-      <tr>
-        <td>ruby -F, -ane ‘a</td>
-        <td> </td>
-        <td>= []; n = $F[2].to_i; a « n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }’ data</td>
-      </tr>
-    </tbody>
-  </table>
-</blockquote>
+<div class="language-sh highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>ruby -F, -ane 'a ||= []; n = $F[2].to_i; a &lt;&lt; n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }' data
+</pre></div>
+</div>
+</div>
 
 <p> </p>
 
