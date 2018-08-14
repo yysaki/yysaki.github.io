@@ -62,7 +62,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問1">問1</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -pe '' data
 </pre></div>
 </div>
@@ -74,7 +74,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問2">問2</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'puts &quot;#{$F[0]},#{$F[3]}&quot;' data
 </pre></div>
 </div>
@@ -88,7 +88,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問3">問3</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'puts $_ if $F[0]==&quot;server4&quot;' data
 </pre></div>
 </div>
@@ -96,47 +96,23 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問4">問4</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -ne 'i||=0; i+=1; END{ puts i }' data
 </pre></div>
 </div>
 </div>
 
-<table>
-  <tbody>
-    <tr>
-      <td>注目は”</td>
-      <td> </td>
-      <td>=”演算子とENDキーワードの二つ。</td>
-    </tr>
-  </tbody>
-</table>
+<p>注目は<code>||=</code>演算子とENDキーワードの二つ。</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>”</td>
-      <td> </td>
-      <td>=”はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。</td>
-    </tr>
-  </tbody>
-</table>
+<p><code>||=</code>はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>上の式の場合”i = i</td>
-      <td> </td>
-      <td>0”と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</td>
-    </tr>
-  </tbody>
-</table>
+<p>上の式の場合<code>i = i || 0</code>と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。</p>
 
 <p>また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。</p>
 
 <h3 id="問5">問5</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'a ||= \[]; a &lt;&lt; $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to\_i &lt;=&gt; y[2].to\_i}.[\](0,5).each{|b| puts &quot;#{b[0]},#{b[1]},#{b[2]},#{b[3]}&quot;} }' data
 </pre></div>
 </div>
@@ -148,7 +124,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問6">問6</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -ne 'a ||= []; a &lt;&lt; $_ unless a.index($_); END{ puts a.size }' data
 </pre></div>
 </div>
@@ -156,7 +132,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問7">問7</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'a ||= []; a &lt;&lt; $F[2] unless a.index($F[2]); END{ puts a.size }' data
 </pre></div>
 </div>
@@ -164,7 +140,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問8">問8</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'h ||= {}; h.default = 0; h\[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y[1] &lt;=&gt; x[1]}.[\](0); puts &quot;#{a[1]} #{a[0]}&quot; }' data
 </pre></div>
 </div>
@@ -174,7 +150,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問9">問9</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'h ||= {}; h.default = 0; h[$F[0].gsub(/server/, &quot;xxx&quot;)] += 1; END{ h.to_a.sort{|x, y| x[0] &lt;=&gt; y[0]}.each{|l, r| puts &quot;#{r} #{l}&quot;} }' data
 </pre></div>
 </div>
@@ -182,7 +158,7 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問10">問10</h3>
 
-<div class="language-sh highlighter-coderay"><div class="CodeRay">
+<div class="language-bash highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>ruby -F, -ane 'a ||= []; n = $F[2].to_i; a &lt;&lt; n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }' data
 </pre></div>
 </div>
