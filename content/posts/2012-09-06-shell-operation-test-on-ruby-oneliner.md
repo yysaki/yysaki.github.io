@@ -12,46 +12,56 @@ tags:
 ---
 [シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編][1] の記事にある設問を遅ればせながら解いてみました。
 
-Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。  
-Rubyのversionは1.9.3, 入力ファイル名を&#8221;data&#8221;とします。
+Rubyの勉強中だったので、全問をRubyのワンライナーのみでやります。
+Rubyのversionは1.9.3, 入力ファイル名を"data"とします。
 
 ### 問1
 
-> ruby -pe &#8221; data
+``` bash
+ruby -pe '' data
+```
 
--eオプションでスクリプトモード, -pオプションで&#8221;while gets{/\* code \*/ puts $_}&#8221;としてコード片を実行する。
+-eオプションでスクリプトモード, -pオプションで `while gets{/\* code \*/ puts $_}` としてコード片を実行する。
 
 この場合 コード片は空なのでファイルを一列ずつputsするのみです。
 
 ### 問2
 
-> ruby -F, -ane &#8216;puts &#8220;#{$F[0]},#{$F[3]}&#8221;&#8216; data
+``` bash
+ruby -F, -ane 'puts "#{$F[0]},#{$F[3]}"' data
+```
 
--n オプションは-p のputs $_を削ったもの。
+-n オプションは-p の `puts $_` を削ったもの。
 
--aは&#8221;auto aplit&#8221;の頭文字、$_.splitの結果が配列として$F変数に代入される。
+-aは"auto aplit"の頭文字、`$_.split`の結果が配列として$F変数に代入される。
 
 -F オプションで区切り文字を指定する。これは文字列でも正規表現でもOK
 
 ### 問3
 
-> ruby -F, -ane &#8216;puts $_ if $F[0]==&#8221;server4&#8243;&#8216; data
+``` bash
+ruby -F, -ane 'puts $_ if $F[0]=="server4"' data
+```
 
 ### 問4
 
-> ruby -ne &#8216;i||=0; i+=1; END{ puts i }&#8217; data
+``` bash
+ruby -ne 'i||=0; i+=1; END{ puts i }' data
+```
 
-注目は&#8221;||=&#8221;演算子とENDキーワードの二つ。
+注目は`||=`演算子とENDキーワードの二つ。
 
-&#8220;||=&#8221;はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。
+`||=`はループ文の中で値を初期化する際便利な、今回調べて一番便利だと感じたイディオムでした。
 
-上の式の場合&#8221;i = i || 0&#8243;と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。
+上の式の場合`i = i || 0`と解釈され、iにはiが未代入の時のみ0を代入され、それ以外の時は自身を代入する。
 
 また、ENDブロック内のコードはwhileループの終了後に実行されるため、-nオプションを使ってる場合でもwhile外部での制御が行える。
 
 ### 問5
 
-> ruby -F, -ane &#8216;a ||= \[]; a << $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] <=> y[0] : x[2].to\_i <=> y[2].to\_i}.[\](0,5).each{|b| puts &#8220;#{b[0]},#{b[1]},#{b[2]},#{b[3]}&#8221;} }&#8217; data
+``` bash
+ruby -F, -ane 'a ||= \[]; a << $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] <=> y[0] : x[2].to\_i <=> y[2].to\_i}.[\](0,5).each{|b| puts "#{b[0]},#{b[1]},#{b[2]},#{b[3]}"} }' data
+```
 
 sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。
 
@@ -59,25 +69,35 @@ sortの判定方法をイテレータ用のブロックで指定する記法はR
 
 ### 問6
 
-> ruby -ne &#8216;a ||= []; a << $_ unless a.index($_); END{ puts a.size }&#8217; data
+``` bash
+ruby -ne 'a ||= []; a << $_ unless a.index($_); END{ puts a.size }' data
+```
 
 ### 問7
 
-> ruby -F, -ane &#8216;a ||= []; a << $F[2] unless a.index($F[2]); END{ puts a.size }&#8217; data
+``` bash
+ruby -F, -ane 'a ||= []; a << $F[2] unless a.index($F[2]); END{ puts a.size }' data
+```
 
 ### 問8
 
-> ruby -F, -ane &#8216;h ||= {}; h.default = 0; h\[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y[1] <=> x[1]}.[\](0); puts &#8220;#{a[1]} #{a[0]}&#8221; }&#8217; data
+``` bash
+ruby -F, -ane 'h ||= {}; h.default = 0; h\[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y[1] <=> x[1]}.[\](0); puts "#{a[1]} #{a[0]}" }' data
+```
 
 Hashオブジェクトはdefault属性を設定することで初期値を設定できる。
 
 ### 問9
 
-> ruby -F, -ane &#8216;h ||= {}; h.default = 0; h[$F[0].gsub(/server/, &#8220;xxx&#8221;)] += 1; END{ h.to_a.sort{|x, y| x[0] <=> y[0]}.each{|l, r| puts &#8220;#{r} #{l}&#8221;} }&#8217; data
+``` bash
+ruby -F, -ane 'h ||= {}; h.default = 0; h[$F[0].gsub(/server/, "xxx")] += 1; END{ h.to_a.sort{|x, y| x[0] <=> y[0]}.each{|l, r| puts "#{r} #{l}"} }' data
+```
 
 ### 問10
 
-> ruby -F, -ane &#8216;a ||= []; n = $F[2].to_i; a << n if (n>=10) && (not a.index(n)); END{ a.sort!; puts a }&#8217; data
+``` bash
+ruby -F, -ane 'a ||= []; n = $F[2].to_i; a << n if (n>=10) && (not a.index(n)); END{ a.sort!; puts a }' data
+```
 
 &nbsp;
 
