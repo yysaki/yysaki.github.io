@@ -55,6 +55,222 @@
         <main role="main">
         
 
+  <h1>GithubのプロジェクトをCruiseControlで自動ビルドしてみた</h1>
+  <p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
+
+<p><img src="/images/CC_dashboard.png" alt="ダッシュボード" /></p>
+
+<p>継続的インテグレーションツールである<a href="http://cruisecontrol.sourceforge.net/">Cruisecontrol</a>(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。</p>
+
+<p>今回の環境は、マシンをUbuntu 10.04.4 LTS, CCを<a href="http://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/">cruisecontrol-bin-2.8.4.zip</a>、ビルドターゲットを僕の作った<a href="https://github.com/yysaki/MyJavaTetris">MyJavaTetris</a>とします。</p>
+
+<p>目標はソフトウェア開発に役立てるというよりもCCを回すことであるので、手段と目的が逆になっている気もしますがこれも勉強の一つです。</p>
+
+<p>ちなみに上の画像は、CCのdashboardで実際に表示されるページのスクリーンショットです。</p>
+
+<div>
+</div>
+
+<div>
+  以下手順です。
+</div>
+
+<p>本書の手順にあるスクリプトの情報は古く動作しなかったため、<a href="http://cruisecontrol.sourceforge.net/gettingstartedsourcedist.html">公式HPのGettingStarted</a>を参考にしました。</p>
+
+<div>
+  <h1>
+    CCのインストール
+  </h1>
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+  CCをインストールして/opt/cruisecontrol/ に配置します。
+</div>
+
+<div>
+</div>
+
+<blockquote>
+  <p>wget http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip</p>
+
+  <p>unzip cruisecontrol-bin-2.8.4.zip</p>
+
+  <p>mv cruisecontrol-bin-2.8.4 /opt/cruisecontrol/</p>
+</blockquote>
+
+<div>
+</div>
+
+<div>
+  ついでに.bashrcにPATHを通しておきます。
+</div>
+
+<div>
+</div>
+
+<blockquote>
+  <div>
+  echo &#8220;export PATH=$PATH:/opt/cruisecontrol&#8221; &gt;&gt; ~/.bashrc
+</div>
+
+  <div>
+  source ~/.bashrc
+</div>
+</blockquote>
+
+<div>
+</div>
+
+<div>
+  この手順の後、カレントディレクトリを/opt/cruisecontrol/に指定してcruisecontrol.shを実行することでCCの動作確認ができます。
+</div>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<h1 id="githubプロジェクトの設定">Githubプロジェクトの設定</h1>
+
+<div>
+</div>
+
+<div>
+</div>
+
+<div>
+  続いて自分のGitHubプロジェクトをCCのビルドループに追加する手順です。
+</div>
+
+<div>
+  今回、作業ディレクトリを /work/cc/に置くこととして、必要なディレクトリを作成していきます。
+</div>
+
+<div>
+</div>
+
+<blockquote>
+  <div>
+  cd /work/cc
+</div>
+
+  <div>
+  mkdir projects artifacts logs
+</div>
+</blockquote>
+
+<div>
+</div>
+
+<div>
+  次に、/work/cc/下に必要なスクリプトを二つ作成します。
+</div>
+
+<div>
+  一つ目はconfig.xmlです。このファイルによってCCのビルドループが設定されます。
+</div>
+
+<div>
+    <pre class="brush: xml; title: ; notranslate" title="">
+&lt;cruisecontrol&gt;
+  &lt;project name="MyJavaTetris" buildafterfailed="true"&gt;
+    &lt;listeners&gt;
+      &lt;currentbuildstatuslistener
+        file="logs/MyJavaTetris/status.txt"/&gt;
+    &lt;/listeners&gt;
+
+    &lt;!-- Bootstrappers are run every time the build runs,
+                                                 *before* the modification checks --&gt;
+    &lt;bootstrappers&gt;
+    &lt;/bootstrappers&gt;
+
+    &lt;!-- Defines where CruiseControl looks for changes, to decide
+                            whether to run the build --&gt;
+    &lt;modificationset quietperiod="10"&gt;
+      &lt;cvs localworkingcopy="projects/MyJavaTetris"/&gt;
+    &lt;/modificationset&gt;
+
+    &lt;!-- Configures the actual build loop, how often and which
+                                  build file/target --&gt;
+    &lt;schedule interval="60"&gt;
+      &lt;ant buildfile="build-MyJavaTetris.xml"
+        uselogger="true"/&gt;
+    &lt;/schedule&gt;
+
+    &lt;!-- directory to write build logs to --&gt;
+    &lt;log/&gt;
+
+    &lt;!-- Publishers are run *after* a build completes --&gt;
+    &lt;publishers&gt;
+    &lt;/publishers&gt;
+  &lt;/project&gt;
+&lt;/cruisecontrol&gt;
+</pre>
+</div>
+
+<div>
+</div>
+
+<div>
+  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、<a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/">この記事</a>を参考にgitコマンドをmacrodefしています。<pre class="brush: xml; title: ; notranslate" title="">
+&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
+&lt;project name="build-MyJavaTetris" default="build" basedir="projects"&gt;
+  &lt;target name="build"&gt;
+    &lt;macrodef name = "git"&gt;
+      &lt;attribute name = "command" /&gt;
+      &lt;attribute name = "dir" default = "" /&gt;
+      &lt;element name = "args" optional = "true" /&gt;
+      &lt;sequential&gt;
+        &lt;echo message = "git @{command}" /&gt;
+        &lt;exec executable = "git" dir = "@{dir}"&gt;
+          &lt;arg value = "@{command}" /&gt;
+          &lt;args/&gt;
+        &lt;/exec&gt;
+      &lt;/sequential&gt;
+    &lt;/macrodef&gt;
+
+    &lt;delete dir="MyJavaTetris" /&gt;
+    &lt;git command ="clone"&gt;
+      &lt;args&gt;
+        &lt;arg value ="ssh://git@github.com:22/yysaki/MyJavaTetris.git"/&gt;
+      &lt;/args&gt;
+    &lt;/git&gt;
+    &lt;ant antfile="build.xml" dir="MyJavaTetris" target="build" /&gt;
+    &lt;!-- nazo no error &lt;ant antfile="build.xml" dir="MyJavaTetris" target="test" /&gt; --&gt;
+  &lt;/target&gt;
+&lt;/project&gt;
+</pre>
+  
+  <p>
+    これで設定は全て完了です。
+  </p>
+  
+  <p>
+    /work/cc/下でcruisecontrol.shを実行するとMyJavaTetrisの自動ビルドが行われます。
+  </p>
+  
+  <p>
+    後はずっと放置しておけばCCさんが必要なタイミングでプロジェクトの自動ビルドを行います。
+  </p>
+  
+  <p>
+    リポジトリにコミットした時などにhttp://localhost:8080/にアクセスして動作をニヤニヤ監視しましょう。
+  </p>
+  
+  <p>
+    以上です。
+  </p>
+</div>
+
+
+
   <h1>『シェル操作課題 』をRubyのワンライナーで解いてみた</h1>
   <p><a href="http://d.hatena.ne.jp/Yamashiro0217/20120727/1343371036">シェル操作課題 (cut, sort, uniq などで集計を行う) 設問編</a> の記事にある設問を遅ればせながら解いてみました。</p>
 
@@ -263,24 +479,6 @@ php.iniは.htaccessのあるディレクトリに自分で置き、”memory_lim
 本文のレイアウトが崩れていたのを修正</p>
 
 
-  <h1>Let&#8217;s Noteのバッテリー</h1>
-  <p>研究室の予算でバッテリー等消耗品を買っていいよ、とのお触れが出たので今使っているLet’s Note CF-W4の劣化具合を調べてみました。</p>
-
-<p>使ったのは窓の杜で紹介されていたBatteryBar(http://www.forest.impress.co.jp/article/2008/12/17/batterybar.html)。  <br />
-タスクバーに入り込んでバッテリー残量などを表示するもので、丁度良くバッテリー劣化の率をパーセントで表示することができるものです。  <br />
-「レベルメーターはWindows Vistaのインターフェイスと完全に調和するデザインであるため、あたかもWindows標準の機能の1つであるかのように動作する」という触れ込みだったけど、タスクバーを広げてタブを沢山視認できるようにするのが好きだったのでちょっとかさばって見えます。</p>
-
-<p><img src="/images/BatteryBar_20101108-3ECO.jpg" alt="BatteryBar" /></p>
-
-<p>結果がコレ。劣化具合が17.9%で、思っていたよりもバッテリーはへたってませんでしたｗ  <br />
-電池の消費の流れを計算した感じ新品買うほどではないですね。  <br />
-今までACアダプタを外して持ち歩いてる際も、最大輝度でmp3を聴きながら作業など無駄にmW数食うようなプレイングだったので、新品を購入するのを目論む前に、ACアダプタを繋がない時のPCの使い方を見直すのが先だなｗ</p>
-
-<p>それと、スリープや電源オフの状態でもバッテリが減ってゆく、いわゆる「お漏らし」現象が型番R4,T4,W4,Y4の世代には起こるらしいです。(http://letsnote.xrea.jp/?%A5%C8%A5%E9%A5%D6%A5%EB%B4%D8%CF%A2)  <br />
-それの対処方法は、ACアダプタをつないで保管する、あるいはバッテリ自体を外すことみたいなので、この二つの徹底をしていこうかな。</p>
-
-
-
 
         </main>
       </div>
@@ -301,6 +499,8 @@ php.iniは.htaccessのあるディレクトリに自分で置き、”memory_lim
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
+    
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
     
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
@@ -308,8 +508,6 @@ php.iniは.htaccessのあるディレクトリに自分で置き、”memory_lim
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
-    
-      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
     
   </ul>
 </div>

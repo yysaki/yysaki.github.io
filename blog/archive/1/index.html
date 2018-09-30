@@ -55,6 +55,124 @@
         <main role="main">
         
 
+  <h1>#Webサービスを作る本 を読んで簡易markdownエディタを作った</h1>
+  <p><a href="https://twitter.com/nabettu">@nabetu</a> さんの執筆した <a href="http://www.amazon.co.jp/exec/obidos/ASIN/4844398350/tatsuakiw-22/">Vue.jsとFirebaseで作るミニWebサービス (技術書典シリーズ(NextPublishing))</a> の手順を写経してFirebase上で動く簡単なmarkdownディターのアプリを作成しました。 <a href="https://mymarkdown-e7d15.firebaseapp.com/">こちらのURL</a> で実際に稼働中です。</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr"><a href="https://twitter.com/hashtag/Web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E3%82%8B%E6%9C%AC?src=hash&amp;ref_src=twsrc%5Etfw">#Webサービスを作る本</a> 1周目終了。<br />UIの手入れすっ飛ばしたので週末vuetifyで遊んで設定してから強くてニューゲーム行きます。<br />DBは本書使用のRealtime DatabaseでなくCloud Firestoreを採用したので、設定の違いなどをブログ記事に起こすかも。<a href="https://t.co/l903YvwWbL">https://t.co/l903YvwWbL</a></p>&mdash; sasaki (@yysaki) <a href="https://twitter.com/yysaki/status/1034464372041515008?ref_src=twsrc%5Etfw">August 28, 2018</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>このtweetからもある程度作業を進め、自分の中で修正の区切りがついたので記事をまとめます。<br />
+なお、作成したwebサービスのソースコードは<a href="https://github.com/yysaki/mymarkdown">github</a> に公開しています。</p>
+
+<!-- more -->
+
+<h2 id="前置き">前置き</h2>
+
+<p>本書はタイトルの通り, Vue.jsとFirebaseを使ってSPAなWebサービスを実際に作ってみるために必要なことがまとめられた本です。<br />
+私は普段の業務では双方触らないものの、強い興味があって手っ取り早く学習してみたかったためkindle版を購入しました。</p>
+
+<p>Firebaseは別の趣味プロジェクトでホスティングサービスであるところのFirebase Hosting、およびexpress js を走らせるためのFirebase Cloud Functionを使ったことはあったのですが、NoSQLのRealtime Databaseや Cloud Firestoreは使ったことがありませんでした。<br />
+Vue.jsについては全くの新規です。前知識としてはReactに並ぶ仮想DOMを使ったフロントエンドフレームワーク、というような大雑把な理解しかありませんでした。<br />
+日本人ソフトウェアエンジニア界隈で流行が始まっている気配を感じていたので、これを機会に学ぼうというところです。</p>
+
+<h2 id="1周目">1周目</h2>
+
+<p>本編はVue.jsおよびFirebase Realtime DBを使って動くmarkdownエディタを作成していきます。文章を読んでコードを写経すればほぼ問題なく進められました。<br />
+僕が見た時点ではファイルパスなどの誤植がいくつかありますが、 <a href="https://github.com/nabettu/mymarkdown">著者のサポートリポジトリ</a> にまとめられているのでつまづくことはありませんでした。<br />
+また、ロゴの簡単な作り方や利用規約・プライバシーポリシーの書き方が説明されており、大事な部分だなと勉強になりました。<br />
+結局ロゴの作成はサボってしまったのですが、次自分のサービスを作るときにはすぐ作成できる安心感が手に入りました。</p>
+
+<h2 id="firebase">Firebase</h2>
+
+<p>本編ではRealtime DBを使ったやり方が紹介されてますが、どちらかというと現在β版であるFirestoreが使って見たかったので、あえて後者を試しました。<br />
+これには多少苦戦して、最終的に以下の記述をして対処しました。<br />
+<a href="https://github.com/yysaki/mymarkdown/commit/5d89a7c7cea411c76ed6ca960c42f9a780dfc8c3">githubでいうとこの辺です。</a></p>
+
+<p>Firestore ルール:</p>
+<div class="language-txt highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre>service cloud.firestore {
+  match /databases/{database}/documents {
+    match /memos/{userId} {
+      allow read, write: if request.auth.uid == userId;    
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+
+<p>created:</p>
+<div class="language-javascript highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#06B;font-weight:bold">created</span>: <span style="color:#080;font-weight:bold">function</span>() {
+  <span style="color:#080;font-weight:bold">var</span> self = <span style="color:#950">this</span>;
+  firebase
+    .firestore()
+    .collection(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">memos</span><span style="color:#710">'</span></span>)
+    .doc(<span style="color:#950">this</span>.user.uid)
+    .get()
+    .then(<span style="color:#080;font-weight:bold">function</span>(doc) {
+      <span style="color:#080;font-weight:bold">if</span> (doc.exists) {
+        self.memos = doc.data().val;
+      }
+    });
+},
+</pre></div>
+</div>
+</div>
+
+<p>saveMemos:</p>
+<div class="language-javascript highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#06B;font-weight:bold">saveMemos</span>: <span style="color:#080;font-weight:bold">function</span>() {
+  firebase
+    .firestore()
+    .collection(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">memos</span><span style="color:#710">'</span></span>)
+    .doc(<span style="color:#950">this</span>.user.uid)
+    .set({<span style="color:#606">val</span>: <span style="color:#950">this</span>.memos});
+},
+</pre></div>
+</div>
+</div>
+
+<p>今イチからやるのであれば <a href="https://github.com/nabettu/firestore-manual">Firestore 移行マニュアル</a> が公開してくださっているのでそちらを参考にするとよいと思います。</p>
+
+<h2 id="強くてニューゲームちょい足しポイント">強くてニューゲーム・ちょい足しポイント</h2>
+
+<p>本書はシンプルなmarkdownエディタを作る手順が載っているんですが、追加お題の随所に散りばめられた「ちょい足しポイント」や巻末の初心者や中級者向けに出題された「強くてニューゲーム」があります。<br />
+私は全体の半分程度手を出したのですが、それぞれやりごたえがありました。<br />
+実際にやったうちいくつか例をあげると、</p>
+
+<p>ちょい足しポイント:</p>
+<ul>
+  <li>デプロイにCIを使う。</li>
+  <li>状態管理にVuexを使用する。</li>
+  <li>Vuetifyを使ってマテリアルデザインのサイトにする</li>
+</ul>
+
+<p>強くてニューゲーム:</p>
+<ul>
+  <li>ナビゲーションバーの追加</li>
+  <li>マークダウンでチェックボックスを表示できるようにする</li>
+  <li>ログイン時に表示までLoadingを入れる</li>
+  <li>セーブ中はセーブボタンがローディングする(ローディング中は押せない)</li>
+</ul>
+
+<p>などです。</p>
+
+<p>その際Vue.jsやライブラリであるVuex, Vue Router, Vuetify.jsの公式ドキュメントを読んだのですが、ドキュメントが充実しているのに驚きました。<br />
+ほとんどが日本語訳されているし、サンプルコードにcodepenへのリンクがあり実際にスクラッチして試せるのです。<br />
+特にCSSのflexboxに不慣れだったのですが、Vuetify.jsの <a href="https://vuetifyjs.com/en/layout/grid">Grid system</a> を何度も読み書きしてなんとかまともに動くものが作れるまでになりました。</p>
+
+<p>また、 <a href="https://github.com/nabettu/mymarkdown/tree/feature/add-design">著者のリポジトリ</a> に強くてニューゲームのサンプルがあったので何度も参考になりました。</p>
+
+<h2 id="感想">感想</h2>
+
+<p>この本を読んで写経することで手軽にwebサービスが作れる成功体験が得られました。<br />
+特にFirebaseは無料のプランで満足できるものが始められるので初動が気楽です。<br />
+また、社内slackに公開したURLを貼って見せるとフィードバックが得られ、typoを次々見つけてもらって面白かったということもありました。</p>
+
+<p>以上です。</p>
+
+
   <h1>ブログのHTTPS化および開発環境整備</h1>
   <p>最近 <a href="https://speakerdeck.com/rhysd/cao-wosheng-yasuji-shu-number-mydev">草を生やす技術 #mydev // Speaker Deck</a> のスライドを読み直して, このブログや昔作った小さなwebアプリの整備をしてgithubの草を生やしております.<br />
 最近の進捗はプライベートリポジトリを含むとこんな感じ, 欠ける日もありますが2週間以上は続いてます.</p>
@@ -245,118 +363,6 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
 
 
 
-  <h1>ビルドしたpdfをsshfsからSkimで読む</h1>
-  <p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
-
-<h2 id="背景">背景</h2>
-
-<p>研究室マシンでtexを編集しているのですが、作業結果のPDFを手元で快適に確認したいのです。 そこで、開発方針を以下のように整えました。</p>
-
-<ul>
-  <li>研究室マシンでtexの編集、ビルドを行う。</li>
-  <li>sshfsをマウントすることで研究室マシンにアクセスする。</li>
-  <li>Skimでsshfs上のpdfを閲覧し、自動更新モードで変更を反映する。</li>
-</ul>
-
-<p>環境は以下のとおりです。</p>
-
-<ul>
-  <li>ローカル: Mac OS X Mavericks、なるべくhomebrewを使う</li>
-  <li>リモート: Linux、sshで接続</li>
-</ul>
-
-<h2 id="osxfuseのインストール">OSXFUSEのインストール</h2>
-
-<p>まず下記URLからOSXFUSEをダウンロード、インストールします。</p>
-
-<ul>
-  <li><a href="http://sourceforge.net/projects/osxfuse/files/?source=navbar">FUSE for OS X – Browse Files at SourceForge.net</a></li>
-</ul>
-
-<p>先にhomebrewでfuse–4x-kextを試したのですが、正しくsshfsを動作させられなかったのでこちらを採用です。</p>
-
-<h2 id="sshfsのインストール">sshfsのインストール</h2>
-
-<p>以下のコマンドでインストールします。</p>
-
-<pre><code>    $ sudo brew link fuse4x
-    $ sudo brew install sshfs
-    $ sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
-    $ sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
-</code></pre>
-
-<p>以下のコマンドでマウントします。</p>
-
-<pre><code>    $ mkdir mnt
-    $ sshfs -p 22 [User]@[Host]:[Dir] mnt
-</code></pre>
-
-<p>マウントが出来たかどうかはdfで確認出来ます。 またマウントを解除するには以下のコマンドです。</p>
-
-<pre><code>    $ unmount mnt
-</code></pre>
-
-<h2 id="skimのインストール">Skimのインストール</h2>
-
-<p>以下のURLからダウンロード出来ます。</p>
-
-<ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>[Skim</td>
-          <td>Home]<a href="http://skim-app.sourceforge.net">2</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-</ul>
-
-<p>自動更新を行うため「環境設定… &gt; 同期する &gt; ファイルの変更をチェック」をちぇっくします。</p>
-
-<h2 id="その他">その他</h2>
-
-<ul>
-  <li>バージョン管理はgithubのプライベートリポジトリで行っています。修論目的であれば学生用アカウントを申請することで、無料でMicroプランに加入できました。
-    <ul>
-      <li><a href="https://github.com/edu">Contact GitHub</a></li>
-    </ul>
-  </li>
-  <li>
-    <p>エディタはvimを使用しています。以下のように.vimrcを設定すれば”&lt;Space&gt;q”でtexのmake出来ます。</p>
-
-    <pre><code>NeoBundle 'thinca/vim-quickrun'
-silent! map &lt;Space&gt;q &lt;Plug&gt;(quickrun)
-let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
-</code></pre>
-  </li>
-  <li>学生共用のマシンで作業してるので、負荷を考え自動ビルドはやめときました。自分でmakeコマンドを叩きたくない人はOcamlのOmakeやRubyのGuardを使うと良さげです。</li>
-</ul>
-
-<h2 id="まとめ">まとめ</h2>
-
-<p>以上で修論の開発環境を整えました。 開発マシンでtexの編集を行い、ビルドするとSkimの自動更新が反応して新しいPDFを表示してくれます。 Vimで&lt;Space&gt;qすることでPDFのレビューまで自動化出来たので概ね満足な結果です. (但しSkimが反映されるまでに10秒程かかります。sshfsの限界…)</p>
-
-<h2 id="参考記事">参考記事</h2>
-
-<ul>
-  <li><a href="http://www.danielandrade.net/2013/10/28/mounting-a-filesystem-via-ssh-on-osx-mavericks/">Mounting a Filesystem via SSH on OSX Mavericks – DanielAndrade.net</a></li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>[Macでsshfsを使う</td>
-          <td>yamaq blog]<a href="http://mount-q.com/yamaqblog/?p=15899">5</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li><a href="http://macwiki.sourceforge.jp/wiki/index.php/Skim">MacWiki – Skim</a></li>
-</ul>
-
-
-
 
         </main>
       </div>
@@ -377,6 +383,8 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
+    
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
     
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
@@ -384,8 +392,6 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
-    
-      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
     
   </ul>
 </div>

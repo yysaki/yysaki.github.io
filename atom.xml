@@ -2,13 +2,136 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2018-08-12T00:00:00Z</updated>
+  <updated>2018-09-30T00:00:00Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
+  <entry>
+    <id>tag:www.yysaki.com,2018-09-30://blog/2018/09/30/vue-firebase-tutorial/</id>
+    <title type="html">#Webサービスを作る本 を読んで簡易markdownエディタを作った</title>
+    <published>2018-09-30T00:00:00Z</published>
+    <updated>2018-09-30T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2018/09/30/vue-firebase-tutorial/"/>
+    <content type="html">&lt;p&gt;&lt;a href="https://twitter.com/nabettu"&gt;@nabetu&lt;/a&gt; さんの執筆した &lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/4844398350/tatsuakiw-22/"&gt;Vue.jsとFirebaseで作るミニWebサービス (技術書典シリーズ(NextPublishing))&lt;/a&gt; の手順を写経してFirebase上で動く簡単なmarkdownディターのアプリを作成しました。 &lt;a href="https://mymarkdown-e7d15.firebaseapp.com/"&gt;こちらのURL&lt;/a&gt; で実際に稼働中です。&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="ja" dir="ltr"&gt;&lt;a href="https://twitter.com/hashtag/Web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E3%82%8B%E6%9C%AC?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Webサービスを作る本&lt;/a&gt; 1周目終了。&lt;br /&gt;UIの手入れすっ飛ばしたので週末vuetifyで遊んで設定してから強くてニューゲーム行きます。&lt;br /&gt;DBは本書使用のRealtime DatabaseでなくCloud Firestoreを採用したので、設定の違いなどをブログ記事に起こすかも。&lt;a href="https://t.co/l903YvwWbL"&gt;https://t.co/l903YvwWbL&lt;/a&gt;&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/1034464372041515008?ref_src=twsrc%5Etfw"&gt;August 28, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;このtweetからもある程度作業を進め、自分の中で修正の区切りがついたので記事をまとめます。&lt;br /&gt;
+なお、作成したwebサービスのソースコードは&lt;a href="https://github.com/yysaki/mymarkdown"&gt;github&lt;/a&gt; に公開しています。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="前置き"&gt;前置き&lt;/h2&gt;
+
+&lt;p&gt;本書はタイトルの通り, Vue.jsとFirebaseを使ってSPAなWebサービスを実際に作ってみるために必要なことがまとめられた本です。&lt;br /&gt;
+私は普段の業務では双方触らないものの、強い興味があって手っ取り早く学習してみたかったためkindle版を購入しました。&lt;/p&gt;
+
+&lt;p&gt;Firebaseは別の趣味プロジェクトでホスティングサービスであるところのFirebase Hosting、およびexpress js を走らせるためのFirebase Cloud Functionを使ったことはあったのですが、NoSQLのRealtime Databaseや Cloud Firestoreは使ったことがありませんでした。&lt;br /&gt;
+Vue.jsについては全くの新規です。前知識としてはReactに並ぶ仮想DOMを使ったフロントエンドフレームワーク、というような大雑把な理解しかありませんでした。&lt;br /&gt;
+日本人ソフトウェアエンジニア界隈で流行が始まっている気配を感じていたので、これを機会に学ぼうというところです。&lt;/p&gt;
+
+&lt;h2 id="1周目"&gt;1周目&lt;/h2&gt;
+
+&lt;p&gt;本編はVue.jsおよびFirebase Realtime DBを使って動くmarkdownエディタを作成していきます。文章を読んでコードを写経すればほぼ問題なく進められました。&lt;br /&gt;
+僕が見た時点ではファイルパスなどの誤植がいくつかありますが、 &lt;a href="https://github.com/nabettu/mymarkdown"&gt;著者のサポートリポジトリ&lt;/a&gt; にまとめられているのでつまづくことはありませんでした。&lt;br /&gt;
+また、ロゴの簡単な作り方や利用規約・プライバシーポリシーの書き方が説明されており、大事な部分だなと勉強になりました。&lt;br /&gt;
+結局ロゴの作成はサボってしまったのですが、次自分のサービスを作るときにはすぐ作成できる安心感が手に入りました。&lt;/p&gt;
+
+&lt;h2 id="firebase"&gt;Firebase&lt;/h2&gt;
+
+&lt;p&gt;本編ではRealtime DBを使ったやり方が紹介されてますが、どちらかというと現在β版であるFirestoreが使って見たかったので、あえて後者を試しました。&lt;br /&gt;
+これには多少苦戦して、最終的に以下の記述をして対処しました。&lt;br /&gt;
+&lt;a href="https://github.com/yysaki/mymarkdown/commit/5d89a7c7cea411c76ed6ca960c42f9a780dfc8c3"&gt;githubでいうとこの辺です。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Firestore ルール:&lt;/p&gt;
+&lt;div class="language-txt highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;service cloud.firestore {
+  match /databases/{database}/documents {
+    match /memos/{userId} {
+      allow read, write: if request.auth.uid == userId;    
+    }
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;created:&lt;/p&gt;
+&lt;div class="language-javascript highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;&lt;span style="color:#06B;font-weight:bold"&gt;created&lt;/span&gt;: &lt;span style="color:#080;font-weight:bold"&gt;function&lt;/span&gt;() {
+  &lt;span style="color:#080;font-weight:bold"&gt;var&lt;/span&gt; self = &lt;span style="color:#950"&gt;this&lt;/span&gt;;
+  firebase
+    .firestore()
+    .collection(&lt;span style="background-color:hsla(0,100%,50%,0.05)"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style="color:#D20"&gt;memos&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;)
+    .doc(&lt;span style="color:#950"&gt;this&lt;/span&gt;.user.uid)
+    .get()
+    .then(&lt;span style="color:#080;font-weight:bold"&gt;function&lt;/span&gt;(doc) {
+      &lt;span style="color:#080;font-weight:bold"&gt;if&lt;/span&gt; (doc.exists) {
+        self.memos = doc.data().val;
+      }
+    });
+},
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;saveMemos:&lt;/p&gt;
+&lt;div class="language-javascript highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;&lt;span style="color:#06B;font-weight:bold"&gt;saveMemos&lt;/span&gt;: &lt;span style="color:#080;font-weight:bold"&gt;function&lt;/span&gt;() {
+  firebase
+    .firestore()
+    .collection(&lt;span style="background-color:hsla(0,100%,50%,0.05)"&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;span style="color:#D20"&gt;memos&lt;/span&gt;&lt;span style="color:#710"&gt;'&lt;/span&gt;&lt;/span&gt;)
+    .doc(&lt;span style="color:#950"&gt;this&lt;/span&gt;.user.uid)
+    .set({&lt;span style="color:#606"&gt;val&lt;/span&gt;: &lt;span style="color:#950"&gt;this&lt;/span&gt;.memos});
+},
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;今イチからやるのであれば &lt;a href="https://github.com/nabettu/firestore-manual"&gt;Firestore 移行マニュアル&lt;/a&gt; が公開してくださっているのでそちらを参考にするとよいと思います。&lt;/p&gt;
+
+&lt;h2 id="強くてニューゲームちょい足しポイント"&gt;強くてニューゲーム・ちょい足しポイント&lt;/h2&gt;
+
+&lt;p&gt;本書はシンプルなmarkdownエディタを作る手順が載っているんですが、追加お題の随所に散りばめられた「ちょい足しポイント」や巻末の初心者や中級者向けに出題された「強くてニューゲーム」があります。&lt;br /&gt;
+私は全体の半分程度手を出したのですが、それぞれやりごたえがありました。&lt;br /&gt;
+実際にやったうちいくつか例をあげると、&lt;/p&gt;
+
+&lt;p&gt;ちょい足しポイント:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;デプロイにCIを使う。&lt;/li&gt;
+  &lt;li&gt;状態管理にVuexを使用する。&lt;/li&gt;
+  &lt;li&gt;Vuetifyを使ってマテリアルデザインのサイトにする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;強くてニューゲーム:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ナビゲーションバーの追加&lt;/li&gt;
+  &lt;li&gt;マークダウンでチェックボックスを表示できるようにする&lt;/li&gt;
+  &lt;li&gt;ログイン時に表示までLoadingを入れる&lt;/li&gt;
+  &lt;li&gt;セーブ中はセーブボタンがローディングする(ローディング中は押せない)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;などです。&lt;/p&gt;
+
+&lt;p&gt;その際Vue.jsやライブラリであるVuex, Vue Router, Vuetify.jsの公式ドキュメントを読んだのですが、ドキュメントが充実しているのに驚きました。&lt;br /&gt;
+ほとんどが日本語訳されているし、サンプルコードにcodepenへのリンクがあり実際にスクラッチして試せるのです。&lt;br /&gt;
+特にCSSのflexboxに不慣れだったのですが、Vuetify.jsの &lt;a href="https://vuetifyjs.com/en/layout/grid"&gt;Grid system&lt;/a&gt; を何度も読み書きしてなんとかまともに動くものが作れるまでになりました。&lt;/p&gt;
+
+&lt;p&gt;また、 &lt;a href="https://github.com/nabettu/mymarkdown/tree/feature/add-design"&gt;著者のリポジトリ&lt;/a&gt; に強くてニューゲームのサンプルがあったので何度も参考になりました。&lt;/p&gt;
+
+&lt;h2 id="感想"&gt;感想&lt;/h2&gt;
+
+&lt;p&gt;この本を読んで写経することで手軽にwebサービスが作れる成功体験が得られました。&lt;br /&gt;
+特にFirebaseは無料のプランで満足できるものが始められるので初動が気楽です。&lt;br /&gt;
+また、社内slackに公開したURLを貼って見せるとフィードバックが得られ、typoを次々見つけてもらって面白かったということもありました。&lt;/p&gt;
+
+&lt;p&gt;以上です。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.yysaki.com,2018-08-12://blog/2018/08/12/blog-renewal/</id>
     <title type="html">ブログのHTTPS化および開発環境整備</title>
@@ -540,227 +663,6 @@ IOError: encoder zip not available
 
 &lt;p&gt;セキュリティ強化の記事では、wp-adminの保護のため”AskApache Password Protect”導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。  &lt;br /&gt;
 今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。&lt;/p&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2012-09-20://blog/2012/09/20/github-by-cruisecontrol/</id>
-    <title type="html">GithubのプロジェクトをCruiseControlで自動ビルドしてみた</title>
-    <published>2012-09-20T00:00:00Z</published>
-    <updated>2012-09-20T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2012/09/20/github-by-cruisecontrol/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X"&gt;達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化&lt;/a&gt; に触発されて、Javaプロジェクトの自動テストにチャレンジしました。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="/images/CC_dashboard.png" alt="ダッシュボード" /&gt;&lt;/p&gt;
-
-&lt;p&gt;継続的インテグレーションツールである&lt;a href="http://cruisecontrol.sourceforge.net/"&gt;Cruisecontrol&lt;/a&gt;(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。&lt;/p&gt;
-
-&lt;p&gt;今回の環境は、マシンをUbuntu 10.04.4 LTS, CCを&lt;a href="http://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/"&gt;cruisecontrol-bin-2.8.4.zip&lt;/a&gt;、ビルドターゲットを僕の作った&lt;a href="https://github.com/yysaki/MyJavaTetris"&gt;MyJavaTetris&lt;/a&gt;とします。&lt;/p&gt;
-
-&lt;p&gt;目標はソフトウェア開発に役立てるというよりもCCを回すことであるので、手段と目的が逆になっている気もしますがこれも勉強の一つです。&lt;/p&gt;
-
-&lt;p&gt;ちなみに上の画像は、CCのdashboardで実際に表示されるページのスクリーンショットです。&lt;/p&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  以下手順です。
-&lt;/div&gt;
-
-&lt;p&gt;本書の手順にあるスクリプトの情報は古く動作しなかったため、&lt;a href="http://cruisecontrol.sourceforge.net/gettingstartedsourcedist.html"&gt;公式HPのGettingStarted&lt;/a&gt;を参考にしました。&lt;/p&gt;
-
-&lt;div&gt;
-  &lt;h1&gt;
-    CCのインストール
-  &lt;/h1&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  CCをインストールして/opt/cruisecontrol/ に配置します。
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;wget http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip&lt;/p&gt;
-
-  &lt;p&gt;unzip cruisecontrol-bin-2.8.4.zip&lt;/p&gt;
-
-  &lt;p&gt;mv cruisecontrol-bin-2.8.4 /opt/cruisecontrol/&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  ついでに.bashrcにPATHを通しておきます。
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;div&gt;
-  echo &amp;#8220;export PATH=$PATH:/opt/cruisecontrol&amp;#8221; &amp;gt;&amp;gt; ~/.bashrc
-&lt;/div&gt;
-
-  &lt;div&gt;
-  source ~/.bashrc
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  この手順の後、カレントディレクトリを/opt/cruisecontrol/に指定してcruisecontrol.shを実行することでCCの動作確認ができます。
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;h1 id="githubプロジェクトの設定"&gt;Githubプロジェクトの設定&lt;/h1&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  続いて自分のGitHubプロジェクトをCCのビルドループに追加する手順です。
-&lt;/div&gt;
-
-&lt;div&gt;
-  今回、作業ディレクトリを /work/cc/に置くこととして、必要なディレクトリを作成していきます。
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;div&gt;
-  cd /work/cc
-&lt;/div&gt;
-
-  &lt;div&gt;
-  mkdir projects artifacts logs
-&lt;/div&gt;
-&lt;/blockquote&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  次に、/work/cc/下に必要なスクリプトを二つ作成します。
-&lt;/div&gt;
-
-&lt;div&gt;
-  一つ目はconfig.xmlです。このファイルによってCCのビルドループが設定されます。
-&lt;/div&gt;
-
-&lt;div&gt;
-    &lt;pre class="brush: xml; title: ; notranslate" title=""&gt;
-&amp;lt;cruisecontrol&amp;gt;
-  &amp;lt;project name="MyJavaTetris" buildafterfailed="true"&amp;gt;
-    &amp;lt;listeners&amp;gt;
-      &amp;lt;currentbuildstatuslistener
-        file="logs/MyJavaTetris/status.txt"/&amp;gt;
-    &amp;lt;/listeners&amp;gt;
-
-    &amp;lt;!-- Bootstrappers are run every time the build runs,
-                                                 *before* the modification checks --&amp;gt;
-    &amp;lt;bootstrappers&amp;gt;
-    &amp;lt;/bootstrappers&amp;gt;
-
-    &amp;lt;!-- Defines where CruiseControl looks for changes, to decide
-                            whether to run the build --&amp;gt;
-    &amp;lt;modificationset quietperiod="10"&amp;gt;
-      &amp;lt;cvs localworkingcopy="projects/MyJavaTetris"/&amp;gt;
-    &amp;lt;/modificationset&amp;gt;
-
-    &amp;lt;!-- Configures the actual build loop, how often and which
-                                  build file/target --&amp;gt;
-    &amp;lt;schedule interval="60"&amp;gt;
-      &amp;lt;ant buildfile="build-MyJavaTetris.xml"
-        uselogger="true"/&amp;gt;
-    &amp;lt;/schedule&amp;gt;
-
-    &amp;lt;!-- directory to write build logs to --&amp;gt;
-    &amp;lt;log/&amp;gt;
-
-    &amp;lt;!-- Publishers are run *after* a build completes --&amp;gt;
-    &amp;lt;publishers&amp;gt;
-    &amp;lt;/publishers&amp;gt;
-  &amp;lt;/project&amp;gt;
-&amp;lt;/cruisecontrol&amp;gt;
-&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-&lt;/div&gt;
-
-&lt;div&gt;
-  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、&lt;a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/"&gt;この記事&lt;/a&gt;を参考にgitコマンドをmacrodefしています。&lt;pre class="brush: xml; title: ; notranslate" title=""&gt;
-&amp;lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&amp;gt;
-&amp;lt;project name="build-MyJavaTetris" default="build" basedir="projects"&amp;gt;
-  &amp;lt;target name="build"&amp;gt;
-    &amp;lt;macrodef name = "git"&amp;gt;
-      &amp;lt;attribute name = "command" /&amp;gt;
-      &amp;lt;attribute name = "dir" default = "" /&amp;gt;
-      &amp;lt;element name = "args" optional = "true" /&amp;gt;
-      &amp;lt;sequential&amp;gt;
-        &amp;lt;echo message = "git @{command}" /&amp;gt;
-        &amp;lt;exec executable = "git" dir = "@{dir}"&amp;gt;
-          &amp;lt;arg value = "@{command}" /&amp;gt;
-          &amp;lt;args/&amp;gt;
-        &amp;lt;/exec&amp;gt;
-      &amp;lt;/sequential&amp;gt;
-    &amp;lt;/macrodef&amp;gt;
-
-    &amp;lt;delete dir="MyJavaTetris" /&amp;gt;
-    &amp;lt;git command ="clone"&amp;gt;
-      &amp;lt;args&amp;gt;
-        &amp;lt;arg value ="ssh://git@github.com:22/yysaki/MyJavaTetris.git"/&amp;gt;
-      &amp;lt;/args&amp;gt;
-    &amp;lt;/git&amp;gt;
-    &amp;lt;ant antfile="build.xml" dir="MyJavaTetris" target="build" /&amp;gt;
-    &amp;lt;!-- nazo no error &amp;lt;ant antfile="build.xml" dir="MyJavaTetris" target="test" /&amp;gt; --&amp;gt;
-  &amp;lt;/target&amp;gt;
-&amp;lt;/project&amp;gt;
-&lt;/pre&gt;
-  
-  &lt;p&gt;
-    これで設定は全て完了です。
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    /work/cc/下でcruisecontrol.shを実行するとMyJavaTetrisの自動ビルドが行われます。
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    後はずっと放置しておけばCCさんが必要なタイミングでプロジェクトの自動ビルドを行います。
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    リポジトリにコミットした時などにhttp://localhost:8080/にアクセスして動作をニヤニヤ監視しましょう。
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    以上です。
-  &lt;/p&gt;
-&lt;/div&gt;
 
 </content>
   </entry>

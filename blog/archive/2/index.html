@@ -55,6 +55,118 @@
         <main role="main">
         
 
+  <h1>ビルドしたpdfをsshfsからSkimで読む</h1>
+  <p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
+
+<h2 id="背景">背景</h2>
+
+<p>研究室マシンでtexを編集しているのですが、作業結果のPDFを手元で快適に確認したいのです。 そこで、開発方針を以下のように整えました。</p>
+
+<ul>
+  <li>研究室マシンでtexの編集、ビルドを行う。</li>
+  <li>sshfsをマウントすることで研究室マシンにアクセスする。</li>
+  <li>Skimでsshfs上のpdfを閲覧し、自動更新モードで変更を反映する。</li>
+</ul>
+
+<p>環境は以下のとおりです。</p>
+
+<ul>
+  <li>ローカル: Mac OS X Mavericks、なるべくhomebrewを使う</li>
+  <li>リモート: Linux、sshで接続</li>
+</ul>
+
+<h2 id="osxfuseのインストール">OSXFUSEのインストール</h2>
+
+<p>まず下記URLからOSXFUSEをダウンロード、インストールします。</p>
+
+<ul>
+  <li><a href="http://sourceforge.net/projects/osxfuse/files/?source=navbar">FUSE for OS X – Browse Files at SourceForge.net</a></li>
+</ul>
+
+<p>先にhomebrewでfuse–4x-kextを試したのですが、正しくsshfsを動作させられなかったのでこちらを採用です。</p>
+
+<h2 id="sshfsのインストール">sshfsのインストール</h2>
+
+<p>以下のコマンドでインストールします。</p>
+
+<pre><code>    $ sudo brew link fuse4x
+    $ sudo brew install sshfs
+    $ sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
+    $ sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
+</code></pre>
+
+<p>以下のコマンドでマウントします。</p>
+
+<pre><code>    $ mkdir mnt
+    $ sshfs -p 22 [User]@[Host]:[Dir] mnt
+</code></pre>
+
+<p>マウントが出来たかどうかはdfで確認出来ます。 またマウントを解除するには以下のコマンドです。</p>
+
+<pre><code>    $ unmount mnt
+</code></pre>
+
+<h2 id="skimのインストール">Skimのインストール</h2>
+
+<p>以下のURLからダウンロード出来ます。</p>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Skim</td>
+          <td>Home]<a href="http://skim-app.sourceforge.net">2</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<p>自動更新を行うため「環境設定… &gt; 同期する &gt; ファイルの変更をチェック」をちぇっくします。</p>
+
+<h2 id="その他">その他</h2>
+
+<ul>
+  <li>バージョン管理はgithubのプライベートリポジトリで行っています。修論目的であれば学生用アカウントを申請することで、無料でMicroプランに加入できました。
+    <ul>
+      <li><a href="https://github.com/edu">Contact GitHub</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>エディタはvimを使用しています。以下のように.vimrcを設定すれば”&lt;Space&gt;q”でtexのmake出来ます。</p>
+
+    <pre><code>NeoBundle 'thinca/vim-quickrun'
+silent! map &lt;Space&gt;q &lt;Plug&gt;(quickrun)
+let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
+</code></pre>
+  </li>
+  <li>学生共用のマシンで作業してるので、負荷を考え自動ビルドはやめときました。自分でmakeコマンドを叩きたくない人はOcamlのOmakeやRubyのGuardを使うと良さげです。</li>
+</ul>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>以上で修論の開発環境を整えました。 開発マシンでtexの編集を行い、ビルドするとSkimの自動更新が反応して新しいPDFを表示してくれます。 Vimで&lt;Space&gt;qすることでPDFのレビューまで自動化出来たので概ね満足な結果です. (但しSkimが反映されるまでに10秒程かかります。sshfsの限界…)</p>
+
+<h2 id="参考記事">参考記事</h2>
+
+<ul>
+  <li><a href="http://www.danielandrade.net/2013/10/28/mounting-a-filesystem-via-ssh-on-osx-mavericks/">Mounting a Filesystem via SSH on OSX Mavericks – DanielAndrade.net</a></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Macでsshfsを使う</td>
+          <td>yamaq blog]<a href="http://mount-q.com/yamaqblog/?p=15899">5</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><a href="http://macwiki.sourceforge.jp/wiki/index.php/Skim">MacWiki – Skim</a></li>
+</ul>
+
+
+
   <h1>blockdiagのエラーを解決できず&#8230;</h1>
   <p><a href="http://blockdiag.com/ja/blockdiag/">blockdiag</a>を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の<a href="https://twitter.com/tk0miya">@tk0miya</a>さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。</p>
 
@@ -242,222 +354,6 @@ IOError: encoder zip not available
 
 
 
-  <h1>GithubのプロジェクトをCruiseControlで自動ビルドしてみた</h1>
-  <p><a href="http://www.amazon.co.jp/%E9%81%94%E4%BA%BA%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9E%E3%83%BC%E2%80%95%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%96%8B%E7%99%BA%E3%81%AB%E4%B8%8D%E5%8F%AF%E6%AC%A0%E3%81%AA%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98-%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86-%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88-software-engineering/dp/475614599X">達人プログラマー―ソフトウェア開発に不可欠な基礎知識 バージョン管理/ユニットテスト/自動化</a> に触発されて、Javaプロジェクトの自動テストにチャレンジしました。</p>
-
-<p><img src="/images/CC_dashboard.png" alt="ダッシュボード" /></p>
-
-<p>継続的インテグレーションツールである<a href="http://cruisecontrol.sourceforge.net/">Cruisecontrol</a>(以下CC)を使って、 GitHub上のプロジェクトを自動ビルドしてみます。</p>
-
-<p>今回の環境は、マシンをUbuntu 10.04.4 LTS, CCを<a href="http://sourceforge.net/projects/cruisecontrol/files/CruiseControl/2.8.4/">cruisecontrol-bin-2.8.4.zip</a>、ビルドターゲットを僕の作った<a href="https://github.com/yysaki/MyJavaTetris">MyJavaTetris</a>とします。</p>
-
-<p>目標はソフトウェア開発に役立てるというよりもCCを回すことであるので、手段と目的が逆になっている気もしますがこれも勉強の一つです。</p>
-
-<p>ちなみに上の画像は、CCのdashboardで実際に表示されるページのスクリーンショットです。</p>
-
-<div>
-</div>
-
-<div>
-  以下手順です。
-</div>
-
-<p>本書の手順にあるスクリプトの情報は古く動作しなかったため、<a href="http://cruisecontrol.sourceforge.net/gettingstartedsourcedist.html">公式HPのGettingStarted</a>を参考にしました。</p>
-
-<div>
-  <h1>
-    CCのインストール
-  </h1>
-</div>
-
-<div>
-</div>
-
-<div>
-</div>
-
-<div>
-  CCをインストールして/opt/cruisecontrol/ に配置します。
-</div>
-
-<div>
-</div>
-
-<blockquote>
-  <p>wget http://jaist.dl.sourceforge.net/project/cruisecontrol/CruiseControl/2.8.4/cruisecontrol-bin-2.8.4.zip</p>
-
-  <p>unzip cruisecontrol-bin-2.8.4.zip</p>
-
-  <p>mv cruisecontrol-bin-2.8.4 /opt/cruisecontrol/</p>
-</blockquote>
-
-<div>
-</div>
-
-<div>
-  ついでに.bashrcにPATHを通しておきます。
-</div>
-
-<div>
-</div>
-
-<blockquote>
-  <div>
-  echo &#8220;export PATH=$PATH:/opt/cruisecontrol&#8221; &gt;&gt; ~/.bashrc
-</div>
-
-  <div>
-  source ~/.bashrc
-</div>
-</blockquote>
-
-<div>
-</div>
-
-<div>
-  この手順の後、カレントディレクトリを/opt/cruisecontrol/に指定してcruisecontrol.shを実行することでCCの動作確認ができます。
-</div>
-
-<div>
-</div>
-
-<div>
-</div>
-
-<h1 id="githubプロジェクトの設定">Githubプロジェクトの設定</h1>
-
-<div>
-</div>
-
-<div>
-</div>
-
-<div>
-  続いて自分のGitHubプロジェクトをCCのビルドループに追加する手順です。
-</div>
-
-<div>
-  今回、作業ディレクトリを /work/cc/に置くこととして、必要なディレクトリを作成していきます。
-</div>
-
-<div>
-</div>
-
-<blockquote>
-  <div>
-  cd /work/cc
-</div>
-
-  <div>
-  mkdir projects artifacts logs
-</div>
-</blockquote>
-
-<div>
-</div>
-
-<div>
-  次に、/work/cc/下に必要なスクリプトを二つ作成します。
-</div>
-
-<div>
-  一つ目はconfig.xmlです。このファイルによってCCのビルドループが設定されます。
-</div>
-
-<div>
-    <pre class="brush: xml; title: ; notranslate" title="">
-&lt;cruisecontrol&gt;
-  &lt;project name="MyJavaTetris" buildafterfailed="true"&gt;
-    &lt;listeners&gt;
-      &lt;currentbuildstatuslistener
-        file="logs/MyJavaTetris/status.txt"/&gt;
-    &lt;/listeners&gt;
-
-    &lt;!-- Bootstrappers are run every time the build runs,
-                                                 *before* the modification checks --&gt;
-    &lt;bootstrappers&gt;
-    &lt;/bootstrappers&gt;
-
-    &lt;!-- Defines where CruiseControl looks for changes, to decide
-                            whether to run the build --&gt;
-    &lt;modificationset quietperiod="10"&gt;
-      &lt;cvs localworkingcopy="projects/MyJavaTetris"/&gt;
-    &lt;/modificationset&gt;
-
-    &lt;!-- Configures the actual build loop, how often and which
-                                  build file/target --&gt;
-    &lt;schedule interval="60"&gt;
-      &lt;ant buildfile="build-MyJavaTetris.xml"
-        uselogger="true"/&gt;
-    &lt;/schedule&gt;
-
-    &lt;!-- directory to write build logs to --&gt;
-    &lt;log/&gt;
-
-    &lt;!-- Publishers are run *after* a build completes --&gt;
-    &lt;publishers&gt;
-    &lt;/publishers&gt;
-  &lt;/project&gt;
-&lt;/cruisecontrol&gt;
-</pre>
-</div>
-
-<div>
-</div>
-
-<div>
-  二つ目はbuild-MyJavaTetris.xmlです。このファイルにはprojects/ディレクトリにgit cloneし、ant buildで動作確認するプロセスが記述されています。antの標準機能ではgitの操作に対応していなかったので、<a href="http://tlrobinson.net/blog/2008/11/ant-tasks-for-git/">この記事</a>を参考にgitコマンドをmacrodefしています。<pre class="brush: xml; title: ; notranslate" title="">
-&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;
-&lt;project name="build-MyJavaTetris" default="build" basedir="projects"&gt;
-  &lt;target name="build"&gt;
-    &lt;macrodef name = "git"&gt;
-      &lt;attribute name = "command" /&gt;
-      &lt;attribute name = "dir" default = "" /&gt;
-      &lt;element name = "args" optional = "true" /&gt;
-      &lt;sequential&gt;
-        &lt;echo message = "git @{command}" /&gt;
-        &lt;exec executable = "git" dir = "@{dir}"&gt;
-          &lt;arg value = "@{command}" /&gt;
-          &lt;args/&gt;
-        &lt;/exec&gt;
-      &lt;/sequential&gt;
-    &lt;/macrodef&gt;
-
-    &lt;delete dir="MyJavaTetris" /&gt;
-    &lt;git command ="clone"&gt;
-      &lt;args&gt;
-        &lt;arg value ="ssh://git@github.com:22/yysaki/MyJavaTetris.git"/&gt;
-      &lt;/args&gt;
-    &lt;/git&gt;
-    &lt;ant antfile="build.xml" dir="MyJavaTetris" target="build" /&gt;
-    &lt;!-- nazo no error &lt;ant antfile="build.xml" dir="MyJavaTetris" target="test" /&gt; --&gt;
-  &lt;/target&gt;
-&lt;/project&gt;
-</pre>
-  
-  <p>
-    これで設定は全て完了です。
-  </p>
-  
-  <p>
-    /work/cc/下でcruisecontrol.shを実行するとMyJavaTetrisの自動ビルドが行われます。
-  </p>
-  
-  <p>
-    後はずっと放置しておけばCCさんが必要なタイミングでプロジェクトの自動ビルドを行います。
-  </p>
-  
-  <p>
-    リポジトリにコミットした時などにhttp://localhost:8080/にアクセスして動作をニヤニヤ監視しましょう。
-  </p>
-  
-  <p>
-    以上です。
-  </p>
-</div>
-
-
-
 
         </main>
       </div>
@@ -478,6 +374,8 @@ IOError: encoder zip not available
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
+    
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
     
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
@@ -485,8 +383,6 @@ IOError: encoder zip not available
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
-    
-      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
     
   </ul>
 </div>
