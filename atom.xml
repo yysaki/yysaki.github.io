@@ -36,14 +36,14 @@ Vue.jsについては全くの新規です。前知識としてはReactに並ぶ
 
 &lt;h2 id="1周目"&gt;1周目&lt;/h2&gt;
 
-&lt;p&gt;本編はVue.jsおよびFirebase Realtime DBを使って動くmarkdownエディタを作成していきます。文章を読んでコードを写経すればほぼ問題なく進められました。&lt;br /&gt;
+&lt;p&gt;本編はVue.jsおよびFirebase Realtime Databaseを使って動くmarkdownエディタを作成していきます。文章を読んでコードを写経すればほぼ問題なく進められました。&lt;br /&gt;
 僕が見た時点ではファイルパスなどの誤植がいくつかありますが、 &lt;a href="https://github.com/nabettu/mymarkdown"&gt;著者のサポートリポジトリ&lt;/a&gt; にまとめられているのでつまづくことはありませんでした。&lt;br /&gt;
 また、ロゴの簡単な作り方や利用規約・プライバシーポリシーの書き方が説明されており、大事な部分だなと勉強になりました。&lt;br /&gt;
 結局ロゴの作成はサボってしまったのですが、次自分のサービスを作るときにはすぐ作成できる安心感が手に入りました。&lt;/p&gt;
 
 &lt;h2 id="firebase"&gt;Firebase&lt;/h2&gt;
 
-&lt;p&gt;本編ではRealtime DBを使ったやり方が紹介されてますが、どちらかというと現在β版であるFirestoreが使って見たかったので、あえて後者を試しました。&lt;br /&gt;
+&lt;p&gt;本編ではRealtime Databaseを使ったやり方が紹介されてますが、どちらかというと現在β版であるFirestoreが使って見たかったので、あえて後者を試しました。&lt;br /&gt;
 これには多少苦戦して、最終的に以下の記述をして対処しました。&lt;br /&gt;
 &lt;a href="https://github.com/yysaki/mymarkdown/commit/5d89a7c7cea411c76ed6ca960c42f9a780dfc8c3"&gt;githubでいうとこの辺です。&lt;/a&gt;&lt;/p&gt;
 
