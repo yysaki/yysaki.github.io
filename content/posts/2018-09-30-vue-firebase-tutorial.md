@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "#Webサービスを作る本 をCloud FireStoreで写経した"
-created_at: 2018-09-01
+created_at: 2018-09-30
 kind: article
-date: 2018-09-01 19:00:00 +0900
+date: 2018-09-30 19:00:00 +0900
 comments: true
 categories:
   - vue
