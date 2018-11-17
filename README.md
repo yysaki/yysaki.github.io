@@ -2,7 +2,7 @@
 ## docker
 
     docker pull yysaki/nanoc
-    docker run -i -t -v ~/repositories/blog:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc:latest /bin/bash
+    docker run -i -t -v ./:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc:latest /bin/bash
 
 ## nanoc
 ### bundle
