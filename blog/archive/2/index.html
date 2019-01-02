@@ -55,6 +55,20 @@
         <main role="main">
         
 
+  <h1>wordpressからoctopressへの引っ越し</h1>
+  <p>表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。</p>
+
+<p>レイアウトやコメント欄などの調整は追々やっていきます。</p>
+
+<p>今回参考にさせて頂いた記事一覧です。</p>
+
+<ol>
+  <li><a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/">OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ - 酒と泪とRubyとRailsと</a></li>
+  <li><a href="http://nomnel.net/blog/wordpress-to-octopress/">WordpressからOctopressに移行する - 飲んだり寝たり</a></li>
+</ol>
+
+
+
   <h1>ビルドしたpdfをsshfsからSkimで読む</h1>
   <p>この度修論の開発環境を整えたのでブログ記事にしました。</p>
 
@@ -334,26 +348,6 @@ IOError: encoder zip not available
 
 
 
-  <h1>WordPress セキュリティ強化後の&#8221;ディレクトリを作成できませんでした。&#8221;を解決する</h1>
-  <p>“wordpress Markdown on Save Improved”プラグインをインストールする際に躓いた点を記事にしました。  <br />
-(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)</p>
-
-<p>以前このブログについて <a href="http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%97%E3%83%AC%E3%82%B9/wordpress%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%BC%B7%E5%8C%96/">WordPressのセキュリティを徹底強化 – CSSPRO</a> という記事を参考にセキュリティ強化を行ったのですが、プラグインの新規追加をダッシュボード上で行おうとした際に</p>
-
-<pre><code>  ディレクトリを作成できませんでした。 /xxx/xxx/xxxx/wp-content/upgrade/markdown-on-save-improved.tmp/markdown-on-save-improved
-</code></pre>
-
-<p>というエラーが出てしまう問題に遭遇しました。</p>
-
-<p>試しにwp-content以下全てのディレクトリのパーミッションを777に変更しても状況は変わりませんでした。  <br />
-似たような症状がないかwebを検索すると <a href="http://webcache.googleusercontent.com/search?q=cache:KWw6ipeQ-4kJ:openpne3.biz/category/%E6%9C%AA%E5%88%86%E9%A1%9E/+&amp;cd=1&amp;hl=ja&amp;ct=clnk">この記事</a>を発見し、そこでは”AskApache Password Protect”プラグインが原因になっていました。  <br />
-そこでセキュリティ強化の際インストールした”AskApache Password Protect”プラグインを一時停止してみると、プラグインの新規追加が無事行えました。</p>
-
-<p>セキュリティ強化の記事では、wp-adminの保護のため”AskApache Password Protect”導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。  <br />
-今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。</p>
-
-
-
 
         </main>
       </div>
@@ -374,6 +368,8 @@ IOError: encoder zip not available
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
+    
       <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
     
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
@@ -381,8 +377,6 @@ IOError: encoder zip not available
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
-    
-      <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
     
   </ul>
 </div>

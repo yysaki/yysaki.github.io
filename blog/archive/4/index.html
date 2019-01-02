@@ -55,6 +55,45 @@
         <main role="main">
         
 
+  <h1>WordPress 3.3.1 自動update時のout　of　memoryエラー</h1>
+  <p>wordpressの更新ボタンを押し3.3.1へのインストールを行わせると</p>
+
+<blockquote>
+  <p>Fatal error: Out of memory (allocated 22282240) (tried to allocate 3932160 bytes) in /usr/home/nextweb/starm/html/yysaki/wp/wp-includes/class-http.php on line 1066</p>
+</blockquote>
+
+<p>の警告が出てupdateに失敗した。バックアップデータはこの後update作業前に残せたので一安心。  <br />
+そして”Out of memory”の原因を探る。  <br />
+参考にしたWordPressのフォーラム記事(http://wordpress.org/support/topic/fatal-error-out-of-memory-4)によると、対策法は</p>
+
+<blockquote>
+  <p>text editor and change the values for memory_limit. By default it should see memory_limit = 8M. Try changing it to 12M. if it wil not resolve the problem then try to increase it either 16M or 24M.</p>
+
+  <p>2) If you can’t find the php.ini file, open up the PHP file which requires more memory and add this line just after ini_set(’memory_limit’, ‘12M’); we can increase memory upto 16M or 24M to resolve the issue. But do it try with 12M first.</p>
+
+  <p>3) In last, open the .htaccess file from the root/public_html folder and add this line php_value memory_limit 12M</p>
+</blockquote>
+
+<p>のようだ。  <br />
+レンタルしている鯖はroot権限が無いため1), 3)の対処が取れず、2)なら望みがありそうだ。  <br />
+エラー文によると 原因は”class-http.php on line 1066″行コマンドのメモリ不足なので、1066行の一行前にそのメモリ使用量を増やす関数を追加することで、解決できそうだ。  <br />
+しかし, memory_limitの値は変更出来ない場合があり include/setup.inc.php を編集して解決する例があった。(参考記事: http://d.hatena.ne.jp/rougeref/20100108)  <br />
+よって私の環境では1), 3)同様php.iniに触れないため、対処できないことがわかりました。  <br />
+他の環境でもroot権限がありPHPの設定をいじれる方なら３方法いずれでも対処出来る問題だと思います。</p>
+
+<p>よって結論としては、現環境ではWordpress自動アップデートはサーバのPHPメモリ使用量制限と使用量操作へのアクセス権がないこと、の二点でした。  <br />
+今回は諦め、今回は手動インストールしてみます。</p>
+
+<p>(2012/02/13追記)  <br />
+3.3.1の手動インストールを後で行った所、問題なく成功しました。しかしやはり手間だった</p>
+
+<p>(2012/02/13追記2)  <br />
+php.iniは.htaccessのあるディレクトリに自分で置き、”memory_limit=48M”と書けばOKでした</p>
+
+<p>(2012/3/27追記3)  <br />
+本文のレイアウトが崩れていたのを修正</p>
+
+
   <h1>Let&#8217;s Noteのバッテリー</h1>
   <p>研究室の予算でバッテリー等消耗品を買っていいよ、とのお触れが出たので今使っているLet’s Note CF-W4の劣化具合を調べてみました。</p>
 
@@ -107,6 +146,8 @@
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
+    
       <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
     
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
@@ -114,8 +155,6 @@
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
-    
-      <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
     
   </ul>
 </div>

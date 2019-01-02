@@ -2,13 +2,133 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2018-09-30T00:00:00Z</updated>
+  <updated>2019-01-02T00:00:00Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
+  <entry>
+    <id>tag:www.yysaki.com,2019-01-02://blog/2019/01/02/happy-new-year/</id>
+    <title type="html">昨年の振り返りと新年の抱負</title>
+    <published>2019-01-02T00:00:00Z</published>
+    <updated>2019-01-02T00:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2019/01/02/happy-new-year/"/>
+    <content type="html">&lt;p&gt;明けましておめでとうございます。&lt;br /&gt;
+早いもので2018年があっという間に一年が過ぎていきました。&lt;br /&gt;
+せっかくの節目の時ですので、備忘のために昨年の振り返りと新年の抱負を書いていきたいと思います。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="読書について"&gt;読書について&lt;/h2&gt;
+
+&lt;p&gt;今年は読書ペースが例年より上がりました。&lt;br /&gt;
+booklogから取れた読書記録のグラフを貼ってみます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/reading_2018.png" alt="今年一年のグラフ" width="50%" /&gt;&lt;/p&gt;
+
+&lt;p&gt;年内に100冊読むのがちょっとした目標だったのですが達成ならずです。&lt;br /&gt;
+なお、漫画、ライトノベルはカウントすると件数が乱高下するので記録しない習慣でいます。&lt;/p&gt;
+
+&lt;p&gt;趣味の読書としては一般小説やSF、ノンフィクションものが多く、勉強を兼ねた読書では７月はIT技術書がメインに読んでいました。&lt;br /&gt;
+前者で読んでよかったものを３つ挙げると「アンドロイドの夢の羊」、「五色の虹」、「わたしを離さないで」。&lt;br /&gt;
+後者では「レガシーコード改善ガイド」、「アジャイルな見積もりと計画づくり」、「エンジニアのためのマネジメントキャリアパス」がためになりました。&lt;/p&gt;
+
+&lt;h2 id="趣味プロジェクトのこと"&gt;趣味プロジェクトのこと&lt;/h2&gt;
+
+&lt;p&gt;業務の外で味のプログラミングをしておりますが、どんな腹積もりでやっているかを書いてみます。&lt;br /&gt;
+自分のソフトウェアエンジニアとしてのスキルはどのようなものかを振り返ってみると、抜け穂が多いなーと感じました。&lt;br /&gt;
+SIerのエンジニア職でC#・PHPを触っており、職種としてはサーバーサイドからWEBフロントエンジニアの中間あたりにいるはずです。&lt;br /&gt;
+だけど、だからといってあまり体型だったスキルを持っているとは言えないんじゃないかと思っています。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一から運用サーバの構築をした経験が乏しい
+    &lt;ul&gt;
+      &lt;li&gt;社内Redmine/gitoliteサーバのリプレイスで構築しなおすみたいなことはしたけど、売上の発生する本業ではない&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;複雑なSQLのDML文をゴリゴリ書くのは好きだけどforeign key制約のあるデータベースを扱ったことがない
+    &lt;ul&gt;
+      &lt;li&gt;業務は回せても汎用的なスキルとしては育っていないんじゃ？&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;一通り作れるといってもデザインから画面イメージを1から起こせる自信がない
+    &lt;ul&gt;
+      &lt;li&gt;html/cssあたりにノウハウが足りない&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この辺を自分の弱点だと感じていたので、趣味プロジェクトでいろいろやっていました。&lt;br /&gt;
+自分の方向性、趣味としては、ビジネスロジックを考えたりユニットテストを作りこむのは好きだがサーバーの面倒はなるべく見たくない。&lt;br /&gt;
+ユーザの体験に直結するUI/UXは作ってみたいが、iOS/androidのネイティブ開発にwebで汎用的にフロントエンドを作るほうが時間投資の優先度が高い。&lt;br /&gt;
+突き詰めると自分が向いてる・実際にやりたいのは職種でいうとサーバーサイドよりのwebフロントエンドなのかなあと考えました。&lt;br /&gt;
+そのようなことをつらつら考えつつ以下のようなことをやってきました。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Vue.js/Firebaseを使ってマークダウンアプリを作った&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以前ブログ投稿したのですが、これはwebフロントエンドの流行を追いかけてみたいモチベーションでやってみました。&lt;/p&gt;
+
+&lt;p&gt;記事: &lt;a href="https://www.yysaki.com/blog/2018/09/30/vue-firebase-tutorial/"&gt;yysaki blog - #Webサービスを作る本 を読んで簡易markdownエディタを作った&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://mymarkdown-e7d15.firebaseapp.com/"&gt;このURL&lt;/a&gt; で稼働中です。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Firebase/Nuxt.jsで趣味プロジェクトをリプレースした&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;数年前にheroku・jQuery Mobile・node jsといった構成で作ったモバイルアプリがあったのですが、今度はNuxt.jsを触ってみたかったのでFirebaseでホストするNuxt.jsのSSRアプリとしてリプレースしました。&lt;br /&gt;
+こちら &lt;a href="https://shikibetsuhyo.yysaki.com"&gt;このURL&lt;/a&gt; で稼働中です。&lt;br /&gt;
+&lt;a href="https://qiita.com/yysaki/items/aa699ac02ad1875f9b21"&gt;一部Qiita記事&lt;/a&gt;に切り出しているのですが、開発に飽きたのでそのうちまとめ記事を書こうかと思ってます。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rails1000時間メニューに入門&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;FirebaseはNoSQLとして構築が簡単でいいのですが・先程挙げた弱点の克服にweb api、DBを体系立てて学ぶのにはRuby on Railsがちょうどいいと思います。&lt;br /&gt;
+golangやPHPのLarabelなど選択肢はいくつもありますが、人生初めて触ったLL言語がRubyのため、Rubyに個人的に思い入れがあります。&lt;br /&gt;
+簡単なRailsアプリを作ったことはありますが業務でやったことがないので、何が不足してるかわからん、みたいな状態です。&lt;br /&gt;
+そんなところで &lt;a href="https://qiita.com/saboyutaka/items/1a8c40e105e93ac6856a"&gt;未経験からRuby on Railsを学んで仕事につなげるまでの1000時間メニュー - Qiita&lt;/a&gt; という記事を見かけました。&lt;br /&gt;
+どこが抜けてるか試すのにちょうどいいので初心者向けすぎてマッチしてないと感じる箇所はスキップしつつ、このコースを走っているのが今ココです。&lt;/p&gt;
+
+&lt;p&gt;あとはそうですね、vimの活動として &lt;a href="https://vimconf.org/2018/"&gt;Vimconf2018&lt;/a&gt; に参加したり、 &lt;a href="https://qiita.com/yysaki/items/fb1cbca8933c6080ebb6"&gt;Vim Advent Calendar 2018 その2 に記事を投稿したり&lt;/a&gt; しました。&lt;br /&gt;
+今年は参加記事を書いておらず恐縮ですが、vimのautherであるBram Moolenaar氏のKeynoteが直に聞けたのは最高でした。&lt;/p&gt;
+
+&lt;h2 id="新年の抱負"&gt;新年の抱負&lt;/h2&gt;
+
+&lt;p&gt;さて、新年の抱負としては、以下のようなことをしてみたいと思っています。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1年間で100冊本を読む&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;昨年達成できなかったので再度目標にしたいと思います。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;rubykaigiに参加する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;福岡なので遠いなあと思っていたのですが、会社支援のもと参加できることになりました。&lt;br /&gt;
+以前参加したrubykaigi 2015は自費+有給使用でしたので福利厚生が増したのを感じます。&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" data-lang="ja"&gt;&lt;p lang="ja" dir="ltr"&gt;RubyKaigi申し込んだ&lt;br /&gt;会社支援のもと参加できるのありがたい&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/1078224873867010048?ref_src=twsrc%5Etfw"&gt;2018年12月27日&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;メンタルヘルスマネジメント検定を受ける&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メンタルに自信のない、ちょうどいい資格試験があるのを教わりました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://www.mental-health.ne.jp/"&gt;メンタルヘルス・マネジメント検定試験,検定,試験,メンタル,大阪商工会議所&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ひとまずⅢ種 セルフケアコース の公式テキストを取り寄せて読んでいます。&lt;br /&gt;
+これの資格取得を含め、学習していきたいところです。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.yysaki.com,2018-09-30://blog/2018/09/30/vue-firebase-tutorial/</id>
     <title type="html">#Webサービスを作る本 を読んで簡易markdownエディタを作った</title>
@@ -638,31 +758,6 @@ IOError: encoder zip not available
   &lt;li&gt;&lt;a href="https://discussions.apple.com/thread/3077376?start=0&amp;amp;tstart=0"&gt;Cisco VPN Client lacks 64 bit Support&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP"&gt;32bit化手順&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2013-01-31://blog/2013/01/31/wordpress-permission-denied/</id>
-    <title type="html">WordPress セキュリティ強化後の&amp;#8221;ディレクトリを作成できませんでした。&amp;#8221;を解決する</title>
-    <published>2013-01-31T00:00:00Z</published>
-    <updated>2013-01-31T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2013/01/31/wordpress-permission-denied/"/>
-    <content type="html">&lt;p&gt;“wordpress Markdown on Save Improved”プラグインをインストールする際に躓いた点を記事にしました。  &lt;br /&gt;
-(このプラグインを使用して、この記事をmarkdown形式で書いたのですが使い勝手は上々です。)&lt;/p&gt;
-
-&lt;p&gt;以前このブログについて &lt;a href="http://csspro.digitalskill.jp/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/%E3%83%AF%E3%83%BC%E3%83%89%E3%83%97%E3%83%AC%E3%82%B9/wordpress%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E5%BC%B7%E5%8C%96/"&gt;WordPressのセキュリティを徹底強化 – CSSPRO&lt;/a&gt; という記事を参考にセキュリティ強化を行ったのですが、プラグインの新規追加をダッシュボード上で行おうとした際に&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  ディレクトリを作成できませんでした。 /xxx/xxx/xxxx/wp-content/upgrade/markdown-on-save-improved.tmp/markdown-on-save-improved
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というエラーが出てしまう問題に遭遇しました。&lt;/p&gt;
-
-&lt;p&gt;試しにwp-content以下全てのディレクトリのパーミッションを777に変更しても状況は変わりませんでした。  &lt;br /&gt;
-似たような症状がないかwebを検索すると &lt;a href="http://webcache.googleusercontent.com/search?q=cache:KWw6ipeQ-4kJ:openpne3.biz/category/%E6%9C%AA%E5%88%86%E9%A1%9E/+&amp;amp;cd=1&amp;amp;hl=ja&amp;amp;ct=clnk"&gt;この記事&lt;/a&gt;を発見し、そこでは”AskApache Password Protect”プラグインが原因になっていました。  &lt;br /&gt;
-そこでセキュリティ強化の際インストールした”AskApache Password Protect”プラグインを一時停止してみると、プラグインの新規追加が無事行えました。&lt;/p&gt;
-
-&lt;p&gt;セキュリティ強化の記事では、wp-adminの保護のため”AskApache Password Protect”導入を進めていたのですが、このプラグインはwp-adminだけでなくwp-content以下にも影響があるものだったようです。  &lt;br /&gt;
-今後プラグインの新規追加など行う際にはこのプラグインを停止することを忘れずにいたいと思います。&lt;/p&gt;
 
 </content>
   </entry>

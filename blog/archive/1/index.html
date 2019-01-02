@@ -55,6 +55,121 @@
         <main role="main">
         
 
+  <h1>昨年の振り返りと新年の抱負</h1>
+  <p>明けましておめでとうございます。<br />
+早いもので2018年があっという間に一年が過ぎていきました。<br />
+せっかくの節目の時ですので、備忘のために昨年の振り返りと新年の抱負を書いていきたいと思います。</p>
+
+<!-- more -->
+
+<h2 id="読書について">読書について</h2>
+
+<p>今年は読書ペースが例年より上がりました。<br />
+booklogから取れた読書記録のグラフを貼ってみます。</p>
+
+<p><img src="/images/reading_2018.png" alt="今年一年のグラフ" width="50%" /></p>
+
+<p>年内に100冊読むのがちょっとした目標だったのですが達成ならずです。<br />
+なお、漫画、ライトノベルはカウントすると件数が乱高下するので記録しない習慣でいます。</p>
+
+<p>趣味の読書としては一般小説やSF、ノンフィクションものが多く、勉強を兼ねた読書では７月はIT技術書がメインに読んでいました。<br />
+前者で読んでよかったものを３つ挙げると「アンドロイドの夢の羊」、「五色の虹」、「わたしを離さないで」。<br />
+後者では「レガシーコード改善ガイド」、「アジャイルな見積もりと計画づくり」、「エンジニアのためのマネジメントキャリアパス」がためになりました。</p>
+
+<h2 id="趣味プロジェクトのこと">趣味プロジェクトのこと</h2>
+
+<p>業務の外で味のプログラミングをしておりますが、どんな腹積もりでやっているかを書いてみます。<br />
+自分のソフトウェアエンジニアとしてのスキルはどのようなものかを振り返ってみると、抜け穂が多いなーと感じました。<br />
+SIerのエンジニア職でC#・PHPを触っており、職種としてはサーバーサイドからWEBフロントエンジニアの中間あたりにいるはずです。<br />
+だけど、だからといってあまり体型だったスキルを持っているとは言えないんじゃないかと思っています。</p>
+
+<ul>
+  <li>一から運用サーバの構築をした経験が乏しい
+    <ul>
+      <li>社内Redmine/gitoliteサーバのリプレイスで構築しなおすみたいなことはしたけど、売上の発生する本業ではない</li>
+    </ul>
+  </li>
+  <li>複雑なSQLのDML文をゴリゴリ書くのは好きだけどforeign key制約のあるデータベースを扱ったことがない
+    <ul>
+      <li>業務は回せても汎用的なスキルとしては育っていないんじゃ？</li>
+    </ul>
+  </li>
+  <li>一通り作れるといってもデザインから画面イメージを1から起こせる自信がない
+    <ul>
+      <li>html/cssあたりにノウハウが足りない</li>
+    </ul>
+  </li>
+</ul>
+
+<p>この辺を自分の弱点だと感じていたので、趣味プロジェクトでいろいろやっていました。<br />
+自分の方向性、趣味としては、ビジネスロジックを考えたりユニットテストを作りこむのは好きだがサーバーの面倒はなるべく見たくない。<br />
+ユーザの体験に直結するUI/UXは作ってみたいが、iOS/androidのネイティブ開発にwebで汎用的にフロントエンドを作るほうが時間投資の優先度が高い。<br />
+突き詰めると自分が向いてる・実際にやりたいのは職種でいうとサーバーサイドよりのwebフロントエンドなのかなあと考えました。<br />
+そのようなことをつらつら考えつつ以下のようなことをやってきました。</p>
+
+<ul>
+  <li>Vue.js/Firebaseを使ってマークダウンアプリを作った</li>
+</ul>
+
+<p>以前ブログ投稿したのですが、これはwebフロントエンドの流行を追いかけてみたいモチベーションでやってみました。</p>
+
+<p>記事: <a href="https://www.yysaki.com/blog/2018/09/30/vue-firebase-tutorial/">yysaki blog - #Webサービスを作る本 を読んで簡易markdownエディタを作った</a></p>
+
+<p><a href="https://mymarkdown-e7d15.firebaseapp.com/">このURL</a> で稼働中です。</p>
+
+<ul>
+  <li>Firebase/Nuxt.jsで趣味プロジェクトをリプレースした</li>
+</ul>
+
+<p>数年前にheroku・jQuery Mobile・node jsといった構成で作ったモバイルアプリがあったのですが、今度はNuxt.jsを触ってみたかったのでFirebaseでホストするNuxt.jsのSSRアプリとしてリプレースしました。<br />
+こちら <a href="https://shikibetsuhyo.yysaki.com">このURL</a> で稼働中です。<br />
+<a href="https://qiita.com/yysaki/items/aa699ac02ad1875f9b21">一部Qiita記事</a>に切り出しているのですが、開発に飽きたのでそのうちまとめ記事を書こうかと思ってます。</p>
+
+<ul>
+  <li>Rails1000時間メニューに入門</li>
+</ul>
+
+<p>FirebaseはNoSQLとして構築が簡単でいいのですが・先程挙げた弱点の克服にweb api、DBを体系立てて学ぶのにはRuby on Railsがちょうどいいと思います。<br />
+golangやPHPのLarabelなど選択肢はいくつもありますが、人生初めて触ったLL言語がRubyのため、Rubyに個人的に思い入れがあります。<br />
+簡単なRailsアプリを作ったことはありますが業務でやったことがないので、何が不足してるかわからん、みたいな状態です。<br />
+そんなところで <a href="https://qiita.com/saboyutaka/items/1a8c40e105e93ac6856a">未経験からRuby on Railsを学んで仕事につなげるまでの1000時間メニュー - Qiita</a> という記事を見かけました。<br />
+どこが抜けてるか試すのにちょうどいいので初心者向けすぎてマッチしてないと感じる箇所はスキップしつつ、このコースを走っているのが今ココです。</p>
+
+<p>あとはそうですね、vimの活動として <a href="https://vimconf.org/2018/">Vimconf2018</a> に参加したり、 <a href="https://qiita.com/yysaki/items/fb1cbca8933c6080ebb6">Vim Advent Calendar 2018 その2 に記事を投稿したり</a> しました。<br />
+今年は参加記事を書いておらず恐縮ですが、vimのautherであるBram Moolenaar氏のKeynoteが直に聞けたのは最高でした。</p>
+
+<h2 id="新年の抱負">新年の抱負</h2>
+
+<p>さて、新年の抱負としては、以下のようなことをしてみたいと思っています。</p>
+
+<ul>
+  <li>1年間で100冊本を読む</li>
+</ul>
+
+<p>昨年達成できなかったので再度目標にしたいと思います。</p>
+
+<ul>
+  <li>rubykaigiに参加する</li>
+</ul>
+
+<p>福岡なので遠いなあと思っていたのですが、会社支援のもと参加できることになりました。<br />
+以前参加したrubykaigi 2015は自費+有給使用でしたので福利厚生が増したのを感じます。</p>
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">RubyKaigi申し込んだ<br />会社支援のもと参加できるのありがたい</p>&mdash; sasaki (@yysaki) <a href="https://twitter.com/yysaki/status/1078224873867010048?ref_src=twsrc%5Etfw">2018年12月27日</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<ul>
+  <li>メンタルヘルスマネジメント検定を受ける</li>
+</ul>
+
+<p>メンタルに自信のない、ちょうどいい資格試験があるのを教わりました。</p>
+
+<p><a href="https://www.mental-health.ne.jp/">メンタルヘルス・マネジメント検定試験,検定,試験,メンタル,大阪商工会議所</a></p>
+
+<p>ひとまずⅢ種 セルフケアコース の公式テキストを取り寄せて読んでいます。<br />
+これの資格取得を含め、学習していきたいところです。</p>
+
+
   <h1>#Webサービスを作る本 を読んで簡易markdownエディタを作った</h1>
   <p><a href="https://twitter.com/nabettu">@nabetu</a> さんの執筆した <a href="http://www.amazon.co.jp/exec/obidos/ASIN/4844398350/tatsuakiw-22/">Vue.jsとFirebaseで作るミニWebサービス (技術書典シリーズ(NextPublishing))</a> の手順を写経してFirebase上で動く簡単なmarkdownディターのアプリを作成しました。 <a href="https://mymarkdown-e7d15.firebaseapp.com/">こちらのURL</a> で実際に稼働中です。</p>
 
@@ -349,20 +464,6 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
 </ul>
 
 
-  <h1>wordpressからoctopressへの引っ越し</h1>
-  <p>表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。</p>
-
-<p>レイアウトやコメント欄などの調整は追々やっていきます。</p>
-
-<p>今回参考にさせて頂いた記事一覧です。</p>
-
-<ol>
-  <li><a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/">OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ - 酒と泪とRubyとRailsと</a></li>
-  <li><a href="http://nomnel.net/blog/wordpress-to-octopress/">WordpressからOctopressに移行する - 飲んだり寝たり</a></li>
-</ol>
-
-
-
 
         </main>
       </div>
@@ -383,6 +484,8 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
+    
       <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
     
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
@@ -390,8 +493,6 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
     
       <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
-    
-      <li role="menuitem"><a href="/blog/2014/02/09/octopress-from-wordpress/">wordpressからoctopressへの引っ越し</a></li>
     
   </ul>
 </div>
