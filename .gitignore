@@ -1,6 +1,7 @@
 .bundle/
 .sass-cache/
 bower_components/
+node_modules/
 deploy/
 output/
 tmp/
