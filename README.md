@@ -10,6 +10,11 @@
     bundle install --path vendor/bundler
     bundle update
 
+### foundation(by npm/bower)
+
+    npm install
+    npm run bower
+
 ### commands
 
     cd $DIR
@@ -20,19 +25,6 @@
 
     bundle exec guard init nanoc
     guard // autocompile
-
-## Bootstrap
-
-    git submodule add git://github.com/twitter/bootstrap.git bootstrap
-    sudo yum install -y npm
-    sudo npm install -g grunt-cli
-    cd $DIR
-    grunt dist // compile
-
-## Foundation
-
-    sudo npm install -g bower
-    bower install
 
 ## deploy
 
