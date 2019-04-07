@@ -94,7 +94,8 @@ ul.subnav li a
 
 ul.subnav li.with-input
 {
-  margin-left:15px;
+  margin-left: 15px;
+  background-color: #ebeff6;
 }
 
 ul.subnav li.with-input form input
@@ -109,7 +110,7 @@ ul.subnav li.with-input form input
   -moz-box-shadow:none;
   -webkit-box-shadow:none;
   border:none;
-  background:url(/images/search.png) no-repeat left center #fff;
+  background:url(/images/search.png) no-repeat left center #ebeff6;
   padding:8px 0 8px 26px;
 }
 
@@ -121,6 +122,7 @@ ul.subnav li.with-input form input:focus
 
 ul.subnav li.with-input form
 {
+  padding-left: 5px;
   margin-bottom:0;
 }
 
