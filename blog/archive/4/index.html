@@ -55,6 +55,26 @@
         <main role="main">
         
 
+  <h1>WordPressでBootstrapテーマを触ってみる</h1>
+  <p>今流行りのCSSフレームワークである、Twitter Booststrapについて、一度使ってみたいなーと記事を読みあさっていました。  <br />
+そこでTwitter Bootstrapで作られたWordPressテーマであるWPBSを使ってcssの勉強したいと思い、このwebサイトのテーマに設定しました。  <br />
+WPBSの設定の仕方などは以下の記事を参考にさせて頂きました。</p>
+
+<p>はじめよう/Twitter Bootstrapで出来たWordPressテーマ「WPBS」を使ってみる</p>
+
+<p>http://getstarted.main.jp/blog/wordpress/twitterbootstrap-wordpress-theme-wpbs/</p>
+
+<p>インストール、導入はとても簡単でしたが、一点不具合があり、少し解決に苦労しました。  <br />
+このテーマのウィジェットであるMain Sidebarは、ブログ記事枠の右に配置されています。  <br />
+しかしレイアウトが見本と比べ崩れ、位置が記事の下に配置されてしまいました。  <br />
+これは、前記事で引用ブロックの使用に誤りがあり、ブログ記事の枠から文字がはみ出て、ブログ枠隣にMain Sidebarの置ける余地がなくフローレイアウトでブログ枠下に流れたためでした。  <br />
+引用ブロックを正しい?文法に書きなおした時にこの症状が収まりました。</p>
+
+<p>この不具合の内容をまとめると、ブログ記事の記述方法が悪いとWPBSテーマ全体のレイアウトが崩れる可能性があるから注意しましょう、という感じでしょうか。</p>
+
+<p>また、WPBSは外観の変更が簡単(Bootstrapの性質)なので、テーマに少し調節をしてみて楽しもうかと思います。。</p>
+
+
   <h1>WordPress 3.3.1 自動update時のout　of　memoryエラー</h1>
   <p>wordpressの更新ボタンを押し3.3.1へのインストールを行わせると</p>
 
@@ -146,6 +166,8 @@ php.iniは.htaccessのあるディレクトリに自分で置き、”memory_lim
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2019/04/14/techbookfest-6/">技術書典6に参加した</a></li>
+    
       <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
     
       <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
@@ -153,8 +175,6 @@ php.iniは.htaccessのあるディレクトリに自分で置き、”memory_lim
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
     
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
-    
-      <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
     
   </ul>
 </div>

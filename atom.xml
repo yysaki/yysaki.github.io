@@ -2,13 +2,134 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2019-01-02T00:00:00Z</updated>
+  <updated>2019-04-14T14:00:00Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
+  <entry>
+    <id>tag:www.yysaki.com,2019-04-14://blog/2019/04/14/techbookfest-6/</id>
+    <title type="html">技術書典6に参加した</title>
+    <published>2019-04-14T14:00:00Z</published>
+    <updated>2019-04-14T14:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2019/04/14/techbookfest-6/"/>
+    <content type="html">&lt;p&gt;本日行われた &lt;a href="https://techbookfest.org/event/tbf06"&gt;技術書典6&lt;/a&gt; に行ってきました。&lt;br /&gt;
+初めての会場参加です。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="戦利品"&gt;戦利品&lt;/h2&gt;
+
+&lt;p&gt;戦利品は以下の通りです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;サークル名: テスターちゃん
+    &lt;ul&gt;
+      &lt;li&gt;【紙の本】 テスターちゃん 1巻&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: 越後屋
+    &lt;ul&gt;
+      &lt;li&gt;これでカンタン! ITエンジニアが実践するキャッシュレス時代の資産管理&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: MERY Engineer Team
+    &lt;ul&gt;
+      &lt;li&gt;スターティング gRPC&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: ラムダノート株式会社
+    &lt;ul&gt;
+      &lt;li&gt;1月刊ラムダノート Vol.1, No.1&lt;/li&gt;
+      &lt;li&gt;みんなのデータ構造&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: 妄想実行部隊
+    &lt;ul&gt;
+      &lt;li&gt;妄想実行報告書&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: しがないラジオ
+    &lt;ul&gt;
+      &lt;li&gt;チーム開発1年目の教科書 〜チーム開発で疲弊しい ないためのツールとマインドセット〜&lt;/li&gt;
+      &lt;li&gt;非エンジニアのためのJavaScript 〜仕事を楽しくする簡単プログラミング入門〜&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: 潜推艦
+    &lt;ul&gt;
+      &lt;li&gt;ConditionalTypes I/O - TypeScript3.4 型の強 化書 -&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: ハムカツおじさん🤘
+    &lt;ul&gt;
+      &lt;li&gt;#1人チーム本&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: ザ・シメサバズ
+    &lt;ul&gt;
+      &lt;li&gt;PWA Web サイトを Google Play Storeに公開するハンズオン&lt;/li&gt;
+      &lt;li&gt;個人開発がやりたくなる本&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: エムスリーエンジニアリンググループ執筆部
+    &lt;ul&gt;
+      &lt;li&gt;エムスリーテックブック#1&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: すべてがM(icro)になる
+    &lt;ul&gt;
+      &lt;li&gt;Microservices architecture よろず本&lt;/li&gt;
+      &lt;li&gt;Microservices architecture よろず本 その一&amp;amp; その二&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: Japan Container Days
+    &lt;ul&gt;
+      &lt;li&gt;showKsではじめるクラウドネイティブ開発&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: おからぼ
+    &lt;ul&gt;
+      &lt;li&gt;ゼロトラスト超入門&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: 楽描帳
+    &lt;ul&gt;
+      &lt;li&gt;コンテナ時代の個人Webサービスの作り方&lt;/li&gt;
+      &lt;li&gt;Pragmatic Terraform on AWS&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: Auth屋
+    &lt;ul&gt;
+      &lt;li&gt;雰囲気でOAuth2.0を使っているエンジニアが OAuth2.0を整理して理解できる本&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;サークル名: 足跡出版
+    &lt;ul&gt;
+      &lt;li&gt;IT実務のアンチパターン コミュニケーション編&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(OCRで文字起こししたので細かい誤りがあるかも)&lt;/p&gt;
+
+&lt;h2 id="感想"&gt;感想&lt;/h2&gt;
+
+&lt;p&gt;一般参加者入場を11:00~13:00の場合のみ有料にすることで、運営による入場者数の調整が図られています。&lt;br /&gt;
+初めは無料の入場期間に入ることをもくろんでいましたが、過去の入場待機列の様子に恐れをなして12:30ごろ会場入りしました。&lt;br /&gt;
+ちょうど待機列が履けたころのようで待機列に並ぶことなく入場券を購入できました。&lt;br /&gt;
+現地入りしてみると先行している入場者の密度が高く、人混み慣れしていない身には熱い熱気を感じました。&lt;/p&gt;
+
+&lt;p&gt;本は趣味分野のクラウドのサーバサイドからフロントエンドまでで、主に開発についてのものを購入しました。&lt;br /&gt;
+戦利品リストを見返すと半分くらいは予定してなかったもので、同人誌即売会の購買意欲のそそり立て具合に感じ入っています。&lt;br /&gt;
+目的としていた楽描帳さんの「コンテナ時代の個人Webサービスの作り方」、および「Pragmatic Terraform on AWS」だけは残念ながら紙の書籍は売り切れでしたが、それ以外は紙の書籍+DLCで入手できました。&lt;br /&gt;
+売れ筋のものをどうしても紙で欲しいという場合には、開場時間に並ぶ必要がありそうです。&lt;/p&gt;
+
+&lt;p&gt;今日は目的としていたサークルさんに顔を出すことが、それ以外にも知人がブースで売り子をしていて久しぶりに話ができたのが嬉しかったので満足しました。&lt;br /&gt;
+今回もまた積読の山をしこたま増やしたので、ガンガン読むぞーという意気込みです。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.yysaki.com,2019-01-02://blog/2019/01/02/happy-new-year/</id>
     <title type="html">昨年の振り返りと新年の抱負</title>
@@ -719,44 +840,6 @@ IOError: encoder zip not available
 &lt;ul&gt;
   &lt;li&gt;&lt;code&gt;uniq -c&lt;/code&gt;で重複した数をカウント出来る&lt;/li&gt;
   &lt;li&gt;&lt;code&gt;sort&lt;/code&gt;の&lt;code&gt;-k&lt;/code&gt;オプションを同時に指定することで第一指定順、第二指定順でソート出来る&lt;/li&gt;
-&lt;/ul&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2013-02-13://blog/2013/02/13/cisco-vpn-client-on-mac-os-x/</id>
-    <title type="html">MacOSX Cisco VPNClient対策</title>
-    <published>2013-02-13T00:00:00Z</published>
-    <updated>2013-02-13T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2013/02/13/cisco-vpn-client-on-mac-os-x/"/>
-    <content type="html">&lt;h3 id="状況"&gt;状況&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず
-    &lt;ul&gt;
-      &lt;li&gt;ciscoは32bitのみサポートしている&lt;/li&gt;
-      &lt;li&gt;ネットのmacユーザにはciscoを避ける向きがあるようだ&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id="対策"&gt;対策&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;OSを常に32bitカーネルとして起動する
-    &lt;ul&gt;
-      &lt;li&gt;搭載メモリは今のところ4GB以内のため被害は少ないと判断&lt;/li&gt;
-      &lt;li&gt;“sudo systemsetup -setkernelbootarchitecture i386″を実行する&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id="参考url"&gt;参考URL&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://forums.macrumors.com/archive/index.php/t-1110046.html"&gt;同症状とその対策&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://discussions.apple.com/thread/3077376?start=0&amp;amp;tstart=0"&gt;Cisco VPN Client lacks 64 bit Support&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP"&gt;32bit化手順&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 </content>

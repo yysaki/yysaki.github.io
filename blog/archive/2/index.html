@@ -55,6 +55,75 @@
         <main role="main">
         
 
+  <h1>octopress as a tracer bullet</h1>
+  <p>一旦ブログをoctopressで立ち上げたは言いものの、<a href="https://twitter.com/kana1">@kana</a>さんより</p>
+
+<blockquote class="twitter-tweet" lang="ja"><p><a href="https://twitter.com/yysaki">@yysaki</a> ほしのかずほどありますね! <a href="http://t.co/cnDApQUMHV">http://t.co/cnDApQUMHV</a> Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete)部実装も面白いですね。</p>&mdash; Kana Natsuno (@kana1) <a href="https://twitter.com/kana1/statuses/432530023648485378">2014, 2月 9</a></blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>とコメントを頂戴したので、色々とRuby製の静的サイトジェネレータについて調べました。</p>
+
+<!-- more -->
+
+<h2 id="ツール選び">ツール選び</h2>
+<p>自分のブログ作成における価値観は、以下のようになります。</p>
+
+<ol>
+  <li>静的サイトジェネレータでGithub Pagesに運用の楽なブログを作る</li>
+  <li>Markdownで記事を書きたい</li>
+  <li>サクサクカスタマイズ出来てそれなりの見栄えなブログを作りたい
+    <ul>
+      <li>octopressのリキッドレイアウトとかかっこいいよね！</li>
+    </ul>
+  </li>
+  <li>手慣れたRuby製ツール</li>
+  <li>HP作りの勉強を兼ねるので魔術的要素が少なくコンパクトなフレームワークがいい</li>
+</ol>
+
+<p>その中、候補としては、</p>
+
+<ul>
+  <li>nanoc</li>
+  <li>jekyll(octopress)</li>
+  <li>middleman</li>
+</ul>
+
+<p>あたりに絞られました。<br />
+静的サイトジェネレータの比較は色々な記事が挙がっているので本記事では取り上げず、参考にしたリンクを下記に示すだけに留めます。<br />
+この中でnanocがヘルパーメソッドを手作りしたり自分でブログの機能を作成する感が楽しそうです。<br />
+octopressもとてもいいのですが、新しくカスタマイズする分には型にはまりすぎる印象があります。<br />
+そのため将来的にはnanocを使ってみたいですね。</p>
+
+<h2 id="引っ越し">引っ越し</h2>
+<p>しかしながらまずは引っ越し元のWordpressを荷下ろしを終わらせたいので、octopressでしばらく運用してみようと思います。<br />
+自分なりのブログに対する要求分析がしっかりされてないので、どんな機能をnanocで作っていきたいかをoctopressで洗い出すのも重要ですし。</p>
+
+<p>また、多少ながらカスタマイズとして、ブログコメントサービスのDisqusの導入やはてブボタンの設置など以下のリンクを参考にやってみました。</p>
+<ul>
+  <li><a href="http://morizyun.github.io/blog/octopress-hatena-disqus-new-tab/">5分でできる簡単 Octopress セッティング - 酒と泪とRubyとRailsと</a></li>
+</ul>
+
+<h2 id="結論">結論</h2>
+<p>曳光弾としてoctopressに引っ越して要件を洗い出しつつ、将来的にはnanocでブログの自作をする方針で行こうと思います。</p>
+
+<h3 id="参考リンク">参考リンク</h3>
+<ul>
+  <li><a href="http://staticsitegenerators.net/">Static Site Generators</a></li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[Nanoc以外の静的サイト生成ツールを調べてみた</td>
+          <td>ひげろぐ](http://higelog.brassworks.jp/?p=2076)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><a href="http://rubyredbricks.com/blog/2013/09/30/from-octopress-to-nanoc/">Ruby Red Bricks - From Octopress to nanoc</a></li>
+  <li><a href="http://n.blueblack.net/articles/2012-05-03_02_nanoc_getting_started/">nanoc導入メモ 1/5 「Getting Started」編 - ナレッジエース</a></li>
+</ul>
+
+
   <h1>wordpressからoctopressへの引っ越し</h1>
   <p>表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。</p>
 
@@ -315,39 +384,6 @@ IOError: encoder zip not available
 
 
 
-  <h1>MacOSX Cisco VPNClient対策</h1>
-  <h3 id="状況">状況</h3>
-
-<ul>
-  <li>macbook air学内VPN接続のためvpnクライアントをインストールしたが64bitカーネルでは動かず
-    <ul>
-      <li>ciscoは32bitのみサポートしている</li>
-      <li>ネットのmacユーザにはciscoを避ける向きがあるようだ</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="対策">対策</h3>
-
-<ul>
-  <li>OSを常に32bitカーネルとして起動する
-    <ul>
-      <li>搭載メモリは今のところ4GB以内のため被害は少ないと判断</li>
-      <li>“sudo systemsetup -setkernelbootarchitecture i386″を実行する</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="参考url">参考URL</h3>
-
-<ul>
-  <li><a href="http://forums.macrumors.com/archive/index.php/t-1110046.html">同症状とその対策</a></li>
-  <li><a href="https://discussions.apple.com/thread/3077376?start=0&amp;tstart=0">Cisco VPN Client lacks 64 bit Support</a></li>
-  <li><a href="http://support.apple.com/kb/HT3773?viewlocale=ja_JP">32bit化手順</a></li>
-</ul>
-
-
-
 
         </main>
       </div>
@@ -368,6 +404,8 @@ IOError: encoder zip not available
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
+      <li role="menuitem"><a href="/blog/2019/04/14/techbookfest-6/">技術書典6に参加した</a></li>
+    
       <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
     
       <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
@@ -375,8 +413,6 @@ IOError: encoder zip not available
       <li role="menuitem"><a href="/blog/2018/08/12/blog-renewal/">ブログのHTTPS化および開発環境整備</a></li>
     
       <li role="menuitem"><a href="/blog/2017/11/05/vimconf2017/">#VimConf2017 に参加した話</a></li>
-    
-      <li role="menuitem"><a href="/blog/2014/02/12/octopress-as-a-tracer-bullet/">octopress as a tracer bullet</a></li>
     
   </ul>
 </div>
