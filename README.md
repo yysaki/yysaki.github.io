@@ -15,11 +15,15 @@
     npm install
     npm run bower
 
-### commands
+### run server
 
     cd $DIR
     bundle exec nanoc // compile
     bundle exec nanoc view -o 0.0.0.0 // http://localhost:3000/
+
+### create
+
+    bundle exec rake new
 
 ### guard
 

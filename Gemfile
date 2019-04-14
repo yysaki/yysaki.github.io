@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem 'nanoc'
 
+gem 'rake'
 gem 'adsf'
 gem 'compass'
 gem 'guard'

@@ -93,6 +93,7 @@ GEM
       coolline (~> 0.5)
     public_suffix (3.0.3)
     rack (2.0.6)
+    rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -120,7 +121,8 @@ DEPENDENCIES
   kramdown
   nanoc
   pry-coolline
+  rake
   uglifier
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
