@@ -25,94 +25,92 @@
 &lt;p&gt;戦利品は以下の通りです。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;サークル名: テスターちゃん
+  &lt;li&gt;サークル名: &lt;a href="http://testerchan.hatenadiary.com/"&gt;テスターちゃん&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;【紙の本】 テスターちゃん 1巻&lt;/li&gt;
+      &lt;li&gt;テスターちゃん 1巻&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: 越後屋
+  &lt;li&gt;サークル名: &lt;a href="https://blog.nkzn.info/entry/2019/04/09/011249"&gt;越後屋&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;これでカンタン! ITエンジニアが実践するキャッシュレス時代の資産管理&lt;/li&gt;
+      &lt;li&gt;これでカンタン！ ITエンジニアが実践するキャッシュレス時代の資産管理&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: MERY Engineer Team
+  &lt;li&gt;サークル名: &lt;a href="https://note.mu/gami/n/nffef53da2171"&gt;MERY Engineer Team&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;スターティング gRPC&lt;/li&gt;
+      &lt;li&gt;スターティングgRPC&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: ラムダノート株式会社
+  &lt;li&gt;サークル名: &lt;a href="https://www.lambdanote.com/"&gt;ラムダノート株式会社&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;1月刊ラムダノート Vol.1, No.1&lt;/li&gt;
+      &lt;li&gt;n月刊ラムダノート Vol.1, No.1(2019)&lt;/li&gt;
       &lt;li&gt;みんなのデータ構造&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: 妄想実行部隊
+  &lt;li&gt;サークル名: &lt;a href="https://taimen.jp/shops/show/315"&gt;妄想実行部隊&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;妄想実行報告書&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: しがないラジオ
+  &lt;li&gt;サークル名: &lt;a href="https://shiganai.org/ep/ep34"&gt;しがないラジオ&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;チーム開発1年目の教科書 〜チーム開発で疲弊しい ないためのツールとマインドセット〜&lt;/li&gt;
-      &lt;li&gt;非エンジニアのためのJavaScript 〜仕事を楽しくする簡単プログラミング入門〜&lt;/li&gt;
+      &lt;li&gt;#チーム開発1年目の教科書&lt;/li&gt;
+      &lt;li&gt;#非エンジニアのためのJavaScript&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: 潜推艦
+  &lt;li&gt;サークル名: &lt;a href="https://twitter.com/takepepe/status/1116694363004751872"&gt;潜推艦&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;ConditionalTypes I/O - TypeScript3.4 型の強 化書 -&lt;/li&gt;
+      &lt;li&gt;ConditionalTypes I/O - TypeScript3.4 型の強化書 -&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: ハムカツおじさん🤘
+  &lt;li&gt;サークル名: &lt;a href="https://watanabeyu.blogspot.com/2019/04/6.html"&gt;ハムカツおじさん🤘&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;#1人チーム本&lt;/li&gt;
+      &lt;li&gt;#1人チーム本 ノウハウなしでも1人でなんとかなる React Native Expoを使ったアプリの開発環境構築/ビルド/デプロイ/運用&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: ザ・シメサバズ
+  &lt;li&gt;サークル名: &lt;a href="https://twitter.com/nabettu/status/1116989059715350530"&gt;ザ・シメサバズ&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;PWA Web サイトを Google Play Storeに公開するハンズオン&lt;/li&gt;
-      &lt;li&gt;個人開発がやりたくなる本&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://twitter.com/_hyme_/status/1116992952532779008"&gt;PWA Web サイトを Google Play Storeに公開するハンズオン&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://crieit.net/posts/indie-coder-jp"&gt;個人開発がやりたくなる本&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: エムスリーエンジニアリンググループ執筆部
+  &lt;li&gt;サークル名: &lt;a href="https://www.m3tech.blog/entry/m3techbook-01"&gt;エムスリーエンジニアリンググループ執筆部&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;エムスリーテックブック#1&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: すべてがM(icro)になる
+  &lt;li&gt;サークル名: &lt;a href="https://ota42y.com/blog/2019/04/13/techbook_6/"&gt;すべてがM(icro)になる&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;Microservices architecture よろず本&lt;/li&gt;
-      &lt;li&gt;Microservices architecture よろず本 その一&amp;amp; その二&lt;/li&gt;
+      &lt;li&gt;Microservices architecture よろず本 その三&lt;/li&gt;
+      &lt;li&gt;Microservices architecture よろず本 その一＆その二&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: Japan Container Days
+  &lt;li&gt;サークル名: &lt;a href="https://developers.cyberagent.co.jp/blog/archives/21439/"&gt;Japan Container Days&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;showKsではじめるクラウドネイティブ開発&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: おからぼ
+  &lt;li&gt;サークル名: &lt;a href="https://note.mu/okash1n/n/nfb10ad57a1f2"&gt;おからぼ&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;ゼロトラスト超入門&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: 楽描帳
+  &lt;li&gt;サークル名: &lt;a href="https://www.chirashiura.com/entry/2019/03/24/235804"&gt;楽描帳&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;コンテナ時代の個人Webサービスの作り方&lt;/li&gt;
+      &lt;li&gt;コンテナ時代のWebサービスの作り方&lt;/li&gt;
       &lt;li&gt;Pragmatic Terraform on AWS&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: Auth屋
+  &lt;li&gt;サークル名: &lt;a href="https://www.authya.com/"&gt;Auth屋&lt;/a&gt;
     &lt;ul&gt;
-      &lt;li&gt;雰囲気でOAuth2.0を使っているエンジニアが OAuth2.0を整理して理解できる本&lt;/li&gt;
+      &lt;li&gt;雰囲気でOAuth2.0を使っているエンジニアがOAuth2.0を整理して理解できる本&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;サークル名: 足跡出版
+  &lt;li&gt;サークル名: &lt;a href="https://blog.mtb-production.info/entry/2019/04/03/215501"&gt;足跡出版&lt;/a&gt;
     &lt;ul&gt;
       &lt;li&gt;IT実務のアンチパターン コミュニケーション編&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;(OCRで文字起こししたので細かい誤りがあるかも)&lt;/p&gt;
 
 &lt;h2 id="感想"&gt;感想&lt;/h2&gt;
 
