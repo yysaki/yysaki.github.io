@@ -19,45 +19,43 @@ categories:
 
 戦利品は以下の通りです。
 
-- サークル名: テスターちゃん
-  - 【紙の本】 テスターちゃん 1巻
-- サークル名: 越後屋
-  - これでカンタン! ITエンジニアが実践するキャッシュレス時代の資産管理
-- サークル名: MERY Engineer Team
-  - スターティング gRPC
-- サークル名: ラムダノート株式会社
-  - 1月刊ラムダノート Vol.1, No.1
+- サークル名: [テスターちゃん](http://testerchan.hatenadiary.com/)
+  - テスターちゃん 1巻
+- サークル名: [越後屋](https://blog.nkzn.info/entry/2019/04/09/011249)
+  - これでカンタン！ ITエンジニアが実践するキャッシュレス時代の資産管理
+- サークル名: [MERY Engineer Team](https://note.mu/gami/n/nffef53da2171)
+  - スターティングgRPC
+- サークル名: [ラムダノート株式会社](https://www.lambdanote.com/)
+  - n月刊ラムダノート Vol.1, No.1(2019)
   - みんなのデータ構造
-- サークル名: 妄想実行部隊
+- サークル名: [妄想実行部隊](https://taimen.jp/shops/show/315)
   - 妄想実行報告書
-- サークル名: しがないラジオ
-  - チーム開発1年目の教科書 〜チーム開発で疲弊しい ないためのツールとマインドセット〜
-  - 非エンジニアのためのJavaScript 〜仕事を楽しくする簡単プログラミング入門〜
-- サークル名: 潜推艦
-  - ConditionalTypes I/O - TypeScript3.4 型の強 化書 -
-- サークル名: ハムカツおじさん🤘
-  - #1人チーム本
-- サークル名: ザ・シメサバズ
-  - PWA Web サイトを Google Play Storeに公開するハンズオン
-  - 個人開発がやりたくなる本
-- サークル名: エムスリーエンジニアリンググループ執筆部
+- サークル名: [しがないラジオ](https://shiganai.org/ep/ep34)
+  - #チーム開発1年目の教科書
+  - #非エンジニアのためのJavaScript
+- サークル名: [潜推艦](https://twitter.com/takepepe/status/1116694363004751872)
+  - ConditionalTypes I/O - TypeScript3.4 型の強化書 -
+- サークル名: [ハムカツおじさん🤘](https://watanabeyu.blogspot.com/2019/04/6.html)
+  - #1人チーム本 ノウハウなしでも1人でなんとかなる React Native Expoを使ったアプリの開発環境構築/ビルド/デプロイ/運用
+- サークル名: [ザ・シメサバズ](https://twitter.com/nabettu/status/1116989059715350530)
+  - [PWA Web サイトを Google Play Storeに公開するハンズオン](https://twitter.com/_hyme_/status/1116992952532779008)
+  - [個人開発がやりたくなる本](https://crieit.net/posts/indie-coder-jp)
+- サークル名: [エムスリーエンジニアリンググループ執筆部](https://www.m3tech.blog/entry/m3techbook-01)
   - エムスリーテックブック#1
-- サークル名: すべてがM(icro)になる
-  - Microservices architecture よろず本
-  - Microservices architecture よろず本 その一& その二
-- サークル名: Japan Container Days
+- サークル名: [すべてがM(icro)になる](https://ota42y.com/blog/2019/04/13/techbook_6/)
+  - Microservices architecture よろず本 その三
+  - Microservices architecture よろず本 その一＆その二
+- サークル名: [Japan Container Days](https://developers.cyberagent.co.jp/blog/archives/21439/)
   - showKsではじめるクラウドネイティブ開発
-- サークル名: おからぼ
+- サークル名: [おからぼ](https://note.mu/okash1n/n/nfb10ad57a1f2)
   - ゼロトラスト超入門
-- サークル名: 楽描帳
-  - コンテナ時代の個人Webサービスの作り方
+- サークル名: [楽描帳](https://www.chirashiura.com/entry/2019/03/24/235804)
+  - コンテナ時代のWebサービスの作り方
   - Pragmatic Terraform on AWS
-- サークル名: Auth屋
-  - 雰囲気でOAuth2.0を使っているエンジニアが OAuth2.0を整理して理解できる本
-- サークル名: 足跡出版
+- サークル名: [Auth屋](https://www.authya.com/)
+  - 雰囲気でOAuth2.0を使っているエンジニアがOAuth2.0を整理して理解できる本
+- サークル名: [足跡出版](https://blog.mtb-production.info/entry/2019/04/03/215501)
   - IT実務のアンチパターン コミュニケーション編
-
-(OCRで文字起こししたので細かい誤りがあるかも)
 
 ## 感想
 
