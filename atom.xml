@@ -10,6 +10,41 @@
     <uri>http://www.yysaki.com/</uri>
   </author>
   <entry>
+    <id>tag:www.yysaki.com,2019-04-14://blog/2020/04/29/react-tic-tac-toe/</id>
+    <title type="html">Reactのチュートリアルで三目並べ</title>
+    <published>2019-04-14T14:00:00Z</published>
+    <updated>2019-04-14T14:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2020/04/29/react-tic-tac-toe/"/>
+    <content type="html">&lt;p&gt;Reactのチュートリアルにある、三目並べを書いて動かしてみました.&lt;br /&gt;
+しばらくこっちのブログを書いていなかったので、準備運動てきにブログを更新します.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3 id="やったこと"&gt;やったこと&lt;/h3&gt;
+
+&lt;p&gt;Reactの公式ドキュメントにある&lt;a href="https://ja.reactjs.org/tutorial/tutorial.html"&gt;チュートリアル：React の導入 – React&lt;/a&gt; に従い、三目並べ(tic-tac-toe)を書いてみました.&lt;br /&gt;
+動作例は以下の通り:&lt;/p&gt;
+
+&lt;p class="codepen" data-height="300" data-theme-id="light" data-default-tab="js,result" data-user="yysaki" data-slug-hash="WNQEbGg" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="react-tic-tac-toe"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/yysaki/pen/WNQEbGg"&gt;
+  react-tic-tac-toe&lt;/a&gt; by yysaki (&lt;a href="https://codepen.io/yysaki"&gt;@yysaki&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+&lt;script async="" src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;h3 id="感想"&gt;感想&lt;/h3&gt;
+
+&lt;p&gt;感想としては、素朴なreactの構造を動かしながらpropsやコンポーネントの概念が把握できました.&lt;br /&gt;
+公式ドキュメントが日本語訳されており、とてもとっつきやすく感じました.&lt;/p&gt;
+
+&lt;p&gt;また, https://github.com/yysaki/react-tic-tac-toe リポジトリを作ってこの上で一通り作業していました.&lt;br /&gt;
+これはこれで create-react-app を使って &lt;code&gt;npm run start&lt;/code&gt; できる状態を作る経験になったのですが、&lt;br /&gt;
+作業内容自体js 1ファイルのsnippetにに収まること, 動くサンプルをblogにかんたんに貼れると気づいたことから、&lt;br /&gt;
+codepenに途中から移行しました.&lt;br /&gt;
+手を動かして実験してみたいがリポジトリを作るほどでもないなーというものに対して使っていきたいと思います.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:www.yysaki.com,2019-04-14://blog/2019/04/14/techbookfest-6/</id>
     <title type="html">技術書典6に参加した</title>
     <published>2019-04-14T14:00:00Z</published>
@@ -822,23 +857,6 @@ IOError: encoder zip not available
 &lt;/ul&gt;
 
 &lt;p&gt;以上です。&lt;/p&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2013-04-04://blog/2013/04/04/shell-operation-test-on-bash/</id>
-    <title type="html">『シェル操作課題 』をシェルで解きなおす</title>
-    <published>2013-04-04T00:00:00Z</published>
-    <updated>2013-04-04T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2013/04/04/shell-operation-test-on-bash/"/>
-    <content type="html">&lt;p&gt;以前解いた&lt;a href="http://yysaki.com/blog/archives/79"&gt;『シェル操作課題 』をRubyのワンライナーで解いてみた&lt;/a&gt; の問題をunixコマンドのみで解き直した。&lt;/p&gt;
-
-&lt;script src="https://gist.github.com/yysaki/5310298.js"&gt;{}&lt;/script&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;uniq -c&lt;/code&gt;で重複した数をカウント出来る&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;sort&lt;/code&gt;の&lt;code&gt;-k&lt;/code&gt;オプションを同時に指定することで第一指定順、第二指定順でソート出来る&lt;/li&gt;
-&lt;/ul&gt;
 
 </content>
   </entry>
