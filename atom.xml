@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2019-04-14T14:00:00Z</updated>
+  <updated>2019-06-07T03:00:00Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml"/>
   <author>
@@ -10,38 +10,148 @@
     <uri>http://www.yysaki.com/</uri>
   </author>
   <entry>
-    <id>tag:www.yysaki.com,2019-04-14://blog/2020/04/29/react-tic-tac-toe/</id>
-    <title type="html">Reactのチュートリアルで三目並べ</title>
-    <published>2019-04-14T14:00:00Z</published>
-    <updated>2019-04-14T14:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2020/04/29/react-tic-tac-toe/"/>
-    <content type="html">&lt;p&gt;Reactのチュートリアルにある、三目並べを書いて動かしてみました.&lt;br /&gt;
-しばらくこっちのブログを書いていなかったので、準備運動てきにブログを更新します.&lt;/p&gt;
+    <id>tag:www.yysaki.com,2019-06-07://blog/2020/06/07/terraform-hasura/</id>
+    <title type="html">Terraform RegistryのModuleを使ってHasuraを立てる</title>
+    <published>2019-06-07T03:00:00Z</published>
+    <updated>2019-06-07T03:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2020/06/07/terraform-hasura/"/>
+    <content type="html">&lt;p&gt;Terraformの素振りのため、公開されているModuleを使ってAWS ECSクラスター上にHasuraを立ててみました.&lt;br /&gt;
+Auth0での認証認可まで疎通確認できたので手順を共有します.&lt;/p&gt;
 
-&lt;!-- more --&gt;
+&lt;h2 id="概要"&gt;概要&lt;/h2&gt;
 
-&lt;h3 id="やったこと"&gt;やったこと&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://hasura.io/"&gt;Hasura&lt;/a&gt; について軽く説明をすると, これはPostgreSQLをバックエンドとしてAPIを自動生成してくれるGraphQLサーバーです. DBスキーマからとりうるCRUD操作をAPI越しに一通り行うことができるようにしてくれます. また、ロールベースの権限付与の仕組みをサポートしており、 &lt;a href="https://auth0.com/jp/"&gt;Auth0&lt;/a&gt; といったOAuthサービスプロバイダーと組み合わせることで、Hasura外部のサービスで認証を行ったユーザの認可から, ロールに許されたAPI操作を割り振ることができます。&lt;br /&gt;
+Hasuraのサービスを稼働させるためにはHerokuが推奨されていますが、あえてAWSで立てようとするなら &lt;a href="https://hub.docker.com/r/hasura/graphql-engine"&gt;docker hubに提供されているDockerイメージ&lt;/a&gt; とデータストアであるPostgreSQLを構築する必要から、ECSを使うのが自然な選択肢になるかと思います. ちょうどTerraformでAWSの環境構築をする練習りをしたかったこともあり &lt;a href="https://hasura.io/"&gt;Hasura&lt;/a&gt;を立てるのがお題として手頃そうでした.&lt;br /&gt;
+一方、Terraform Registryを”hasura”で検索してみると3件ほどマッチしました。 このうちメンテナンスされておりdownload数の多い &lt;a href="https://registry.terraform.io/modules/Rayraegah/hasura/aws/3.0.2"&gt;Rayraegah/hasura/aws&lt;/a&gt; があります.  ライセンスのところに &lt;a href="https://github.com/elgordino"&gt;Gordon Johnston&lt;/a&gt; により提案されたAWSアーキテクチャを採用しているとあります, おそらく以下の記事のことと見られます.&lt;/p&gt;
 
-&lt;p&gt;Reactの公式ドキュメントにある&lt;a href="https://ja.reactjs.org/tutorial/tutorial.html"&gt;チュートリアル：React の導入 – React&lt;/a&gt; に従い、三目並べ(tic-tac-toe)を書いてみました.&lt;br /&gt;
-動作例は以下の通り:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://dev.to/lineup-ninja/deploying-hasura-on-aws-with-fargate-rds-and-terraform-4gk7"&gt;Deploying Hasura on AWS with Fargate, RDS and Terraform - DEV&lt;/a&gt;&lt;/p&gt;
 
-&lt;p class="codepen" data-height="300" data-theme-id="light" data-default-tab="js,result" data-user="yysaki" data-slug-hash="WNQEbGg" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="react-tic-tac-toe"&gt;
-  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/yysaki/pen/WNQEbGg"&gt;
-  react-tic-tac-toe&lt;/a&gt; by yysaki (&lt;a href="https://codepen.io/yysaki"&gt;@yysaki&lt;/a&gt;)
-  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
-&lt;/p&gt;
-&lt;script async="" src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+&lt;p&gt;今回はこちらをお借りしてTerraformを素振りさせてもらいました.&lt;/p&gt;
 
-&lt;h3 id="感想"&gt;感想&lt;/h3&gt;
+&lt;h2 id="事前準備"&gt;事前準備&lt;/h2&gt;
 
-&lt;p&gt;感想としては、素朴なreactの構造を動かしながらpropsやコンポーネントの概念が把握できました.&lt;br /&gt;
-公式ドキュメントが日本語訳されており、とてもとっつきやすく感じました.&lt;/p&gt;
+&lt;p&gt;今回の手順を行うにあたって必要な準備は以下の通りです:&lt;/p&gt;
 
-&lt;p&gt;また, https://github.com/yysaki/react-tic-tac-toe リポジトリを作ってこの上で一通り作業していました.&lt;br /&gt;
-これはこれで create-react-app を使って &lt;code&gt;npm run start&lt;/code&gt; できる状態を作る経験になったのですが、&lt;br /&gt;
-作業内容自体js 1ファイルのsnippetにに収まること, 動くサンプルをblogにかんたんに貼れると気づいたことから、&lt;br /&gt;
-codepenに途中から移行しました.&lt;br /&gt;
-手を動かして実験してみたいがリポジトリを作るほどでもないなーというものに対して使っていきたいと思います.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Terraform 0.12 の実行環境&lt;/li&gt;
+  &lt;li&gt;AWSアカウント
+    &lt;ul&gt;
+      &lt;li&gt;IAMユーザ&lt;/li&gt;
+      &lt;li&gt;Route53で管理されているドメイン&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Auth0アカウント&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.electronjs.org/apps/graphiql"&gt;GraphiQL.app&lt;/a&gt; の実行環境
+    &lt;ul&gt;
+      &lt;li&gt;macos Homebrewであれば &lt;code&gt;brew cask install graphiql&lt;/code&gt; しておく&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この記事ではそれぞれのセットアップについては述べません.&lt;/p&gt;
+
+&lt;h2 id="auth0の設定"&gt;Auth0の設定&lt;/h2&gt;
+
+&lt;p&gt;まず, Auth0について &lt;a href="https://hasura.io/docs/1.0/graphql/manual/guides/integrations/auth0-jwt.html"&gt;Hasuraの公式ドキュメント&lt;/a&gt; を参考に事前にSingle Page Applicationを用意しておきます. Hasuraの認証認可の仕組みをこちらで整えることになります.  手順の通りなのですが, ハマりどころとして2点補足しておきます.&lt;/p&gt;
+
+&lt;p&gt;一つ目はRulesです. “Configure Auth0 Rules &amp;amp; Callback URLs”の手順にてJWTカスタムクレームを埋め込むためのスニペットが2通り記載されています. 厳密にはどちらでも構いませんが, この手順では前者のauth0.js向けのスニペットを入力してください. 2つ目は &lt;a href="https://auth0.com/docs/api-auth/tutorials/adoption/oidc-conformant"&gt;OIDC Conformantを無効にする&lt;/a&gt; ということです. “Test auth0 login and generate sample JWTs for testing” の手順でid_tokenを取得しますが, これを無効にしておかないとコールバック時にエラーとなります.&lt;/p&gt;
+
+&lt;h2 id="terraformのapply"&gt;TerraformのApply&lt;/h2&gt;
+
+&lt;p&gt;手元の実行環境のお好きなディレクトリ配下に, Terraformのapplyのためmoduleの呼び出しを行う &lt;code&gt;main.tf&lt;/code&gt; および変数定義を行う &lt;code&gt;terraform.tfvars&lt;/code&gt; を用意しました.&lt;br /&gt;
+&lt;a href="https://gist.github.com/yysaki/ad8396547b9fc1f14865d1b554bd24b7"&gt;gist&lt;/a&gt;に貼ってありますが、それぞれ以下の通りです:&lt;/p&gt;
+
+&lt;p&gt;まず, main.tf:&lt;/p&gt;
+
+&lt;div class="language-terraform highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;variable &amp;quot;domain&amp;quot; {}
+variable &amp;quot;hasura_admin_secret&amp;quot; {}
+variable &amp;quot;rds_password&amp;quot; {}
+variable &amp;quot;hasura_jwt_secret_key&amp;quot; {}
+
+module &amp;quot;hasura&amp;quot; {
+  source                         = &amp;quot;Rayraegah/hasura/aws&amp;quot;
+  version                        = &amp;quot;3.0.2&amp;quot;
+  domain                         = var.domain
+  hasura_version_tag             = &amp;quot;v1.2.1&amp;quot;
+  hasura_admin_secret            = var.hasura_admin_secret
+  hasura_jwt_secret_key          = var.hasura_jwt_secret_key
+  hasura_jwt_secret_algo         = &amp;quot;RS256&amp;quot;
+  rds_db_name                    = &amp;quot;hasura&amp;quot;
+  rds_instance                   = &amp;quot;db.t3.small&amp;quot;
+  rds_username                   = &amp;quot;hasura&amp;quot;
+  rds_password                   = var.rds_password
+  create_iam_service_linked_role = false
+}
+
+provider &amp;quot;aws&amp;quot; {
+  region = &amp;quot;ap-northeast-1&amp;quot;
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;module “hasura”になるべくdefault値を使ったうえで必要な変数定義をしています. 秘密情報にしたかったものはvariableに切り出してtfvarsにて記述することにしました. defaultを上書きした変数は3箇所あります. 1つ目は &lt;code&gt;hasura_version_tag&lt;/code&gt; , これは単純に執筆時点の最新版を使いたかったためです. 2つ目は &lt;code&gt;hasura_jwt_secret_algo&lt;/code&gt; , こちらにはHS256 または RS256が選べますが, Auth0で使用するのは後者のため設定しました. 最後にcreate_iam_service_linked_role, これはAWSのアカウント上で初めてECSを作成したときに勝手に作られる &lt;a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/using-service-linked-roles.html"&gt;service_linked_role&lt;/a&gt; の有無についてです. 私の環境では以前にECSクラスターを作ったことがあるためfalseにしましたが, この操作が初めての場合defaultのtrueとしておきましょう.&lt;/p&gt;
+
+&lt;p&gt;次に, terraform.tfvars:&lt;/p&gt;
+
+&lt;div class="language-txt highlighter-coderay"&gt;&lt;div class="CodeRay"&gt;
+  &lt;div class="code"&gt;&lt;pre&gt;domain                = &amp;quot;example.com&amp;quot;
+hasura_admin_secret   = &amp;quot;Password&amp;quot;
+rds_password          = &amp;quot;Password&amp;quot;
+hasura_jwt_secret_key = &amp;lt;&amp;lt;EOF
+-----BEGIN CERTIFICATE-----
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxx
+-----END CERTIFICATE-----
+EOF
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;これにはvariableで定義した変数を指定しています. 1つ目の &lt;code&gt;domain&lt;/code&gt; にはRoute53で管理しているdomainを指定してください. 続く &lt;code&gt;hasura_admin_secret&lt;/code&gt; &lt;code&gt;rds_password&lt;/code&gt; には, 前者はHasura管理画面の、 後者はRDSのパスワードになります. 最後の &lt;code&gt;hasura_jwt_secret_key&lt;/code&gt; には先のAuth0の設定後に得られる公開鍵情報を入力します. &lt;code&gt;https://&amp;lt;your-auth0-domain&amp;gt;.auth0.com/pem&lt;/code&gt; にアクセスすることで取得できます.&lt;/p&gt;
+
+&lt;p&gt;以上で設定が完了です. 作業したディレクトリ上で &lt;code&gt;terraform init&lt;/code&gt;, &lt;code&gt;terraform plan&lt;/code&gt;, &lt;code&gt;terraform apply&lt;/code&gt; を実行しましょう.&lt;/p&gt;
+
+&lt;h2 id="hasuraコンソールにログインする"&gt;Hasuraコンソールにログインする&lt;/h2&gt;
+
+&lt;p&gt;上記が無事成功したことを確認するために, ブラウザから &lt;code&gt;https://hasura.&amp;lt;あなたのdomain&amp;gt;&lt;/code&gt; にアクセスしましょう. Hasuraのパスワード入力画面が出ますので, &lt;code&gt;hasura_admin_secret&lt;/code&gt; を入力してください. &lt;br /&gt;
+Hasuraの管理画面が開くはずです.&lt;/p&gt;
+
+&lt;p&gt;Hasuraのコンソール画面から, テーブル定義およびそれのuserへのpermissionをしたとします. コンソール上でポチポチ操作するだけでOKで, これによりDBマイグレーションなどのメタデータ設定が簡単に行えます. 私の環境では &lt;code&gt;users&lt;/code&gt; と &lt;code&gt;posts&lt;/code&gt; テーブルを一対多の関係で定義、&lt;code&gt;user&lt;/code&gt; ロールにそれぞれのテーブルへのSELECT権限の付与を行いました.&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="ja" dir="ltr"&gt;hasuraが立ったので雑なテーブル定義 &lt;a href="https://t.co/jiOcOHCasZ"&gt;pic.twitter.com/jiOcOHCasZ&lt;/a&gt;&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/1264112622816735232?ref_src=twsrc%5Etfw"&gt;May 23, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;h2 id="graphql-apiの操作"&gt;GraphQL APIの操作&lt;/h2&gt;
+
+&lt;p&gt;これまでの設定がうまくいったことを確認するために, GraphQL APIを触ってみたいと思います. 手順としてはGraphiQL.app を起動します. アプリが起動したら &lt;code&gt;GraphQL Endpoint&lt;/code&gt;に &lt;code&gt;https://hasura.&amp;lt;あなたのdomain&amp;gt;/v1/graphql&lt;/code&gt; を入力します. 次に &lt;code&gt;Edit HTTP Headers&lt;/code&gt; をクリックし, &lt;code&gt;Add Header&lt;/code&gt; からHeader nameに&lt;code&gt;Authorization&lt;/code&gt;, Header valueに &lt;code&gt;Bearer &amp;lt;id_token&amp;gt;&lt;/code&gt; を入力します. このid_tokenは “Test auth0 login and generate sample JWTs for testing”で取得したものになります. これでトップ画面に戻るとうまくいった場合Document Explorer &amp;gt; ROOT TYPES に利用可能なqueryがリストアップされます. これでHasuraから認証認可を踏まえたGraphQLのndpointが得られました.&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="ja" dir="ltr"&gt;Auth0認可も通ったのでOK &lt;a href="https://t.co/6TaN17mIqU"&gt;pic.twitter.com/6TaN17mIqU&lt;/a&gt;&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/1264122926783066112?ref_src=twsrc%5Etfw"&gt;May 23, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;h2 id="後始末"&gt;後始末&lt;/h2&gt;
+
+&lt;p&gt;満足できるまで確認ができたら, 課金対象ですので AWSリソース を削除しましょう.  ただし, 安全のためaws_db_instanceのlife_cycleが &lt;code&gt;prevent_destroy = true&lt;/code&gt; となっているため, 単に&lt;code&gt;terraform destroy&lt;/code&gt; をしても成功しません. workaroundとして, main.tf 中のmodule定義をすべてコメントアウトして &lt;code&gt;terraform apply&lt;/code&gt; を行ってから &lt;code&gt;terraform destroy&lt;/code&gt; をすることでリソースの削除に成功します.&lt;/p&gt;
+
+&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;以上で, terraformのmoduleを使わせてもらったAWSでのhasuraの構築の素振りを行いました. 素振りをやろうとした当初はイチからtfファイルを書く気持ちでいたのですが, 先人の肩を借りて手数少なく実施することができました. まじまじとregistryに公開されているmoduleを読むのは初めてでしたが, ためになります.&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -161,6 +271,41 @@ codepenに途中から移行しました.&lt;br /&gt;
 
 &lt;p&gt;今日は目的としていたサークルさんに顔を出すことが、それ以外にも知人がブースで売り子をしていて久しぶりに話ができたのが嬉しかったので満足しました。&lt;br /&gt;
 今回もまた積読の山をしこたま増やしたので、ガンガン読むぞーという意気込みです。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:www.yysaki.com,2019-04-14://blog/2020/04/29/react-tic-tac-toe/</id>
+    <title type="html">Reactのチュートリアルで三目並べ</title>
+    <published>2019-04-14T14:00:00Z</published>
+    <updated>2019-04-14T14:00:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2020/04/29/react-tic-tac-toe/"/>
+    <content type="html">&lt;p&gt;Reactのチュートリアルにある、三目並べを書いて動かしてみました.&lt;br /&gt;
+しばらくこっちのブログを書いていなかったので、準備運動てきにブログを更新します.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3 id="やったこと"&gt;やったこと&lt;/h3&gt;
+
+&lt;p&gt;Reactの公式ドキュメントにある&lt;a href="https://ja.reactjs.org/tutorial/tutorial.html"&gt;チュートリアル：React の導入 – React&lt;/a&gt; に従い、三目並べ(tic-tac-toe)を書いてみました.&lt;br /&gt;
+動作例は以下の通り:&lt;/p&gt;
+
+&lt;p class="codepen" data-height="300" data-theme-id="light" data-default-tab="js,result" data-user="yysaki" data-slug-hash="WNQEbGg" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="react-tic-tac-toe"&gt;
+  &lt;span&gt;See the Pen &lt;a href="https://codepen.io/yysaki/pen/WNQEbGg"&gt;
+  react-tic-tac-toe&lt;/a&gt; by yysaki (&lt;a href="https://codepen.io/yysaki"&gt;@yysaki&lt;/a&gt;)
+  on &lt;a href="https://codepen.io"&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+&lt;script async="" src="https://static.codepen.io/assets/embed/ei.js"&gt;&lt;/script&gt;
+
+&lt;h3 id="感想"&gt;感想&lt;/h3&gt;
+
+&lt;p&gt;感想としては、素朴なreactの構造を動かしながらpropsやコンポーネントの概念が把握できました.&lt;br /&gt;
+公式ドキュメントが日本語訳されており、とてもとっつきやすく感じました.&lt;/p&gt;
+
+&lt;p&gt;また, https://github.com/yysaki/react-tic-tac-toe リポジトリを作ってこの上で一通り作業していました.&lt;br /&gt;
+これはこれで create-react-app を使って &lt;code&gt;npm run start&lt;/code&gt; できる状態を作る経験になったのですが、&lt;br /&gt;
+作業内容自体js 1ファイルのsnippetにに収まること, 動くサンプルをblogにかんたんに貼れると気づいたことから、&lt;br /&gt;
+codepenに途中から移行しました.&lt;br /&gt;
+手を動かして実験してみたいがリポジトリを作るほどでもないなーというものに対して使っていきたいと思います.&lt;/p&gt;
 </content>
   </entry>
   <entry>
@@ -730,133 +875,6 @@ let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter
   &lt;/li&gt;
   &lt;li&gt;&lt;a href="http://macwiki.sourceforge.jp/wiki/index.php/Skim"&gt;MacWiki – Skim&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2013-12-14://blog/2013/12/14/blockdiag/</id>
-    <title type="html">blockdiagのエラーを解決できず&amp;#8230;</title>
-    <published>2013-12-14T00:00:00Z</published>
-    <updated>2013-12-14T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2013/12/14/blockdiag/"/>
-    <content type="html">&lt;p&gt;&lt;a href="http://blockdiag.com/ja/blockdiag/"&gt;blockdiag&lt;/a&gt;を使ってみたくてインストールしてみたのですが、画像生成でエラーが発生し、これをうまく解決できませんでした。今回開発者の&lt;a href="https://twitter.com/tk0miya"&gt;@tk0miya&lt;/a&gt;さんに解決方法について質問をするために、エラー報告を記事にまとめたいと思います。&lt;/p&gt;
-
-&lt;h2 id="環境"&gt;環境&lt;/h2&gt;
-
-&lt;p&gt;私の環境は以下の通りです。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;OS: mac OS X 10.9(Mavericks)&lt;/li&gt;
-  &lt;li&gt;Python: 2.7.5&lt;/li&gt;
-  &lt;li&gt;homebrew, easy_installを使ってインストール&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="インストール手順"&gt;インストール手順&lt;/h2&gt;
-
-&lt;p&gt;実際にblockdiagをインストールするために行った手順を記述します。&lt;/p&gt;
-
-&lt;p&gt;まずPILをインストールします。PILはfreetypes, zlib, libjpeg, libpngといったライブラリに依存するようなので、まずこれらのインストールから始めます。 freetypeに関しては&lt;a href="http://blockdiag.com/ja/blockdiag/introduction.html#macosx-homebrew"&gt;ここ&lt;/a&gt;を参考に /usr/local/Library/Formula/freetype2.rb を作成します。その後、以下の手順を行います。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo brew install freeytype2 ibjepg libpng
-$ brew tap homebrew/dupes
-$ sudo brew install zlib
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;この時インストールしたzlibライブラリはPathに通らないため、手動でリンクを貼る必要があります。そのため /usr/local/ に /usr/local/Cellar/zlib/1.2.8/ 以下のlib, include内のファイルをシンボリックリンクを貼りました。&lt;/p&gt;
-
-&lt;p&gt;続いてPIL自体のインストール。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo easy_install pil
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;SUMMARYは以下のようになり、zlibやfreetypeに対応されているように見えます。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;--------------------------------------------------------------------
-PIL 1.1.7 SETUP SUMMARY
---------------------------------------------------------------------
-version       1.1.7
-platform      darwin 2.7.5 (default, Aug 25 2013, 00:04:04)
-              [GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.0.68)]
---------------------------------------------------------------------
---- TKINTER support available
---- JPEG support available
---- ZLIB (PNG/ZIP) support available
---- FREETYPE2 support available
-*** LITTLECMS support not available
---------------------------------------------------------------------
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;最後にblockdiagのインストール。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo easy_install -mxN blockdiag
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;して、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ blockdiag --version
-blockdiag 1.3.2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;のように、blockdiagをインストール出来ました。&lt;/p&gt;
-
-&lt;h2 id="症状"&gt;症状&lt;/h2&gt;
-
-&lt;p&gt;以下のようなsimple.diagを生成しようとして見ると、エラーが発生します。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    diagram admin {
-      top_page -&amp;gt; config -&amp;gt; config_edit -&amp;gt; config_confirm -&amp;gt; top_page;
-    }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;デバッグプリントは以下の通りです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ blockdiag simple.diag --debug
-Traceback (most recent call last):
-  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/utils/bootstrap.py", line 36, in run
-    return self.build_diagram(parsed)
-  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/command.py", line 42, in build_diagram
-    return super(BlockdiagApp, self).build_diagram(tree)
-  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/utils/bootstrap.py", line 83, in build_diagram
-    drawer.save()
-  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/drawer.py", line 186, in save
-    return self.drawer.save(self.filename, size, self.format)
-  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/imagedraw/filters/linejump.py", line 172, in save
-    return self.target.save(*args, **kwargs)
-  File "/Library/Python/2.7/site-packages/blockdiag-1.3.2-py2.7.egg/blockdiag/imagedraw/png.py", line 400, in save
-    self._image.save(self.filename, _format)
-  File "build/bdist.macosx-10.9-intel/egg/PIL/Image.py", line 1453, in save
-    save_handler(self, fp, filename)
-  File "build/bdist.macosx-10.9-intel/egg/PIL/PngImagePlugin.py", line 619, in _save
-    ImageFile._save(im, _idat(fp, chunk), [("zip", (0,0)+im.size, 0, rawmode)])
-  File "build/bdist.macosx-10.9-intel/egg/PIL/ImageFile.py", line 454, in _save
-    e = Image._getencoder(im.mode, e, a, im.encoderconfig)
-  File "build/bdist.macosx-10.9-intel/egg/PIL/Image.py", line 405, in _getencoder
-    raise IOError("encoder %s not available" % encoder_name)
-IOError: encoder zip not available
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id="参考url"&gt;参考URL&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://blockdiag.com/ja/blockdiag/introduction.html"&gt;blockdiag の概要 — blockdiag 1.0 documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Python3.3対応画像処理ライブラリ Pillow(PIL) の使い方&lt;/td&gt;
-          &lt;td&gt;Librabuch]&lt;a href="http://librabuch.jp/2013/05/python_pillow_pil/"&gt;5&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://qiita.com/Jxck_/items/d329aa5c9b50519dcfaf"&gt;mac で spdylay の build もしくは homebrew と pkg-config – Qiita [キータ]&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;zlib周りを参考にさせて頂きました&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;以上です。&lt;/p&gt;
 
 </content>
   </entry>
