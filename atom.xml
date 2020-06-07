@@ -3,8 +3,8 @@
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
   <updated>2019-06-07T03:00:00Z</updated>
-  <link rel="alternate" href="http://www.yysaki.com//"/>
-  <link rel="self" href="http://www.yysaki.com//atom.xml"/>
+  <link rel="alternate" href="http://www.yysaki.com//" type="text/html"/>
+  <link rel="self" href="http://www.yysaki.com//atom.xml" type="application/atom+xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
@@ -14,7 +14,7 @@
     <title type="html">Terraform RegistryのModuleを使ってHasuraを立てる</title>
     <published>2019-06-07T03:00:00Z</published>
     <updated>2019-06-07T03:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2020/06/07/terraform-hasura/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2020/06/07/terraform-hasura/" type="text/html"/>
     <content type="html">&lt;p&gt;Terraformの素振りのため、公開されているModuleを使ってAWS ECSクラスター上にHasuraを立ててみました.&lt;br /&gt;
 Auth0での認証認可まで疎通確認できたので手順を共有します.&lt;/p&gt;
 
@@ -159,7 +159,7 @@ Hasuraの管理画面が開くはずです.&lt;/p&gt;
     <title type="html">技術書典6に参加した</title>
     <published>2019-04-14T14:00:00Z</published>
     <updated>2019-04-14T14:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2019/04/14/techbookfest-6/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2019/04/14/techbookfest-6/" type="text/html"/>
     <content type="html">&lt;p&gt;本日行われた &lt;a href="https://techbookfest.org/event/tbf06"&gt;技術書典6&lt;/a&gt; に行ってきました。&lt;br /&gt;
 初めての会場参加です。&lt;/p&gt;
 
@@ -278,7 +278,7 @@ Hasuraの管理画面が開くはずです.&lt;/p&gt;
     <title type="html">Reactのチュートリアルで三目並べ</title>
     <published>2019-04-14T14:00:00Z</published>
     <updated>2019-04-14T14:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2020/04/29/react-tic-tac-toe/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2020/04/29/react-tic-tac-toe/" type="text/html"/>
     <content type="html">&lt;p&gt;Reactのチュートリアルにある、三目並べを書いて動かしてみました.&lt;br /&gt;
 しばらくこっちのブログを書いていなかったので、準備運動てきにブログを更新します.&lt;/p&gt;
 
@@ -313,7 +313,7 @@ codepenに途中から移行しました.&lt;br /&gt;
     <title type="html">昨年の振り返りと新年の抱負</title>
     <published>2019-01-02T00:00:00Z</published>
     <updated>2019-01-02T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2019/01/02/happy-new-year/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2019/01/02/happy-new-year/" type="text/html"/>
     <content type="html">&lt;p&gt;明けましておめでとうございます。&lt;br /&gt;
 早いもので2018年があっという間に一年が過ぎていきました。&lt;br /&gt;
 せっかくの節目の時ですので、備忘のために昨年の振り返りと新年の抱負を書いていきたいと思います。&lt;/p&gt;
@@ -433,7 +433,7 @@ golangやPHPのLarabelなど選択肢はいくつもありますが、人生初�
     <title type="html">#Webサービスを作る本 を読んで簡易markdownエディタを作った</title>
     <published>2018-09-30T00:00:00Z</published>
     <updated>2018-09-30T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2018/09/30/vue-firebase-tutorial/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2018/09/30/vue-firebase-tutorial/" type="text/html"/>
     <content type="html">&lt;p&gt;&lt;a href="https://twitter.com/nabettu"&gt;@nabetu&lt;/a&gt; さんの執筆した &lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/4844398350/tatsuakiw-22/"&gt;Vue.jsとFirebaseで作るミニWebサービス (技術書典シリーズ(NextPublishing))&lt;/a&gt; の手順を写経してFirebase上で動く簡単なmarkdownディターのアプリを作成しました。 &lt;a href="https://mymarkdown-e7d15.firebaseapp.com/"&gt;こちらのURL&lt;/a&gt; で実際に稼働中です。&lt;/p&gt;
 
 &lt;blockquote class="twitter-tweet"&gt;&lt;p lang="ja" dir="ltr"&gt;&lt;a href="https://twitter.com/hashtag/Web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E3%82%8B%E6%9C%AC?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Webサービスを作る本&lt;/a&gt; 1周目終了。&lt;br /&gt;UIの手入れすっ飛ばしたので週末vuetifyで遊んで設定してから強くてニューゲーム行きます。&lt;br /&gt;DBは本書使用のRealtime DatabaseでなくCloud Firestoreを採用したので、設定の違いなどをブログ記事に起こすかも。&lt;a href="https://t.co/l903YvwWbL"&gt;https://t.co/l903YvwWbL&lt;/a&gt;&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/1034464372041515008?ref_src=twsrc%5Etfw"&gt;August 28, 2018&lt;/a&gt;&lt;/blockquote&gt;
@@ -556,7 +556,7 @@ Vue.jsについては全くの新規です。前知識としてはReactに並ぶ
     <title type="html">ブログのHTTPS化および開発環境整備</title>
     <published>2018-08-12T00:00:00Z</published>
     <updated>2018-08-12T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2018/08/12/blog-renewal/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2018/08/12/blog-renewal/" type="text/html"/>
     <content type="html">&lt;p&gt;最近 &lt;a href="https://speakerdeck.com/rhysd/cao-wosheng-yasuji-shu-number-mydev"&gt;草を生やす技術 #mydev // Speaker Deck&lt;/a&gt; のスライドを読み直して, このブログや昔作った小さなwebアプリの整備をしてgithubの草を生やしております.&lt;br /&gt;
 最近の進捗はプライベートリポジトリを含むとこんな感じ, 欠ける日もありますが2週間以上は続いてます.&lt;/p&gt;
 
@@ -624,7 +624,7 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
     <title type="html">#VimConf2017 に参加した話</title>
     <published>2017-11-05T00:00:00Z</published>
     <updated>2017-11-05T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2017/11/05/vimconf2017/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2017/11/05/vimconf2017/" type="text/html"/>
     <content type="html">&lt;p&gt;昨日 &lt;a href="http://vimconf.vim-jp.org/2017/"&gt;VimConf2017&lt;/a&gt; に参加してきました。&lt;br /&gt;
 ブログを書くのはしばらくぶりですが、ブログ記事を書くまでがVimConfということなので書きます。&lt;/p&gt;
 
@@ -673,7 +673,7 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
     <title type="html">octopress as a tracer bullet</title>
     <published>2014-02-12T00:00:00Z</published>
     <updated>2014-02-12T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/12/octopress-as-a-tracer-bullet/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/12/octopress-as-a-tracer-bullet/" type="text/html"/>
     <content type="html">&lt;p&gt;一旦ブログをoctopressで立ち上げたは言いものの、&lt;a href="https://twitter.com/kana1"&gt;@kana&lt;/a&gt;さんより&lt;/p&gt;
 
 &lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;&lt;a href="https://twitter.com/yysaki"&gt;@yysaki&lt;/a&gt; ほしのかずほどありますね! &lt;a href="http://t.co/cnDApQUMHV"&gt;http://t.co/cnDApQUMHV&lt;/a&gt; Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete)…部実装も面白いですね。&lt;/p&gt;&amp;mdash; Kana Natsuno (@kana1) &lt;a href="https://twitter.com/kana1/statuses/432530023648485378"&gt;2014, 2月 9&lt;/a&gt;&lt;/blockquote&gt;
@@ -747,7 +747,7 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
     <title type="html">wordpressからoctopressへの引っ越し</title>
     <published>2014-02-09T00:00:00Z</published>
     <updated>2014-02-09T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/09/octopress-from-wordpress/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/09/octopress-from-wordpress/" type="text/html"/>
     <content type="html">&lt;p&gt;表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。&lt;/p&gt;
 
 &lt;p&gt;レイアウトやコメント欄などの調整は追々やっていきます。&lt;/p&gt;
@@ -766,7 +766,7 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
     <title type="html">ビルドしたpdfをsshfsからSkimで読む</title>
     <published>2013-12-29T00:00:00Z</published>
     <updated>2013-12-29T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2013/12/29/reading-built-pdf-by-skim/"/>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2013/12/29/reading-built-pdf-by-skim/" type="text/html"/>
     <content type="html">&lt;p&gt;この度修論の開発環境を整えたのでブログ記事にしました。&lt;/p&gt;
 
 &lt;h2 id="背景"&gt;背景&lt;/h2&gt;
