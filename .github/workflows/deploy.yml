@@ -14,6 +14,12 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.1
       - uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -28,16 +34,18 @@ jobs:
             ${{ runner.os }}-gems-
       - name: npm install
         run: npm install
+      - name: bower install
+        run: npm run bower
       - name: bundle install
         run: |
           bundle config path vendor/bundle
           bundle install
-      - name: bower install
-        run: npm run bower
       - name: nanoc build
         run: bundle exec nanoc
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: yysaki/yysaki.github.io
+          publish_branch: master
           publish_dir: ./output
