@@ -78,49 +78,40 @@ Vue.jsについては全くの新規です。前知識としてはReactに並ぶ
 <a href="https://github.com/yysaki/mymarkdown/commit/5d89a7c7cea411c76ed6ca960c42f9a780dfc8c3">githubでいうとこの辺です。</a></p>
 
 <p>Firestore ルール:</p>
-<div class="language-txt highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>service cloud.firestore {
+<pre><code class="language-txt">service cloud.firestore {
   match /databases/{database}/documents {
     match /memos/{userId} {
       allow read, write: if request.auth.uid == userId;    
     }
   }
 }
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <p>created:</p>
-<div class="language-javascript highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#06B;font-weight:bold">created</span>: <span style="color:#080;font-weight:bold">function</span>() {
-  <span style="color:#080;font-weight:bold">var</span> self = <span style="color:#950">this</span>;
+<pre><code class="language-javascript">created: function() {
+  var self = this;
   firebase
     .firestore()
-    .collection(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">memos</span><span style="color:#710">'</span></span>)
-    .doc(<span style="color:#950">this</span>.user.uid)
+    .collection('memos')
+    .doc(this.user.uid)
     .get()
-    .then(<span style="color:#080;font-weight:bold">function</span>(doc) {
-      <span style="color:#080;font-weight:bold">if</span> (doc.exists) {
+    .then(function(doc) {
+      if (doc.exists) {
         self.memos = doc.data().val;
       }
     });
 },
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <p>saveMemos:</p>
-<div class="language-javascript highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre><span style="color:#06B;font-weight:bold">saveMemos</span>: <span style="color:#080;font-weight:bold">function</span>() {
+<pre><code class="language-javascript">saveMemos: function() {
   firebase
     .firestore()
-    .collection(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">memos</span><span style="color:#710">'</span></span>)
-    .doc(<span style="color:#950">this</span>.user.uid)
-    .set({<span style="color:#606">val</span>: <span style="color:#950">this</span>.memos});
+    .collection('memos')
+    .doc(this.user.uid)
+    .set({val: this.memos});
 },
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <p>今イチからやるのであれば <a href="https://github.com/nabettu/firestore-manual">Firestore 移行マニュアル</a> が公開してくださっているのでそちらを参考にするとよいと思います。</p>
 
@@ -181,15 +172,15 @@ Vue.jsについては全くの新規です。前知識としてはReactに並ぶ
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
-      <li role="menuitem"><a href="/blog/2020/06/07/terraform-hasura/">Terraform RegistryのModuleを使ってHasuraを立てる</a></li>
+      <li role="menuitem"><a href="/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/">Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった</a></li>
     
-      <li role="menuitem"><a href="/blog/2020/04/29/react-tic-tac-toe/">Reactのチュートリアルで三目並べ</a></li>
+      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
     
-      <li role="menuitem"><a href="/blog/2019/04/14/techbookfest-6/">技術書典6に参加した</a></li>
+      <li role="menuitem"><a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a></li>
+    
+      <li role="menuitem"><a href="/blog/2012/02/13/wordpress-3-3-1-error/">WordPress 3.3.1 自動update時のout　of　memoryエラー</a></li>
     
       <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
-    
-      <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
     
   </ul>
 </div>

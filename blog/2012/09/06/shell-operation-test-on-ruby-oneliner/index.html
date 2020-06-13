@@ -52,11 +52,8 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問1">問1</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -pe '' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -pe '' data
+</code></pre>
 
 <p>-eオプションでスクリプトモード, -pオプションで <code>while gets{/\* code \*/ puts $_}</code> としてコード片を実行する。</p>
 
@@ -64,11 +61,8 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問2">問2</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'puts &quot;#{$F[0]},#{$F[3]}&quot;' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'puts "#{$F[0]},#{$F[3]}"' data
+</code></pre>
 
 <p>-n オプションは-p の <code>puts $_</code> を削ったもの。</p>
 
@@ -78,19 +72,13 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問3">問3</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'puts $_ if $F[0]==&quot;server4&quot;' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'puts $_ if $F[0]=="server4"' data
+</code></pre>
 
 <h3 id="問4">問4</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -ne 'i||=0; i+=1; END{ puts i }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -ne 'i||=0; i+=1; END{ puts i }' data
+</code></pre>
 
 <p>注目は<code>||=</code>演算子とENDキーワードの二つ。</p>
 
@@ -102,11 +90,8 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問5">問5</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'a ||= \[]; a &lt;&lt; $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to\_i &lt;=&gt; y[2].to\_i}.[\](0,5).each{|b| puts &quot;#{b[0]},#{b[1]},#{b[2]},#{b[3]}&quot;} }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'a ||= \[]; a &lt;&lt; $F; END{a.sort{|x, y| x[0]!=y[0] ? x[0] &lt;=&gt; y[0] : x[2].to\_i &lt;=&gt; y[2].to\_i}.[\](0,5).each{|b| puts "#{b[0]},#{b[1]},#{b[2]},#{b[3]}"} }' data
+</code></pre>
 
 <p>sortの判定方法をイテレータ用のブロックで指定する記法はRubyならではでおもしろかったです。</p>
 
@@ -114,45 +99,30 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
 
 <h3 id="問6">問6</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -ne 'a ||= []; a &lt;&lt; $_ unless a.index($_); END{ puts a.size }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -ne 'a ||= []; a &lt;&lt; $_ unless a.index($_); END{ puts a.size }' data
+</code></pre>
 
 <h3 id="問7">問7</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'a ||= []; a &lt;&lt; $F[2] unless a.index($F[2]); END{ puts a.size }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'a ||= []; a &lt;&lt; $F[2] unless a.index($F[2]); END{ puts a.size }' data
+</code></pre>
 
 <h3 id="問8">問8</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'h ||= {}; h.default = 0; h\[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y[1] &lt;=&gt; x[1]}.[\](0); puts &quot;#{a[1]} #{a[0]}&quot; }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'h ||= {}; h.default = 0; h\[$F[3]] += 1; END{ a = h.to_a.sort{|x, y| y[1] &lt;=&gt; x[1]}.[\](0); puts "#{a[1]} #{a[0]}" }' data
+</code></pre>
 
 <p>Hashオブジェクトはdefault属性を設定することで初期値を設定できる。</p>
 
 <h3 id="問9">問9</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'h ||= {}; h.default = 0; h[$F[0].gsub(/server/, &quot;xxx&quot;)] += 1; END{ h.to_a.sort{|x, y| x[0] &lt;=&gt; y[0]}.each{|l, r| puts &quot;#{r} #{l}&quot;} }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'h ||= {}; h.default = 0; h[$F[0].gsub(/server/, "xxx")] += 1; END{ h.to_a.sort{|x, y| x[0] &lt;=&gt; y[0]}.each{|l, r| puts "#{r} #{l}"} }' data
+</code></pre>
 
 <h3 id="問10">問10</h3>
 
-<div class="language-bash highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>ruby -F, -ane 'a ||= []; n = $F[2].to_i; a &lt;&lt; n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }' data
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">ruby -F, -ane 'a ||= []; n = $F[2].to_i; a &lt;&lt; n if (n&gt;=10) &amp;&amp; (not a.index(n)); END{ a.sort!; puts a }' data
+</code></pre>
 
 <p> </p>
 
@@ -183,15 +153,15 @@ Rubyのversionは1.9.3, 入力ファイル名を”data”とします。</p>
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
-      <li role="menuitem"><a href="/blog/2020/06/07/terraform-hasura/">Terraform RegistryのModuleを使ってHasuraを立てる</a></li>
+      <li role="menuitem"><a href="/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/">Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった</a></li>
     
-      <li role="menuitem"><a href="/blog/2020/04/29/react-tic-tac-toe/">Reactのチュートリアルで三目並べ</a></li>
+      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
     
-      <li role="menuitem"><a href="/blog/2019/04/14/techbookfest-6/">技術書典6に参加した</a></li>
+      <li role="menuitem"><a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a></li>
+    
+      <li role="menuitem"><a href="/blog/2012/02/13/wordpress-3-3-1-error/">WordPress 3.3.1 自動update時のout　of　memoryエラー</a></li>
     
       <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
-    
-      <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
     
   </ul>
 </div>

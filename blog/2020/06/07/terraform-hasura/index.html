@@ -93,42 +93,38 @@ Hasuraのサービスを稼働させるためにはHerokuが推奨されてい�
 
 <p>まず, main.tf:</p>
 
-<div class="language-terraform highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>variable &quot;domain&quot; {}
-variable &quot;hasura_admin_secret&quot; {}
-variable &quot;rds_password&quot; {}
-variable &quot;hasura_jwt_secret_key&quot; {}
+<pre><code class="language-terraform">variable "domain" {}
+variable "hasura_admin_secret" {}
+variable "rds_password" {}
+variable "hasura_jwt_secret_key" {}
 
-module &quot;hasura&quot; {
-  source                         = &quot;Rayraegah/hasura/aws&quot;
-  version                        = &quot;3.0.2&quot;
+module "hasura" {
+  source                         = "Rayraegah/hasura/aws"
+  version                        = "3.0.2"
   domain                         = var.domain
-  hasura_version_tag             = &quot;v1.2.1&quot;
+  hasura_version_tag             = "v1.2.1"
   hasura_admin_secret            = var.hasura_admin_secret
   hasura_jwt_secret_key          = var.hasura_jwt_secret_key
-  hasura_jwt_secret_algo         = &quot;RS256&quot;
-  rds_db_name                    = &quot;hasura&quot;
-  rds_instance                   = &quot;db.t3.small&quot;
-  rds_username                   = &quot;hasura&quot;
+  hasura_jwt_secret_algo         = "RS256"
+  rds_db_name                    = "hasura"
+  rds_instance                   = "db.t3.small"
+  rds_username                   = "hasura"
   rds_password                   = var.rds_password
   create_iam_service_linked_role = false
 }
 
-provider &quot;aws&quot; {
-  region = &quot;ap-northeast-1&quot;
+provider "aws" {
+  region = "ap-northeast-1"
 }
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <p>module “hasura”になるべくdefault値を使ったうえで必要な変数定義をしています. 秘密情報にしたかったものはvariableに切り出してtfvarsにて記述することにしました. defaultを上書きした変数は3箇所あります. 1つ目は <code>hasura_version_tag</code> , これは単純に執筆時点の最新版を使いたかったためです. 2つ目は <code>hasura_jwt_secret_algo</code> , こちらにはHS256 または RS256が選べますが, Auth0で使用するのは後者のため設定しました. 最後にcreate_iam_service_linked_role, これはAWSのアカウント上で初めてECSを作成したときに勝手に作られる <a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/using-service-linked-roles.html">service_linked_role</a> の有無についてです. 私の環境では以前にECSクラスターを作ったことがあるためfalseにしましたが, この操作が初めての場合defaultのtrueとしておきましょう.</p>
 
 <p>次に, terraform.tfvars:</p>
 
-<div class="language-txt highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>domain                = &quot;example.com&quot;
-hasura_admin_secret   = &quot;Password&quot;
-rds_password          = &quot;Password&quot;
+<pre><code class="language-txt">domain                = "example.com"
+hasura_admin_secret   = "Password"
+rds_password          = "Password"
 hasura_jwt_secret_key = &lt;&lt;EOF
 -----BEGIN CERTIFICATE-----
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -150,9 +146,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxx
 -----END CERTIFICATE-----
 EOF
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <p>これにはvariableで定義した変数を指定しています. 1つ目の <code>domain</code> にはRoute53で管理しているdomainを指定してください. 続く <code>hasura_admin_secret</code> <code>rds_password</code> には, 前者はHasura管理画面の、 後者はRDSのパスワードになります. 最後の <code>hasura_jwt_secret_key</code> には先のAuth0の設定後に得られる公開鍵情報を入力します. <code>https://&lt;your-auth0-domain&gt;.auth0.com/pem</code> にアクセスすることで取得できます.</p>
 
@@ -203,15 +197,15 @@ Hasuraの管理画面が開くはずです.</p>
   <h1>Recent Posts</h1>
   <ul class="side-nav">
     
-      <li role="menuitem"><a href="/blog/2020/06/07/terraform-hasura/">Terraform RegistryのModuleを使ってHasuraを立てる</a></li>
+      <li role="menuitem"><a href="/blog/2012/07/21/eclipse-and-pleiades-on-mac-os-x/">Mac OS Xにeclipse + pleiadesをインストールする時少し引っ掛かった</a></li>
     
-      <li role="menuitem"><a href="/blog/2020/04/29/react-tic-tac-toe/">Reactのチュートリアルで三目並べ</a></li>
+      <li role="menuitem"><a href="/blog/2013/12/29/reading-built-pdf-by-skim/">ビルドしたpdfをsshfsからSkimで読む</a></li>
     
-      <li role="menuitem"><a href="/blog/2019/04/14/techbookfest-6/">技術書典6に参加した</a></li>
+      <li role="menuitem"><a href="/blog/2013/02/13/cisco-vpn-client-on-mac-os-x/">MacOSX Cisco VPNClient対策</a></li>
+    
+      <li role="menuitem"><a href="/blog/2012/02/13/wordpress-3-3-1-error/">WordPress 3.3.1 自動update時のout　of　memoryエラー</a></li>
     
       <li role="menuitem"><a href="/blog/2019/01/02/happy-new-year/">昨年の振り返りと新年の抱負</a></li>
-    
-      <li role="menuitem"><a href="/blog/2018/09/30/vue-firebase-tutorial/">#Webサービスを作る本 を読んで簡易markdownエディタを作った</a></li>
     
   </ul>
 </div>
