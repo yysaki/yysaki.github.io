@@ -4,5 +4,5 @@ build:
 dev:
 	bundle exec nanoc view -o 0.0.0.0
 
-deploy: build
-	bundle exec nanoc deploy
+new:
+	bundle exec rake new
