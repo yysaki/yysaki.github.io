@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 def post_url(post, has_extension: false)
-  yyyy, mm, dd, *splittedTitle = File.basename(post.identifier.without_ext).split('-')
-  url = format('/blog/%s/%s/%s/%s/', yyyy, mm, dd, splittedTitle.join('-'))
+  yyyy, mm, dd, *splitted_title = File.basename(post.identifier.without_ext).split('-')
+  url = format('/blog/%<year>s/%<month>s/%<day>s/%<title>s/', year: yyyy,
+                                                              month: mm,
+                                                              day: dd,
+                                                              tilte: splitted_title.join('-'))
   has_extension ? url + 'index.html' : url
 end

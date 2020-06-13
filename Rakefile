@@ -6,7 +6,7 @@ desc 'Create post item featured by octopress'
 task :new do
   now = DateTime.now
   title = 'new post'
-  template = <<~EOS
+  template = <<~TEMPLATE
     ---
     layout: post
     title: #{title}
@@ -19,11 +19,11 @@ task :new do
     ---
     
     Hi, I'm a new item!
-  EOS
+  TEMPLATE
 
   cd 'content/posts' do
     filename = "#{Date.today.strftime '%Y-%m-%d'}-#{title.gsub(/ /, '-')}.md"
-    open(filename, 'w') do |file|
+    File.open(filename, 'w') do |file|
       file.write template
     end
     puts "create #{filename}"
