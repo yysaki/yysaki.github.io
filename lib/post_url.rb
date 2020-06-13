@@ -5,6 +5,6 @@ def post_url(post, has_extension: false)
   url = format('/blog/%<year>s/%<month>s/%<day>s/%<title>s/', year: yyyy,
                                                               month: mm,
                                                               day: dd,
-                                                              tilte: splitted_title.join('-'))
+                                                              title: splitted_title.join('-'))
   has_extension ? url + 'index.html' : url
 end
