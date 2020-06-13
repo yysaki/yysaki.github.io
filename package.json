@@ -4,8 +4,7 @@
   "description": "docker pull yysaki/nanoc     docker run -i -t -v ./:/blog -v ~/.gitconfig:/root/.gitconfig -v ~/.ssh/id_rsa:/root/.ssh/id_rsa -p 8080:3000 yysaki/nanoc:latest /bin/bash",
   "scripts": {
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bower": "bower install --allow-root"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,6 @@
   },
   "homepage": "https://github.com/yysaki/blog#readme",
   "dependencies": {
-    "bower": "^1.8.4",
     "css-loader": "^3.5.3",
     "foundation-sites": "^5.5.3",
     "sass": "^1.26.8",

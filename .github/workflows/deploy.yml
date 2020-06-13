@@ -34,8 +34,6 @@ jobs:
             ${{ runner.os }}-gems-
       - name: npm install
         run: npm install
-      - name: bower install
-        run: npm run bower
       - name: bundle install
         run: |
           bundle config path vendor/bundle
