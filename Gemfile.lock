@@ -97,7 +97,7 @@ DEPENDENCIES
   kramdown (~> 1.17.0)
   nanoc (~> 4.11.0)
   rake (~> 12.3)
-  rubocop (~> 0.85)
+  rubocop (~> 0.85.1)
 
 BUNDLED WITH
    2.1.4
