@@ -41,6 +41,8 @@ jobs:
       - name: nanoc build
         run: bundle exec nanoc
       - name: webpack build
+        env:
+          NODE_ENV: production
         run: npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
