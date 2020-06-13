@@ -48,10 +48,6 @@ compile '/atom.*' do
   write ext: 'xml'
 end
 
-passthrough '/CNAME'
-passthrough '/humans.txt'
-passthrough '/robots.txt'
-
 compile '/static/**/*' do
   write item.identifier.to_s.sub(/\A\/static/, '')
 end
