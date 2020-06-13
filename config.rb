@@ -1,27 +1,15 @@
 # Require any additional compass plugins here.
-add_import_path "bower_components/foundation/scss"
 
 # -----------------------------------------------
 # Paths
 # -----------------------------------------------
 
 http_path = "/"
-css_dir = "output/assets"
 images_dir = "content/assets/images"
-javascripts_dir = "content/assets/javascripts"
-sass_dir = "content/assets/stylesheets"
 
 # -----------------------------------------------
 # Output
 # -----------------------------------------------
-
-output_style = :compressed
-preferred_syntax = :scss
-relative_assets = true
-
-sass_options = {
-  :syntax => :scss
-}
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

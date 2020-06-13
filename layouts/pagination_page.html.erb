@@ -1,5 +1,0 @@
-<% target_articles = articles.slice(@item_id*5, 5) %>
-<% target_articles.each do |article| %>
-  <h1><%= article[:title] %></h1>
-  <%= article.compiled_content %>
-<% end %>

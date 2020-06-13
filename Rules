@@ -15,15 +15,6 @@
 
 # http://nanoc.ws/docs/guides/paginating-articles/
 
-preprocess do
-  paginate_articles
-end
-compile '/blog/archive/**/*' do
-  filter :erb
-  layout '/default.*'
-  write item.identifier.without_ext + '/index.html'
-end
-
 compile '/index.*' do
   filter :erb
   layout '/default.*'
