@@ -19,7 +19,7 @@ jobs:
           node-version: 12.16.3
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.1
+          ruby-version: 2.7.2
       - uses: actions/cache@v2
         with:
           path: ~/.npm
