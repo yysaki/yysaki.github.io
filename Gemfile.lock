@@ -20,7 +20,10 @@ GEM
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
     json_schema (0.20.8)
-    kramdown (1.17.0)
+    kramdown (2.3.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     nanoc (4.11.17)
       addressable (~> 2.5)
       colored (~> 1.2)
@@ -94,7 +97,8 @@ PLATFORMS
 DEPENDENCIES
   adsf (~> 1.4)
   builder (~> 3.2)
-  kramdown (~> 1.17.0)
+  kramdown
+  kramdown-parser-gfm
   nanoc (~> 4.11.0)
   rake (~> 12.3)
   rubocop (~> 0.85.1)
