@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>yysaki blog - 『シェル操作課題 』をシェルで解きなおす</title>
+    <title>yysaki blog - blogのリポジトリ運用の変更</title>
     <link rel="alternate" type="application/atom+xml" href="/atom" title="yysaki blog">
     <script src="/main.js" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -42,18 +42,50 @@
     <div class="row">
       <div class="large-8 medium-7 columns">
         <main role="main">
-        <div class="date">2013-04-04</div>
-<h1>『シェル操作課題 』をシェルで解きなおす</h1>
+        <div class="date">2021-02-14</div>
+<h1>blogのリポジトリ運用の変更</h1>
 
-<p>以前解いた<a href="http://yysaki.com/blog/archives/79">『シェル操作課題 』をRubyのワンライナーで解いてみた</a> の問題をunixコマンドのみで解き直した。</p>
+<p>このブログはGithub Pagesでホストしているのだけど、ソースコードをprivateにするため公開用とリポジトリを2つに分けていて、久しぶりに触ると運用方針を思い出すところから始まり認知的負荷がかかる。<br />
+privateにしていたものも隠すような秘匿情報を扱っているわけではないので、公開用リポジトリ側に寄せて1つにまとめてみた。<br />
+GitHub Actionsでのdeployの動作確認を兼ねて記事を投稿しておきます。</p>
 
-<script src="https://gist.github.com/yysaki/5310298.js">{}</script>
+<h2 id="やったこと">やったこと</h2>
+
+<p>以下の2つのリポジトリがあったところを、前者に寄せた:</p>
 
 <ul>
-  <li><code>uniq -c</code>で重複した数をカウント出来る</li>
-  <li><code>sort</code>の<code>-k</code>オプションを同時に指定することで第一指定順、第二指定順でソート出来る</li>
+  <li>公開用リポジトリ: yysaki/yysaki.github.io</li>
+  <li>ソースコード用リポジトリ: yysaki/nanoc-blog(privateリポジトリ)</li>
 </ul>
 
+<p>それぞれmaster branchで運用していたが、ソースコードを前者のmasterに、公開用を <code>gh-pages</code> branchに移動した。<br />
+また、この際 <code>actions-gh-pages</code> の設定をいじる必要があり、以下のように変更した:</p>
+
+<ul>
+  <li>修正前</li>
+</ul>
+
+<pre><code>- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+    external_repository: yysaki/yysaki.github.io
+    publish_branch: master
+    publish_dir: ./output
+</code></pre>
+
+<ul>
+  <li>修正後</li>
+</ul>
+
+<pre><code>- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./output
+</code></pre>
+
+<p>設定が簡素になりいいことだ。</p>
 
 
         </main>

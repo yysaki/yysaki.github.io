@@ -2,13 +2,62 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2019-06-07T03:00:00Z</updated>
+  <updated>2021-02-14T07:51:02Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//" type="text/html"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml" type="application/atom+xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
+  <entry>
+    <id>tag:www.yysaki.com,2021-02-14://blog/2021/02/14/gh-pages-repository/</id>
+    <title type="html">blogのリポジトリ運用の変更</title>
+    <published>2021-02-14T07:51:02Z</published>
+    <updated>2021-02-14T07:51:02Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2021/02/14/gh-pages-repository/" type="text/html"/>
+    <content type="html">&lt;p&gt;このブログはGithub Pagesでホストしているのだけど、ソースコードをprivateにするため公開用とリポジトリを2つに分けていて、久しぶりに触ると運用方針を思い出すところから始まり認知的負荷がかかる。&lt;br /&gt;
+privateにしていたものも隠すような秘匿情報を扱っているわけではないので、公開用リポジトリ側に寄せて1つにまとめてみた。&lt;br /&gt;
+GitHub Actionsでのdeployの動作確認を兼ねて記事を投稿しておきます。&lt;/p&gt;
+
+&lt;h2 id="やったこと"&gt;やったこと&lt;/h2&gt;
+
+&lt;p&gt;以下の2つのリポジトリがあったところを、前者に寄せた:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;公開用リポジトリ: yysaki/yysaki.github.io&lt;/li&gt;
+  &lt;li&gt;ソースコード用リポジトリ: yysaki/nanoc-blog(privateリポジトリ)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;それぞれmaster branchで運用していたが、ソースコードを前者のmasterに、公開用を &lt;code&gt;gh-pages&lt;/code&gt; branchに移動した。&lt;br /&gt;
+また、この際 &lt;code&gt;actions-gh-pages&lt;/code&gt; の設定をいじる必要があり、以下のように変更した:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;修正前&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+    external_repository: yysaki/yysaki.github.io
+    publish_branch: master
+    publish_dir: ./output
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;修正後&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./output
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設定が簡素になりいいことだ。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.yysaki.com,2019-06-07://blog/2020/06/07/terraform-hasura/</id>
     <title type="html">Terraform RegistryのModuleを使ってHasuraを立てる</title>
@@ -737,123 +786,6 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
   &lt;li&gt;&lt;a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/"&gt;OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ - 酒と泪とRubyとRailsと&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://nomnel.net/blog/wordpress-to-octopress/"&gt;WordpressからOctopressに移行する - 飲んだり寝たり&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2013-12-29://blog/2013/12/29/reading-built-pdf-by-skim/</id>
-    <title type="html">ビルドしたpdfをsshfsからSkimで読む</title>
-    <published>2013-12-29T00:00:00Z</published>
-    <updated>2013-12-29T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2013/12/29/reading-built-pdf-by-skim/" type="text/html"/>
-    <content type="html">&lt;p&gt;この度修論の開発環境を整えたのでブログ記事にしました。&lt;/p&gt;
-
-&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-
-&lt;p&gt;研究室マシンでtexを編集しているのですが、作業結果のPDFを手元で快適に確認したいのです。 そこで、開発方針を以下のように整えました。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;研究室マシンでtexの編集、ビルドを行う。&lt;/li&gt;
-  &lt;li&gt;sshfsをマウントすることで研究室マシンにアクセスする。&lt;/li&gt;
-  &lt;li&gt;Skimでsshfs上のpdfを閲覧し、自動更新モードで変更を反映する。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;環境は以下のとおりです。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ローカル: Mac OS X Mavericks、なるべくhomebrewを使う&lt;/li&gt;
-  &lt;li&gt;リモート: Linux、sshで接続&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="osxfuseのインストール"&gt;OSXFUSEのインストール&lt;/h2&gt;
-
-&lt;p&gt;まず下記URLからOSXFUSEをダウンロード、インストールします。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://sourceforge.net/projects/osxfuse/files/?source=navbar"&gt;FUSE for OS X – Browse Files at SourceForge.net&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;先にhomebrewでfuse–4x-kextを試したのですが、正しくsshfsを動作させられなかったのでこちらを採用です。&lt;/p&gt;
-
-&lt;h2 id="sshfsのインストール"&gt;sshfsのインストール&lt;/h2&gt;
-
-&lt;p&gt;以下のコマンドでインストールします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    $ sudo brew link fuse4x
-    $ sudo brew install sshfs
-    $ sudo /bin/cp -rfX /usr/local/Cellar/fuse4x-kext/0.9.2/Library/Extensions/fuse4x.kext /Library/Extensions
-    $ sudo chmod +s /Library/Extensions/fuse4x.kext/Support/load_fuse4x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下のコマンドでマウントします。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    $ mkdir mnt
-    $ sshfs -p 22 [User]@[Host]:[Dir] mnt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;マウントが出来たかどうかはdfで確認出来ます。 またマウントを解除するには以下のコマンドです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    $ unmount mnt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id="skimのインストール"&gt;Skimのインストール&lt;/h2&gt;
-
-&lt;p&gt;以下のURLからダウンロード出来ます。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Skim&lt;/td&gt;
-          &lt;td&gt;Home]&lt;a href="http://skim-app.sourceforge.net"&gt;2&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;自動更新を行うため「環境設定… &amp;gt; 同期する &amp;gt; ファイルの変更をチェック」をちぇっくします。&lt;/p&gt;
-
-&lt;h2 id="その他"&gt;その他&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;バージョン管理はgithubのプライベートリポジトリで行っています。修論目的であれば学生用アカウントを申請することで、無料でMicroプランに加入できました。
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href="https://github.com/edu"&gt;Contact GitHub&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;エディタはvimを使用しています。以下のように.vimrcを設定すれば”&amp;lt;Space&amp;gt;q”でtexのmake出来ます。&lt;/p&gt;
-
-    &lt;pre&gt;&lt;code&gt;NeoBundle 'thinca/vim-quickrun'
-silent! map &amp;lt;Space&amp;gt;q &amp;lt;Plug&amp;gt;(quickrun)
-let g:quickrun_config['tex'] = {"command": "make", "exec" : "%c %o",  "outputter": "error:buffer:quickfix"}
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;学生共用のマシンで作業してるので、負荷を考え自動ビルドはやめときました。自分でmakeコマンドを叩きたくない人はOcamlのOmakeやRubyのGuardを使うと良さげです。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="まとめ"&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;以上で修論の開発環境を整えました。 開発マシンでtexの編集を行い、ビルドするとSkimの自動更新が反応して新しいPDFを表示してくれます。 Vimで&amp;lt;Space&amp;gt;qすることでPDFのレビューまで自動化出来たので概ね満足な結果です. (但しSkimが反映されるまでに10秒程かかります。sshfsの限界…)&lt;/p&gt;
-
-&lt;h2 id="参考記事"&gt;参考記事&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://www.danielandrade.net/2013/10/28/mounting-a-filesystem-via-ssh-on-osx-mavericks/"&gt;Mounting a Filesystem via SSH on OSX Mavericks – DanielAndrade.net&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Macでsshfsを使う&lt;/td&gt;
-          &lt;td&gt;yamaq blog]&lt;a href="http://mount-q.com/yamaqblog/?p=15899"&gt;5&lt;/a&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://macwiki.sourceforge.jp/wiki/index.php/Skim"&gt;MacWiki – Skim&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 </content>
   </entry>
