@@ -1,9 +1,11 @@
 ---
 title: Home
 ---
-<% articles.each do |article| %>
-  <p>
-    <div class="date"><%= published_at(article).to_s %></div>
-    <h3><a href="<%= post_url(article) %>"><%= article[:title] %></a></h3>
-  </p>
-<% end %>
+<ol class="articles">
+  <% articles.each do |article| %>
+    <li>
+      <div class="date"><%= published_at(article).to_s %></div>
+      <a href="<%= post_url(article) %>"><%= article[:title] %></a>
+    </li>
+  <% end %>
+</ol>

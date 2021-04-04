@@ -31,6 +31,38 @@ body
   padding:0;
 }
 
+h1 {
+  font-size: 2rem;
+  margin: .5rem auto 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 4rem auto 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin: 2rem auto 0;
+}
+
+p {
+  margin-top: 1rem;
+}
+
+.articles {
+  list-style-type: none;
+  padding-left: 0;
+
+  li a {
+    font-size: 1.5rem;
+  }
+
+  li + li {
+    margin-top: 2rem;
+  }
+}
+
 .CodeRay pre
 {
   background-color: #EEE;
