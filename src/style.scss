@@ -74,14 +74,13 @@ ul.subnav
 {
   display:block;
   float:right;
-  margin-top:68px;
 }
 
 ul.subnav li
 {
   list-style:none;
   display:block;
-  float:left;
+  float: left;
 }
 
 ul.subnav li a
@@ -90,46 +89,6 @@ ul.subnav li a
   color:#FFF;
   font-size:14px;
   padding:4px 15px;
-}
-
-ul.subnav li.with-input
-{
-  margin-left: 15px;
-  background-color: #ebeff6;
-}
-
-ul.subnav li.with-input form input
-{
-  margin-top:0;
-  margin-bottom:0;
-  font-size:.75em;
-  opacity:.75;
-  height:auto;
-  width:175px;
-  box-shadow:none;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  border:none;
-  background:url(/images/search.png) no-repeat left center #ebeff6;
-  padding:8px 0 8px 26px;
-}
-
-ul.subnav li.with-input form input:focus
-{
-  opacity:1;
-  border:none;
-}
-
-ul.subnav li.with-input form
-{
-  padding-left: 5px;
-  margin-bottom:0;
-}
-
-ul.subnav li a.current,ul.subnav li a:hover
-{
-  background:rgba(0,0,0,0.15);
-  color:#FFF;
 }
 
 ul.nav li a:hover,.interior-header p.title-text.white-text a
@@ -237,12 +196,6 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     padding:13px 15px 10px;
   }
   
-  .interior-header .subnav li a.current,.interior-header .subnav li a:hover
-  {
-    color:#FFF;
-    background:rgba(255,255,255,0.15);
-  }
-  
   .interior-header p.title-text
   {
     padding-top:56px;
@@ -303,13 +256,6 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     color:rgba(255,255,255,0.75);
     margin:0 15px;
     padding:4px 0 5px;
-  }
-  
-  ul.subnav li a.current,ul.subnav li a:hover
-  {
-    background:none;
-    border-bottom:2px solid #FFF;
-    color:#FFF;
   }
 }
 
