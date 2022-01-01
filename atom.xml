@@ -2,13 +2,56 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2021-02-14T07:51:02Z</updated>
+  <updated>2022-01-01T08:12:52Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//" type="text/html"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml" type="application/atom+xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
+  <entry>
+    <id>tag:www.yysaki.com,2022-01-01://blog/2022/01/01/played_games_in_2021/</id>
+    <title type="html">2021年にプレイしたゲーム</title>
+    <published>2022-01-01T08:12:52Z</published>
+    <updated>2022-01-01T08:12:52Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2022/01/01/played_games_in_2021/" type="text/html"/>
+    <content type="html">&lt;p&gt;喪中のため新年の挨拶はできませんが、今年もよろしくおねがいします。&lt;br /&gt;
+2021年の進捗としては虚無で、主にゲームばかりしておりました。&lt;br /&gt;
+生存報告代わりに今年遊んだゲームをリストアップします。&lt;/p&gt;
+
+&lt;h2 id="リスト"&gt;リスト&lt;/h2&gt;
+
+&lt;p&gt;今年プレイしたゲームの中でよかったリストを触った順に並べます:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bloodborne(by PS4)&lt;/li&gt;
+  &lt;li&gt;DARK SOULS III(by PS4)&lt;/li&gt;
+  &lt;li&gt;進め！キノピオ隊長(by Switch)&lt;/li&gt;
+  &lt;li&gt;Papers, Please(Steam)&lt;/li&gt;
+  &lt;li&gt;スーパーマリオ オデッセイ(by Switch)&lt;/li&gt;
+  &lt;li&gt;モンスターハンターライズ(by Switch)&lt;/li&gt;
+  &lt;li&gt;デモンズソウル(by PS5)&lt;/li&gt;
+  &lt;li&gt;Oxygen Not Included(by PC)&lt;/li&gt;
+  &lt;li&gt;メトロイドドレッド(by Switch)&lt;/li&gt;
+  &lt;li&gt;月姫(by PS5)&lt;/li&gt;
+  &lt;li&gt;ダンジョンエンカウンターズ(by PS5)&lt;/li&gt;
+  &lt;li&gt;Darkest Dungeon(by PS5)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5月頃にPS5を入手してPS4をメルカリに放流してからは、Switch独占タイトルやSteam限定を除いてPS4/PS5版を選んだうえでPS5でプレイする傾向にありました。&lt;br /&gt;
+大体トロコンするか区切りのいいところまでクリアするまでしているようです。&lt;br /&gt;
+その他、友人に混ぜて頂いた卓でHeart of Crown PC、Among Us、Dominion Onlineをしました。&lt;/p&gt;
+
+&lt;p&gt;リストの中で特によかったものを軽く紹介します。&lt;/p&gt;
+
+&lt;h3 id="dark-souls-iii"&gt;DARK SOULS III&lt;/h3&gt;
+
+&lt;p&gt;近代の3Dアクションゲームをそんなに触ってこなかったので、もともと2020年から2021年にかけてフロム・ソフトウェアのいわゆるソウルシリーズを一通り触ってきました。&lt;br /&gt;
+DARK SOULS IIIではローディングのつなぎ目のない美麗なフィールドマップに散りばめられたショートカットポイントや休憩ポイントが配置されてておもてなしの心が行き届いてるなと思いました。数え切れないくらいゲームオーバー画面を見ましたが、とても快適な体験でした。&lt;/p&gt;
+
+&lt;p&gt;以上です、今年もよろしくおねがいします。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.yysaki.com,2021-02-14://blog/2021/02/14/gh-pages-repository/</id>
     <title type="html">blogのリポジトリ運用の変更</title>
@@ -768,25 +811,6 @@ octopressもとてもいいのですが、新しくカスタマイズする分�
   &lt;li&gt;&lt;a href="http://rubyredbricks.com/blog/2013/09/30/from-octopress-to-nanoc/"&gt;Ruby Red Bricks - From Octopress to nanoc&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="http://n.blueblack.net/articles/2012-05-03_02_nanoc_getting_started/"&gt;nanoc導入メモ 1/5 「Getting Started」編 - ナレッジエース&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2014-02-09://blog/2014/02/09/octopress-from-wordpress/</id>
-    <title type="html">wordpressからoctopressへの引っ越し</title>
-    <published>2014-02-09T00:00:00Z</published>
-    <updated>2014-02-09T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/09/octopress-from-wordpress/" type="text/html"/>
-    <content type="html">&lt;p&gt;表題の通り, 作業の快適さを求めて今回wordpressからoctopressへ引っ越しました。&lt;/p&gt;
-
-&lt;p&gt;レイアウトやコメント欄などの調整は追々やっていきます。&lt;/p&gt;
-
-&lt;p&gt;今回参考にさせて頂いた記事一覧です。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href="http://morizyun.github.io/blog/octopress-gitpage-minimum-install-guide/"&gt;OctopressでGitHub無料ブログ構築。sourceをBitbucket管理。簡単ガイド！ - 酒と泪とRubyとRailsと&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://nomnel.net/blog/wordpress-to-octopress/"&gt;WordpressからOctopressに移行する - 飲んだり寝たり&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
 </content>
   </entry>
 </feed>
