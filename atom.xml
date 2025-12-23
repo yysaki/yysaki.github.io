@@ -2,13 +2,75 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
   <id>http://www.yysaki.com//</id>
   <title>yysaki blog</title>
-  <updated>2022-01-01T08:12:52Z</updated>
+  <updated>2025-12-23T12:30:00Z</updated>
   <link rel="alternate" href="http://www.yysaki.com//" type="text/html"/>
   <link rel="self" href="http://www.yysaki.com//atom.xml" type="application/atom+xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
+  <entry>
+    <id>tag:www.yysaki.com,2025-12-23://blog/2025/12/23/aws-saa-c03/</id>
+    <title type="html">AWS ソリューションアーキテクトアソシエイト(SAA-C03)</title>
+    <published>2025-12-23T12:30:00Z</published>
+    <updated>2025-12-23T12:30:00Z</updated>
+    <link rel="alternate" href="http://www.yysaki.com//blog/2025/12/23/aws-saa-c03/" type="text/html"/>
+    <content type="html">&lt;p&gt;ブログを書くのは数年ぶり。&lt;br /&gt;
+AWS認定資格であるソリューションアーキテクトアソシエイト(SAA-C03) を先日受講し合格となったのでその感想記事となります。&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="ja" dir="ltr"&gt;AWS SAA-C03 に受かりました&lt;br /&gt;年内駆け込みでスコア 774/1000 &lt;a href="https://t.co/nOvVrgLVAw"&gt;pic.twitter.com/nOvVrgLVAw&lt;/a&gt;&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/2002366228099445253?ref_src=twsrc%5Etfw"&gt;December 20, 2025&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;h2 id="経緯"&gt;経緯&lt;/h2&gt;
+
+&lt;p&gt;いま所属している部署ではRuby On Railsを使った保守および開発案件をしています。&lt;br /&gt;
+クラウドにAWSが採用されておりインフラ担当は基本的に他にいますが、隙間に落ちているタスクなどをたまにやらせてもらう機会があります。&lt;br /&gt;
+オンプレの基幹システムのAWS移管作業を行うとき、インフラ担当にAWSリソースを構築してもらいつつ、こちらではAnsibleを書く、などが例です。&lt;/p&gt;
+
+&lt;p&gt;現場経験としてはあるものの、少しかじった程度だったので体系化した知識がほしいと感じることがありました。&lt;br /&gt;
+そこで、友人のすすめもあり、自分の実力を確認するために ソリューションアーキテクトアソシエイト に挑戦することにしました。&lt;br /&gt;
+(書籍代や受講料の補助、いくばくかの報奨金が会社の制度にあります)&lt;/p&gt;
+
+&lt;h2 id="試験対策"&gt;試験対策&lt;/h2&gt;
+
+&lt;p&gt;教材としては、&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;udemy:  &lt;a href="https://www.udemy.com/course/aws-associate/"&gt;【SAA-C03版】これだけでOK！ AWS 認定ソリューションアーキテクト – アソシエイト試験突破講座&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;書籍: &lt;a href="https://www.amazon.co.jp/dp/B0CD7JMN2K"&gt;AWS認定資格試験テキスト　AWS認定ソリューションアーキテクト - アソシエイト　改訂第3版&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;公式のドキュメント、 &lt;a href="https://aws.amazon.com/jp/events/aws-event-resource/archive/"&gt;black beltのスライド&lt;/a&gt;、 &lt;a href="https://docs.aws.amazon.com/ja_jp/wellarchitected/latest/framework/welcome.html"&gt;Well architected frameworkのホワイトペーパー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を利用しました。&lt;br /&gt;
+udemyは動画を見ながら、自前のAWSアカウントを操作してハンズオンを体験しつつ、概要説明のスライドを繰り返し参照しました。&lt;br /&gt;
+書籍は2周ほどしましたが、深堀りはないものの試験範囲が一望しやすかったです。&lt;br /&gt;
+分量や詳細度は 公式 » udemy » 書籍 といった形ですね。&lt;/p&gt;
+
+&lt;p&gt;また、書籍には50問の演習問題が1組、udemyには65問の演習問題が3組用意されており、書籍の演習は1周、udemyの演習はそれぞれ2周しました。&lt;br /&gt;
+問題の難易度はudemyの方が難しくて、また本番の試験問題に近かったのはudemyの方かなと思います。&lt;/p&gt;
+
+&lt;p&gt;資格だけは取ったが実務はわからんみたいな状態になりたくなかったので、時間はそれなりにかけました。&lt;br /&gt;
+今年の9月中旬から勉強を始めたので、約4ヶ月程度ですね。 趣味のゲームからしばらく離れていたのですが、作業集中のお供として &lt;a href="https://store.steampowered.com/app/3548580/Chill_with_You__LoFi_Story/?l=japanese"&gt;Chill with You : Lo-Fi Story&lt;/a&gt; にはお世話になりました。&lt;/p&gt;
+
+&lt;h2 id="試験当日"&gt;試験当日&lt;/h2&gt;
+
+&lt;p&gt;2025/12/20 15時にピアソンVUEのテストセンターで受験しました。&lt;br /&gt;
+試験問題には事前にやった演習問題と類似するものはあれど、全く同じものは出てこなかったです。&lt;br /&gt;
+想定よりも問題が難しくて、手応えとしては正直落ちたかもと思いましたが、720点が合格ラインのところ 774/1000 でした。&lt;br /&gt;
+なんとか一発合格の形で年内に取れて助かりました。&lt;/p&gt;
+
+&lt;h2 id="試験を受けてみて"&gt;試験を受けてみて&lt;/h2&gt;
+
+&lt;p&gt;試験対策をすることで、強制的に体系的な知識が得られて引き出しが増えたような気がしています。&lt;br /&gt;
+また、udemyにて実際にコンソールを触るハンズオンが多く、コンソールを触る苦手意識が減りました。&lt;br /&gt;
+問題を通じてAWSが想定しているベストプラクティスの構成のケーススタディを学べたのかなと思います。&lt;br /&gt;
+一方、興味範囲だったECS/EKSについては触り程度の知識しか得られなかったので、それはまた別の形で得る必要がありそうです。&lt;br /&gt;
+しばらく座学になっていたので、次は後続の資格を選んでいくよりもひとまずは手を動かして学習したものを試していきたい気持ちです。&lt;br /&gt;
+SAAの更新時期に上位のSAPを受けてみる、くらいがちょうどいいかもなとも思っています。&lt;/p&gt;
+
+&lt;p&gt;以上です。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:www.yysaki.com,2022-01-01://blog/2022/01/01/played_games_in_2021/</id>
     <title type="html">2021年にプレイしたゲーム</title>
@@ -737,80 +799,6 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
 &lt;p&gt;他にもVim界のレジェンドであるmattn_jpさん、k_takataさん、kaoriyaさんらのVim鼎談など、聞いててためになる情報密度の高い発表が盛りだくさんでした。&lt;/p&gt;
 
 &lt;p&gt;まだまだ消化不良なので、今日はのんびりVimConfの余韻に浸かっていようと思います。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:www.yysaki.com,2014-02-12://blog/2014/02/12/octopress-as-a-tracer-bullet/</id>
-    <title type="html">octopress as a tracer bullet</title>
-    <published>2014-02-12T00:00:00Z</published>
-    <updated>2014-02-12T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2014/02/12/octopress-as-a-tracer-bullet/" type="text/html"/>
-    <content type="html">&lt;p&gt;一旦ブログをoctopressで立ち上げたは言いものの、&lt;a href="https://twitter.com/kana1"&gt;@kana&lt;/a&gt;さんより&lt;/p&gt;
-
-&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;&lt;a href="https://twitter.com/yysaki"&gt;@yysaki&lt;/a&gt; ほしのかずほどありますね! &lt;a href="http://t.co/cnDApQUMHV"&gt;http://t.co/cnDApQUMHV&lt;/a&gt; Ruby製だとnanocがコンパクトにまとまってて冀(neocomplcache_start_auto_complete)…部実装も面白いですね。&lt;/p&gt;&amp;mdash; Kana Natsuno (@kana1) &lt;a href="https://twitter.com/kana1/statuses/432530023648485378"&gt;2014, 2月 9&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-
-&lt;p&gt;とコメントを頂戴したので、色々とRuby製の静的サイトジェネレータについて調べました。&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h2 id="ツール選び"&gt;ツール選び&lt;/h2&gt;
-&lt;p&gt;自分のブログ作成における価値観は、以下のようになります。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;静的サイトジェネレータでGithub Pagesに運用の楽なブログを作る&lt;/li&gt;
-  &lt;li&gt;Markdownで記事を書きたい&lt;/li&gt;
-  &lt;li&gt;サクサクカスタマイズ出来てそれなりの見栄えなブログを作りたい
-    &lt;ul&gt;
-      &lt;li&gt;octopressのリキッドレイアウトとかかっこいいよね！&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;手慣れたRuby製ツール&lt;/li&gt;
-  &lt;li&gt;HP作りの勉強を兼ねるので魔術的要素が少なくコンパクトなフレームワークがいい&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;その中、候補としては、&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;nanoc&lt;/li&gt;
-  &lt;li&gt;jekyll(octopress)&lt;/li&gt;
-  &lt;li&gt;middleman&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;あたりに絞られました。&lt;br /&gt;
-静的サイトジェネレータの比較は色々な記事が挙がっているので本記事では取り上げず、参考にしたリンクを下記に示すだけに留めます。&lt;br /&gt;
-この中でnanocがヘルパーメソッドを手作りしたり自分でブログの機能を作成する感が楽しそうです。&lt;br /&gt;
-octopressもとてもいいのですが、新しくカスタマイズする分には型にはまりすぎる印象があります。&lt;br /&gt;
-そのため将来的にはnanocを使ってみたいですね。&lt;/p&gt;
-
-&lt;h2 id="引っ越し"&gt;引っ越し&lt;/h2&gt;
-&lt;p&gt;しかしながらまずは引っ越し元のWordpressを荷下ろしを終わらせたいので、octopressでしばらく運用してみようと思います。&lt;br /&gt;
-自分なりのブログに対する要求分析がしっかりされてないので、どんな機能をnanocで作っていきたいかをoctopressで洗い出すのも重要ですし。&lt;/p&gt;
-
-&lt;p&gt;また、多少ながらカスタマイズとして、ブログコメントサービスのDisqusの導入やはてブボタンの設置など以下のリンクを参考にやってみました。&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://morizyun.github.io/blog/octopress-hatena-disqus-new-tab/"&gt;5分でできる簡単 Octopress セッティング - 酒と泪とRubyとRailsと&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="結論"&gt;結論&lt;/h2&gt;
-&lt;p&gt;曳光弾としてoctopressに引っ越して要件を洗い出しつつ、将来的にはnanocでブログの自作をする方針で行こうと思います。&lt;/p&gt;
-
-&lt;h3 id="参考リンク"&gt;参考リンク&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="http://staticsitegenerators.net/"&gt;Static Site Generators&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[Nanoc以外の静的サイト生成ツールを調べてみた&lt;/td&gt;
-          &lt;td&gt;ひげろぐ](http://higelog.brassworks.jp/?p=2076)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://rubyredbricks.com/blog/2013/09/30/from-octopress-to-nanoc/"&gt;Ruby Red Bricks - From Octopress to nanoc&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://n.blueblack.net/articles/2012-05-03_02_nanoc_getting_started/"&gt;nanoc導入メモ 1/5 「Getting Started」編 - ナレッジエース&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>

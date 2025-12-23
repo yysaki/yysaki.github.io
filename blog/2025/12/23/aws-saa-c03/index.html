@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>yysaki blog - AWS ソリューションアーキテクトアソシエイト(SAA-C03)</title>
+    <link rel="alternate" type="application/atom+xml" href="/atom" title="yysaki blog">
+    <script src="/main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48038483-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-48038483-1');
+    </script>
+  </head>
+  <body>
+    <header class="interior-header green">
+      <div class="row">
+        <div class="medium-12 small-centered centered-text columns">
+          <h1>
+            <a class="centered-text light" href="/">yysaki blog</a>
+          </h1>
+          <nav>
+            <ul class="subnav small-centered">
+              <li><a href="/">Home</a></li>
+              <li><a href="https://cse.google.com/cse?cx=004581985367838202738:guvugwiuerc">Search</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="large-8 medium-7 small-centered columns">
+        <main role="main">
+        <div class="date">2025-12-23</div>
+<h1>AWS ソリューションアーキテクトアソシエイト(SAA-C03)</h1>
+
+<p>ブログを書くのは数年ぶり。<br />
+AWS認定資格であるソリューションアーキテクトアソシエイト(SAA-C03) を先日受講し合格となったのでその感想記事となります。</p>
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">AWS SAA-C03 に受かりました<br />年内駆け込みでスコア 774/1000 <a href="https://t.co/nOvVrgLVAw">pic.twitter.com/nOvVrgLVAw</a></p>&mdash; sasaki (@yysaki) <a href="https://twitter.com/yysaki/status/2002366228099445253?ref_src=twsrc%5Etfw">December 20, 2025</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="経緯">経緯</h2>
+
+<p>いま所属している部署ではRuby On Railsを使った保守および開発案件をしています。<br />
+クラウドにAWSが採用されておりインフラ担当は基本的に他にいますが、隙間に落ちているタスクなどをたまにやらせてもらう機会があります。<br />
+オンプレの基幹システムのAWS移管作業を行うとき、インフラ担当にAWSリソースを構築してもらいつつ、こちらではAnsibleを書く、などが例です。</p>
+
+<p>現場経験としてはあるものの、少しかじった程度だったので体系化した知識がほしいと感じることがありました。<br />
+そこで、友人のすすめもあり、自分の実力を確認するために ソリューションアーキテクトアソシエイト に挑戦することにしました。<br />
+(書籍代や受講料の補助、いくばくかの報奨金が会社の制度にあります)</p>
+
+<h2 id="試験対策">試験対策</h2>
+
+<p>教材としては、</p>
+
+<ul>
+  <li>udemy:  <a href="https://www.udemy.com/course/aws-associate/">【SAA-C03版】これだけでOK！ AWS 認定ソリューションアーキテクト – アソシエイト試験突破講座</a></li>
+  <li>書籍: <a href="https://www.amazon.co.jp/dp/B0CD7JMN2K">AWS認定資格試験テキスト　AWS認定ソリューションアーキテクト - アソシエイト　改訂第3版</a></li>
+  <li>公式のドキュメント、 <a href="https://aws.amazon.com/jp/events/aws-event-resource/archive/">black beltのスライド</a>、 <a href="https://docs.aws.amazon.com/ja_jp/wellarchitected/latest/framework/welcome.html">Well architected frameworkのホワイトペーパー</a></li>
+</ul>
+
+<p>を利用しました。<br />
+udemyは動画を見ながら、自前のAWSアカウントを操作してハンズオンを体験しつつ、概要説明のスライドを繰り返し参照しました。<br />
+書籍は2周ほどしましたが、深堀りはないものの試験範囲が一望しやすかったです。<br />
+分量や詳細度は 公式 » udemy » 書籍 といった形ですね。</p>
+
+<p>また、書籍には50問の演習問題が1組、udemyには65問の演習問題が3組用意されており、書籍の演習は1周、udemyの演習はそれぞれ2周しました。<br />
+問題の難易度はudemyの方が難しくて、また本番の試験問題に近かったのはudemyの方かなと思います。</p>
+
+<p>資格だけは取ったが実務はわからんみたいな状態になりたくなかったので、時間はそれなりにかけました。<br />
+今年の9月中旬から勉強を始めたので、約4ヶ月程度ですね。 趣味のゲームからしばらく離れていたのですが、作業集中のお供として <a href="https://store.steampowered.com/app/3548580/Chill_with_You__LoFi_Story/?l=japanese">Chill with You : Lo-Fi Story</a> にはお世話になりました。</p>
+
+<h2 id="試験当日">試験当日</h2>
+
+<p>2025/12/20 15時にピアソンVUEのテストセンターで受験しました。<br />
+試験問題には事前にやった演習問題と類似するものはあれど、全く同じものは出てこなかったです。<br />
+想定よりも問題が難しくて、手応えとしては正直落ちたかもと思いましたが、720点が合格ラインのところ 774/1000 でした。<br />
+なんとか一発合格の形で年内に取れて助かりました。</p>
+
+<h2 id="試験を受けてみて">試験を受けてみて</h2>
+
+<p>試験対策をすることで、強制的に体系的な知識が得られて引き出しが増えたような気がしています。<br />
+また、udemyにて実際にコンソールを触るハンズオンが多く、コンソールを触る苦手意識が減りました。<br />
+問題を通じてAWSが想定しているベストプラクティスの構成のケーススタディを学べたのかなと思います。<br />
+一方、興味範囲だったECS/EKSについては触り程度の知識しか得られなかったので、それはまた別の形で得る必要がありそうです。<br />
+しばらく座学になっていたので、次は後続の資格を選んでいくよりもひとまずは手を動かして学習したものを試していきたい気持ちです。<br />
+SAAの更新時期に上位のSAPを受けてみる、くらいがちょうどいいかもなとも思っています。</p>
+
+<p>以上です。</p>
+
+
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
