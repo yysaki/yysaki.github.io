@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'nanoc', '~> 4.11.0'
+gem 'nanoc', '~> 4.12.21'
 
 gem 'adsf', '~> 1.4'
 gem 'builder', '~> 3.2'
