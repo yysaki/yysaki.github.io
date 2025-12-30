@@ -3,7 +3,7 @@ GEM
   specs:
     addressable (2.8.8)
       public_suffix (>= 2.0.2, < 8.0)
-    adsf (1.5.2)
+    adsf (1.5.3)
       rack (>= 1.0.0, < 4.0.0)
       rackup (~> 2.1)
     ast (2.4.3)
@@ -120,7 +120,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  adsf (~> 1.4)
+  adsf (~> 1.5)
   builder (~> 3.2)
   kramdown
   kramdown-parser-gfm
