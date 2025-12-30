@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'nanoc', '~> 4.11.0'
 
-gem 'adsf', '~> 1.4'
+gem 'adsf', '~> 1.5'
 gem 'builder', '~> 3.2'
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
