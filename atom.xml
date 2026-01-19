@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com//">
-  <id>http://www.yysaki.com//</id>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="http://www.yysaki.com/">
+  <id>http://www.yysaki.com/</id>
   <title>yysaki blog</title>
   <updated>2025-12-23T12:30:00Z</updated>
-  <link rel="alternate" href="http://www.yysaki.com//" type="text/html"/>
-  <link rel="self" href="http://www.yysaki.com//atom.xml" type="application/atom+xml"/>
+  <link rel="alternate" href="http://www.yysaki.com/" type="text/html"/>
+  <link rel="self" href="http://www.yysaki.com/atom.xml" type="application/atom+xml"/>
   <author>
     <name>yysaki</name>
     <uri>http://www.yysaki.com/</uri>
   </author>
   <entry>
-    <id>tag:www.yysaki.com,2025-12-23://blog/2025/12/23/aws-saa-c03/</id>
+    <id>tag:www.yysaki.com,2025-12-23:/blog/2025/12/23/aws-saa-c03/</id>
     <title type="html">AWS ソリューションアーキテクトアソシエイト(SAA-C03)</title>
     <published>2025-12-23T12:30:00Z</published>
     <updated>2025-12-23T12:30:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2025/12/23/aws-saa-c03/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2025/12/23/aws-saa-c03/" type="text/html"/>
     <content type="html">&lt;p&gt;ブログを書くのは数年ぶり。&lt;br /&gt;
 AWS認定資格であるソリューションアーキテクトアソシエイト(SAA-C03) を先日受講し合格となったのでその感想記事となります。&lt;/p&gt;
 
@@ -72,11 +72,11 @@ SAAの更新時期に上位のSAPを受けてみる、くらいがちょうど�
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2022-01-01://blog/2022/01/01/played_games_in_2021/</id>
+    <id>tag:www.yysaki.com,2022-01-01:/blog/2022/01/01/played_games_in_2021/</id>
     <title type="html">2021年にプレイしたゲーム</title>
     <published>2022-01-01T08:12:52Z</published>
     <updated>2022-01-01T08:12:52Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2022/01/01/played_games_in_2021/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2022/01/01/played_games_in_2021/" type="text/html"/>
     <content type="html">&lt;p&gt;喪中のため新年の挨拶はできませんが、今年もよろしくおねがいします。&lt;br /&gt;
 2021年の進捗としては虚無で、主にゲームばかりしておりました。&lt;br /&gt;
 生存報告代わりに今年遊んだゲームをリストアップします。&lt;/p&gt;
@@ -115,11 +115,11 @@ DARK SOULS IIIではローディングのつなぎ目のない美麗なフィー
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2021-02-14://blog/2021/02/14/gh-pages-repository/</id>
+    <id>tag:www.yysaki.com,2021-02-14:/blog/2021/02/14/gh-pages-repository/</id>
     <title type="html">blogのリポジトリ運用の変更</title>
     <published>2021-02-14T07:51:02Z</published>
     <updated>2021-02-14T07:51:02Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2021/02/14/gh-pages-repository/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2021/02/14/gh-pages-repository/" type="text/html"/>
     <content type="html">&lt;p&gt;このブログはGithub Pagesでホストしているのだけど、ソースコードをprivateにするため公開用とリポジトリを2つに分けていて、久しぶりに触ると運用方針を思い出すところから始まり認知的負荷がかかる。&lt;br /&gt;
 privateにしていたものも隠すような秘匿情報を扱っているわけではないので、公開用リポジトリ側に寄せて1つにまとめてみた。&lt;br /&gt;
 GitHub Actionsでのdeployの動作確認を兼ねて記事を投稿しておきます。&lt;/p&gt;
@@ -164,11 +164,11 @@ GitHub Actionsでのdeployの動作確認を兼ねて記事を投稿しておき
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2019-06-07://blog/2020/06/07/terraform-hasura/</id>
+    <id>tag:www.yysaki.com,2019-06-07:/blog/2020/06/07/terraform-hasura/</id>
     <title type="html">Terraform RegistryのModuleを使ってHasuraを立てる</title>
     <published>2019-06-07T03:00:00Z</published>
     <updated>2019-06-07T03:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2020/06/07/terraform-hasura/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2020/06/07/terraform-hasura/" type="text/html"/>
     <content type="html">&lt;p&gt;Terraformの素振りのため、公開されているModuleを使ってAWS ECSクラスター上にHasuraを立ててみました.&lt;br /&gt;
 Auth0での認証認可まで疎通確認できたので手順を共有します.&lt;/p&gt;
 
@@ -303,11 +303,11 @@ Hasuraの管理画面が開くはずです.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2019-04-14://blog/2019/04/14/techbookfest-6/</id>
+    <id>tag:www.yysaki.com,2019-04-14:/blog/2019/04/14/techbookfest-6/</id>
     <title type="html">技術書典6に参加した</title>
     <published>2019-04-14T14:00:00Z</published>
     <updated>2019-04-14T14:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2019/04/14/techbookfest-6/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2019/04/14/techbookfest-6/" type="text/html"/>
     <content type="html">&lt;p&gt;本日行われた &lt;a href="https://techbookfest.org/event/tbf06"&gt;技術書典6&lt;/a&gt; に行ってきました。&lt;br /&gt;
 初めての会場参加です。&lt;/p&gt;
 
@@ -422,11 +422,11 @@ Hasuraの管理画面が開くはずです.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2019-04-14://blog/2020/04/29/react-tic-tac-toe/</id>
+    <id>tag:www.yysaki.com,2019-04-14:/blog/2020/04/29/react-tic-tac-toe/</id>
     <title type="html">Reactのチュートリアルで三目並べ</title>
     <published>2019-04-14T14:00:00Z</published>
     <updated>2019-04-14T14:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2020/04/29/react-tic-tac-toe/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2020/04/29/react-tic-tac-toe/" type="text/html"/>
     <content type="html">&lt;p&gt;Reactのチュートリアルにある、三目並べを書いて動かしてみました.&lt;br /&gt;
 しばらくこっちのブログを書いていなかったので、準備運動てきにブログを更新します.&lt;/p&gt;
 
@@ -457,11 +457,11 @@ codepenに途中から移行しました.&lt;br /&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2019-01-02://blog/2019/01/02/happy-new-year/</id>
+    <id>tag:www.yysaki.com,2019-01-02:/blog/2019/01/02/happy-new-year/</id>
     <title type="html">昨年の振り返りと新年の抱負</title>
     <published>2019-01-02T00:00:00Z</published>
     <updated>2019-01-02T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2019/01/02/happy-new-year/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2019/01/02/happy-new-year/" type="text/html"/>
     <content type="html">&lt;p&gt;明けましておめでとうございます。&lt;br /&gt;
 早いもので2018年があっという間に一年が過ぎていきました。&lt;br /&gt;
 せっかくの節目の時ですので、備忘のために昨年の振り返りと新年の抱負を書いていきたいと思います。&lt;/p&gt;
@@ -577,11 +577,11 @@ golangやPHPのLarabelなど選択肢はいくつもありますが、人生初�
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2018-09-30://blog/2018/09/30/vue-firebase-tutorial/</id>
+    <id>tag:www.yysaki.com,2018-09-30:/blog/2018/09/30/vue-firebase-tutorial/</id>
     <title type="html">#Webサービスを作る本 を読んで簡易markdownエディタを作った</title>
     <published>2018-09-30T00:00:00Z</published>
     <updated>2018-09-30T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2018/09/30/vue-firebase-tutorial/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2018/09/30/vue-firebase-tutorial/" type="text/html"/>
     <content type="html">&lt;p&gt;&lt;a href="https://twitter.com/nabettu"&gt;@nabetu&lt;/a&gt; さんの執筆した &lt;a href="http://www.amazon.co.jp/exec/obidos/ASIN/4844398350/tatsuakiw-22/"&gt;Vue.jsとFirebaseで作るミニWebサービス (技術書典シリーズ(NextPublishing))&lt;/a&gt; の手順を写経してFirebase上で動く簡単なmarkdownディターのアプリを作成しました。 &lt;a href="https://mymarkdown-e7d15.firebaseapp.com/"&gt;こちらのURL&lt;/a&gt; で実際に稼働中です。&lt;/p&gt;
 
 &lt;blockquote class="twitter-tweet"&gt;&lt;p lang="ja" dir="ltr"&gt;&lt;a href="https://twitter.com/hashtag/Web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E3%82%8B%E6%9C%AC?src=hash&amp;amp;ref_src=twsrc%5Etfw"&gt;#Webサービスを作る本&lt;/a&gt; 1周目終了。&lt;br /&gt;UIの手入れすっ飛ばしたので週末vuetifyで遊んで設定してから強くてニューゲーム行きます。&lt;br /&gt;DBは本書使用のRealtime DatabaseでなくCloud Firestoreを採用したので、設定の違いなどをブログ記事に起こすかも。&lt;a href="https://t.co/l903YvwWbL"&gt;https://t.co/l903YvwWbL&lt;/a&gt;&lt;/p&gt;&amp;mdash; sasaki (@yysaki) &lt;a href="https://twitter.com/yysaki/status/1034464372041515008?ref_src=twsrc%5Etfw"&gt;August 28, 2018&lt;/a&gt;&lt;/blockquote&gt;
@@ -691,11 +691,11 @@ Vue.jsについては全くの新規です。前知識としてはReactに並ぶ
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2018-08-12://blog/2018/08/12/blog-renewal/</id>
+    <id>tag:www.yysaki.com,2018-08-12:/blog/2018/08/12/blog-renewal/</id>
     <title type="html">ブログのHTTPS化および開発環境整備</title>
     <published>2018-08-12T00:00:00Z</published>
     <updated>2018-08-12T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2018/08/12/blog-renewal/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2018/08/12/blog-renewal/" type="text/html"/>
     <content type="html">&lt;p&gt;最近 &lt;a href="https://speakerdeck.com/rhysd/cao-wosheng-yasuji-shu-number-mydev"&gt;草を生やす技術 #mydev // Speaker Deck&lt;/a&gt; のスライドを読み直して, このブログや昔作った小さなwebアプリの整備をしてgithubの草を生やしております.&lt;br /&gt;
 最近の進捗はプライベートリポジトリを含むとこんな感じ, 欠ける日もありますが2週間以上は続いてます.&lt;/p&gt;
 
@@ -753,11 +753,11 @@ HTTPS対応予定もなさそうなのでブログから取り外しまして, �
 </content>
   </entry>
   <entry>
-    <id>tag:www.yysaki.com,2017-11-05://blog/2017/11/05/vimconf2017/</id>
+    <id>tag:www.yysaki.com,2017-11-05:/blog/2017/11/05/vimconf2017/</id>
     <title type="html">#VimConf2017 に参加した話</title>
     <published>2017-11-05T00:00:00Z</published>
     <updated>2017-11-05T00:00:00Z</updated>
-    <link rel="alternate" href="http://www.yysaki.com//blog/2017/11/05/vimconf2017/" type="text/html"/>
+    <link rel="alternate" href="http://www.yysaki.com/blog/2017/11/05/vimconf2017/" type="text/html"/>
     <content type="html">&lt;p&gt;昨日 &lt;a href="http://vimconf.vim-jp.org/2017/"&gt;VimConf2017&lt;/a&gt; に参加してきました。&lt;br /&gt;
 ブログを書くのはしばらくぶりですが、ブログ記事を書くまでがVimConfということなので書きます。&lt;/p&gt;
 
