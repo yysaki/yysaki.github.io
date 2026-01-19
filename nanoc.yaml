@@ -88,7 +88,7 @@ checks:
     exclude: []
 
 # Configuration for #atom_feed
-base_url: http://www.yysaki.com/
+base_url: http://www.yysaki.com
 title: yysaki blog
 author_name: yysaki
 author_uri: http://www.yysaki.com/
