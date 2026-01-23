@@ -7,3 +7,4 @@ output/
 tmp/
 vendor/bundler/
 crash.log
+.claude/

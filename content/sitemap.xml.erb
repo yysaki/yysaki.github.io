@@ -1,1 +1,9 @@
-<%= xml_sitemap(items: @items.select { |item| item.path&.end_with?('.html', '/') }) %>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<% @items.select { |item| item.path&.end_with?('.html', '/') }.each do |item| %>
+  <url>
+    <loc><%= @config[:base_url] %><%= item.path %></loc>
+    <lastmod><%= (item[:date] || item[:created_at] || item[:mtime])&.strftime('%Y-%m-%d') %></lastmod>
+  </url>
+<% end %>
+</urlset>
