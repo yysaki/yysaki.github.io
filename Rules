@@ -40,6 +40,11 @@ compile '/atom.*' do
   write ext: 'xml'
 end
 
+compile '/sitemap.*' do
+  filter :erb
+  write ext: 'xml'
+end
+
 compile '/static/**/*' do
   write item.identifier.to_s.sub(%r{\A/static}, '')
 end
