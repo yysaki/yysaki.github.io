@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-このファイルは、Claude Code (claude.ai/code) がこのリポジトリで作業する際のガイダンスを提供します。
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## 言語設定
 
@@ -91,9 +91,7 @@ bundle exec rake new
 GitHub Actionsワークフロー (.github/workflows/deploy.yml) が `main` へのpush時に実行されます:
 1. Ruby 2.7.2とNode 24.11.0をインストール
 2. フルビルド（nanoc + webpack）を実行
-3. `output/` ディレクトリを `master` ブランチ（GitHub Pages）にデプロイ
-
-注意: このリポジトリは開発に `main` を、公開サイトに `master` を使用しています。
+3. `output/` ディレクトリを `gh-pages` ブランチ（GitHub Pages）にデプロイ
 
 ## 設定
 
