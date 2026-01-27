@@ -10,3 +10,4 @@ gem 'kramdown'
 gem 'kramdown-parser-gfm'
 gem 'rake', '~> 13.3'
 gem 'rubocop', '~> 1.84.0', require: 'false'
+gem 'rubocop-rake', require: false

@@ -106,6 +106,9 @@ GEM
     rubocop-ast (1.49.0)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
+    rubocop-rake (0.7.1)
+      lint_roller (~> 1.1)
+      rubocop (>= 1.72.1)
     ruby-progressbar (1.13.0)
     set (1.0.4)
     slow_enumerator_tools (1.1.0)
@@ -134,6 +137,7 @@ DEPENDENCIES
   nanoc (~> 4.12.21)
   rake (~> 13.3)
   rubocop (~> 1.84.0)
+  rubocop-rake
 
 BUNDLED WITH
    2.1.4
