@@ -18,7 +18,7 @@
   "homepage": "https://github.com/yysaki/blog#readme",
   "dependencies": {
     "css-loader": "^7.1.2",
-    "foundation-sites": "^5.5.3",
+    "foundation-sites": "^6.9.0",
     "jquery": "^4.0.0",
     "sass": "^1.97.3",
     "sass-loader": "^16.0.6",

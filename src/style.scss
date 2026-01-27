@@ -1,6 +1,15 @@
 @import "settings";
 @import "~foundation-sites/scss/foundation";
 
+// Include required Foundation components
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+@include foundation-flex-classes;
+
 *,:before,:after
 {
   -moz-box-sizing:border-box;
@@ -136,7 +145,7 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     height:auto;
     margin-bottom:30px;
   }
-  
+
   .interior-header h1
   {
     line-height:1;
@@ -148,7 +157,7 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     -ms-transition:all .3s ease;
     margin:30px 0;
   }
-  
+
   .interior-header ul.title-area li.name h1
   {
     display:inline-block;
@@ -156,7 +165,7 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     margin-left:-10px;
     padding:0;
   }
-  
+
   .interior-header ul.title-area li.name h1 a
   {
     opacity:1;
@@ -167,13 +176,13 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     text-rendering:auto;
     padding:0;
   }
-  
+
   .interior-header ul.title-area li.name a
   {
     display:inline-block;
     padding:10px;
   }
-  
+
   .interior-header ul.title-area li.name a img
   {
     vertical-align:initial!important;
@@ -186,7 +195,7 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
   {
     margin-bottom:4em;
   }
-  
+
   .interior-header h1
   {
     font-size:5em;
@@ -198,12 +207,12 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     -o-transition:all .3s ease;
     -ms-transition:all .3s ease;
   }
-  
+
   .interior-header h1 a
   {
     display:inline!important;
   }
-  
+
   .interior-header .subnav
   {
     float:none;
@@ -211,13 +220,13 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     text-align:center;
     margin-bottom:0;
   }
-  
+
   .interior-header .subnav li
   {
     float:none;
     display:inline-block;
   }
-  
+
   .interior-header .subnav li a
   {
     letter-spacing:1px;
@@ -229,12 +238,12 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     display:block;
     padding:13px 15px 10px;
   }
-  
+
   .interior-header p.title-text
   {
     padding-top:56px;
   }
-  
+
   .interior-header .subnav form,.interior-header .subnav form input
   {
     margin-bottom:0;
@@ -247,7 +256,7 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     height:auto;
     margin-bottom:4em;
   }
-  
+
   .interior-header h1
   {
     font-size:3.5em;
@@ -258,12 +267,12 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
   }
 }
 
-@media only screen and (min-width: lower-bound40063em,64em) {
+@media only screen and (min-width: 1024px) {
   .interior-header p.title-text
   {
     padding-top:56px;
   }
-  
+
   .interior-header.smaller p.title-text
   {
     padding-top:18px;
@@ -278,13 +287,13 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     margin-top:-9px;
     margin-bottom:0;
   }
-  
+
   ul.subnav li
   {
     float:none;
     display:inline-block;
   }
-  
+
   ul.subnav li a
   {
     color:rgba(255,255,255,0.75);
@@ -292,41 +301,3 @@ ul.nav li a:hover,.interior-header p.title-text.white-text a
     padding:4px 0 5px;
   }
 }
-
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
