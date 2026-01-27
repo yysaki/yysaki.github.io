@@ -6,5 +6,5 @@ def post_url(post, has_extension: false)
                                                               month: mm,
                                                               day: dd,
                                                               title: splitted_title.join('-'))
-  has_extension ? url + 'index.html' : url
+  has_extension ? "#{url}index.html" : url
 end

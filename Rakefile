@@ -17,15 +17,13 @@ task :new do
     categories:
       - blog
     ---
-    
+
     Hi, I'm a new item!
   TEMPLATE
 
   cd 'content/posts' do
     filename = "#{Date.today.strftime '%Y-%m-%d'}-#{title.gsub(/ /, '-')}.md"
-    File.open(filename, 'w') do |file|
-      file.write template
-    end
+    File.write(filename, template)
     puts "create #{filename}"
   end
 end

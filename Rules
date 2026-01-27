@@ -19,13 +19,13 @@
 compile '/index.*' do
   filter :erb
   layout '/default.*'
-  write item.identifier.without_exts + '.html'
+  write "#{item.identifier.without_exts}.html"
 end
 
 compile '/index.*', rep: :blog_root do
   filter :erb
   layout '/default.*'
-  write '/blog' + item.identifier.without_exts + '.html'
+  write "/blog#{item.identifier.without_exts}.html"
 end
 
 compile '/posts/**/*' do
