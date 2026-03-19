@@ -22,7 +22,7 @@ GEM
       concurrent-ruby (~> 1.1)
       sorted_set (~> 1.0)
     io-console (0.8.2)
-    json (2.18.1)
+    json (2.19.2)
     json-schema (5.2.2)
       addressable (~> 2.8)
       bigdecimal (~> 3.1)
