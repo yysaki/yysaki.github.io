@@ -8,6 +8,6 @@ gem 'adsf', '~> 1.5'
 gem 'builder', '~> 3.2'
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
-gem 'rake', '~> 13.3'
+gem 'rake', '~> 13.4'
 gem 'rubocop', '~> 1.86.1', require: 'false'
 gem 'rubocop-rake', require: false
