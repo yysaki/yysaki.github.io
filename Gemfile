@@ -9,5 +9,5 @@ gem 'builder', '~> 3.2'
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
 gem 'rake', '~> 13.4'
-gem 'rubocop', '~> 1.87.0', require: 'false'
+gem 'rubocop', '~> 1.88.0', require: 'false'
 gem 'rubocop-rake', require: false
